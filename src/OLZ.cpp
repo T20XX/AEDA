@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : OLZ.cpp
 // Author      : Grupo C
-// Version     :
+// Version     : isto é um teste
 // Copyright   : 
 // Description : Hello World in C++, Ansi-style
 //============================================================================
