@@ -31,10 +31,14 @@ Localizacao::~Localizacao() {
 
 }
 
-/*Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
-	// TODO Auto-generated constructor stub
+//Utilizador
 
-}*/
+Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
+	this->email = email;
+	this->nome = nome;
+	this->telemovel = telemovel;
+	this->localizacao = localizacao;
+}
 
 string Utilizador::getEmail() const{
 	return email;
