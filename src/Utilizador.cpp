@@ -15,15 +15,15 @@ Localizacao::Localizacao(string freguesia, string concelho, string distrito) {
 
 }
 
-string Localizacao::getFreguesia(){
+string Localizacao::getFreguesia() const{
 	return freguesia;
 }
 
-string Localizacao::getConcelho(){
+string Localizacao::getConcelho() const{
 	return concelho;
 }
 
-string Localizacao::getDistrito(){
+string Localizacao::getDistrito() const{
 	return distrito;
 }
 
@@ -36,15 +36,15 @@ Localizacao::~Localizacao() {
 
 }*/
 
-string Utilizador::getEmail(){
+string Utilizador::getEmail() const{
 	return email;
 }
 
-string Utilizador::getNome(){
+string Utilizador::getNome() const{
 	return nome;
 }
 
-int Utilizador::getTelemovel(){
+int Utilizador::getTelemovel() const{
 	return telemovel;
 }
 

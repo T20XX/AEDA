@@ -20,9 +20,9 @@ class Localizacao {
 	string freguesia, concelho, distrito;
 public:
 	Localizacao(string freguesia, string concelho, string distrito);
-	string getFreguesia();
-	string getConcelho();
-	string getDistrito();
+	string getFreguesia() const;
+	string getConcelho() const;
+	string getDistrito() const;
 	virtual ~Localizacao();
 };
 
@@ -33,9 +33,9 @@ class Utilizador {
 	vector<Anuncio *> anuncios;
 public:
 	Utilizador(string email, string nome, int telemovel,Localizacao localizacao);
-	string getEmail();
-	string getNome();
-	int getTelemovel();
+	string getEmail() const;
+	string getNome() const;
+	int getTelemovel() const;
 	virtual ~Utilizador();
 };
 
