@@ -6,10 +6,25 @@
  */
 
 #include "Utilizador.h"
+#include <string>
+#include <vector>
+#include <iostream>
 
 
 Localizacao::Localizacao(string freguesia, string concelho, string distrito) {
 
+}
+
+string Localizacao::getFreguesia(){
+	return freguesia;
+}
+
+string Localizacao::getConcelho(){
+	return concelho;
+}
+
+string Localizacao::getDistrito(){
+	return distrito;
 }
 
 Localizacao::~Localizacao() {
@@ -20,6 +35,18 @@ Localizacao::~Localizacao() {
 	// TODO Auto-generated constructor stub
 
 }*/
+
+string Utilizador::getEmail(){
+	return email;
+}
+
+string Utilizador::getNome(){
+	return nome;
+}
+
+int Utilizador::getTelemovel(){
+	return telemovel;
+}
 
 Utilizador::~Utilizador() {
 	// TODO Auto-generated destructor stub
