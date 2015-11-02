@@ -30,7 +30,7 @@ Anuncio::~Anuncio() {
 
 //AnuncioVenda
 
-AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, string estado, int preco, bool negociavel, bool mostraNome, bool mostraTelemovel, bool mostraEmail) :
+AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel) :
 		Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
 	this->preco = preco;
 	this->negociavel = negociavel;
@@ -48,7 +48,7 @@ void AnuncioVenda::verAnuncio() const {
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, string ref, bool mostraNome, bool mostraTelemovel, bool mostraEmail) :
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref) :
 		Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
 	this->ref=ref;
 }

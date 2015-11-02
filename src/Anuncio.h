@@ -33,14 +33,14 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 private:
-	AnuncioVenda(int data, string titulo, string categoria, string descricao, string estado, int preco, bool negociavel, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
+	AnuncioVenda(int data, string titulo, string categoria, string descricao,bool mostraNome, bool mostraTelemovel, bool mostraEmail,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
 };
 
 class AnuncioCompra: public Anuncio {
 	string ref;
 private:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao, string ref,  bool mostraNome, bool mostraTelemovel, bool mostraEmail,);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref);
 	void verAnuncio() const;
 };
 
