@@ -20,7 +20,7 @@ class olz {
 	vector<Anuncio *> anuncios;
 public:
 	olz();
-	tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
+	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	virtual ~olz();
 };
 
