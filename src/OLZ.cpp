@@ -1,7 +1,18 @@
-#include <iostream>
-using namespace std;
+/*
+ * olz.cpp
+ *
+ *  Created on: 02/11/2015
+ *      Author: Jorge
+ */
 
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	return 0;
+#include "olz.h"
+
+olz::olz() {
+	// TODO Auto-generated constructor stub
+
 }
+
+olz::~olz() {
+	// TODO Auto-generated destructor stub
+}
+
