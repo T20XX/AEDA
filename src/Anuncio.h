@@ -24,6 +24,7 @@ class Anuncio {
 public:
 	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
 	virtual ~Anuncio();
+	virtual void verAnuncio() const = 0;
 };
 
 
@@ -32,13 +33,15 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 private:
-	AnuncioVenda(int data, string titulo, string categoria, string descricao,  bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel);
+	AnuncioVenda(int data, string titulo, string categoria, string descricao, string estado, int preco, bool negociavel, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
+	void verAnuncio() const;
 };
 
 class AnuncioCompra: public Anuncio {
 	string ref;
 private:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao, string ref,  bool mostraNome, bool mostraTelemovel, bool mostraEmail,);
+	void verAnuncio() const;
 };
 
 #endif /* ANUNCIO_H_ */
