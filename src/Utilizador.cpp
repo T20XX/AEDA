@@ -11,7 +11,11 @@
 #include <iostream>
 
 
-Localizacao::Localizacao(string freguesia, string concelho, string distrito) {
+Localizacao::Localizacao(string freguesia, string concelho, string distrito)
+	:freguesia(freguesia), concelho(concelho), distrito(distrito){}
+
+
+Localizacao::~Localizacao() {
 
 }
 
@@ -27,18 +31,15 @@ string Localizacao::getDistrito() const{
 	return distrito;
 }
 
-Localizacao::~Localizacao() {
-
-}
 
 //Utilizador
 
-/*Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
+Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
 	this->email = email;
 	this->nome = nome;
 	this->telemovel = telemovel;
 	this->localizacao = localizacao;
-}*/
+}
 
 string Utilizador::getEmail() const{
 	return email;

@@ -20,10 +20,10 @@ class Localizacao {
 	string freguesia, concelho, distrito;
 public:
 	Localizacao(string freguesia, string concelho, string distrito);
+	virtual ~Localizacao();
 	string getFreguesia() const;
 	string getConcelho() const;
 	string getDistrito() const;
-	virtual ~Localizacao();
 };
 
 class Utilizador {
