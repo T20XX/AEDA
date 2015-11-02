@@ -33,10 +33,10 @@ private:
 	AnuncioVenda(int data, string titulo, string categoria, string descricao, string estado, int preco, bool negociavel);
 };
 
-#endif /* ANUNCIO_H_ */
-
 class AnuncioCompra: public Anuncio {
 	string ref;
 private:
 	AnuncioCompra(int data, string titulo, string categoria, string descricao, string ref);
 };
+
+#endif /* ANUNCIO_H_ */
