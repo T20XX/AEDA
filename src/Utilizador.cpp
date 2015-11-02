@@ -31,7 +31,6 @@ string Localizacao::getDistrito() const{
 	return distrito;
 }
 
-
 //Utilizador
 
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
@@ -51,6 +50,10 @@ string Utilizador::getNome() const{
 
 int Utilizador::getTelemovel() const{
 	return telemovel;
+}
+
+vector<Anuncio *> Utilizador::getAnuncios() const{
+	return anuncios;
 }
 
 Utilizador::~Utilizador() {

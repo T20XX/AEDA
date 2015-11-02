@@ -33,10 +33,12 @@ class Utilizador {
 	vector<Anuncio *> anuncios;
 public:
 	Utilizador(string email, string nome, int telemovel,Localizacao localizacao);
+	virtual ~Utilizador();
 	string getEmail() const;
 	string getNome() const;
 	int getTelemovel() const;
-	virtual ~Utilizador();
+	vector<Anuncio *> getAnuncios() const;
+
 };
 
 
