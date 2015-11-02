@@ -32,15 +32,15 @@ class AnuncioVenda: public Anuncio {
 	string estado;
 	int preco;
 	bool negociavel;
-private:
+public:
 	AnuncioVenda(int data, string titulo, string categoria, string descricao,bool mostraNome, bool mostraTelemovel, bool mostraEmail,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
 };
 
 class AnuncioCompra: public Anuncio {
-	string ref;
-private:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref);
+	AnuncioVenda * ref;
+public:
+	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, AnuncioVenda * ref);
 	void verAnuncio() const;
 };
 
