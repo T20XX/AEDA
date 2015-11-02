@@ -9,12 +9,12 @@
 #include <vector>
 #include <iostream>
 
-#include "Anuncio.h"
 using namespace std;
 
 #ifndef UTILIZADOR_H_
 #define UTILIZADOR_H_
 
+#include "Anuncio.h"
 
 class Localizacao {
 	string freguesia, concelho, distrito;
