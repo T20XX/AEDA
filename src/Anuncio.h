@@ -19,7 +19,8 @@ using namespace std;
 class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
-	int ID, data;
+	int ID;
+	int data;
 	Utilizador *utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
 public:
@@ -39,9 +40,9 @@ public:
 };
 
 class AnuncioCompra: public Anuncio {
-	AnuncioVenda * ref;
+	Anuncio * anuncio;
 public:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, AnuncioVenda * ref);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, Anuncio * anuncio);
 	void verAnuncio() const;
 };
 

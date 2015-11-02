@@ -27,7 +27,7 @@ void olz::tabelaUtilizador(int num_pagina, int num_anuncios_pagina, string tipoO
 	cout << setw(7) << "Email" << setw(7) << "Nome" << setw(9) << "Telemóvel" << setw(7) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
-		cout << setw(7) << Utilizadores[i].getEmail() << setw(7) << Utilizadores[i].getNome() << setw(9) << Utilizadores[i].getTelemovel() << setw(7) << " "  << endl;
+		cout << setw(7) << utilizadores[i]->getEmail() << setw(7) << utilizadores[i]->getNome() << setw(9) << utilizadores[i]->getTelemovel() << setw(7) << utilizadores[i]->getAnuncios().size << endl;
 	}
 }
 
