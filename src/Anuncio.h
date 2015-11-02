@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Utilizador.h"
 using namespace std;
 
 #ifndef ANUNCIO_H_
@@ -17,10 +18,11 @@ using namespace std;
 class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
-	int ID;
-	int data;
+	int ID, data;
+	Utilizador * utilizador;
+	bool mostraNome, mostraTelemovel, mostraEmail;
 public:
-	Anuncio(int data, string titulo, string categoria, string descricao);
+	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
 	virtual ~Anuncio();
 };
 
@@ -30,13 +32,13 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 private:
-	AnuncioVenda(int data, string titulo, string categoria, string descricao, string estado, int preco, bool negociavel);
+	AnuncioVenda(int data, string titulo, string categoria, string descricao,  bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel);
 };
 
 class AnuncioCompra: public Anuncio {
 	string ref;
 private:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao, string ref);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref);
 };
 
 #endif /* ANUNCIO_H_ */
