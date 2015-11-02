@@ -12,6 +12,13 @@ olz::olz() {
 
 }
 
+olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao){
+	cout << "Cabeçalho" << endl;
+	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++){
+		cout << "merdas alalalallaa" << endl;
+	}
+}
+
 olz::~olz() {
 	// TODO Auto-generated destructor stub
 }
