@@ -17,11 +17,11 @@ Anuncio::Anuncio(int data, string titulo, string categoria, string descricao, bo
 	this->titulo = titulo;
 	this->categoria = categoria;
 	this->descricao = descricao;
-	ID = nextID;
-	nextID++;
 	this->mostraEmail = mostraEmail;
 	this->mostraNome = mostraNome;
 	this->mostraTelemovel = mostraTelemovel;
+	ID = nextID;
+	nextID++;
 }
 
 Anuncio::~Anuncio() {
@@ -31,7 +31,7 @@ Anuncio::~Anuncio() {
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel) :
-		Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
+				Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
 	this->preco = preco;
 	this->negociavel = negociavel;
 
@@ -48,9 +48,9 @@ void AnuncioVenda::verAnuncio() const {
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, AnuncioVenda * ref) :
-		Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
-	this->ref=ref;
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, Anuncio * anuncio) :
+				Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
+	this->anuncio=anuncio;
 }
 
 void AnuncioCompra::verAnuncio() const{
