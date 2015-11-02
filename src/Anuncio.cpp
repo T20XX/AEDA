@@ -48,11 +48,12 @@ void AnuncioVenda::verAnuncio() const {
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string ref) :
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, AnuncioVenda * ref) :
 		Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
 	this->ref=ref;
 }
 
 void AnuncioCompra::verAnuncio() const{
-
+	cout << "ID: " << ID << endl << "Data: " << data << endl;
+	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
 }
