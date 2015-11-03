@@ -18,7 +18,7 @@ void olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrg
 	cout << setw(4) << "ID" << setw(7) << "Data" << setw(7) << "Título" << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
-		cout << "merdas alalalallaa" << endl;
+		cout << setw(4) << anuncios[i]->getID() << setw(7) << anuncios[i]->getData() << setw(7) << anuncios[i]->getTitulo() << setw(9) << anuncios[i]->getCategoria() << endl;
 	}
 }
 
