@@ -6,22 +6,24 @@
  */
 
 
-#include <string>
-#include <vector>
-#include <iostream>
-using namespace std;
-
 #ifndef ANUNCIO_H_
 #define ANUNCIO_H_
 
-#include "Utilizador.h"
+
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+class Utilizador;
 
 class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
 	int ID;
 	int data;
-	Utilizador *utilizador;
+	Utilizador * utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
 public:
 	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
