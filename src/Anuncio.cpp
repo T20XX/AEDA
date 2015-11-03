@@ -28,6 +28,27 @@ Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
 }
 
+int Anuncio::getID() const{
+	return ID;
+}
+
+int Anuncio::getData() const{
+	return data;
+}
+
+string Anuncio::getTitulo() const{
+	return titulo;
+}
+
+string Anuncio::getCategoria() const{
+	return categoria;
+}
+
+string Anuncio::getDescricao() const{
+	return descricao;
+}
+
+
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel) :
@@ -45,6 +66,15 @@ void AnuncioVenda::verAnuncio() const {
 	if(negociavel)
 		cout << "Possibilidade de Negócio." << endl;
 }
+
+string AnuncioVenda::getEstado() const{
+	return estado;
+}
+
+int AnuncioVenda::getPreco() const{
+	return preco;
+}
+
 
 //AnuncioCompra
 
