@@ -62,7 +62,7 @@ AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string des
 }
 
 void AnuncioVenda::verAnuncio() const {
-	cout << "ID: " << ID << endl << "Data: " << data << endl << "Estado do Produto: " << estado << endl << "Preço Pretendido: " << preco << endl;
+	cout << "ID: " << getID() << endl << "Data: " << getData() << endl << "Estado do Produto: " << estado << endl << "Preço Pretendido: " << preco << endl;
 	if(negociavel)
 		cout << "Possibilidade de Negócio." << endl;
 }
@@ -84,6 +84,6 @@ AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string d
 }
 
 void AnuncioCompra::verAnuncio() const{
-	cout << "ID: " << ID << endl << "Data: " << data << endl;
+	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
 	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
 }

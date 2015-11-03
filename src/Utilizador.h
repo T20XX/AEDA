@@ -5,16 +5,17 @@
  *      Author: Telmo
  */
 
+
+#ifndef UTILIZADOR_H_
+#define UTILIZADOR_H_
+
 #include <string>
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
-#ifndef UTILIZADOR_H_
-#define UTILIZADOR_H_
-
-#include "Anuncio.h"
+class Anuncio;
 
 class Localizacao {
 	string freguesia, concelho, distrito;
@@ -29,10 +30,10 @@ public:
 class Utilizador {
 	string email, nome;
 	int telemovel;
-	Localizacao localizacao;
+	Localizacao * localizacao;
 	vector<Anuncio *> anuncios;
 public:
-	Utilizador(string email, string nome, int telemovel,Localizacao localizacao);
+	Utilizador(string email, string nome, int telemovel,Localizacao * localizacao);
 	virtual ~Utilizador();
 	string getEmail() const;
 	string getNome() const;

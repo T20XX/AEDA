@@ -6,6 +6,7 @@
  */
 
 #include "Utilizador.h"
+#include "Anuncio.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -33,7 +34,7 @@ string Localizacao::getDistrito() const{
 
 //Utilizador
 
-Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao){
+Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao * localizacao){
 	this->email = email;
 	this->nome = nome;
 	this->telemovel = telemovel;
