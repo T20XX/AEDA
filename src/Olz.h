@@ -21,8 +21,9 @@ class Olz {
 public:
 	Olz();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
-	void tabelaUtilizador(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
+	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	virtual ~Olz();
+	void addUtilizador(Utilizador * u);
 };
 
 #endif /* OLZ_H_ */

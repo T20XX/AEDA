@@ -26,7 +26,7 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrg
 	}
 }
 
-void Olz::tabelaUtilizador(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
+void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
 	cout << setw(7) << "Email" << setw(7) << "Nome" << setw(9) << "Telemóvel" << setw(7) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
@@ -38,4 +38,9 @@ void Olz::tabelaUtilizador(int num_pagina, int num_anuncios_pagina, string tipoO
 Olz::~Olz() {
 	// TODO Auto-generated destructor stub
 }
+
+void Olz::addUtilizador(Utilizador * u) {
+	utilizadores.push_back(u);
+}
+
 
