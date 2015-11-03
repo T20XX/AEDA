@@ -8,6 +8,9 @@
 #include "Olz.h"
 
 #include <iomanip>
+#include <string>
+
+using namespace std;
 
 Olz::Olz() {
 	// TODO Auto-generated constructor stub

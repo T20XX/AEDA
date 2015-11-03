@@ -1,17 +1,22 @@
 #include <iostream>
+#include "Olz.h"
 using namespace std;
+
+Olz olz;
 
 void selecao1()
 {
 
 }
+
 void selecao2()
 {
-
+olz.tabelaUtilizadores(0,50,"nulo");
 }
+
 void selecao3()
 {
-
+	olz.tabelaAnuncios(0,50,"nulo");
 }
 
 
