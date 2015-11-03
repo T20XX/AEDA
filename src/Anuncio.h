@@ -27,6 +27,11 @@ public:
 	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
+	int getID() const;
+	int getData() const;
+	string getTitulo() const;
+	string getCategoria() const;
+	string getDescricao() const;
 };
 
 
@@ -37,6 +42,8 @@ class AnuncioVenda: public Anuncio {
 public:
 	AnuncioVenda(int data, string titulo, string categoria, string descricao,bool mostraNome, bool mostraTelemovel, bool mostraEmail,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
+	string getEstado() const;
+	int getPreco() const;
 };
 
 class AnuncioCompra: public Anuncio {
