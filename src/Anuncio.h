@@ -48,13 +48,12 @@ public:
 	bool getmostraNome() const;
 	bool getmostraTelemovel() const;
 	bool getmostraEmail() const;
-	virtual bool getTipo() const = 0;
 	Utilizador* getUtilizador() const;
 	virtual string getEstado() const = 0;
 	virtual int getPreco() const = 0;
 	virtual bool getTipo() const = 0;
 	virtual bool getNegociavel() const = 0;
-	virtual int getID() const = 0;
+	virtual int getVendaID() const = 0;
 };
 
 
@@ -77,7 +76,7 @@ public:
 	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID);
 	void verAnuncio() const;
 	bool getTipo() const;
-	int getID() const;
+	int getVendaID() const;
 };
 
 #endif /* ANUNCIO_H_ */
