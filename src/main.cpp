@@ -71,7 +71,14 @@ void selecao3()
 		}
 		else if (selecao == "P")
 		{
-
+			cin >> porpag;
+						while (porpag < 0)
+						{
+							cout << "Número inválido, indique outro: ";
+							cin >> porpag;
+						}
+						if (porpag == 0)
+							porpag = olz.getUtilizadores().size();
 		}
 		else if (selecao == "PS")
 		{
@@ -106,7 +113,7 @@ int main() {
 		cout << "3. Gerir Utilizadores" << endl;
 		cout << "4. Gerir Anúncios" << endl;
 		cout << "0. Sair" << endl;
-		while (selecao < 0 || selecao > 3)
+		while (selecao < 0 || selecao > 4)
 			cin >> selecao;
 		if (selecao == 0)
 			break;
