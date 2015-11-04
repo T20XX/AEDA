@@ -8,7 +8,7 @@ Olz olz;
 
 void selecao1()
 {
-	std::string nome, email, freguesia, concelho, distrito;
+	string nome, email, freguesia, concelho, distrito;
 	int telemovel;
 
 	cout << "Nome: " << endl << "Email: " << endl << "Telemovel: " << endl << "Freguesia: " << endl << "Concelho: " << endl << "Distrito: " << endl;
@@ -23,6 +23,11 @@ void selecao1()
 }
 
 void selecao2()
+{
+
+}
+
+void selecao3()
 {
 	int pag = 0, porpag= 50;
 	string selecao = "X";
@@ -70,17 +75,18 @@ void selecao2()
 		}
 		else if (selecao == "PS")
 		{
-
+			pag++;
 		}
 		else if (selecao == "PA")
 		{
-
+			if (pag > 0)
+				pag--;
 		}
 	}
 	olz.escreverUtilizador();
 }
 
-void selecao3()
+void selecao4()
 {
 	olz.tabelaAnuncios(0,50,"default");
 	olz.escreverAnuncio();
@@ -96,8 +102,9 @@ int main() {
 	{
 		cout << "Menu" << endl;
 		cout << "1. Registar Utilizador" << endl;
-		cout << "2. Gerir Utilizadores" << endl;
-		cout << "3. Gerir Anúncios" << endl;
+		cout << "2. Criar Anuncio" << endl;
+		cout << "3. Gerir Utilizadores" << endl;
+		cout << "4. Gerir Anúncios" << endl;
 		cout << "0. Sair" << endl;
 		while (selecao < 0 || selecao > 3)
 			cin >> selecao;
@@ -109,6 +116,8 @@ int main() {
 			selecao2();
 		else if (selecao == 3)
 			selecao3();
+		else if (selecao == 4)
+			selecao4();
 		selecao = -1;
 	}
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
