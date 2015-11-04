@@ -68,6 +68,7 @@ public:
 	int getPreco() const;
 	bool getTipo() const;
 	bool getNegociavel() const;
+	int getVendaID() const;
 };
 
 class AnuncioCompra: public Anuncio {
@@ -76,6 +77,9 @@ public:
 	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID);
 	void verAnuncio() const;
 	bool getTipo() const;
+	string getEstado() const;
+	int getPreco() const;
+	bool getNegociavel() const;
 	int getVendaID() const;
 };
 
