@@ -67,8 +67,8 @@ void Olz::lerUtilizador() {
 
 
 	while(!Uti.eof()) {
-		getline(Uti,nome);
-		getline(Uti, email);
+		getline(Uti,email);
+		getline(Uti, nome);
 		Uti >> telemovel;
 		getline(Uti, freguesia);
 		getline(Uti, concelho);
@@ -80,7 +80,19 @@ void Olz::lerUtilizador() {
 	Uti.close();
 }
 
-void Olz::escreverUtilizador() {
 
+void Olz::escreverUtilizador() {
+	string nome, freguesia, email, concelho, distrito;
+	int telemovel;
+
+	ofstream Uti;
+
+	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
+
+	while(!Uti.eof()) {
+		Uti << email << nome << telemovel << freguesia << concelho << distrito;
+	}
+
+	Uti.close();
 }
 
