@@ -25,6 +25,8 @@ public:
 	string getFreguesia() const;
 	string getConcelho() const;
 	string getDistrito() const;
+	friend ostream& operator<<(std::ostream& os, const Localizacao l);
+
 };
 
 class Utilizador {
@@ -35,6 +37,7 @@ class Utilizador {
 public:
 	Utilizador(string email, string nome, int telemovel,Localizacao localizacao);
 	virtual ~Utilizador();
+	void verUtilizador();
 	string getEmail() const;
 	string getNome() const;
 	int getTelemovel() const;

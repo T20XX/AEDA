@@ -36,9 +36,9 @@ Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
 }
 
-void Anuncio::setNextID() {nextID++;};
+void Anuncio::setNextID() {nextID++;}
 
-void Anuncio::setNumCliques(int numCliques) {this->numCliques=numCliques;};
+void Anuncio::setNumCliques(int numCliques) {this->numCliques=numCliques;}
 
 int Anuncio::getID() const {return ID;}
 
