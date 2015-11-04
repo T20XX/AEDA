@@ -42,7 +42,7 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(3) << (i+1) << " " << setw(35) << utilizadores[i].getEmail() << " " << setw(15) << utilizadores[i].getNome() << " "<< setw(9) << utilizadores[i].getTelemovel() << " " << setw(9) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(35) << utilizadores[i].getEmail() << setw(15) << utilizadores[i].getNome()<< setw(9) << utilizadores[i].getTelemovel()<< setw(9) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
