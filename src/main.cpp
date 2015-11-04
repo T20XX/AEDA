@@ -90,6 +90,7 @@ void selecao3()
 
 int main() {
 	olz.lerUtilizador();
+	olz.addAnuncio(0, new AnuncioVenda(22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
 	int selecao=-1;
 	while (selecao !=0)
 	{
