@@ -27,6 +27,8 @@ public:
 	void addUtilizador(Utilizador u);
 	void lerUtilizador();
 	void escreverUtilizador();
+	void lerAnuncio();
+	void escreverAnuncio();
 };
 
 #endif /* OLZ_H_ */

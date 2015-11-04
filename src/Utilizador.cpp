@@ -51,3 +51,7 @@ Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 Utilizador::~Utilizador() {
 	// TODO Auto-generated destructor stub
 }
+
+void Utilizador::addAnuncio(Anuncio *a1) {
+	anuncios.push_back(a1);
+}

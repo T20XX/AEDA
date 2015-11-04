@@ -83,15 +83,24 @@ int AnuncioVenda::getPreco() const{
 	return preco;
 }
 
+bool AnuncioVenda::getTipo() const{
+	return true;
+}
+
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, Anuncio * anuncio) :
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID) :
 						Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
-	this->anuncio=anuncio;
+	this->ID=ID;;
 }
 
 void AnuncioCompra::verAnuncio() const{
 	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
 	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
 }
+
+bool AnuncioCompra::getTipo() const{
+	return false;
+}
+

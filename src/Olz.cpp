@@ -102,3 +102,74 @@ void Olz::escreverUtilizador() {
 	Uti.close();
 }
 
+void Olz::lerAnuncio() {
+	string titulo, categoria, descricao, email, tipo, estado;
+	int ID, numCliques, data, preco;
+	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
+
+	ifstream Anun;
+
+	Anun.open("Anuncios.txt");
+
+
+	while(!Anun.eof()) {
+		getline(Anun, tipo);
+		getline(Anun,email);
+		getline(Anun, titulo);
+		getline(Anun, categoria);
+		Anun >> ID;
+		Anun >> data;
+		Anun >> numCliques;
+		Anun >> mostraNome;
+		Anun >> mostraTelemovel;
+		Anun >> mostraEmail;
+		getline(Anun, descricao);
+		if(tipo = "AnuncioVenda"){
+			getline(Anun, estado);
+			Anun >> preco;
+			Anun >> negociavel;
+		}
+		else if(tipo = "AnuncioCompra"){
+			Anun >> ID;
+		}
+
+		for(int i = 0 ; i < utilizadores.size();i++)
+		{
+			if(utilizadores[i].getEmail() == email)
+			{
+				if(tipo = "AnuncioVenda")
+				{
+					//criaAnuncioVenda
+					//addAnuncio();
+				}
+				else if(tipo = "AnuncioCompra")
+				{
+					//criaAnuncioCompra
+					//addAnuncio();
+				}
+			}
+		}
+	}
+	Anun.close();
+}
+
+void Olz::escreverAnuncio() {
+	string nome, freguesia, email, concelho, distrito;
+	int telemovel;
+
+	ofstream Uti;
+
+	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
+
+	for(int i=0; i < utilizadores.size();i++) {
+		Uti << utilizadores[i].getEmail() <<endl
+				<< utilizadores[i].getNome()<<endl
+				<< utilizadores[i].getTelemovel() <<endl
+				<< utilizadores[i].getLocalizacao().getFreguesia()<<endl
+				<< utilizadores[i].getLocalizacao().getConcelho()<<endl
+				<< utilizadores[i].getLocalizacao().getDistrito()<<endl
+				<< endl ;
+	}
+
+	Uti.close();
+}
