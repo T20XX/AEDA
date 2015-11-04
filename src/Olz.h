@@ -29,6 +29,7 @@ public:
 	void escreverUtilizador();
 	void lerAnuncio();
 	void escreverAnuncio();
+	void addAnuncio(int index,Anuncio * a);
 	vector<Utilizador> getUtilizadores();
 };
 

@@ -156,7 +156,7 @@ void Olz::lerAnuncio() {
 }
 
 void Olz::escreverAnuncio() {
-	/*ofstream Anun;
+	ofstream Anun;
 
 	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
 
@@ -164,8 +164,8 @@ void Olz::escreverAnuncio() {
 		if(anuncios[i]->getTipo())
 			Anun << "AnuncioVenda" << endl;
 		else Anun << "AnuncioCompra" << endl;
-	 Anun << anuncios[i]->getUtilizador()->getEmail() << endl
-			 	 << anuncios[i]->getTitulo()<<endl
+		Anun << anuncios[i]->getUtilizador()->getEmail() << endl
+				<< anuncios[i]->getTitulo()<<endl
 				<< anuncios[i]->getCategoria() <<endl
 				<< anuncios[i]->getID()<<endl
 				<< anuncios[i]->getData()<<endl
@@ -173,20 +173,23 @@ void Olz::escreverAnuncio() {
 				<< anuncios[i]->getmostraNome()<<endl
 				<< anuncios[i]->getmostraTelemovel()<<endl
 				<< anuncios[i]->getmostraEmail()<<endl;
-				if(anuncios[i]->getTipo())
-				{
-				Anun << anuncios[i]->getEstado()<<endl
-				<< anuncios[i]->getPreco()<<endl
-				<< anuncios[i]->getNegociavel()<<endl;
-				}
-				else {
-					Anun <<anuncios[i]->getVendaID() << endl;
-				}
-				Anun << endl;
+		if(anuncios[i]->getTipo())
+		{
+			Anun << anuncios[i]->getEstado()<<endl
+					<< anuncios[i]->getPreco()<<endl
+					<< anuncios[i]->getNegociavel()<<endl;
+		}
+		else {
+			Anun <<anuncios[i]->getVendaID() << endl;
+		}
+		Anun << endl;
 	}
 
-	Anun.close();*/
+	Anun.close();
 }
 
+void Olz::addAnuncio(int index,Anuncio * a) {
+	utilizadores[index].addAnuncio(a);
+}
 
 vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
