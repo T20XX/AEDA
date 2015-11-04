@@ -36,25 +36,19 @@ Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
 }
 
-int Anuncio::getID() const{
-	return ID;
-}
+void Anuncio::setNextID() {nextID++;};
 
-int Anuncio::getData() const{
-	return data;
-}
+void Anuncio::setNumCliques(int numCliques) {this->numCliques=numCliques;};
 
-string Anuncio::getTitulo() const{
-	return titulo;
-}
+int Anuncio::getID() const {return ID;}
 
-string Anuncio::getCategoria() const{
-	return categoria;
-}
+int Anuncio::getData() const {return data;}
 
-string Anuncio::getDescricao() const{
-	return descricao;
-}
+string Anuncio::getTitulo() const {return titulo;}
+
+string Anuncio::getCategoria() const {return categoria;}
+
+string Anuncio::getDescricao() const {return descricao;}
 
 
 //AnuncioVenda

@@ -40,7 +40,7 @@ public:
 	int getTelemovel() const;
 	Localizacao getLocalizacao() const;
 	vector<Anuncio *> getAnuncios() const;
-	void addAnuncio(Anuncio *a1);
+	void addAnuncio(Anuncio * a);
 };
 
 

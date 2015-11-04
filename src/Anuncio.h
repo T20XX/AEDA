@@ -37,6 +37,8 @@ public:
 	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
+	static void setNextID();
+	void setNumCliques(int numCliques);
 	int getID() const;
 	int getData() const;
 	string getTitulo() const;
