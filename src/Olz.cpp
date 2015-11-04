@@ -168,6 +168,9 @@ void Olz::escreverAnuncio() {
 	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
 
 	for(int i=0; i < anuncios.size();i++) {
+		if(anuncios[i]->getTipo())
+			Anun << "AnuncioVenda" << endl;
+		else Anun << "AnuncioCompra" << endl;
 	 Anun << anuncios[i]->getUtilizador()->getEmail() << endl
 			 	 << anuncios[i]->getTitulo()<<endl
 				<< anuncios[i]->getCategoria() <<endl
