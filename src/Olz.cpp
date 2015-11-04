@@ -23,12 +23,12 @@ Olz::~Olz() {
 
 void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
-	cout << setw(4) << "ID" << setw(7) << "Data" << setw(7) << "Título" << setw(9) << "Categoria" << endl;
+	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < anuncios.size())
 		{
-			cout << setw(4) << anuncios[i]->getID() << setw(7) << anuncios[i]->getData() << setw(7) << anuncios[i]->getTitulo() << setw(9) << anuncios[i]->getCategoria() << endl;
+			cout << setw(3) << (i+1)<< " " << setw(4) << anuncios[i]->getID() << " " << setw(7) << anuncios[i]->getData() << " "<< setw(7) << anuncios[i]->getTitulo() << " " << setw(9) << anuncios[i]->getCategoria() << endl;
 		}
 		else
 			break;
@@ -37,12 +37,12 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrg
 
 void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
-	cout << setw(3) << "#" << setw(35) << "Email" << setw(15) << "Nome " << setw(9) << "Telemóvel " << setw(9) << "Nº Anúncio" << endl;
+	cout << setw(3) << "#" << setw(25) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(3) << (i+1) << setw(35) << utilizadores[i].getEmail() << setw(15) << utilizadores[i].getNome()<< setw(9) << utilizadores[i].getTelemovel()<< setw(9) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail() << setw(15) << utilizadores[i].getNome()<< " " << setw(9) << utilizadores[i].getTelemovel()<< setw(9) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
