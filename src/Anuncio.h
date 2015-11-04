@@ -72,9 +72,9 @@ public:
 };
 
 class AnuncioCompra: public Anuncio {
-	int ID;
+	int vendaID;
 public:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID);
 	void verAnuncio() const;
 	bool getTipo() const;
 	string getEstado() const;
