@@ -73,7 +73,7 @@ void Olz::lerUtilizador() {
 		{
 			getline(Uti, nome);
 			Uti >> telemovel;
-			Uti.ignore()
+			Uti.ignore();
 			getline(Uti, freguesia);
 			getline(Uti, concelho);
 			getline(Uti, distrito);
