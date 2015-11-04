@@ -13,7 +13,7 @@
 //CONTACTO
 
 Contacto::Contacto(string nome, string email,string contacto)
-: nome(nome), email(email), contacto(contacto);
+: nome(nome), email(email), contacto(contacto)
 {}
 
 Contacto::~Contacto() {
@@ -24,16 +24,12 @@ Contacto::~Contacto() {
 
 int Anuncio::nextID = 0;
 
-Anuncio::Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail) {
-	this->data= data;
-	this->titulo = titulo;
-	this->categoria = categoria;
-	this->descricao = descricao;
-	this->mostraEmail = mostraEmail;
-	this->mostraNome = mostraNome;
-	this->mostraTelemovel = mostraTelemovel;
+Anuncio::Anuncio(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel)
+: data(data), titulo(titulo), categoria(categoria), descricao(descricao),mostraEmail(mostraEmail),mostraNome(mostraNome), mostraTelemovel(mostraTelemovel)
+{
 	ID = nextID;
 	nextID++;
+	numCliques = 0;
 }
 
 Anuncio::~Anuncio() {
@@ -63,8 +59,8 @@ string Anuncio::getDescricao() const{
 
 //AnuncioVenda
 
-AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, string estado, int preco, bool negociavel) :
-				Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
+AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
+						Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
 
@@ -90,8 +86,8 @@ int AnuncioVenda::getPreco() const{
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, Anuncio * anuncio) :
-				Anuncio(data, titulo, categoria, descricao, mostraNome, mostraTelemovel, mostraEmail) {
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, Anuncio * anuncio) :
+						Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->anuncio=anuncio;
 }
 

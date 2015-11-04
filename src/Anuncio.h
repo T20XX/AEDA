@@ -28,13 +28,13 @@ public:
 class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
-	int ID;
+	int ID, numCliques;
 	int data;
 	Utilizador * utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
-	Contacto
+	vector<Contacto> contactos;
 public:
-	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
+	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
 	int getID() const;
@@ -50,7 +50,7 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 public:
-	AnuncioVenda(int data, string titulo, string categoria, string descricao,bool mostraNome, bool mostraTelemovel, bool mostraEmail,  string estado, int preco, bool negociavel);
+	AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
 	string getEstado() const;
 	int getPreco() const;
@@ -59,7 +59,7 @@ public:
 class AnuncioCompra: public Anuncio {
 	Anuncio * anuncio;
 public:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail, Anuncio * anuncio);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, Anuncio * anuncio);
 	void verAnuncio() const;
 };
 
