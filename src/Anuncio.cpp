@@ -92,6 +92,8 @@ bool AnuncioVenda::getTipo() const{
 
 int AnuncioVenda::getVendaID() const {return 0;}
 
+bool AnuncioVenda::getNegociavel() const {return negociavel;}
+
 
 //AnuncioCompra
 
@@ -118,3 +120,5 @@ string AnuncioCompra::getEstado() const{
 int AnuncioCompra::getPreco() const{
 	return 0;
 }
+
+bool AnuncioCompra::getNegociavel() const {return false;}

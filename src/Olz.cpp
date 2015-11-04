@@ -156,8 +156,7 @@ void Olz::lerAnuncio() {
 }
 
 void Olz::escreverAnuncio() {
-
-	ofstream Anun;
+	/*ofstream Anun;
 
 	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
 
@@ -186,7 +185,7 @@ void Olz::escreverAnuncio() {
 				Anun << endl;
 	}
 
-	Anun.close();
+	Anun.close();*/
 }
 
 
