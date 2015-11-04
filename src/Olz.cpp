@@ -159,22 +159,34 @@ void Olz::lerAnuncio() {
 }
 
 void Olz::escreverAnuncio() {
-	string nome, freguesia, email, concelho, distrito;
-	int telemovel;
+	string titulo, categoria, descricao, email, tipo, estado;
+	int ID, numCliques, data, preco;
+	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
 
-	ofstream Uti;
+	ofstream Anun;
 
-	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
+	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
 
-	for(int i=0; i < utilizadores.size();i++) {
-		Uti << utilizadores[i].getEmail() <<endl
-				<< utilizadores[i].getNome()<<endl
-				<< utilizadores[i].getTelemovel() <<endl
-				<< utilizadores[i].getLocalizacao().getFreguesia()<<endl
-				<< utilizadores[i].getLocalizacao().getConcelho()<<endl
-				<< utilizadores[i].getLocalizacao().getDistrito()<<endl
-				<< endl ;
+	for(int i=0; i < anuncios.size();i++) {
+	 Anun << anuncios[i]->getUtilizador()->getEmail() << endl
+			 	 << anuncios[i]->getTitulo()<<endl
+				<< anuncios[i]->getCategoria() <<endl
+				<< anuncios[i]->getID()<<endl
+				<< anuncios[i]->getData()<<endl
+				<< anuncios[i]->getnumCliques()<<endl
+				<< anuncios[i]->getmostraNome()<<endl
+				<< anuncios[i]->getmostraTelemovel()<<endl
+				<< anuncios[i]->getmostraEmail()<<endl;
+				if(anuncios[i]->getTipo())
+				{
+				Anun << anuncios[i]->getEstado()<<endl
+				<< anuncios[i]->getPreco()<<endl
+				<< anuncios[i]->getNegociavel()<<endl;
+				}
+				else {
+					Anun <<anuncios[i]->getID() << endl;
+				}
 	}
 
-	Uti.close();
+	Anun.close();
 }

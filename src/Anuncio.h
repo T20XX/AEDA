@@ -41,10 +41,20 @@ public:
 	void setNumCliques(int numCliques);
 	int getID() const;
 	int getData() const;
+	int getnumCliques() const;
 	string getTitulo() const;
 	string getCategoria() const;
 	string getDescricao() const;
+	bool getmostraNome() const;
+	bool getmostraTelemovel() const;
+	bool getmostraEmail() const;
 	virtual bool getTipo() const = 0;
+	Utilizador* getUtilizador() const;
+	virtual string getEstado() const = 0;
+	virtual int getPreco() const = 0;
+	virtual bool getTipo() const = 0;
+	virtual bool getNegociavel() const = 0;
+	virtual int getID() const = 0;
 };
 
 
@@ -58,6 +68,7 @@ public:
 	string getEstado() const;
 	int getPreco() const;
 	bool getTipo() const;
+	bool getNegociavel() const;
 };
 
 class AnuncioCompra: public Anuncio {
@@ -66,6 +77,7 @@ public:
 	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID);
 	void verAnuncio() const;
 	bool getTipo() const;
+	int getID() const;
 };
 
 #endif /* ANUNCIO_H_ */
