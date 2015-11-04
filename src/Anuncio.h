@@ -42,6 +42,7 @@ public:
 	string getTitulo() const;
 	string getCategoria() const;
 	string getDescricao() const;
+	virtual bool getTipo() const = 0;
 };
 
 
@@ -54,13 +55,15 @@ public:
 	void verAnuncio() const;
 	string getEstado() const;
 	int getPreco() const;
+	bool getTipo() const;
 };
 
 class AnuncioCompra: public Anuncio {
-	Anuncio * anuncio;
+	int ID;
 public:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, Anuncio * anuncio);
+	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID);
 	void verAnuncio() const;
+	bool getTipo() const;
 };
 
 #endif /* ANUNCIO_H_ */
