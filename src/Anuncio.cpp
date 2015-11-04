@@ -50,11 +50,20 @@ string Anuncio::getCategoria() const {return categoria;}
 
 string Anuncio::getDescricao() const {return descricao;}
 
-Utilizador* Anuncio::getUtilizador() const {return utilizador};
+Utilizador* Anuncio::getUtilizador() const {return utilizador;}
+
+int Anuncio::getnumCliques() const {return numCliques;}
+
+bool Anuncio::getmostraNome() const {return mostraNome;}
+
+bool Anuncio::getmostraTelemovel() const {return mostraTelemovel;}
+
+bool Anuncio::getmostraEmail() const {return mostraEmail;}
+
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
-						Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+								Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
 
@@ -85,7 +94,7 @@ bool AnuncioVenda::getTipo() const{
 //AnuncioCompra
 
 AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID) :
-						Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+								Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->ID=ID;;
 }
 
