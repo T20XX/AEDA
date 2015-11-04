@@ -80,7 +80,7 @@ void Olz::lerUtilizador() {
 	Uti.close();
 }
 
-void Olz::escreverUtilizador(string file) {
+void Olz::escreverUtilizador() {
 
 }
 
