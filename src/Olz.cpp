@@ -15,10 +15,7 @@
 
 using namespace std;
 
-Olz::Olz() {
-	utilizadores.clear();
-	anuncios.clear();
-}
+Olz::Olz() {}
 
 Olz::~Olz() {
 	// TODO Auto-generated destructor stub
@@ -45,7 +42,11 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(7) << utilizadores[i].getEmail() << setw(7) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(7) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(7) << utilizadores[i].getEmail() << setw(7) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(7) << utilizadores[i].getAnuncios().size() << endl
+					<< utilizadores[i].getLocalizacao().getFreguesia()
+					//<< utilizadores[i].getLocalizacao().getConcelho()
+					//<< utilizadores[i].getLocalizacao().getDistrito()
+					<< endl;
 		}
 		else
 			break;
@@ -68,13 +69,19 @@ void Olz::lerUtilizador() {
 
 	while(!Uti.eof()) {
 		getline(Uti,email);
-		getline(Uti, nome);
-		Uti >> telemovel;
-		getline(Uti, freguesia);
-		getline(Uti, concelho);
-		getline(Uti, distrito);
-		utilizadores.push_back(Utilizador(email, nome, telemovel, Localizacao(freguesia, concelho, distrito)));
-		getline(Uti, nome);
+		if (email != "")
+		{
+			getline(Uti, nome);
+			Uti >> telemovel;
+			Uti.ignore()
+			getline(Uti, freguesia);
+			getline(Uti, concelho);
+			getline(Uti, distrito);
+			Localizacao templocal(freguesia,concelho,distrito);
+			Utilizador temputi(email, nome, telemovel, templocal);
+			addUtilizador(temputi);
+			getline(Uti, nome);
+		}
 	}
 
 	Uti.close();
@@ -90,12 +97,12 @@ void Olz::escreverUtilizador() {
 	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
 
 	for(int i=0; i < utilizadores.size();i++) {
-		Uti << utilizadores[i].getEmail() <<endl
-				<< utilizadores[i].getNome()<<endl
-				<< utilizadores[i].getTelemovel() <<endl
-				<< utilizadores[i].getLocalizacao().getFreguesia()<<endl
-				<< utilizadores[i].getLocalizacao().getConcelho()<<endl
-				<< utilizadores[i].getLocalizacao().getDistrito()<<endl
+		Uti << utilizadores[i].getEmail() << endl
+				<< utilizadores[i].getNome()<< endl
+				<< utilizadores[i].getTelemovel() << endl
+				<< utilizadores[i].getLocalizacao().getFreguesia()<< endl
+				<< utilizadores[i].getLocalizacao().getConcelho()<< endl
+				<< utilizadores[i].getLocalizacao().getDistrito()<< endl
 				<< endl ;
 	}
 
