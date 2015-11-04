@@ -42,11 +42,7 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(7) << utilizadores[i].getEmail() << setw(7) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(7) << utilizadores[i].getAnuncios().size() << endl
-					<< utilizadores[i].getLocalizacao().getFreguesia()
-					//<< utilizadores[i].getLocalizacao().getConcelho()
-					//<< utilizadores[i].getLocalizacao().getDistrito()
-					<< endl;
+			cout << setw(7) << utilizadores[i].getEmail() << setw(7) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(7) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
@@ -131,29 +127,31 @@ void Olz::lerAnuncio() {
 		Anun >> mostraTelemovel;
 		Anun >> mostraEmail;
 		getline(Anun, descricao);
-		if(tipo = "AnuncioVenda"){
+		if(tipo == "AnuncioVenda"){
 			getline(Anun, estado);
 			Anun >> preco;
 			Anun >> negociavel;
 		}
-		else if(tipo = "AnuncioCompra"){
+		else if(tipo == "AnuncioCompra"){
 			Anun >> ID;
 		}
-
+		Anuncio::setNextID();
 		for(int i = 0 ; i < utilizadores.size();i++)
 		{
 			if(utilizadores[i].getEmail() == email)
 			{
-				if(tipo = "AnuncioVenda")
+				Anuncio * tempanun;
+				if(tipo == "AnuncioVenda")
 				{
-					//criaAnuncioVenda
-					//addAnuncio();
+
+					tempanun = new AnuncioVenda(data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
 				}
-				else if(tipo = "AnuncioCompra")
+				else if(tipo == "AnuncioCompra")
 				{
-					//criaAnuncioCompra
-					//addAnuncio();
+					tempanun = new AnuncioCompra(data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID);
 				}
+				tempanun->setNumCliques(numCliques);
+				utilizadores[i].addAnuncio(tempanun);
 			}
 		}
 	}

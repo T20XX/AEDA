@@ -52,6 +52,6 @@ Utilizador::~Utilizador() {
 	// TODO Auto-generated destructor stub
 }
 
-void Utilizador::addAnuncio(Anuncio *a1) {
-	anuncios.push_back(a1);
+void Utilizador::addAnuncio(Anuncio * a) {
+	anuncios.push_back(a);
 }
