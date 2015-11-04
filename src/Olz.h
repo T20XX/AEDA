@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Anuncio.h"
 #include "Utilizador.h"
+#include <sstream>
 
 using namespace std;
 
@@ -24,6 +25,8 @@ public:
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	virtual ~Olz();
 	void addUtilizador(Utilizador * u);
+	void lerUtilizador(istream &Uti);
+	void escreverUtilizador(ostream &Uti);
 };
 
 #endif /* OLZ_H_ */
