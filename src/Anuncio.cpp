@@ -10,6 +10,18 @@
 #include <vector>
 #include <sstream>
 
+//CONTACTO
+
+Contacto::Contacto(string nome, string email,string contacto)
+: nome(nome), email(email), contacto(contacto);
+{}
+
+Contacto::~Contacto() {
+	// TODO Auto-generated destructor stub
+}
+
+//ANUNCIO
+
 int Anuncio::nextID = 0;
 
 Anuncio::Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail) {

@@ -18,6 +18,13 @@ using namespace std;
 
 class Utilizador;
 
+class Contacto {
+	string nome, email, contacto;
+public:
+	Contacto(string nome, string email,string contacto);
+	virtual ~Contacto();
+};
+
 class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
@@ -25,6 +32,7 @@ class Anuncio {
 	int data;
 	Utilizador * utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
+	Contacto
 public:
 	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraNome, bool mostraTelemovel, bool mostraEmail);
 	virtual ~Anuncio();
