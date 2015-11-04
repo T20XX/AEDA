@@ -89,8 +89,14 @@ void Olz::escreverUtilizador() {
 
 	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
 
-	while(!Uti.eof()) {
-		Uti << email << nome << telemovel << freguesia << concelho << distrito;
+	for(int i=0; i < utilizadores.size();i++) {
+		Uti << utilizadores[i].getEmail() <<endl
+				<< utilizadores[i].getNome()<<endl
+				<< utilizadores[i].getTelemovel() <<endl
+				<< utilizadores[i].getLocalizacao().getFreguesia()<<endl
+				<< utilizadores[i].getLocalizacao().getConcelho()<<endl
+				<< utilizadores[i].getLocalizacao().getDistrito()<<endl
+				<< endl ;
 	}
 
 	Uti.close();

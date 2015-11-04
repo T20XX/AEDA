@@ -38,6 +38,7 @@ public:
 	string getEmail() const;
 	string getNome() const;
 	int getTelemovel() const;
+	Localizacao getLocalizacao() const;
 	vector<Anuncio *> getAnuncios() const;
 
 };

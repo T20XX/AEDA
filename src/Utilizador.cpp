@@ -37,21 +37,16 @@ string Localizacao::getDistrito() const{
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
 : email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
 
-string Utilizador::getEmail() const{
-	return email;
-}
+string Utilizador::getEmail() const {return email;}
 
-string Utilizador::getNome() const{
-	return nome;
-}
+string Utilizador::getNome() const {return nome;}
 
-int Utilizador::getTelemovel() const{
-	return telemovel;
-}
+int Utilizador::getTelemovel() const {return telemovel;}
 
-vector<Anuncio *> Utilizador::getAnuncios() const{
-	return anuncios;
-}
+vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
+
+
+Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 
 Utilizador::~Utilizador() {
 	// TODO Auto-generated destructor stub
