@@ -25,8 +25,8 @@ public:
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	void addUtilizador(Utilizador u);
-	void lerUtilizador(istream &Uti);
-	void escreverUtilizador(ostream &Uti);
+	void lerUtilizador();
+	void escreverUtilizador();
 };
 
 #endif /* OLZ_H_ */
