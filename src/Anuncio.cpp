@@ -50,7 +50,7 @@ string Anuncio::getCategoria() const {return categoria;}
 
 string Anuncio::getDescricao() const {return descricao;}
 
-
+Utilizador* Anuncio::getUtilizador() const {return utilizador};
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
