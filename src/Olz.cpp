@@ -85,9 +85,6 @@ void Olz::lerUtilizador() {
 
 
 void Olz::escreverUtilizador() {
-	string nome, freguesia, email, concelho, distrito;
-	int telemovel;
-
 	ofstream Uti;
 
 	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
@@ -159,9 +156,6 @@ void Olz::lerAnuncio() {
 }
 
 void Olz::escreverAnuncio() {
-	string titulo, categoria, descricao, email, tipo, estado;
-	int ID, numCliques, data, preco;
-	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
 
 	ofstream Anun;
 
@@ -187,7 +181,7 @@ void Olz::escreverAnuncio() {
 				<< anuncios[i]->getNegociavel()<<endl;
 				}
 				else {
-					Anun <<anuncios[i]->getID() << endl;
+					Anun <<anuncios[i]->getVendaID() << endl;
 				}
 				Anun << endl;
 	}

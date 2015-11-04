@@ -90,12 +90,14 @@ bool AnuncioVenda::getTipo() const{
 	return true;
 }
 
+int AnuncioVenda::getVendaID() const {return 0;}
+
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int ID) :
+AnuncioCompra::AnuncioCompra(int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
 								Anuncio(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
-	this->ID=ID;;
+	this->vendaID=vendaID;;
 }
 
 void AnuncioCompra::verAnuncio() const{
@@ -107,3 +109,12 @@ bool AnuncioCompra::getTipo() const{
 	return false;
 }
 
+int AnuncioCompra::getVendaID() const {return vendaID;}
+
+string AnuncioCompra::getEstado() const{
+	return "nulo";
+}
+
+int AnuncioCompra::getPreco() const{
+	return 0;
+}
