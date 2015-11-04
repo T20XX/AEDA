@@ -186,6 +186,7 @@ void Olz::escreverAnuncio() {
 				else {
 					Anun <<anuncios[i]->getID() << endl;
 				}
+				Anun << endl;
 	}
 
 	Anun.close();
