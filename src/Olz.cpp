@@ -16,8 +16,8 @@
 using namespace std;
 
 Olz::Olz() {
-	// TODO Auto-generated constructor stub
-
+	utilizadores.clear();
+	anuncios.clear();
 }
 
 Olz::~Olz() {
