@@ -34,12 +34,8 @@ string Localizacao::getDistrito() const{
 
 //Utilizador
 
-Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao * localizacao){
-	this->email = email;
-	this->nome = nome;
-	this->telemovel = telemovel;
-	this->localizacao = localizacao;
-}
+Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
+: email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
 
 string Utilizador::getEmail() const{
 	return email;

@@ -17,14 +17,14 @@ using namespace std;
 #define OLZ_H_
 
 class Olz {
-	vector<Utilizador *> utilizadores;
+	vector<Utilizador> utilizadores;
 	vector<Anuncio *> anuncios;
 public:
 	Olz();
+	virtual ~Olz();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
-	virtual ~Olz();
-	void addUtilizador(Utilizador * u);
+	void addUtilizador(Utilizador u);
 	void lerUtilizador(istream &Uti);
 	void escreverUtilizador(ostream &Uti);
 };

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include "Utilizador.h"
 #include "Olz.h"
 using namespace std;
 
@@ -6,17 +8,16 @@ Olz olz;
 
 void selecao1()
 {
-
-	string nome, email, freguesia, concelho, distrito;
+	std::string nome, email, freguesia, concelho, distrito;
 	int telemovel;
 
 	cout << "Nome: " << endl << "Email: " << endl << "Telemovel: " << endl << "Freguesia: " << endl << "Concelho: " << endl << "Distrito: " << endl;
 
 	cin >> nome >> email >> telemovel >> freguesia >> concelho >> distrito;
 
-	Localizacao tempLocal = Localizacao(freguesia, concelho, distrito);
-	Utilizador tempUti = Utilizador(email, nome, telemovel, tempLocal);
-	olz.addUtilizador(tempUti*);
+	Localizacao tempLocal(freguesia, concelho, distrito);
+	Utilizador tempUti(email, nome, telemovel, tempLocal);
+	olz.addUtilizador(tempUti);
 
 	cout << "Utilizador criado com sucesso" << endl;
 }
