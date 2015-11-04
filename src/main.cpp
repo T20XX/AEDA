@@ -24,8 +24,8 @@ void selecao1()
 
 void selecao2()
 {
-	olz.escreverUtilizador();
 	olz.tabelaUtilizadores(0,50,"nulo");
+	olz.escreverUtilizador();
 }
 
 void selecao3()
