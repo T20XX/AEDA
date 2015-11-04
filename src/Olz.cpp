@@ -9,6 +9,7 @@
 
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -43,4 +44,23 @@ void Olz::addUtilizador(Utilizador * u) {
 	utilizadores.push_back(u);
 }
 
+void Olz::lerUtilizador(istream &Uti) {
+	string nome, freguesia, email, concelho, distrito;
+	int telemovel;
+
+	while(!Uti.eof()) {
+		getline(Uti,nome);
+		getline(Uti, email);
+		Uti >> telemovel;
+		getline(Uti, freguesia);
+		getline(Uti, concelho);
+		getline(Uti, distrito);
+		utilizadores.push_back(new Utilizador(email, nome, telemovel, new Localizacao(freguesia, concelho, distrito)));
+		getline(Uti, nome);
+	}
+}
+
+void Olz::escreverUtilizador(istream &Uti) {
+
+}
 
