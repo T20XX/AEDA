@@ -24,14 +24,15 @@ void selecao1()
 
 void selecao2()
 {
-	olz.tabelaUtilizadores(0,50,"default");
-	char selecao = 'X';
-	while (selecao != 'S')
+	int pag = 0, porpag= 50;
+	string selecao = "X";
+	while (selecao != "S")
 	{
+		olz.tabelaUtilizadores(pag,porpag,"default");
 		cin >> selecao;
-		if (selecao == 'S')
+		if (selecao == "S")
 			break;
-		else if (selecao == 'V')
+		else if (selecao == "V")
 		{
 			cout << "Indique o número do utilizador que deseja visualizar: ";
 			int index = -1;
@@ -43,19 +44,35 @@ void selecao2()
 			}
 			olz.getUtilizadores()[index-1].verUtilizador();
 		}
-		else if (selecao == 'A')
+		else if (selecao == "A")
 		{
 
 		}
-		else if (selecao == 'E')
+		else if (selecao == "E")
+		{
+			cout << "Indique o número do utilizador que deseja eliminar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getUtilizadores().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+			olz.getUtilizadores()[index-1].verUtilizador();
+		}
+		else if (selecao == "O")
 		{
 
 		}
-		else if (selecao == 'O')
+		else if (selecao == "P")
 		{
 
 		}
-		else if (selecao == 'P')
+		else if (selecao == "PS")
+		{
+
+		}
+		else if (selecao == "PA")
 		{
 
 		}
