@@ -128,9 +128,9 @@ void selecao2()
 		}
 		else
 		vendaID = -1;
-		}
 		AnuncioCompra * tempAnun = new AnuncioCompra(data, titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID);
 	//addAnuncio(i, tempAnun);
+	}
 }
 
 void selecao3()
