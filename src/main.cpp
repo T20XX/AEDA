@@ -24,7 +24,8 @@ void selecao1()
 
 void selecao2()
 {
-olz.tabelaUtilizadores(0,50,"nulo");
+	olz.escreverUtilizador();
+	olz.tabelaUtilizadores(0,50,"nulo");
 }
 
 void selecao3()
@@ -35,6 +36,7 @@ void selecao3()
 
 
 int main() {
+	olz.lerUtilizador();
 	int selecao=-1;
 	while (selecao !=0)
 	{
