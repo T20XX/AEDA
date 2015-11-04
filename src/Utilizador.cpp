@@ -13,7 +13,7 @@
 
 
 Localizacao::Localizacao(string freguesia, string concelho, string distrito)
-	:freguesia(freguesia), concelho(concelho), distrito(distrito){}
+:freguesia(freguesia), concelho(concelho), distrito(distrito){}
 
 
 Localizacao::~Localizacao() {
@@ -32,10 +32,26 @@ string Localizacao::getDistrito() const{
 	return distrito;
 }
 
+ostream& operator<<(std::ostream& os, const Localizacao l)
+{
+  os << l.getFreguesia() << ", " << l.getConcelho() << ", " << l.getDistrito();
+  return os;
+}
+
 //Utilizador
 
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
 : email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
+
+void Utilizador::verUtilizador()
+{
+	cout << "Email: " << email << endl <<
+			"Nome: " << nome << endl <<
+			"Telemóvel: " << telemovel << endl <<
+			"Localizaçãoo: " << localizacao << endl <<
+			"Número de Anúncios: " << anuncios.size() << endl;
+
+}
 
 string Utilizador::getEmail() const {return email;}
 

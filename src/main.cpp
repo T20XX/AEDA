@@ -24,13 +24,49 @@ void selecao1()
 
 void selecao2()
 {
-	olz.tabelaUtilizadores(0,50,"nulo");
+	olz.tabelaUtilizadores(0,50,"default");
+	char selecao = 'X';
+	while (selecao != 'S')
+	{
+		cin >> selecao;
+		if (selecao == 'S')
+			break;
+		else if (selecao == 'V')
+		{
+			cout << "Indique o número do utilizador que deseja visualizar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getUtilizadores().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+			olz.getUtilizadores()[index-1].verUtilizador();
+		}
+		else if (selecao == 'A')
+		{
+
+		}
+		else if (selecao == 'E')
+		{
+
+		}
+		else if (selecao == 'O')
+		{
+
+		}
+		else if (selecao == 'P')
+		{
+
+		}
+	}
 	olz.escreverUtilizador();
 }
 
 void selecao3()
 {
-	olz.tabelaAnuncios(0,50,"nulo");
+	olz.tabelaAnuncios(0,50,"default");
+	olz.escreverAnuncio();
 }
 
 
@@ -47,15 +83,15 @@ int main() {
 		cout << "0. Sair" << endl;
 		while (selecao < 0 || selecao > 3)
 			cin >> selecao;
-	if (selecao == 0)
-		break;
-	else if (selecao == 1)
-		selecao1();
-	else if (selecao == 2)
-		selecao2();
-	else if (selecao == 3)
-		selecao3();
-	selecao = -1;
+		if (selecao == 0)
+			break;
+		else if (selecao == 1)
+			selecao1();
+		else if (selecao == 2)
+			selecao2();
+		else if (selecao == 3)
+			selecao3();
+		selecao = -1;
 	}
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;

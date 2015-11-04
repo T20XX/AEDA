@@ -29,6 +29,7 @@ public:
 	void escreverUtilizador();
 	void lerAnuncio();
 	void escreverAnuncio();
+	vector<Utilizador> getUtilizadores();
 };
 
 #endif /* OLZ_H_ */

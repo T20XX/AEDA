@@ -190,3 +190,6 @@ void Olz::escreverAnuncio() {
 
 	Anun.close();
 }
+
+
+vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
