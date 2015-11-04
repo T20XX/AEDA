@@ -37,12 +37,12 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrg
 
 void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
-	cout << setw(7) << "Email" << setw(7) << "Nome" << setw(9) << "Telemóvel" << setw(7) << "Nº Anúncio" << endl;
+	cout << setw(3) << "#" << setw(25) << "Email" << setw(9) << "Nome" << setw(9) << "Telemóvel" << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(7) << utilizadores[i].getEmail() << setw(7) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(7) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail() << setw(9) << utilizadores[i].getNome() << setw(9) << utilizadores[i].getTelemovel() << setw(9) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
