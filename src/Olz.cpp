@@ -52,7 +52,8 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr(0,14) << setw(15) << utilizadores[i].getNome().substr(0,14) << " " << setw(9) << utilizadores[i].getTelemovel().substr(0,8) << setw(9) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr();
+			cout << setw(15) << utilizadores[i].getNome().substr(0,14) << " " << setw(9) << utilizadores[i].getTelemovel().substr(0,8) << setw(9) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
@@ -213,7 +214,7 @@ void Olz::eliminaAnuncio(int ID){
 	for(int i = 0; i< utilizadores.size(); i++){
 		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
 			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
-				utilizadores[i].getAnuncios()(utilizadores[i].getAnuncios().begin() + j);
+				utilizadores[i].getAnuncios().erase(utilizadores[i].getAnuncios().begin() + j);
 		}
 	}
 }
