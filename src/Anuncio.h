@@ -34,10 +34,11 @@ class Anuncio {
 	bool mostraNome, mostraTelemovel, mostraEmail;
 	vector<Contacto> contactos;
 public:
-	Anuncio(int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
+	Anuncio(Utilizador * utilizador, int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
 	static void setNextID();
+	void setUtilizador(Utilizador * u);
 	void setNumCliques(int numCliques);
 	int getID() const;
 	int getData() const;
@@ -62,7 +63,7 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 public:
-	AnuncioVenda(int data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
+	AnuncioVenda(Utilizador * utilizador, int data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
 	string getEstado() const;
 	int getPreco() const;
@@ -74,7 +75,7 @@ public:
 class AnuncioCompra: public Anuncio {
 	int vendaID;
 public:
-	AnuncioCompra(int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID);
+	AnuncioCompra(Utilizador * utilizador, int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID);
 	void verAnuncio() const;
 	bool getTipo() const;
 	string getEstado() const;
