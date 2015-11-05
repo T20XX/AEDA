@@ -33,6 +33,7 @@ public:
 	void escreverAnuncio();
 	void addAnuncio(int index,Anuncio * a);
 	vector<Utilizador> getUtilizadores();
+	void eliminaAnuncio(int ID);
 };
 
 #endif /* OLZ_H_ */

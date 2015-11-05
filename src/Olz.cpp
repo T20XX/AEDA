@@ -203,3 +203,17 @@ void Olz::addAnuncio(int index,Anuncio * a) {
 }
 
 vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
+
+void Olz::eliminaAnuncio(int ID){
+	for(int i = 0; i < anuncios.size(); i++){
+		if(anuncios[i]->getID() == ID){
+			anuncios.erase(anuncios.begin() + i);
+		}
+	}
+	for(int i = 0; i< utilizadores.size(); i++){
+		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
+			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
+				utilizadores[i].getAnuncios()(utilizadores[i].getAnuncios().begin() + j);
+		}
+	}
+}
