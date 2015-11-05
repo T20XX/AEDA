@@ -19,7 +19,6 @@ using namespace std;
 class Olz {
 	vector<Utilizador> utilizadores;
 	vector<Anuncio *> anuncios;
-	vector<Anuncio *> anunciosFinalizados;
 public:
 	Olz();
 	virtual ~Olz();
@@ -32,6 +31,7 @@ public:
 	void lerAnuncio();
 	void escreverAnuncio();
 	void addAnuncio(int index,Anuncio * a);
+	vector<Anuncio *> getAnuncios() const;
 	vector<Utilizador> getUtilizadores();
 	void eliminaAnuncio(int ID);
 };

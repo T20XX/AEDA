@@ -211,7 +211,67 @@ void selecao3()
 void selecao4()
 {
 	olz.carregaAnuncios();
-	olz.tabelaAnuncios(0,50,"default");
+	int pag = 0, porpag= 50;
+		string selecao = "X";
+		while (selecao != "S")
+		{
+			olz.tabelaAnuncios(pag,porpag,"default");
+			cin >> selecao;
+			if (selecao == "S")
+				break;
+			else if (selecao == "V")
+			{
+				cout << "Indique o número do anuncio que deseja visualizar: ";
+				int index = -1;
+				cin >> index;
+				while (index < 1 || index > olz.getAnuncios().size())
+				{
+					cout << "Número inválido, indique outro: ";
+					cin >> index;
+				}
+				olz.getAnuncios()[index-1]->verAnuncio();
+			}
+			else if (selecao == "A")
+			{
+
+			}
+			else if (selecao == "E")
+			{
+				cout << "Indique o número do anuncio que deseja eliminar: ";
+				int index = -1;
+				cin >> index;
+				while (index < 1 || index > olz.getAnuncios().size())
+				{
+					cout << "Número inválido, indique outro: ";
+					cin >> index;
+				}
+				olz.getAnuncios()[index-1]->verAnuncio();
+			}
+			else if (selecao == "O")
+			{
+
+			}
+			else if (selecao == "P")
+			{
+				cin >> porpag;
+				while (porpag < 0)
+				{
+					cout << "Número inválido, indique outro: ";
+					cin >> porpag;
+				}
+				if (porpag == 0)
+					porpag = olz.getAnuncios().size();
+			}
+			else if (selecao == "PS")
+			{
+				pag++;
+			}
+			else if (selecao == "PA")
+			{
+				if (pag > 0)
+					pag--;
+			}
+		}
 	olz.escreverAnuncio();
 }
 
