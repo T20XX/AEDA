@@ -19,9 +19,11 @@ using namespace std;
 class Olz {
 	vector<Utilizador> utilizadores;
 	vector<Anuncio *> anuncios;
+	vector<Anuncio *> anunciosFinalizados;
 public:
 	Olz();
 	virtual ~Olz();
+	void carregaAnuncios();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
 	void addUtilizador(Utilizador u);

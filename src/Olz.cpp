@@ -21,6 +21,16 @@ Olz::~Olz() {
 	// TODO Auto-generated destructor stub
 }
 
+void Olz::carregaAnuncios(){
+	for (int i = 0; i < utilizadores.size(); i++)
+	{
+		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
+		{
+			anuncios.push_back(utilizadores[i].getAnuncios()[j]);
+		}
+	}
+}
+
 void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;

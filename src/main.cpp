@@ -37,9 +37,9 @@ void selecao2()
 	temppedir = true;
 	while(temppedir){										//email do Utilizador a fazer Anuncio
 			cin >> email;
-		for(int i = 0; i < olz.utilizadores.size(); i++)  // VE LA ISTO SFF
+		for(int i = 0; i < olz.getUtilizadores().size(); i++)  // VE LA ISTO SFF
 		{
-			if(olz.utilizadores[i].getEmail() == email)
+			if(olz.getUtilizadores()[i].getEmail() == email)
 			{
 				temppedir = false;
 				break;
@@ -209,7 +209,9 @@ void selecao4()
 
 int main() {
 	olz.lerUtilizador();
+	olz.lerAnuncio();
 	olz.addAnuncio(0, new AnuncioVenda(22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
+	olz.carregaAnuncios();
 	int selecao=-1;
 	while (selecao !=0)
 	{
