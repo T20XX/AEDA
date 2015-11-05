@@ -25,81 +25,73 @@ void selecao1()
 void selecao2()
 {
 
-	int data, preco, vendaID;
-	bool mostraEmail, mostraNome, mostraTelemovel, negociavel, temppedir;
+	int data, preco, vendaID, index = -1;
+	bool mostraEmail, mostraNome, mostraTelemovel, negociavel;
 	string email, titulo, categoria, descricao, estado;
 	char tipo = 'J';
 	char troca = 'J';
-	string mostrarEmail, mostrarNome, mostrarTelemovel;
+	char mostrar;
+	char nego;
 	cout << "Utilizador(email): " << endl << "Anuncio Venda ou Compra(C / V): " << endl << "Titulo: " << endl << "Categoria: " << endl << "Mostrar Email? " << endl
 			<< "Mostrar Nome?" << endl << "Mostrar Telemovel?" << endl << "Descrição: " << endl << "Data: " << endl;
 
-	temppedir = true;
-	while(temppedir){										//email do Utilizador a fazer Anuncio
-			cin >> email;
+	while(index == -1){										//email do Utilizador a fazer Anuncio
+		cin >> email;
 		for(int i = 0; i < olz.getUtilizadores().size(); i++)  // VE LA ISTO SFF
 		{
 			if(olz.getUtilizadores()[i].getEmail() == email)
 			{
-				temppedir = false;
+				index = i;
 				break;
 			}
 		}
-		if(temppedir)
-		cout << "Email Indisponivel, tente outra vez!" << endl;
-}
-
-	temppedir = true;
-	while(temppedir){										//tipo (venda ou compra)
-		cin >> tipo;
-		if(tipo == 'S' || tipo == 'V')
-		{
-			temppedir = false;
-		}
-		if(temppedir)
-		cout << "Tipo indisponivel, tente outra vez!" << endl;
+		if(index == -1)
+			cout << "Email Indisponivel, tente outra vez!" << endl;
 	}
-
+	cin >> tipo;
+	while(tipo != 'S' && tipo != 'V'){
+		cout << "Tipo indisponivel, tente outra vez!" << endl;//tipo (venda ou compra)
+		cin >> tipo;
+	}
 	cin >> titulo >> categoria;
 
-	temppedir = true;
-	while(temppedir){											//mostrarNome
-		cin >> mostrarNome;
-	if(mostrarNome == "Sim" || mostrarNome == "Nao"){
-		if(mostrarNome == "Sim")
-			mostraNome = true;
-		else mostraNome = false;
-		temppedir = false;
-	}
-		if(temppedir)
-		cout << "Escreva Sim ou Nao se faz o favor!" << endl;
-	}
+	cin >> mostrar;
 
-	temppedir = true;
-	while(temppedir){												//mostrarEmail
-		cin >> mostrarEmail;
-	if(mostrarEmail == "Sim" || mostrarEmail == "Nao"){
-		if(mostrarEmail == "Sim")
-			mostraEmail = true;
-		else mostraEmail = false;
-		temppedir = false;
+	while(mostrar != 'S' && mostrar != 'N'){
+		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cin >> mostrar;
 	}
-		if(temppedir)
-		cout << "Escreva Sim ou Nao se faz o favor!" << endl;
-	}
+	if(mostrar == 'S')
+		mostraNome = true;
+	else
+		mostraNome = false;
 
-	temppedir = true;
-	while(temppedir){													//mostrarTelemovel
-		cin >> mostrarTelemovel;
-	if(mostrarTelemovel == "Sim" || mostrarTelemovel == "Nao"){
-		if(mostrarTelemovel == "Sim")
-			mostraTelemovel = true;
-		else mostraTelemovel = false;
-		temppedir = false;
+	mostrar = 'A';
+
+	cin >> mostrar;
+
+	while(mostrar != 'S' && mostrar != 'N'){
+		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cin >> mostrar;
 	}
-		if(temppedir)
-		cout << "Escreva Sim ou Nao se faz o favor!" << endl;
+	if(mostrar == 'S')
+		mostraEmail = true;
+	else
+		mostraEmail = false;
+
+	mostrar = 'A';
+
+	cin >> mostrar;
+
+	while(mostrar != 'S' && mostrar != 'N'){
+		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cin >> mostrar;
 	}
+	if(mostrar == 'S')
+		mostraTelemovel = true;
+	else
+		mostraTelemovel = false;
+
 
 	cin >> descricao;													//descrição
 
@@ -112,9 +104,20 @@ void selecao2()
 		while(estado != "novo" && estado != "usando como novo" && estado != "funcional" && estado != "para peças"){
 			cin >> estado;
 		}
+		cin >> preco;
 
-		AnuncioVenda*  tempAnun = new AnuncioVenda(data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel);
-		//olz.addAnuncio(i, tempAnun);
+		cin >> nego;
+
+		while(nego != 'S' && nego != 'N'){
+				cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+				cin >> nego;
+			}
+			if(nego == 'S')
+				negociavel = true;
+			else
+				negociavel = false;
+
+		olz.addAnuncio(index, new AnuncioVenda(NULL, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
 	}
 	else {
 		cout << "Proposta de troca? (S /N) " << endl;
@@ -127,9 +130,8 @@ void selecao2()
 			cin >> vendaID;
 		}
 		else
-		vendaID = -1;
-		AnuncioCompra * tempAnun = new AnuncioCompra(data, titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID);
-	//addAnuncio(i, tempAnun);
+			vendaID = -1;
+		olz.addAnuncio(index, new AnuncioCompra(NULL, data, titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
 	}
 }
 
@@ -178,13 +180,13 @@ void selecao3()
 		else if (selecao == "P")
 		{
 			cin >> porpag;
-						while (porpag < 0)
-						{
-							cout << "Número inválido, indique outro: ";
-							cin >> porpag;
-						}
-						if (porpag == 0)
-							porpag = olz.getUtilizadores().size();
+			while (porpag < 0)
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> porpag;
+			}
+			if (porpag == 0)
+				porpag = olz.getUtilizadores().size();
 		}
 		else if (selecao == "PS")
 		{
@@ -201,6 +203,7 @@ void selecao3()
 
 void selecao4()
 {
+	olz.carregaAnuncios();
 	olz.tabelaAnuncios(0,50,"default");
 	olz.escreverAnuncio();
 }
@@ -210,7 +213,9 @@ void selecao4()
 int main() {
 	olz.lerUtilizador();
 	olz.lerAnuncio();
-	olz.addAnuncio(0, new AnuncioVenda(22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
+	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
+	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
+	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
 	olz.carregaAnuncios();
 	int selecao=-1;
 	while (selecao !=0)

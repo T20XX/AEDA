@@ -22,6 +22,7 @@ Olz::~Olz() {
 }
 
 void Olz::carregaAnuncios(){
+	anuncios.clear();
 	for (int i = 0; i < utilizadores.size(); i++)
 	{
 		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
@@ -115,7 +116,7 @@ void Olz::escreverUtilizador() {
 
 void Olz::lerAnuncio() {
 	string titulo, categoria, descricao, email, tipo, estado;
-	int ID, numCliques, data, preco;
+	int ID, numCliques, data, preco, vendaID;
 	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
 
 	ifstream Anun;
@@ -141,7 +142,7 @@ void Olz::lerAnuncio() {
 			Anun >> negociavel;
 		}
 		else if(tipo == "AnuncioCompra"){
-			Anun >> ID;
+			Anun >> vendaID;
 		}
 		Anuncio::setNextID();
 		for(int i = 0 ; i < utilizadores.size();i++)
@@ -152,11 +153,11 @@ void Olz::lerAnuncio() {
 				if(tipo == "AnuncioVenda")
 				{
 
-					tempanun = new AnuncioVenda(data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
+					//tempanun = new AnuncioVenda(utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
 				}
 				else if(tipo == "AnuncioCompra")
 				{
-					tempanun = new AnuncioCompra(data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID);
+					//tempanun = new AnuncioCompra(utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
 				}
 				tempanun->setNumCliques(numCliques);
 				utilizadores[i].addAnuncio(tempanun);
@@ -175,8 +176,8 @@ void Olz::escreverAnuncio() {
 		if(anuncios[i]->getTipo())
 			Anun << "AnuncioVenda" << endl;
 		else Anun << "AnuncioCompra" << endl;
-		Anun << anuncios[i]->getUtilizador()->getEmail() << endl
-				<< anuncios[i]->getTitulo()<<endl
+		//Anun << anuncios[i]->getUtilizador()->getEmail() << endl
+				Anun << anuncios[i]->getTitulo()<<endl
 				<< anuncios[i]->getCategoria() <<endl
 				<< anuncios[i]->getID()<<endl
 				<< anuncios[i]->getData()<<endl
@@ -200,6 +201,7 @@ void Olz::escreverAnuncio() {
 }
 
 void Olz::addAnuncio(int index,Anuncio * a) {
+	a->setUtilizador(&utilizadores[index]);
 	utilizadores[index].addAnuncio(a);
 }
 
