@@ -53,8 +53,8 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr();
-			cout << setw(15) << utilizadores[i].getNome().substr(0,14) << " " << setw(9) << utilizadores[i].getTelemovel().substr(0,8) << setw(9) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr(0,24);
+			cout << setw(15) << utilizadores[i].getNome().substr(0,14) << " " << setw(9) << utilizadores[i].getTelemovel() << setw(9) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
@@ -204,6 +204,9 @@ void Olz::addAnuncio(int index,Anuncio * a) {
 	a->setUtilizador(&utilizadores[index]);
 	utilizadores[index].addAnuncio(a);
 }
+
+
+vector<Anuncio *> Olz::getAnuncios() const {return anuncios;}
 
 vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
 
