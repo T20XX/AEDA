@@ -37,9 +37,9 @@ void selecao2()
 	temppedir = true;
 	while(temppedir){										//email do Utilizador a fazer Anuncio
 			cin >> email;
-		for(int i = 0; i < Olz::utilizadores.size(); i++)
+		for(int i = 0; i < olz.utilizadores.size(); i++)  // VE LA ISTO SFF
 		{
-			if(Olz::utilizadores[i].getEmail() == email)
+			if(olz.utilizadores[i].getEmail() == email)
 			{
 				temppedir = false;
 				break;
