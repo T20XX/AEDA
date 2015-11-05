@@ -11,15 +11,22 @@ void selecao1()
 	string nome, email, freguesia, concelho, distrito;
 	int telemovel;
 
-	cout << "Nome: " << endl << "Email: " << endl << "Telemovel: " << endl << "Freguesia: " << endl << "Concelho: " << endl << "Distrito: " << endl;
-
-	cin >> nome >> email >> telemovel >> freguesia >> concelho >> distrito;
+	cout << "Nome: ";
+	cin >> nome;
+	cout << endl << "Email: ";
+	cin >> email;
+	cout << endl << "Telemóvel: ";
+	cin >> telemovel;
+	cout << endl << "Concelho: "
+	cin >> concelho;
+	cout << endl << "Distrito: ";
+	cin >> distrito;
 
 	Localizacao tempLocal(freguesia, concelho, distrito);
 	Utilizador tempUti(email, nome, telemovel, tempLocal);
 	olz.addUtilizador(tempUti);
 
-	cout << "Utilizador criado com sucesso" << endl;
+	cout << "Utilizador criado com sucesso." << endl;
 }
 
 void selecao2()
