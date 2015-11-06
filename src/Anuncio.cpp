@@ -10,6 +10,46 @@
 #include <vector>
 #include <sstream>
 
+
+//DATA
+
+Data::Data(string data){
+	stringstream s1;
+	char tempchar;
+	s1 << data;
+	s1 >> dia >> tempchar >> mes >> tempchar >> ano;
+}
+
+Data::Data(int dia, int mes, int ano): dia(dia), mes(mes), ano(ano){}
+
+int Data::getAno() const{return ano;}
+int Data::getMes() const{return mes;}
+int Data::getDia() const{return dia;}
+
+ostream& operator<<(std::ostream& os, const Data d1)
+{
+  os << d1.getDia() << "/ " << d1.getMes() << " /" << d1.getAno();
+  return os;
+}
+
+bool Data::operator <(const Data d1){
+	if(ano < d1.getAno())
+		return true;
+	else if(ano > d1.getAno())
+		return false;
+	else {
+		if(mes < d1.getMes())
+			return true;
+		else if(mes > d1.getMes())
+			return false;
+		else{
+			if(dia < d1.getDia())
+				return true;
+			else return false;
+		}
+	}
+}
+
 //CONTACTO
 
 Contacto::Contacto(string nome, string email,string contacto)
@@ -114,42 +154,3 @@ string AnuncioCompra::getEstado() const {return "nulo";}
 int AnuncioCompra::getPreco() const {return 0;}
 
 bool AnuncioCompra::getNegociavel() const {return false;}
-
-//data
-
-Data::Data(string data){
-	stringstream s1;
-	char tempchar;
-	s1 << data;
-	s1 >> dia >> tempchar >> mes >> tempchar >> ano;
-}
-
-Data::Data(int dia, int mes, int ano): dia(dia), mes(mes), ano(ano){}
-
-int Data::getAno() const{return ano;}
-int Data::getMes() const{return mes;}
-int Data::getDia() const{return dia;}
-
-ostream& operator<<(std::ostream& os, const Data d1)
-{
-  os << d1.getDia() << "/ " << d1.getMes() << " /" << d1.getAno();
-  return os;
-}
-
-bool Data::operator <(const Data d1){
-	if(ano < d1.getAno())
-		return true;
-	else if(ano > d1.getAno())
-		return false;
-	else {
-		if(mes < d1.getMes())
-			return true;
-		else if(mes > d1.getMes())
-			return false;
-		else{
-			if(dia < d1.getDia())
-				return true;
-			else return false;
-		}
-	}
-}

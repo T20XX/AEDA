@@ -18,6 +18,19 @@ using namespace std;
 
 class Utilizador;
 
+
+class Data{
+	int ano, mes, dia;
+public:
+	Data(string data);
+	Data(int dia, int mes, int ano);
+	friend ostream& operator<<(std::ostream& os, const Data d1);
+	int getAno() const;
+	int getMes() const;
+	int getDia() const;
+	bool operator <(const Data d1);
+};
+
 class Contacto {
 	string nome, email, contacto;
 public:
@@ -83,17 +96,5 @@ public:
 	int getPreco() const;
 	bool getNegociavel() const;
 	int getVendaID() const;
-};
-
-class Data{
-	int ano, mes, dia;
-public:
-	Data(string data);
-	Data(int dia, int mes, int ano);
-	friend ostream& operator<<(std::ostream& os, const Data d1);
-	int getAno() const;
-	int getMes() const;
-	int getDia() const;
-	bool operator <(const Data d1);
 };
 #endif /* ANUNCIO_H_ */
