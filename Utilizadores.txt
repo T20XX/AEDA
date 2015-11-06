@@ -1,6 +1,13 @@
+Rosa@gmail.com
+Nome
+914009477
+Lisboa
+Lisboa
+Lisboa
+
 telmo.20
-Telmo
-9829823
+telmo
+112
 um
 dois
 tres
@@ -11,11 +18,4 @@ tono
 um
 dois
 tres
-
-RosaChupaPilas@brochemail.com
-Rosa
-914009477
-Chupa
-Bues
-Pilas
 
