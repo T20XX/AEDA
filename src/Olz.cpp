@@ -297,30 +297,14 @@ void Olz::escreverContactos(){
 
 	Cont.open("Contactos.txt", ofstream::out | ofstream::trunc);
 
-	for(int i=0; i < anuncios.size();i++) {
-		if(anuncios[i]->getData()))
-		Anun << anuncios[i]->getUtilizador()->getEmail() << endl
-				<< anuncios[i]->getTitulo()<<endl
-				<< anuncios[i]->getCategoria() <<endl
-				<< anuncios[i]->getID()<<endl
-				<< anuncios[i]->getData()<<endl
-				<< anuncios[i]->getnumCliques()<<endl
-				<< anuncios[i]->getmostraNome()<<endl
-				<< anuncios[i]->getmostraTelemovel()<<endl
-				<< anuncios[i]->getmostraEmail()<<endl
-				<< anuncios[i]->getDescricao()<<endl;
-		if(anuncios[i]->getTipo())
-		{
-			Anun << anuncios[i]->getEstado()<<endl
-					<< anuncios[i]->getPreco()<<endl
-					<< anuncios[i]->getNegociavel()<<endl;
-		}
-		else {
-			Anun <<anuncios[i]->getVendaID() << endl;
-		}
-		Anun << endl;
+	for(int i=0; i < contactos.size();i++) {
+		Cont << contactos[i]->getData() << endl
+				<< contactos[i]->getAnuncio()->getID() <<endl
+				<<  contactos[i]->getEmail() <<endl
+				<< contactos[i]->getContacto()<<endl
+				<< endl;
 	}
-	Anun.close();*/
+	Cont.close();
 }
 
 void Olz::addAnuncio(int index,Anuncio * a) {
