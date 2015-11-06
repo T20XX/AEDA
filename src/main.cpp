@@ -205,11 +205,11 @@ void selecao3()
 			cin.ignore();
 
 					if(tempinfo == "Nome")
-						olz.getUtilizadores()[index-1].setNome(tempinfo);
+						olz.setUtiNome(index-1,tempinfo);
 					else if(tempinfo == "Telemovel")
-						olz.getUtilizadores()[index-1].setTelemovel(tempinfo);
+						olz.setUtiTelemovel(index-1,tempinfo);
 					else if(tempinfo == "Localizacao")
-						olz.getUtilizadores()[index-1].setDescricao(tempinfo);
+						olz.setUtiLocalizacao(index-1,tempinfo,tempinfo,tempinfo);
 					break;
 				}
 
