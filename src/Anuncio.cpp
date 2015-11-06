@@ -117,21 +117,39 @@ bool AnuncioCompra::getNegociavel() const {return false;}
 
 //data
 
-data::data(string data){
+Data::Data(string data){
 	stringstream s1;
 	char tempchar;
 	s1 << data;
 	s1 >> dia >> tempchar >> mes >> tempchar >> ano;
 }
 
-data:data(int dia, int mes, int ano): dia(dia), mes(mes), ano(ano){}
+Data::Data(int dia, int mes, int ano): dia(dia), mes(mes), ano(ano){}
 
-int data::getAno() const{return ano;}
-int data::getMes() const{return mes;}
-int data::getDia() const{return dia;}
+int Data::getAno() const{return ano;}
+int Data::getMes() const{return mes;}
+int Data::getDia() const{return dia;}
 
-ostream& operator<<(std::ostream& os, const data d1)
+ostream& operator<<(std::ostream& os, const Data d1)
 {
   os << d1.getDia() << "/ " << d1.getMes() << " /" << d1.getAno();
   return os;
+}
+
+bool Data::operator <(const Data d1){
+	if(ano < d1.getAno())
+		return true;
+	else if(ano > d1.getAno())
+		return false;
+	else {
+		if(mes < d1.getMes())
+			return true;
+		else if(mes > d1.getMes())
+			return false;
+		else{
+			if(dia < d1.getDia())
+				return true;
+			else return false;
+		}
+	}
 }
