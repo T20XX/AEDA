@@ -30,13 +30,13 @@ bool ND(const Utilizador &u1,const Utilizador &u2){
 }
 bool AA(const Utilizador &u1,const Utilizador &u2){
 	if(u1.getAnuncios().size() == u2.getAnuncios().size())
-			return NA(u1,u2);
+		return NA(u1,u2);
 	else
 		return (u1.getAnuncios().size() < u2.getAnuncios().size());
 }
 bool AD(const Utilizador &u1,const Utilizador &u2){
 	if(u1.getAnuncios().size() == u2.getAnuncios().size())
-			return ND(u1,u2);
+		return ND(u1,u2);
 	else
 		return (u1.getAnuncios().size() > u2.getAnuncios().size());
 }
@@ -85,16 +85,20 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 {
 	if (tipoOrd == "EA")
 		sort(utilizadores.begin(),utilizadores.end(),EA);
-	if (tipoOrd == "ED")
+	else if (tipoOrd == "ED")
 		sort(utilizadores.begin(),utilizadores.end(),ED);
-	if (tipoOrd == "NA")
+	else if (tipoOrd == "NA")
 		sort(utilizadores.begin(),utilizadores.end(), NA);
-	if(tipoOrd == "ND")
+	else if(tipoOrd == "ND")
 		sort(utilizadores.begin(),utilizadores.end(),ND);
-	if(tipoOrd == "DA")
+	else if (tipoOrd == "AA")
 		sort(utilizadores.begin(),utilizadores.end(),AA);
-	if(tipoOrd == "DD")
+	else if (tipoOrd == "AD")
 		sort(utilizadores.begin(),utilizadores.end(),AD);
+	if(tipoOrd == "DA")
+		sort(utilizadores.begin(),utilizadores.end(),DA);
+	if(tipoOrd == "DD")
+		sort(utilizadores.begin(),utilizadores.end(),DD);
 	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
