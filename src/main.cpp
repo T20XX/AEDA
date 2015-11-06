@@ -245,6 +245,11 @@ void selecao3()
 		}
 		else if (selecao == "P")
 		{
+olz.pesquisarUtilizador("N","elmo");
+tipoOrd= "nulo";
+		}
+		else if (selecao == "PP")
+		{
 			cin >> porpag;
 			while (porpag < 0)
 			{
@@ -361,7 +366,7 @@ void selecao4()
 		{
 
 		}
-		else if (selecao == "P")
+		else if (selecao == "PP")
 		{
 			cin >> porpag;
 			while (porpag < 0)

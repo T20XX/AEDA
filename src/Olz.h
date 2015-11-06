@@ -42,7 +42,7 @@ public:
 	void setUtiNome(int index, string nome);
 	void setUtiTelemovel(int index, int telemovel);
 	void setUtiLocalizacao(int index, Localizacao localizacao);
-	int pesquisaUtilizador(string atributo, string pesquisa);
+	int pesquisarUtilizador(string atributo, string pesquisa);
 	void tabelaContactos(int num_pagina, int num_contactos_pagina, string tipoOrd);
 };
 
