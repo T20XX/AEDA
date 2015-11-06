@@ -278,14 +278,23 @@ void selecao4()
 				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
 				if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
 				{
-					if(tempinfo == "Titulo")
+					if(tempinfo == "Titulo"){
+						cout << "Titulo novo: ";
+					cin >> tempinfo;
 						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
-					else if(tempinfo == "Categoria")
+					}
+					else if(tempinfo == "Categoria"){
+						cout << "Categoria nova: ";
+					cin >> tempinfo;
 						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
-					else if(tempinfo == "Descrição")
+					}
+					else if(tempinfo == "Descrição"){
+						cout << "Nova descrição: ";
+						cin >>tempinfo ;
 						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
+					}
 					else if(tempinfo == "Mostra Email")
-						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
+					olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
 					else if(tempinfo == "Mostra Nome")
 						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
 					else if(tempinfo == "Mostra Telemovel")
