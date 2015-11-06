@@ -131,13 +131,13 @@ void selecao2()
 		cin >> nego;
 
 		while(nego != 'S' && nego != 'N'){
-				cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
-				cin >> nego;
-			}
-			if(nego == 'S')
-				negociavel = true;
-			else
-				negociavel = false;
+			cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
+			cin >> nego;
+		}
+		if(nego == 'S')
+			negociavel = true;
+		else
+			negociavel = false;
 
 		olz.addAnuncio(index, new AnuncioVenda(NULL, Data(data), titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
 	}
@@ -231,35 +231,35 @@ void selecao4()
 {
 	olz.carregaAnuncios();
 	int pag = 0, porpag= 50;
-		string selecao = "X";
-		while (selecao != "S")
+	string selecao = "X";
+	while (selecao != "S")
+	{
+		olz.tabelaAnuncios(pag,porpag,"default");
+		cin >> selecao;
+		if (selecao == "S")
+			break;
+		else if (selecao == "V")
 		{
-			olz.tabelaAnuncios(pag,porpag,"default");
-			cin >> selecao;
-			if (selecao == "S")
-				break;
-			else if (selecao == "V")
+			cout << "Indique o número do anuncio que deseja visualizar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getAnuncios().size())
 			{
-				cout << "Indique o número do anuncio que deseja visualizar: ";
-				int index = -1;
+				cout << "Número inválido, indique outro: ";
 				cin >> index;
-				while (index < 1 || index > olz.getAnuncios().size())
-				{
-					cout << "Número inválido, indique outro: ";
-					cin >> index;
-				}
-				olz.getAnuncios()[index-1]->verAnuncio();
 			}
-			else if (selecao == "A")
+			olz.getAnuncios()[index-1]->verAnuncio();
+		}
+		else if (selecao == "A")
+		{
+			cout << "Indique o número do anuncio que deseja alterar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getAnuncios().size())
 			{
-				cout << "Indique o número do anuncio que deseja eliminar: ";
-				int index = -1;
+				cout << "Número inválido, indique outro: ";
 				cin >> index;
-				while (index < 1 || index > olz.getAnuncios().size())
-				{
-					cout << "Número inválido, indique outro: ";
-					cin >> index;
-				}
+			}
 
 			cout <<"Indique o que deseja alterar do Anúncio: ";
 			string tempinfo = "erro";
@@ -272,56 +272,66 @@ void selecao4()
 				cin >> tempinfo;
 			}
 
-			if(tempinfo == "Titulo")
-				olz.anuncios[index-1]->setTitulo(tempinfo);
-			else if(tempinfo == "Categoria")
-				olz.anuncios[index*1]->setCategoria(tempinfo);
-			else if(tempinfo == "Descrição")
-				olz.anuncios[index-1]->setDescricao(tempinfo);
-			else if(tempinfo == "Mostrar Email")
-				olz.anuncios[index-1]->setmostrarEmail();
-			else if(tempinfo == "Mostrar Nome")
-				olz.anuncios[index-1]->setmostrarNome();
-			else if(tempinfo == "Mostrar Telemovel")
-				olz.anuncios[index-1]->setmostrarTelemovel();
-			}
-			else if (selecao == "E")
-			{
-				cout << "Indique o número do anuncio que deseja eliminar: ";
-				int index = -1;
-				cin >> index;
-				while (index < 1 || index > olz.getAnuncios().size())
-				{
-					cout << "Número inválido, indique outro: ";
-					cin >> index;
-				}
-				olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
-			}
-			else if (selecao == "O")
-			{
 
-			}
-			else if (selecao == "P")
+			for (int i=0; i < olz.getUtilizadores().size(); i++)
 			{
-				cin >> porpag;
-				while (porpag < 0)
+				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
+				if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
 				{
-					cout << "Número inválido, indique outro: ";
-					cin >> porpag;
+					if(tempinfo == "Titulo")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
+					else if(tempinfo == "Categoria")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
+					else if(tempinfo == "Descrição")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
+					else if(tempinfo == "Mostra Email")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
+					else if(tempinfo == "Mostra Nome")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
+					else if(tempinfo == "Mostra Telemovel")
+						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
+					break;
 				}
-				if (porpag == 0)
-					porpag = olz.getAnuncios().size();
-			}
-			else if (selecao == "PS")
-			{
-				pag++;
-			}
-			else if (selecao == "PA")
-			{
-				if (pag > 0)
-					pag--;
 			}
 		}
+
+		else if (selecao == "E")
+		{
+			cout << "Indique o número do anuncio que deseja eliminar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getAnuncios().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+			olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
+		}
+		else if (selecao == "O")
+		{
+
+		}
+		else if (selecao == "P")
+		{
+			cin >> porpag;
+			while (porpag < 0)
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> porpag;
+			}
+			if (porpag == 0)
+				porpag = olz.getAnuncios().size();
+		}
+		else if (selecao == "PS")
+		{
+			pag++;
+		}
+		else if (selecao == "PA")
+		{
+			if (pag > 0)
+				pag--;
+		}
+	}
 	olz.escreverAnuncios();
 }
 

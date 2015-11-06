@@ -54,7 +54,7 @@ bool DD(const Utilizador &u1,const Utilizador &u2){
 
 //bool para ordenar anuncios
 bool IA(const Anuncio &a1,const Anuncio &a2){return (a1.getID() < a2.getID());}
-bool ID(const Anuncio &a1,const Anuncio &a1){return (a1.getID() > a2.getID());}
+bool ID(const Anuncio &a1,const Anuncio &a2){return (a1.getID() > a2.getID());}
 bool DaA(const Anuncio &a1,const Anuncio &a2){
 	if(a1.getData() == a2.getData())
 		return IA(a1,a2);
@@ -110,6 +110,21 @@ void Olz::carregaAnuncios(){
 		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
 		{
 			anuncios.push_back(utilizadores[i].getAnuncios()[j]);
+		}
+	}
+}
+
+
+void Olz::carregaContactos(){
+	contactos.clear();
+	for (int i = 0; i < utilizadores.size(); i++)
+	{
+		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
+		{
+			for (int k = 0; k < utilizadores[i].getAnuncios()[j]->getContactos().size(); k++)
+			{
+				contactos.push_back(utilizadores[i].getAnuncios()[j]->getContactos()[k]);
+			}
 		}
 	}
 }
@@ -330,7 +345,7 @@ void Olz::lerContactos(){
 			{
 				for (int j= 0 ; j < utilizadores[i].getAnuncios().size(); j++)
 				{
-					utilizadores[i].getAnuncios()[j]->addContacto(Contacto(utilizadores[i].getAnuncios()[j],Data(data),email,contacto));
+					utilizadores[i].getAnuncios()[j]->addContacto(new Contacto(utilizadores[i].getAnuncios()[j],Data(data),email,contacto));
 				}
 			}
 			getline(Cont,data);

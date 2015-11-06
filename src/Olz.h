@@ -24,6 +24,7 @@ public:
 	Olz();
 	virtual ~Olz();
 	void carregaAnuncios();
+	void carregaContactos();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	void addUtilizador(Utilizador u);
