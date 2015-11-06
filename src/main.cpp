@@ -258,7 +258,7 @@ void selecao4()
 					cout << "Número inválido, indique outro: ";
 					cin >> index;
 				}
-				olz.getAnuncios()[index-1]->verAnuncio();
+				olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
 			}
 			else if (selecao == "O")
 			{
