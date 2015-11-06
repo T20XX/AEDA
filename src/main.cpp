@@ -207,12 +207,10 @@ void selecao3()
 					if(tempinfo == "Nome")
 						olz.setUtiNome(index-1,tempinfo);
 					else if(tempinfo == "Telemovel")
-						olz.setUtiTelemovel(index-1,tempinfo);
+						olz.setUtiTelemovel(index-1,0);
 					else if(tempinfo == "Localizacao")
-						olz.setUtiLocalizacao(index-1,tempinfo,tempinfo,tempinfo);
+						olz.setUtiLocalizacao(index-1,Localizacao(tempinfo,tempinfo,tempinfo));
 					break;
-				}
-
 		}
 		else if (selecao == "E")
 		{
@@ -293,7 +291,7 @@ void selecao4()
 			string tempinfo = "erro";
 			cin >> tempinfo;
 
-			while(tempinfo != "T" && tempinfo!= "C" && tempinfo!= "D" && tempinfo != "ME" && tempinfo != "MN" && tempinfo != "MT")
+			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostra Email" && tempinfo != "Mostra Nome" && tempinfo != "Mostra Telemovel")
 			{
 
 				cout << "Informação Invalida, tente outra vez: ";
@@ -306,26 +304,26 @@ void selecao4()
 				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
 				if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
 				{
-					if(tempinfo == "T"){
+					if(tempinfo == "Titulo"){
 						cout << "Titulo novo: ";
 					getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
 					}
-					else if(tempinfo == "C"){
+					else if(tempinfo == "Categoria"){
 						cout << "Categoria nova: ";
 						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
 					}
-					else if(tempinfo == "D"){
+					else if(tempinfo == "Descrição"){
 						cout << "Nova descrição: ";
 						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
 					}
-					else if(tempinfo == "ME")
+					else if(tempinfo == "Mostra Email")
 					olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
-					else if(tempinfo == "MN")
+					else if(tempinfo == "Mostra Nome")
 						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
-					else if(tempinfo == "MT")
+					else if(tempinfo == "Mostra Telemovel")
 						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
 					break;
 				}
