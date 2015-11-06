@@ -40,7 +40,16 @@ bool AD(const Utilizador &u1,const Utilizador &u2){
 	else
 		return (u1.getAnuncios().size() > u2.getAnuncios().size());
 }
-
+bool DA(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getLocalizacao().getDistrito() == u2.getLocalizacao().getDistrito())
+		return AA(u1,u2);
+	else return (u1.getLocalizacao().getDistrito() < u2.getLocalizacao().getDistrito());
+}
+bool DD(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getLocalizacao().getDistrito() == u2.getLocalizacao().getDistrito())
+		return AD(u1,u2);
+	else return (u1.getLocalizacao().getDistrito() > u2.getLocalizacao().getDistrito());
+}
 Olz::Olz() {}
 
 Olz::~Olz() {
@@ -82,6 +91,10 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 		sort(utilizadores.begin(),utilizadores.end(), NA);
 	if(tipoOrd == "ND")
 		sort(utilizadores.begin(),utilizadores.end(),ND);
+	if(tipoOrd == "DA")
+		sort(utilizadores.begin(),utilizadores.end(),AA);
+	if(tipoOrd == "DD")
+		sort(utilizadores.begin(),utilizadores.end(),AD);
 	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
