@@ -114,3 +114,24 @@ string AnuncioCompra::getEstado() const {return "nulo";}
 int AnuncioCompra::getPreco() const {return 0;}
 
 bool AnuncioCompra::getNegociavel() const {return false;}
+
+//data
+
+data::data(string data){
+	stringstream s1;
+	char tempchar;
+	s1 << data;
+	s1 >> dia >> tempchar >> mes >> tempchar >> ano;
+}
+
+data:data(int dia, int mes, int ano): dia(dia), mes(mes), ano(ano){}
+
+int data::getAno() const{return ano;}
+int data::getMes() const{return mes;}
+int data::getDia() const{return dia;}
+
+ostream& operator<<(std::ostream& os, const data d1)
+{
+  os << d1.getDia() << "/ " << d1.getMes() << " /" << d1.getAno();
+  return os;
+}
