@@ -30,6 +30,8 @@ public:
 	int getMes() const;
 	int getDia() const;
 	bool operator <(const Data d1);
+	bool operator >(const Data d1);
+	bool operator ==(const Data d1);
 };
 
 class Contacto {

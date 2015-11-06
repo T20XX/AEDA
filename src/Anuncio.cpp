@@ -49,7 +49,37 @@ bool Data::operator <(const Data d1){
 		}
 	}
 }
+bool Data::operator >(const Data d1){
+	if(ano > d1.getAno())
+		return true;
+	else if(ano < d1.getAno())
+		return false;
+	else {
+		if(mes > d1.getMes())
+			return true;
+		else if(mes < d1.getMes())
+			return false;
+		else{
+			if(dia > d1.getDia())
+				return true;
+			else return false;
+		}
+	}
+}
 
+bool Data::operator ==(const Data d1){
+	if(ano == d1.getAno())
+	{
+		if(mes == d1.getMes())
+		{
+			if(dia == d1.getDia())
+				return true;
+			else return false;S
+		}
+		else return false;
+	}
+	else return false;
+}
 //CONTACTO
 
 Contacto::Contacto(Anuncio * anuncio, Data data, string email,string contacto)
