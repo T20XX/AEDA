@@ -252,7 +252,38 @@ void selecao4()
 			}
 			else if (selecao == "A")
 			{
+				cout << "Indique o número do anuncio que deseja eliminar: ";
+				int index = -1;
+				cin >> index;
+				while (index < 1 || index > olz.getAnuncios().size())
+				{
+					cout << "Número inválido, indique outro: ";
+					cin >> index;
+				}
 
+			cout <<"Indique o que deseja alterar do Anúncio: ";
+			string tempinfo = "erro";
+			cin >> tempinfo;
+
+			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostrar Email" && tempinfo != "Mostrar Nome" && tempinfo != "Mostrar Telemovel")
+			{
+
+				cout << "Informação Invalida, tente outra vez: ";
+				cin >> tempinfo;
+			}
+
+			if(tempinfo == "Titulo")
+				olz.anuncios[index-1]->setTitulo(tempinfo);
+			else if(tempinfo == "Categoria")
+				olz.anuncios[index*1]->setCategoria(tempinfo);
+			else if(tempinfo == "Descrição")
+				olz.anuncios[index-1]->setDescricao(tempinfo);
+			else if(tempinfo == "Mostrar Email")
+				olz.anuncios[index-1]->setmostrarEmail();
+			else if(tempinfo == "Mostrar Nome")
+				olz.anuncios[index-1]->setmostrarNome();
+			else if(tempinfo == "Mostrar Telemovel")
+				olz.anuncios[index-1]->setmostrarTelemovel();
 			}
 			else if (selecao == "E")
 			{
