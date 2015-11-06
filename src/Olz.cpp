@@ -135,6 +135,7 @@ void Olz::lerAnuncio() {
 		Anun >> mostraNome;
 		Anun >> mostraTelemovel;
 		Anun >> mostraEmail;
+		Anun.ignore();
 		getline(Anun, descricao);
 		if(tipo == "AnuncioVenda"){
 			getline(Anun, estado);
@@ -153,14 +154,14 @@ void Olz::lerAnuncio() {
 				if(tipo == "AnuncioVenda")
 				{
 
-					//tempanun = new AnuncioVenda(utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
+					tempanun = new AnuncioVenda(NULL,utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
 				}
 				else if(tipo == "AnuncioCompra")
 				{
-					//tempanun = new AnuncioCompra(utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
+					tempanun = new AnuncioCompra(NULL,utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
 				}
 				tempanun->setNumCliques(numCliques);
-				utilizadores[i].addAnuncio(tempanun);
+				addAnuncio(i,(tempanun));
 			}
 		}
 	}
@@ -176,8 +177,8 @@ void Olz::escreverAnuncio() {
 		if(anuncios[i]->getTipo())
 			Anun << "AnuncioVenda" << endl;
 		else Anun << "AnuncioCompra" << endl;
-		//Anun << anuncios[i]->getUtilizador()->getEmail() << endl
-				Anun << anuncios[i]->getTitulo()<<endl
+		Anun << anuncios[i]->getUtilizador()->getEmail() << endl
+				<< anuncios[i]->getTitulo()<<endl
 				<< anuncios[i]->getCategoria() <<endl
 				<< anuncios[i]->getID()<<endl
 				<< anuncios[i]->getData()<<endl
