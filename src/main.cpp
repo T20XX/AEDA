@@ -36,9 +36,9 @@ void selecao1()
 void selecao2()
 {
 
-	int data, preco, vendaID, index = -1;
+	int preco, vendaID, index = -1;
 	bool mostraEmail, mostraNome, mostraTelemovel, negociavel;
-	string email, titulo, categoria, descricao, estado;
+	string email, titulo, categoria, descricao, estado, data;
 	char tipo = 'J';
 	char troca = 'J';
 	char mostrar;
@@ -64,6 +64,8 @@ void selecao2()
 		cout << "Por favor, escreva C (de Compra) ou V (de Venda)." << endl; //tipo (venda ou compra)
 		cin >> tipo;
 	}
+	cout << "Data(dd/mm/aaaa): ";
+	cin >>data;
 	cin.ignore();
 	cout << "Título: ";
 	getline(cin, titulo);
@@ -104,13 +106,14 @@ void selecao2()
 	while(mostrar != 'S' && mostrar != 'N'){
 		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
 		cin >> mostrar;
-		cin.ignore();
 	}
 	if(mostrar == 'S')
 		mostraTelemovel = true;
 	else
 		mostraTelemovel = false;
 
+	cout << "Descrição: ";
+	cin.ignore();
 	getline(cin, descricao);												//descrição
 
 	if(tipo == 'V')
@@ -136,11 +139,11 @@ void selecao2()
 			else
 				negociavel = false;
 
-		olz.addAnuncio(index, new AnuncioVenda(NULL, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
+		olz.addAnuncio(index, new AnuncioVenda(NULL, Data(data), titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
 	}
 	else {
 		cout << "Proposta de troca? ( S / N ) " << endl;
-		while(troca != 'S' || troca !='N'){
+		while(troca != 'S' && troca !='N'){
 			cin >> troca;
 		}
 		if(troca == 'S')
@@ -150,7 +153,7 @@ void selecao2()
 		}
 		else
 			vendaID = -1;
-		olz.addAnuncio(index, new AnuncioCompra(NULL, data, titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
+		olz.addAnuncio(index, new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
 	}
 }
 

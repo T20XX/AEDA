@@ -41,12 +41,12 @@ class Anuncio {
 	static int nextID;
 	string titulo, categoria, descricao; //imagens?
 	int ID, numCliques;
-	int data;
+	Data data;
 	Utilizador * utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
 	vector<Contacto> contactos;
 public:
-	Anuncio(Utilizador * utilizador, int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
+	Anuncio(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
 	static void setNextID(int ID);
@@ -54,7 +54,7 @@ public:
 	void setUtilizador(Utilizador * u);
 	void setNumCliques(int numCliques);
 	int getID() const;
-	int getData() const;
+	Data getData() const;
 	int getnumCliques() const;
 	string getTitulo() const;
 	string getCategoria() const;
@@ -76,7 +76,7 @@ class AnuncioVenda: public Anuncio {
 	int preco;
 	bool negociavel;
 public:
-	AnuncioVenda(Utilizador * utilizador, int data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
+	AnuncioVenda(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
 	void verAnuncio() const;
 	string getEstado() const;
 	int getPreco() const;
@@ -88,7 +88,7 @@ public:
 class AnuncioCompra: public Anuncio {
 	int vendaID;
 public:
-	AnuncioCompra(Utilizador * utilizador, int data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID);
+	AnuncioCompra(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID);
 	void verAnuncio() const;
 	bool getTipo() const;
 	string getEstado() const;
