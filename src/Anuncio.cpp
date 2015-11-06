@@ -173,6 +173,7 @@ AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, s
 
 void AnuncioCompra::verAnuncio() const{
 	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
+
 	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
 }
 
