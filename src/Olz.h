@@ -26,7 +26,7 @@ public:
 	void carregaAnuncios();
 	void carregaContactos();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
-	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd);
+	void tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd);
 	void addUtilizador(Utilizador u);
 	void lerUtilizadores();
 	void escreverUtilizadores();
@@ -42,6 +42,7 @@ public:
 	void setUtiNome(int index, string nome);
 	void setUtiTelemovel(int index, int telemovel);
 	void setUtiLocalizacao(int index, Localizacao localizacao);
+	void tabelaContactos(int num_pagina, int num_contactos_pagina, string tipoOrd);
 };
 
 #endif /* OLZ_H_ */

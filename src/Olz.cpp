@@ -97,6 +97,33 @@ bool NCD(const Anuncio &a1,const Anuncio &a2){
 		return ID(a1,a2);
 	else return (a1.getnumCliques() > a2.getnumCliques());
 }
+
+//bool ordenar contactos
+
+bool CDA(Contacto &c1, Contacto &c2){return (c1.getData() < c2.getData());}
+bool CDD(Contacto &c1, Contacto &c2){return (c1.getData() > c2.getData());}
+bool CAA(Contacto &c1, Contacto &c2){
+	if(c1.getAnuncio()->getID() == c2.getAnuncio()->getID())
+		return CDA(c1, c2);
+	return (c1.getAnuncio()->getID < c2.getAnuncio()->getID());
+}
+bool CAD(Contacto &c1, Contacto &c2){
+	if(c1.getAnuncio()->getID() == c2.getAnuncio()->getID())
+		return CDD(c1, c2);
+	return (c1.getAnuncio()->getID > c2.getAnuncio()->getID());
+}
+bool CEA(Contacto &c1, Contacto &c2){
+	if(c1.getEmail() == c2.getEmail())
+		return CAA(c1,c2);
+	return (c1.getEmail() < c2.getEmail());
+}
+bool CED(Contacto &c1, Contacto &c2){
+	if(c1.getEmail() == c2.getEmail())
+		return CAD(c1,c2);
+	return (c1.getEmail() > c2.getEmail());
+}
+
+
 Olz::Olz() {}
 
 Olz::~Olz() {
@@ -151,6 +178,7 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 				sort(anuncios.begin(), anuncios.end(), NCA);
 	else if(tipoOrd == "CA")
 				sort(anuncios.begin(), anuncios.end(), NCD);
+
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
@@ -163,7 +191,7 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	}
 }
 
-void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
+void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
 	if (tipoOrd == "EA")
 		sort(utilizadores.begin(),utilizadores.end(),EA);
@@ -182,7 +210,7 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	if(tipoOrd == "DD")
 		sort(utilizadores.begin(),utilizadores.end(),DD);
 	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
-	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
+	for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
 	{
 		if (i < utilizadores.size())
 		{
@@ -194,6 +222,20 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 	}
 }
 
+void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string tipoOrd){
+	if (tipoOrd == "DA")
+		sort(contactos.begin(),contactos.end(),CDA);
+	else if(tipoOrd == "DD")
+		sort(contactos.begin(),contactos.end(),CDD);
+	else if(tipoOrd == "AA")
+			sort(contactos.begin(),contactos.end(),CAA);
+	else if(tipoOrd == "AD")
+			sort(contactos.begin(),contactos.end(),CAD);
+	else if(tipoOrd == "EA")
+			sort(contactos.begin(),contactos.end(),CEA);
+	else if(tipoOrd == "ED")
+			sort(contactos.begin(),contactos.end(),CED);
+}
 
 void Olz::addUtilizador(Utilizador u) {
 	utilizadores.push_back(u);
