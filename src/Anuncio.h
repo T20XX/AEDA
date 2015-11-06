@@ -55,14 +55,14 @@ class Anuncio {
 	Data data;
 	Utilizador * utilizador;
 	bool mostraNome, mostraTelemovel, mostraEmail;
-	vector<Contacto> contactos;
+	vector<Contacto *> contactos;
 public:
 	Anuncio(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel);
 	virtual ~Anuncio();
 	virtual void verAnuncio() const = 0;
 	static void setNextID(int ID);
 	static int getNextID();
-	void addContacto(Contacto c);
+	void addContacto(Contacto * c);
 	void setUtilizador(Utilizador * u);
 	void setNumCliques(int numCliques);
 	int getID() const;

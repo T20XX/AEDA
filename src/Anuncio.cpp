@@ -74,7 +74,7 @@ bool Data::operator ==(const Data d1){
 		{
 			if(dia == d1.getDia())
 				return true;
-			else return false;S
+			else return false;
 		}
 		else return false;
 	}
@@ -121,7 +121,7 @@ void Anuncio::setNextID(int ID) {nextID=ID;}
 
 int Anuncio::getNextID() {return nextID;}
 
-void Anuncio::addContacto(Contacto c) {contactos.push_back(c);}
+void Anuncio::addContacto(Contacto * c) {contactos.push_back(c);}
 
 void Anuncio::setUtilizador(Utilizador * u) {utilizador = u;}
 
@@ -147,7 +147,7 @@ void Anuncio::setDescricao(string des) {descricao = des;}
 
 Utilizador* Anuncio::getUtilizador() const {return utilizador;}
 
-vector<Contacto *> Anuncio::getContactos() const {return contactos;}
+vector<Contacto*> Anuncio::getContactos() const {return contactos;}
 
 int Anuncio::getnumCliques() const {return numCliques;}
 
