@@ -76,6 +76,8 @@ vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
 
 Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 
+void Utilizador::setLocalizacao(Localizacao l) {localizacao = l;}
+
 Utilizador::~Utilizador() {
 	// TODO Auto-generated destructor stub
 }

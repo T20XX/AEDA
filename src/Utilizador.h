@@ -51,6 +51,7 @@ public:
 	int getTelemovel() const;
 	void setTelemovel(int t);
 	Localizacao getLocalizacao() const;
+	void setLocalizacao(Localizacao l);
 	vector<Anuncio *> getAnuncios() const;
 	void addAnuncio(Anuncio * a);
 };

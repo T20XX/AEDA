@@ -418,9 +418,8 @@ void Olz::setUtiTelemovel(int index, int telemovel){
 	utilizadores[index].setTelemovel(telemovel);
 }
 
-void Olz::setUtiLocalizacao(int index, string freguesia, string concelho, string distrito){
-	utilizadores[index].setFreguesia(freguesia);
-	utilizadores[index].setConcelho(concelho);
-	utilizadores[index].setDistrito(distrito);
+void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
+
+	utilizadores[index].setLocalizacao(localizacao);
 }
 

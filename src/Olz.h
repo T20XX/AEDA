@@ -41,7 +41,7 @@ public:
 	void eliminaUtilizador(string email);
 	void setUtiNome(int index, string nome);
 	void setUtiTelemovel(int index, int telemovel);
-	void setUtiLocalizacao(int index, string freguesia, string concelho, string distrito);
+	void setUtiLocalizacao(int index, Localizacao localizacao);
 };
 
 #endif /* OLZ_H_ */
