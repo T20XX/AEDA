@@ -28,6 +28,18 @@ bool ND(const Utilizador &u1,const Utilizador &u2){
 		return ED(u1,u2);
 	return (u1.getNome() > u2.getNome());
 }
+bool AA(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getAnuncios().size() == u2.getAnuncios().size())
+			return NA(u1,u2);
+	else
+		return (u1.getAnuncios().size() < u2.getAnuncios().size());
+}
+bool AD(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getAnuncios().size() == u2.getAnuncios().size())
+			return ND(u1,u2);
+	else
+		return (u1.getAnuncios().size() > u2.getAnuncios().size());
+}
 
 Olz::Olz() {}
 
