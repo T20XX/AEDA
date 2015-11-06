@@ -287,9 +287,7 @@ void selecao4()
 int main() {
 	olz.lerUtilizador();
 	olz.lerAnuncio();
-	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
-	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
-	olz.addAnuncio(0, new AnuncioVenda(NULL,22,"Oculos","sabesbem","sabes",0,0,0,"novo",20,0));
+	//olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
 	olz.carregaAnuncios();
 	int selecao=-1;
 	while (selecao !=0)
