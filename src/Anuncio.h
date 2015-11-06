@@ -76,7 +76,10 @@ public:
 	void setCategoria(string c);
 	void setDescricao(string des);
 	bool getmostraNome() const;
+	void setmostraNome();
+	void setmostraEmail();
 	bool getmostraTelemovel() const;
+	void setmostraTelemovel();
 	bool getmostraEmail() const;
 	Utilizador* getUtilizador() const;
 	vector<Contacto *> getContactos() const;

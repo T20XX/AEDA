@@ -153,9 +153,21 @@ int Anuncio::getnumCliques() const {return numCliques;}
 
 bool Anuncio::getmostraNome() const {return mostraNome;}
 
+void Anuncio::setmostraNome() {
+	(mostraNome = !mostraNome);
+}
+
 bool Anuncio::getmostraTelemovel() const {return mostraTelemovel;}
 
+void Anuncio::setmostraTelemovel() {
+	(mostraTelemovel = !mostraTelemovel);
+}
+
 bool Anuncio::getmostraEmail() const {return mostraEmail;}
+
+void Anuncio::setmostraEmail() {
+	(mostraEmail = !mostraEmail);
+}
 
 //AnuncioVenda
 
