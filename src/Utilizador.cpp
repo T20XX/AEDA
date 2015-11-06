@@ -51,7 +51,7 @@ Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao loca
 
 void Utilizador::verUtilizador()
 {
-	cout << "Email: " << email << endl <<
+	cout << "Informação do Utilizador:" << endl << "Email: " << email << endl <<
 			"Nome: " << nome << endl <<
 			"Telemóvel: " << telemovel << endl <<
 			"Localizaçãoo: " << localizacao << endl <<
