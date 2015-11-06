@@ -200,7 +200,8 @@ void selecao3()
 		}
 		else if (selecao == "O")
 		{
-			tipoOrd = "ED";
+			cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
+			cin >> tipoOrd;
 		}
 		else if (selecao == "P")
 		{
