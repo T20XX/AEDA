@@ -12,15 +12,18 @@ void selecao1()
 	int telemovel;
 
 	cout << "Nome: ";
+	cin.ignore();
 	getline(cin, nome);
-	cout << endl << "Email: ";
+	cout << "Email: ";
 	cin >> email;
-	cout << endl << "Telemóvel: ";
+	cout << "Telemóvel: ";
 	cin >> telemovel;
 	cin.ignore();
-	cout << endl << "Concelho: ";
+	cout << "Freguesia: ";
+	getline(cin, freguesia);
+	cout << "Concelho: ";
 	getline(cin, concelho);
-	cout << endl << "Distrito: ";
+	cout << "Distrito: ";
 	getline(cin, distrito);
 
 	Localizacao tempLocal(freguesia, concelho, distrito);
