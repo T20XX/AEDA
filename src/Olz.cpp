@@ -345,7 +345,11 @@ void Olz::lerContactos(){
 			{
 				for (int j= 0 ; j < utilizadores[i].getAnuncios().size(); j++)
 				{
-					utilizadores[i].getAnuncios()[j]->addContacto(new Contacto(utilizadores[i].getAnuncios()[j],Data(data),email,contacto));
+					if (utilizadores[i].getAnuncios()[j]->getID() == ID)
+					{
+						utilizadores[i].getAnuncios()[j]->addContacto(new Contacto(utilizadores[i].getAnuncios()[j],Data(data),email,contacto));
+						break;
+					}
 				}
 			}
 			getline(Cont,data);
