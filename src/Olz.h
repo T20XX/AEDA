@@ -23,8 +23,8 @@ public:
 	Olz();
 	virtual ~Olz();
 	void carregaAnuncios();
-	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
-	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrganizacao);
+	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
+	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	void addUtilizador(Utilizador u);
 	void lerUtilizador();
 	void escreverUtilizador();
@@ -35,6 +35,9 @@ public:
 	vector<Utilizador> getUtilizadores();
 	void eliminaAnuncio(int ID);
 	void eliminaUtilizador(string email);
+	bool EA(const Utilizador &u1,const Utilizador &u2);
+	bool ED(const Utilizador &u1,const Utilizador &u2);
+
 };
 
 #endif /* OLZ_H_ */
