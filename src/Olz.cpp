@@ -158,26 +158,26 @@ void Olz::carregaContactos(){
 
 void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
-	if(tipoOrd == "IA")
+	/*if(tipoOrd == "IA")
 		sort(anuncios.begin(), anuncios.end(), IA);
 	else if(tipoOrd == "ID")
 		sort(anuncios.begin(), anuncios.end(), ID);
 	else if(tipoOrd == "DA")
-			sort(anuncios.begin(), anuncios.end(), DaA);
+		sort(anuncios.begin(), anuncios.end(), DaA);
 	else if(tipoOrd == "DD")
-			sort(anuncios.begin(), anuncios.end(), DaD);
+		sort(anuncios.begin(), anuncios.end(), DaD);
 	else if(tipoOrd == "TA")
-			sort(anuncios.begin(), anuncios.end(), TA);
+		sort(anuncios.begin(), anuncios.end(), TA);
 	else if(tipoOrd == "TD")
-			sort(anuncios.begin(), anuncios.end(), TD);
+		sort(anuncios.begin(), anuncios.end(), TD);
 	else if(tipoOrd == "CA")
-			sort(anuncios.begin(), anuncios.end(), CA);
+		sort(anuncios.begin(), anuncios.end(), CA);
 	else if(tipoOrd == "CD")
-				sort(anuncios.begin(), anuncios.end(), CD);
+		sort(anuncios.begin(), anuncios.end(), CD);
 	else if(tipoOrd == "CA")
-				sort(anuncios.begin(), anuncios.end(), NCA);
+		sort(anuncios.begin(), anuncios.end(), NCA);
 	else if(tipoOrd == "CA")
-				sort(anuncios.begin(), anuncios.end(), NCD);
+		sort(anuncios.begin(), anuncios.end(), NCD);*/
 
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
@@ -222,19 +222,20 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string
 	}
 }
 
+
 void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string tipoOrd){
-	if (tipoOrd == "DA")
+	/*if (tipoOrd == "DA")
 		sort(contactos.begin(),contactos.end(),CDA);
 	else if(tipoOrd == "DD")
 		sort(contactos.begin(),contactos.end(),CDD);
 	else if(tipoOrd == "AA")
-			sort(contactos.begin(),contactos.end(),CAA);
+		sort(contactos.begin(),contactos.end(),CAA);
 	else if(tipoOrd == "AD")
-			sort(contactos.begin(),contactos.end(),CAD);
+		sort(contactos.begin(),contactos.end(),CAD);
 	else if(tipoOrd == "EA")
-			sort(contactos.begin(),contactos.end(),CEA);
+		sort(contactos.begin(),contactos.end(),CEA);
 	else if(tipoOrd == "ED")
-			sort(contactos.begin(),contactos.end(),CED);
+		sort(contactos.begin(),contactos.end(),CED);*/
 }
 
 void Olz::addUtilizador(Utilizador u) {
@@ -490,7 +491,7 @@ void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
 }
 
 
-int Olz::pesquisaUtilizador(string atributo, string pesquisa){
+int Olz::pesquisarUtilizador(string atributo, string pesquisa){
 	vector<string> temp;
 	int counter = 0;
 	for (int i=0; i < utilizadores.size();i++){
@@ -507,8 +508,13 @@ int Olz::pesquisaUtilizador(string atributo, string pesquisa){
 
 		if (temp[i].find(pesquisa) != string::npos)
 		{
-			if (counter != i)
+			if (counter != i){
+
 				swap(utilizadores[counter],utilizadores[i]);
+			}
+
+
+			cout<< "ENCONTROU!!" << i;
 			counter++;
 		}
 	}
