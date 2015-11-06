@@ -117,9 +117,13 @@ Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome,
 }
 
 void AnuncioVenda::verAnuncio() const {
-	cout << "ID: " << getID() << endl << "Data: " << getData() << endl << "Estado do Produto: " << estado << endl << "Preço Pretendido: " << preco << endl;
+	cout << "Informação do Anuncio: " << titulo << "criado a " << getData() << " Número de Visitantes: " << getnumCliques() << endl;
+	cout << "ID: " << getID() << " Categoria: " << getCategoria() << " Descrição: " << getDescricao() << endl;
+	cout << "Estado do Produto: " << estado << "Preço Pretendido: " << preco << endl;
 	if(negociavel)
 		cout << "Possibilidade de Negócio." << endl;
+	if (mostraEmail) cout << getUtilizador()->getEmail();
+	if (mostraTelemovel) cout << getUtilizador()->getEmail();
 }
 
 string AnuncioVenda::getEstado() const {return estado;}
