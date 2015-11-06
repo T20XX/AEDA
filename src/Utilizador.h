@@ -26,8 +26,11 @@ public:
 	Localizacao(string freguesia, string concelho, string distrito);
 	virtual ~Localizacao();
 	string getFreguesia() const;
+	void setFreguesia(string f);
 	string getConcelho() const;
+	void setConcelho(string c);
 	string getDistrito() const;
+	void setDistrito(string d);
 	friend ostream& operator<<(std::ostream& os, const Localizacao l);
 
 };
@@ -42,8 +45,11 @@ public:
 	virtual ~Utilizador();
 	void verUtilizador();
 	string getEmail() const;
+	void setEmail(string e);
 	string getNome() const;
+	void setNome(string n);
 	int getTelemovel() const;
+	void setTelemovel(int t);
 	Localizacao getLocalizacao() const;
 	vector<Anuncio *> getAnuncios() const;
 	void addAnuncio(Anuncio * a);

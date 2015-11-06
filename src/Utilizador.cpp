@@ -24,13 +24,19 @@ string Localizacao::getFreguesia() const{
 	return freguesia;
 }
 
+void Localizacao::setFreguesia(string f) {freguesia = f;}
+
 string Localizacao::getConcelho() const{
 	return concelho;
 }
 
+void Localizacao::setConcelho(string c) {concelho = c;}
+
 string Localizacao::getDistrito() const{
 	return distrito;
 }
+
+void Localizacao::setDistrito(string d) {distrito = d;}
 
 ostream& operator<<(std::ostream& os, const Localizacao l)
 {
@@ -55,9 +61,15 @@ void Utilizador::verUtilizador()
 
 string Utilizador::getEmail() const {return email;}
 
+void Utilizador::setEmail(string e) {email = e;}
+
 string Utilizador::getNome() const {return nome;}
 
+void Utilizador::setNome(string n) {nome = n;}
+
 int Utilizador::getTelemovel() const {return telemovel;}
+
+void Utilizador::setTelemovel(int t) {telemovel = t;}
 
 vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
 

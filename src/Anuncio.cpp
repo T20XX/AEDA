@@ -93,11 +93,19 @@ int Anuncio::getID() const {return ID;}
 
 Data Anuncio::getData() const {return data;}
 
+void Anuncio::setData(Data d) {data =d;}
+
 string Anuncio::getTitulo() const {return titulo;}
+
+void Anuncio::setTitulo(string t) {titulo = t;}
 
 string Anuncio::getCategoria() const {return categoria;}
 
+void Anuncio::setCategoria(string c) {categoria = c;}
+
 string Anuncio::getDescricao() const {return descricao;}
+
+void Anuncio::setDescricao(string des) {descricao = des;}
 
 Utilizador* Anuncio::getUtilizador() const {return utilizador;}
 
