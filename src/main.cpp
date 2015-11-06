@@ -12,15 +12,16 @@ void selecao1()
 	int telemovel;
 
 	cout << "Nome: ";
-	cin >> nome;
+	getline(cin, nome);
 	cout << endl << "Email: ";
 	cin >> email;
 	cout << endl << "Telemóvel: ";
 	cin >> telemovel;
+	cin.ignore();
 	cout << endl << "Concelho: ";
-	cin >> concelho;
+	getline(cin, concelho);
 	cout << endl << "Distrito: ";
-	cin >> distrito;
+	getline(cin, distrito);
 
 	Localizacao tempLocal(freguesia, concelho, distrito);
 	Utilizador tempUti(email, nome, telemovel, tempLocal);
@@ -39,12 +40,12 @@ void selecao2()
 	char troca = 'J';
 	char mostrar;
 	char nego;
-	cout << "Utilizador(email): " << endl << "Anuncio Venda ou Compra(C / V): " << endl << "Titulo: " << endl << "Categoria: " << endl << "Mostrar Email? " << endl
+	cout << "Utilizador(email): " << endl << "Anuncio Venda ou Compra( C / V ): " << endl << "Titulo: " << endl << "Categoria: " << endl << "Mostrar Email? " << endl
 			<< "Mostrar Nome?" << endl << "Mostrar Telemovel?" << endl << "Descrição: " << endl << "Data: " << endl;
 
 	while(index == -1){										//email do Utilizador a fazer Anuncio
 		cin >> email;
-		for(int i = 0; i < olz.getUtilizadores().size(); i++)  // VE LA ISTO SFF
+		for(int i = 0; i < olz.getUtilizadores().size(); i++)
 		{
 			if(olz.getUtilizadores()[i].getEmail() == email)
 			{
@@ -53,19 +54,23 @@ void selecao2()
 			}
 		}
 		if(index == -1)
-			cout << "Email Indisponivel, tente outra vez!" << endl;
+			cout << "Email Indisponível, tente outra vez!" << endl;
 	}
+	cout << "Introduza C para realizar uma Compra ou V para realizar uma Venda." << endl;
 	cin >> tipo;
-	while(tipo != 'S' && tipo != 'V'){
-		cout << "Tipo indisponivel, tente outra vez!" << endl;//tipo (venda ou compra)
+	while(tipo != 'C' && tipo != 'V'){
+		cout << "Por favor, escreva C (de Compra) ou V (de Venda)." << endl; //tipo (venda ou compra)
 		cin >> tipo;
+		cin.ignore();
 	}
-	cin >> titulo >> categoria;
+	getline(cin, titulo);
+	getline(cin, categoria);
 
+	cout << "Introduza S para mostrar o seu Nome ou N para não mostrar o seu Nome." << endl;
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
 		cin >> mostrar;
 	}
 	if(mostrar == 'S')
@@ -75,10 +80,11 @@ void selecao2()
 
 	mostrar = 'A';
 
+	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Email." << endl;
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
 		cin >> mostrar;
 	}
 	if(mostrar == 'S')
@@ -88,35 +94,36 @@ void selecao2()
 
 	mostrar = 'A';
 
+	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Email." << endl;
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
 		cin >> mostrar;
+		cin.ignore();
 	}
 	if(mostrar == 'S')
 		mostraTelemovel = true;
 	else
 		mostraTelemovel = false;
 
-
-	cin >> descricao;													//descrição
+	getline(cin, descricao);												//descrição
 
 	if(tipo == 'V')
 	{
 		cout << "Estado: " << endl << "Preço: " << endl << "Negociavel?" << endl;
 
-		estado = "partido";
+		estado = "Partido";
 
-		while(estado != "novo" && estado != "usando como novo" && estado != "funcional" && estado != "para peças"){
-			cin >> estado;
+		while(estado != "Novo" && estado != "Usando como novo" && estado != "Funcional" && estado != "Para Peças"){
+			getline(cin, estado);
 		}
 		cin >> preco;
 
 		cin >> nego;
 
 		while(nego != 'S' && nego != 'N'){
-				cout << "Escreva S ou N se faz o favor!" << endl;//mostrarNome
+				cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
 				cin >> nego;
 			}
 			if(nego == 'S')
@@ -127,13 +134,13 @@ void selecao2()
 		olz.addAnuncio(index, new AnuncioVenda(NULL, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
 	}
 	else {
-		cout << "Proposta de troca? (S /N) " << endl;
+		cout << "Proposta de troca? ( S / N ) " << endl;
 		while(troca != 'S' || troca !='N'){
 			cin >> troca;
 		}
 		if(troca == 'S')
 		{
-			cout << "Qual o ID?: " << endl;
+			cout << "Introduza o ID: " << endl;
 			cin >> vendaID;
 		}
 		else
@@ -307,6 +314,6 @@ int main() {
 			selecao4();
 		selecao = -1;
 	}
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "Obrigado por utilizar o OLZ." << endl;
 	return 0;
 }
