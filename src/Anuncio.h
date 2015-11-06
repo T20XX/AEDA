@@ -40,6 +40,10 @@ public:
 	Contacto(Anuncio * anuncio, Data data, string email,string contacto);
 	virtual ~Contacto();
 	void setAnuncio(Anuncio * a);
+	Anuncio * getAnuncio();
+	string getEmail();
+	string getContacto();
+	Data getData();
 };
 
 class Anuncio {
@@ -73,6 +77,7 @@ public:
 	bool getmostraTelemovel() const;
 	bool getmostraEmail() const;
 	Utilizador* getUtilizador() const;
+	vector<Contacto *> getContactos() const;
 	virtual string getEstado() const = 0;
 	virtual int getPreco() const = 0;
 	virtual bool getTipo() const = 0;

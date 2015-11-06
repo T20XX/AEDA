@@ -28,8 +28,8 @@ int Data::getDia() const{return dia;}
 
 ostream& operator<<(std::ostream& os, const Data d1)
 {
-  os << d1.getDia() << "/" << d1.getMes() << "/" << d1.getAno();
-  return os;
+	os << d1.getDia() << "/" << d1.getMes() << "/" << d1.getAno();
+	return os;
 }
 
 bool Data::operator <(const Data d1){
@@ -62,6 +62,14 @@ Contacto::~Contacto() {
 
 
 void Contacto::setAnuncio(Anuncio * a) {anuncio = a;}
+
+Anuncio * Contacto::getAnuncio() {return anuncio;}
+
+string Contacto::getEmail(){return email;}
+
+string Contacto::getContacto() {return contacto;}
+
+Data Contacto::getData() {return data;}
 
 //ANUNCIO
 
@@ -109,6 +117,8 @@ void Anuncio::setDescricao(string des) {descricao = des;}
 
 Utilizador* Anuncio::getUtilizador() const {return utilizador;}
 
+vector<Contacto *> Anuncio::getContactos() const {return contactos;}
+
 int Anuncio::getnumCliques() const {return numCliques;}
 
 bool Anuncio::getmostraNome() const {return mostraNome;}
@@ -120,7 +130,7 @@ bool Anuncio::getmostraEmail() const {return mostraEmail;}
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
-Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+		Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
 
@@ -157,7 +167,7 @@ bool AnuncioVenda::getNegociavel() const {return negociavel;}
 //AnuncioCompra
 
 AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
-												Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+														Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->vendaID=vendaID;;
 }
 

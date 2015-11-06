@@ -19,6 +19,7 @@ using namespace std;
 class Olz {
 	vector<Utilizador> utilizadores;
 	vector<Anuncio *> anuncios;
+	vector<Contacto *> contactos;
 public:
 	Olz();
 	virtual ~Olz();
