@@ -18,6 +18,16 @@ using namespace std;
 
 bool EA(const Utilizador &u1,const Utilizador &u2){return (u1.getEmail() < u2.getEmail());}
 bool ED(const Utilizador &u1,const Utilizador &u2){return (u1.getEmail() > u2.getEmail());}
+bool NA(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getNome() == u2.getNome())
+		return EA(u1,u2);
+	else return (u1.getNome() < u2.getNome());
+}
+bool ND(const Utilizador &u1,const Utilizador &u2){
+	if(u1.getNome() == u2.getNome())
+		return ED(u1,u2);
+	return (u1.getNome() > u2.getNome());
+}
 
 Olz::Olz() {}
 
@@ -56,6 +66,10 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tip
 		sort(utilizadores.begin(),utilizadores.end(),EA);
 	if (tipoOrd == "ED")
 		sort(utilizadores.begin(),utilizadores.end(),ED);
+	if (tipoOrd == "NA")
+		sort(utilizadores.begin(),utilizadores.end(), NA);
+	if(tipoOrd == "ND")
+		sort(utilizadores.begin(),utilizadores.end(),ND);
 	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
