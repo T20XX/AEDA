@@ -117,7 +117,7 @@ void Olz::addUtilizador(Utilizador u) {
 	utilizadores.push_back(u);
 }
 
-void Olz::lerUtilizador() {
+void Olz::lerUtilizadores() {
 	string nome, freguesia, email, concelho, distrito;
 	int telemovel;
 
@@ -147,7 +147,7 @@ void Olz::lerUtilizador() {
 }
 
 
-void Olz::escreverUtilizador() {
+void Olz::escreverUtilizadores() {
 	ofstream Uti;
 
 	Uti.open("Utilizadores.txt", ofstream::out | ofstream::trunc);
@@ -165,7 +165,7 @@ void Olz::escreverUtilizador() {
 	Uti.close();
 }
 
-void Olz::lerAnuncio() {
+void Olz::lerAnuncios() {
 	string titulo, categoria, descricao, email, tipo, estado;
 	int ID, numCliques, preco, vendaID, nextID;
 	string data;
@@ -227,7 +227,7 @@ void Olz::lerAnuncio() {
 	Anun.close();
 }
 
-void Olz::escreverAnuncio() {
+void Olz::escreverAnuncios() {
 	ofstream Anun;
 
 	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
@@ -258,8 +258,69 @@ void Olz::escreverAnuncio() {
 		}
 		Anun << endl;
 	}
-
 	Anun.close();
+}
+
+void Olz::lerContactos(){
+	string data,email, contacto;
+	int ID;
+
+	ifstream Cont;
+
+	Cont.open("Contactos.txt");
+
+
+	while(!Cont.eof()) {
+		Cont >> data;
+		if (data != "")
+		{
+			Cont >> ID;
+			Cont >> email;
+			Cont.ignore();
+			getline(Cont, contacto);
+
+			for (int i = 0 ; i < utilizadores.size();i++)
+			{
+				for (int j= 0 ; j < utilizadores[i].getAnuncios().size(); j++)
+				{
+					utilizadores[i].getAnuncios()[j]->addContacto(Contacto(utilizadores[i].getAnuncios()[j],Data(data),email,contacto));
+				}
+			}
+			getline(Cont,data);
+		}
+	}
+	Cont.close();
+}
+
+void Olz::escreverContactos(){
+	ofstream Cont;
+
+	Cont.open("Contactos.txt", ofstream::out | ofstream::trunc);
+
+	for(int i=0; i < anuncios.size();i++) {
+		if(anuncios[i]->getData()))
+		Anun << anuncios[i]->getUtilizador()->getEmail() << endl
+				<< anuncios[i]->getTitulo()<<endl
+				<< anuncios[i]->getCategoria() <<endl
+				<< anuncios[i]->getID()<<endl
+				<< anuncios[i]->getData()<<endl
+				<< anuncios[i]->getnumCliques()<<endl
+				<< anuncios[i]->getmostraNome()<<endl
+				<< anuncios[i]->getmostraTelemovel()<<endl
+				<< anuncios[i]->getmostraEmail()<<endl
+				<< anuncios[i]->getDescricao()<<endl;
+		if(anuncios[i]->getTipo())
+		{
+			Anun << anuncios[i]->getEstado()<<endl
+					<< anuncios[i]->getPreco()<<endl
+					<< anuncios[i]->getNegociavel()<<endl;
+		}
+		else {
+			Anun <<anuncios[i]->getVendaID() << endl;
+		}
+		Anun << endl;
+	}
+	Anun.close();*/
 }
 
 void Olz::addAnuncio(int index,Anuncio * a) {

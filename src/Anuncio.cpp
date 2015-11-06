@@ -52,13 +52,16 @@ bool Data::operator <(const Data d1){
 
 //CONTACTO
 
-Contacto::Contacto(string nome, string email,string contacto)
-: nome(nome), email(email), contacto(contacto)
+Contacto::Contacto(Anuncio * anuncio, Data data, string email,string contacto)
+: anuncio(anuncio), data(data), email(email), contacto(contacto)
 {}
 
 Contacto::~Contacto() {
 	// TODO Auto-generated destructor stub
 }
+
+
+void Contacto::setAnuncio(Anuncio * a) {anuncio = a;}
 
 //ANUNCIO
 
@@ -79,6 +82,8 @@ Anuncio::~Anuncio() {
 void Anuncio::setNextID(int ID) {nextID=ID;}
 
 int Anuncio::getNextID() {return nextID;}
+
+void Anuncio::addContacto(Contacto c) {contactos.push_back(c);}
 
 void Anuncio::setUtilizador(Utilizador * u) {utilizador = u;}
 

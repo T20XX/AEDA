@@ -20,6 +20,9 @@ class Anuncio;
 class Localizacao {
 	string freguesia, concelho, distrito;
 public:
+	/**
+	 * Construtor da classe Localizacao
+	 */
 	Localizacao(string freguesia, string concelho, string distrito);
 	virtual ~Localizacao();
 	string getFreguesia() const;

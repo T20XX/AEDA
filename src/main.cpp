@@ -224,7 +224,7 @@ void selecao3()
 				pag--;
 		}
 	}
-	olz.escreverUtilizador();
+	olz.escreverUtilizadores();
 }
 
 void selecao4()
@@ -291,14 +291,15 @@ void selecao4()
 					pag--;
 			}
 		}
-	olz.escreverAnuncio();
+	olz.escreverAnuncios();
 }
 
 
 
 int main() {
-	olz.lerUtilizador();
-	olz.lerAnuncio();
+	olz.lerUtilizadores();
+	olz.lerAnuncios();
+	olz.lerContactos();
 	//olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
 	olz.carregaAnuncios();
 	int selecao=-1;

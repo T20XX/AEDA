@@ -16,6 +16,8 @@
 
 using namespace std;
 
+class Anuncio;
+
 class Utilizador;
 
 class Data{
@@ -31,10 +33,13 @@ public:
 };
 
 class Contacto {
-	string nome, email, contacto;
+	Anuncio * anuncio;
+	string email, contacto;
+	Data data;
 public:
-	Contacto(string nome, string email,string contacto);
+	Contacto(Anuncio * anuncio, Data data, string email,string contacto);
 	virtual ~Contacto();
+	void setAnuncio(Anuncio * a);
 };
 
 class Anuncio {
@@ -51,6 +56,7 @@ public:
 	virtual void verAnuncio() const = 0;
 	static void setNextID(int ID);
 	static int getNextID();
+	void addContacto(Contacto c);
 	void setUtilizador(Utilizador * u);
 	void setNumCliques(int numCliques);
 	int getID() const;
