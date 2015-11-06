@@ -102,15 +102,15 @@ bool NCD(const Anuncio &a1,const Anuncio &a2){
 
 bool CDA(Contacto &c1, Contacto &c2){return (c1.getData() < c2.getData());}
 bool CDD(Contacto &c1, Contacto &c2){return (c1.getData() > c2.getData());}
-bool CAA(Contacto &c1, Contacto &c2){
+bool CAA(Contacto &c1,Contacto &c2){
 	if(c1.getAnuncio()->getID() == c2.getAnuncio()->getID())
 		return CDA(c1, c2);
-	return (c1.getAnuncio()->getID < c2.getAnuncio()->getID());
+	return (c1.getAnuncio()->getID() < c2.getAnuncio()->getID());
 }
 bool CAD(Contacto &c1, Contacto &c2){
 	if(c1.getAnuncio()->getID() == c2.getAnuncio()->getID())
 		return CDD(c1, c2);
-	return (c1.getAnuncio()->getID > c2.getAnuncio()->getID());
+	return (c1.getAnuncio()->getID() > c2.getAnuncio()->getID());
 }
 bool CEA(Contacto &c1, Contacto &c2){
 	if(c1.getEmail() == c2.getEmail())
@@ -487,5 +487,30 @@ void Olz::setUtiTelemovel(int index, int telemovel){
 void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
 
 	utilizadores[index].setLocalizacao(localizacao);
+}
+
+
+int Olz::pesquisaUtilizador(string atributo, string pesquisa){
+	vector<string> temp;
+	int counter = 0;
+	for (int i=0; i < utilizadores.size();i++){
+		if(atributo == "E")
+			temp.push_back(utilizadores[i].getEmail());
+		else if(atributo == "N")
+			temp.push_back(utilizadores[i].getNome());
+		else if(atributo == "F")
+			temp.push_back(utilizadores[i].getLocalizacao().getFreguesia());
+		else if(atributo == "C")
+			temp.push_back(utilizadores[i].getLocalizacao().getConcelho());
+		else if(atributo == "D")
+			temp.push_back(utilizadores[i].getLocalizacao().getDistrito());
+
+		if (temp[i].find(pesquisa) != string::npos)
+		{
+			if (counter != i)
+				swap(utilizadores[counter],utilizadores[i]);
+			counter++;
+		}
+	}
 }
 
