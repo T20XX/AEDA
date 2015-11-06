@@ -36,7 +36,9 @@ Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
 }
 
-void Anuncio::setNextID() {nextID++;}
+void Anuncio::setNextID(int ID) {nextID=ID;}
+
+int Anuncio::getNextID() {return nextID;}
 
 void Anuncio::setUtilizador(Utilizador * u) {utilizador = u;}
 
@@ -70,8 +72,8 @@ Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome,
 	this->negociavel = negociavel;
 
 	if(estado == "novo" || estado == "usando como novo" || estado == "funcional" || estado == "para peças")
-		this->estado == estado;
-	else this->estado == "indisponivel";
+		this->estado = estado;
+	else this->estado = "indisponivel";
 }
 
 void AnuncioVenda::verAnuncio() const {
@@ -80,17 +82,11 @@ void AnuncioVenda::verAnuncio() const {
 		cout << "Possibilidade de Negócio." << endl;
 }
 
-string AnuncioVenda::getEstado() const{
-	return estado;
-}
+string AnuncioVenda::getEstado() const {return estado;}
 
-int AnuncioVenda::getPreco() const{
-	return preco;
-}
+int AnuncioVenda::getPreco() const {return preco;}
 
-bool AnuncioVenda::getTipo() const{
-	return true;
-}
+bool AnuncioVenda::getTipo() const {return true;}
 
 int AnuncioVenda::getVendaID() const {return 0;}
 
@@ -109,18 +105,12 @@ void AnuncioCompra::verAnuncio() const{
 	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
 }
 
-bool AnuncioCompra::getTipo() const{
-	return false;
-}
+bool AnuncioCompra::getTipo() const {return false;}
 
 int AnuncioCompra::getVendaID() const {return vendaID;}
 
-string AnuncioCompra::getEstado() const{
-	return "nulo";
-}
+string AnuncioCompra::getEstado() const {return "nulo";}
 
-int AnuncioCompra::getPreco() const{
-	return 0;
-}
+int AnuncioCompra::getPreco() const {return 0;}
 
 bool AnuncioCompra::getNegociavel() const {return false;}

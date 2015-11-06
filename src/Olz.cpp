@@ -116,55 +116,62 @@ void Olz::escreverUtilizador() {
 
 void Olz::lerAnuncio() {
 	string titulo, categoria, descricao, email, tipo, estado;
-	int ID, numCliques, data, preco, vendaID;
+	int ID, numCliques, data, preco, vendaID, nextID;
 	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
 
 	ifstream Anun;
 
 	Anun.open("Anuncios.txt");
 
-
+	Anun >> nextID;
+	Anun.ignore();
 	while(!Anun.eof()) {
 		getline(Anun, tipo);
-		getline(Anun,email);
-		getline(Anun, titulo);
-		getline(Anun, categoria);
-		Anun >> ID;
-		Anun >> data;
-		Anun >> numCliques;
-		Anun >> mostraNome;
-		Anun >> mostraTelemovel;
-		Anun >> mostraEmail;
-		Anun.ignore();
-		getline(Anun, descricao);
-		if(tipo == "AnuncioVenda"){
-			getline(Anun, estado);
-			Anun >> preco;
-			Anun >> negociavel;
-		}
-		else if(tipo == "AnuncioCompra"){
-			Anun >> vendaID;
-		}
-		Anuncio::setNextID();
-		for(int i = 0 ; i < utilizadores.size();i++)
+		if (tipo != "")
 		{
-			if(utilizadores[i].getEmail() == email)
-			{
-				Anuncio * tempanun;
-				if(tipo == "AnuncioVenda")
-				{
-
-					tempanun = new AnuncioVenda(NULL,utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
-				}
-				else if(tipo == "AnuncioCompra")
-				{
-					tempanun = new AnuncioCompra(NULL,utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
-				}
-				tempanun->setNumCliques(numCliques);
-				addAnuncio(i,(tempanun));
+			getline(Anun,email);
+			getline(Anun, titulo);
+			getline(Anun, categoria);
+			Anun >> ID;
+			Anun >> data;
+			Anun >> numCliques;
+			Anun >> mostraNome;
+			Anun >> mostraTelemovel;
+			Anun >> mostraEmail;
+			Anun.ignore();
+			getline(Anun, descricao);
+			if(tipo == "AnuncioVenda"){
+				getline(Anun, estado);
+				Anun >> preco;
+				Anun >> negociavel;
 			}
+			else if(tipo == "AnuncioCompra"){
+				Anun >> vendaID;
+			}
+			for(int i = 0 ; i < utilizadores.size();i++)
+			{
+				if(utilizadores[i].getEmail() == email)
+				{
+					Anuncio * tempanun;
+					Anuncio::setNextID(ID);
+					if(tipo == "AnuncioVenda")
+					{
+
+						tempanun = new AnuncioVenda(&utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
+					}
+					else if(tipo == "AnuncioCompra")
+					{
+						tempanun = new AnuncioCompra(&utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
+					}
+					tempanun->setNumCliques(numCliques);
+					utilizadores[i].addAnuncio(tempanun);
+				}
+			}
+			Anun.ignore();
+			getline(Anun,tipo);
 		}
 	}
+	Anuncio::setNextID(nextID);
 	Anun.close();
 }
 
@@ -173,6 +180,7 @@ void Olz::escreverAnuncio() {
 
 	Anun.open("Anuncios.txt", ofstream::out | ofstream::trunc);
 
+	Anun << Anuncio::getNextID() <<endl;
 	for(int i=0; i < anuncios.size();i++) {
 		if(anuncios[i]->getTipo())
 			Anun << "AnuncioVenda" << endl;
@@ -185,7 +193,8 @@ void Olz::escreverAnuncio() {
 				<< anuncios[i]->getnumCliques()<<endl
 				<< anuncios[i]->getmostraNome()<<endl
 				<< anuncios[i]->getmostraTelemovel()<<endl
-				<< anuncios[i]->getmostraEmail()<<endl;
+				<< anuncios[i]->getmostraEmail()<<endl
+				<< anuncios[i]->getDescricao()<<endl;
 		if(anuncios[i]->getTipo())
 		{
 			Anun << anuncios[i]->getEstado()<<endl
