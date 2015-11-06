@@ -159,6 +159,8 @@ void selecao3()
 	while (selecao != "S")
 	{
 		olz.tabelaUtilizadores(pag,porpag,"default");
+		cout << "Pag." << (pag + 1) << ", Utilizadores por Página: " << porpag << endl;
+		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S")
 			break;
