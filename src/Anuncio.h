@@ -61,10 +61,14 @@ public:
 	void setNumCliques(int numCliques);
 	int getID() const;
 	Data getData() const;
+	void setData(Data d);
 	int getnumCliques() const;
 	string getTitulo() const;
 	string getCategoria() const;
 	string getDescricao() const;
+	void setTitulo(string t);
+	void setCategoria(string c);
+	void setDescricao(string des);
 	bool getmostraNome() const;
 	bool getmostraTelemovel() const;
 	bool getmostraEmail() const;
