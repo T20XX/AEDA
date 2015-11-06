@@ -18,7 +18,6 @@ using namespace std;
 
 class Utilizador;
 
-
 class Data{
 	int ano, mes, dia;
 public:
