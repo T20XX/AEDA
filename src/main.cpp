@@ -17,7 +17,7 @@ void selecao1()
 	cin >> email;
 	cout << endl << "Telemóvel: ";
 	cin >> telemovel;
-	cout << endl << "Concelho: "
+	cout << endl << "Concelho: ";
 	cin >> concelho;
 	cout << endl << "Distrito: ";
 	cin >> distrito;
