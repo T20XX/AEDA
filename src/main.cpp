@@ -122,6 +122,7 @@ void selecao2()
 		while(estado != "Novo" && estado != "Usando como novo" && estado != "Funcional" && estado != "Para Peças"){
 			getline(cin, estado);
 		}
+
 		cin >> preco;
 
 		cin >> nego;
