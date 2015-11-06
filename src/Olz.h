@@ -34,6 +34,7 @@ public:
 	vector<Anuncio *> getAnuncios() const;
 	vector<Utilizador> getUtilizadores();
 	void eliminaAnuncio(int ID);
+	void eliminaUtilizador(string email);
 };
 
 #endif /* OLZ_H_ */

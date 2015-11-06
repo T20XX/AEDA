@@ -233,3 +233,20 @@ void Olz::eliminaAnuncio(int ID){
 		}
 	}
 }
+
+void Olz::eliminaUtilizador(string email){
+	for(int i = 0; i< utilizadores.size(); i++)
+	{
+		if(utilizadores[i].getEmail() == email)
+		{
+			for(int j=0; j< anuncios.size(); j++)
+			{
+				if(anuncios[j]->getUtilizador()->getEmail() == email)
+				{
+					anuncios.erase(anuncios.begin()+j);
+				}
+			}
+			utilizadores.erase(utilizadores.begin()+i);
+		}
+	}
+}
