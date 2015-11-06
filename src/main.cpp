@@ -192,7 +192,7 @@ void selecao3()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 			}
-			olz.getUtilizadores()[index-1].verUtilizador();
+			olz.eliminaUtilizador(olz.getUtilizadores()[index-1].getEmail());
 		}
 		else if (selecao == "O")
 		{
