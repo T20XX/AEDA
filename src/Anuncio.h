@@ -85,4 +85,14 @@ public:
 	int getVendaID() const;
 };
 
+class data{
+	int ano, mes, dia;
+public:
+	data(string data);
+	data(int dia, int mes, int ano);
+	friend ostream& operator<<(std::ostream& os, const data d1);
+	int getAno() const;
+	int getMes() const;
+	int getDia() const;
+};
 #endif /* ANUNCIO_H_ */
