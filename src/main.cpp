@@ -293,7 +293,7 @@ void selecao4()
 			string tempinfo = "erro";
 			cin >> tempinfo;
 
-			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostra Email" && tempinfo != "Mostra Nome" && tempinfo != "Mostra Telemovel")
+			while(tempinfo != "T" && tempinfo!= "C" && tempinfo!= "D" && tempinfo != "ME" && tempinfo != "MN" && tempinfo != "MT")
 			{
 
 				cout << "Informação Invalida, tente outra vez: ";
@@ -306,26 +306,26 @@ void selecao4()
 				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
 				if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
 				{
-					if(tempinfo == "Titulo"){
+					if(tempinfo == "T"){
 						cout << "Titulo novo: ";
 					getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
 					}
-					else if(tempinfo == "Categoria"){
+					else if(tempinfo == "C"){
 						cout << "Categoria nova: ";
 						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
 					}
-					else if(tempinfo == "Descrição"){
+					else if(tempinfo == "D"){
 						cout << "Nova descrição: ";
 						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
 					}
-					else if(tempinfo == "Mostra Email")
+					else if(tempinfo == "ME")
 					olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
-					else if(tempinfo == "Mostra Nome")
+					else if(tempinfo == "MN")
 						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
-					else if(tempinfo == "Mostra Telemovel")
+					else if(tempinfo == "MT")
 						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
 					break;
 				}
