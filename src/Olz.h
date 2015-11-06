@@ -35,8 +35,6 @@ public:
 	vector<Utilizador> getUtilizadores();
 	void eliminaAnuncio(int ID);
 	void eliminaUtilizador(string email);
-	bool EA(const Utilizador &u1,const Utilizador &u2);
-	bool ED(const Utilizador &u1,const Utilizador &u2);
 
 };
 

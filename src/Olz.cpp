@@ -16,6 +16,9 @@
 
 using namespace std;
 
+bool EA(const Utilizador &u1,const Utilizador &u2){return (u1.getEmail() < u2.getEmail());}
+bool ED(const Utilizador &u1,const Utilizador &u2){return (u1.getEmail() > u2.getEmail());}
+
 Olz::Olz() {}
 
 Olz::~Olz() {
@@ -35,9 +38,6 @@ void Olz::carregaAnuncios(){
 
 void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
-	if (tipoOrd == "EA")
-		sort(utilizadores.begin(),utilizadores.end(),EA);
-	if (tipoOrd == "EA")
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
@@ -52,7 +52,10 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 
 void Olz::tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
-
+	if (tipoOrd == "EA")
+		sort(utilizadores.begin(),utilizadores.end(),EA);
+	if (tipoOrd == "ED")
+		sort(utilizadores.begin(),utilizadores.end(),ED);
 	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
@@ -256,7 +259,3 @@ void Olz::eliminaUtilizador(string email){
 		}
 	}
 }
-
-
-bool Olz::EA(const Utilizador &u1,const Utilizador &u2){return u1.getEmail() < u2.getEmail();}
-//bool Olz::ED(const Utilizador &u1,const Utilizador &u2)

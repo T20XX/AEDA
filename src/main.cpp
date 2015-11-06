@@ -160,10 +160,11 @@ void selecao2()
 void selecao3()
 {
 	int pag = 0, porpag= 50;
+	string tipoOrd = "EA";
 	string selecao = "X";
 	while (selecao != "S")
 	{
-		olz.tabelaUtilizadores(pag,porpag,"default");
+		olz.tabelaUtilizadores(pag,porpag,tipoOrd);
 		cout << "Pag." << (pag + 1) << ", Utilizadores por Página: " << porpag << endl;
 		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
@@ -199,7 +200,7 @@ void selecao3()
 		}
 		else if (selecao == "O")
 		{
-
+			tipoOrd = "ED";
 		}
 		else if (selecao == "P")
 		{
