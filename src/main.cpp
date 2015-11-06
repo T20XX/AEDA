@@ -183,35 +183,50 @@ void selecao3()
 			olz.getUtilizadores()[index-1].verUtilizador();
 		}
 		else if (selecao == "A")
-		{
-			cout << "Indique o número do anuncio que deseja alterar: ";
-			int index = -1;
-			cin >> index;
-			while (index < 1 || index > olz.getAnuncios().size())
-			{
-				cout << "Número inválido, indique outro: ";
-				cin >> index;
-			}
+				{
+					cout << "Indique o número do anuncio que deseja alterar: ";
+					int index = -1;
+					cin >> index;
+					while (index < 1 || index > olz.getAnuncios().size())
+					{
+						cout << "Número inválido, indique outro: ";
+						cin >> index;
+					}
 
-			cout <<"Indique o que deseja alterar do Anúncio: ";
-			string tempinfo = "erro";
-			cin >> tempinfo;
+					cout <<"Indique o que deseja alterar do Anúncio: ";
+					string tempinfo = "erro";
+					cin >> tempinfo;
 
-			while(tempinfo != "Nome" && tempinfo!= "Telemovel" && tempinfo!= "Localizacao")
-			{
-				cout << "Informação Invalida, tente outra vez: ";
-				cin >> tempinfo;
-			}
-			cin.ignore();
+					while(tempinfo != "N" && tempinfo!= "T" && tempinfo!= "L")
+					{
+						cout << "Informação Invalida, tente outra vez: ";
+						cin >> tempinfo;
+					}
+					cin.ignore();
 
-			if(tempinfo == "Nome")
-				olz.setUtiNome(index-1,tempinfo);
-			else if(tempinfo == "Telemovel")
-				olz.setUtiTelemovel(index-1,0);
-			else if(tempinfo == "Localizacao")
-				olz.setUtiLocalizacao(index-1,Localizacao(tempinfo,tempinfo,tempinfo));
-			break;
-		}
+
+							if(tempinfo == "N"){
+								cout << "Insira novo nome desejado: ";
+							getline(cin, tempinfo);
+								olz.setUtiNome(index-1,tempinfo);
+							}
+							else if(tempinfo == "T"){
+								cout << "Insira telemovel novo";
+								int temptele;
+								cin >> temptele;
+								cin.ignore();
+								olz.setUtiTelemovel(index-1,temptele);
+							}
+							else if(tempinfo == "L"){
+								string tempd, tempf, tempc;
+								cout << "Freguesia nova: " << endl << "Concelho novo: " << endl << "Distrito: ";
+								getline(cin, tempf);
+								getline(cin, tempc);
+								getline(cin, tempd);
+								olz.setUtiLocalizacao(index-1,Localizacao(tempf,tempc,tempd));
+							}
+							break;
+				}
 		else if (selecao == "E")
 		{
 			cout << "Indique o número do utilizador que deseja eliminar: ";
