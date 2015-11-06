@@ -204,13 +204,13 @@ void selecao3()
 			}
 			cin.ignore();
 
-					if(tempinfo == "Nome")
-						olz.setUtiNome(index-1,tempinfo);
-					else if(tempinfo == "Telemovel")
-						olz.setUtiTelemovel(index-1,0);
-					else if(tempinfo == "Localizacao")
-						olz.setUtiLocalizacao(index-1,Localizacao(tempinfo,tempinfo,tempinfo));
-					break;
+			if(tempinfo == "Nome")
+				olz.setUtiNome(index-1,tempinfo);
+			else if(tempinfo == "Telemovel")
+				olz.setUtiTelemovel(index-1,0);
+			else if(tempinfo == "Localizacao")
+				olz.setUtiLocalizacao(index-1,Localizacao(tempinfo,tempinfo,tempinfo));
+			break;
 		}
 		else if (selecao == "E")
 		{
@@ -302,31 +302,31 @@ void selecao4()
 			for (int i=0; i < olz.getUtilizadores().size(); i++)
 			{
 				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
-				if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
-				{
-					if(tempinfo == "Titulo"){
-						cout << "Titulo novo: ";
-					getline(cin, tempinfo);
-						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
+					if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
+					{
+						if(tempinfo == "Titulo"){
+							cout << "Titulo novo: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
+						}
+						else if(tempinfo == "Categoria"){
+							cout << "Categoria nova: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
+						}
+						else if(tempinfo == "Descrição"){
+							cout << "Nova descrição: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
+						}
+						else if(tempinfo == "Mostra Email")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
+						else if(tempinfo == "Mostra Nome")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
+						else if(tempinfo == "Mostra Telemovel")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
+						break;
 					}
-					else if(tempinfo == "Categoria"){
-						cout << "Categoria nova: ";
-						getline(cin, tempinfo);
-						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
-					}
-					else if(tempinfo == "Descrição"){
-						cout << "Nova descrição: ";
-						getline(cin, tempinfo);
-						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
-					}
-					else if(tempinfo == "Mostra Email")
-					olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
-					else if(tempinfo == "Mostra Nome")
-						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
-					else if(tempinfo == "Mostra Telemovel")
-						olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
-					break;
-				}
 			}
 			olz.carregaAnuncios();
 		}
@@ -371,6 +371,50 @@ void selecao4()
 	olz.escreverAnuncios();
 }
 
+void selecao5()
+{
+	//olz.carregaContactos();
+	int pag = 0, porpag= 50;
+	string selecao = "X";
+	while (selecao != "S")
+	{
+		//olz.tabelaContactos(pag,porpag,"default");
+		cin >> selecao;
+		if (selecao == "S")
+			break;
+		else if (selecao == "V")
+		{
+
+		}
+		else if (selecao == "A")
+		{
+
+		}
+		else if (selecao == "E")
+		{
+
+		}
+		else if (selecao == "O")
+		{
+
+		}
+		else if (selecao == "P")
+		{
+
+		}
+		else if (selecao == "PS")
+		{
+			pag++;
+		}
+		else if (selecao == "PA")
+		{
+			if (pag > 0)
+				pag--;
+		}
+	}
+	olz.escreverContactos();
+}
+
 
 
 int main() {
@@ -379,6 +423,7 @@ int main() {
 	olz.lerContactos();
 	//olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
 	olz.carregaAnuncios();
+	olz.carregaContactos();
 	int selecao=-1;
 	while (selecao !=0)
 	{
@@ -387,8 +432,9 @@ int main() {
 		cout << "2. Criar Anuncio" << endl;
 		cout << "3. Gerir Utilizadores" << endl;
 		cout << "4. Gerir Anúncios" << endl;
+		cout << "5. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
-		while (selecao < 0 || selecao > 4)
+		while (selecao < 0 || selecao > 5)
 			cin >> selecao;
 		if (selecao == 0)
 			break;
@@ -400,6 +446,8 @@ int main() {
 			selecao3();
 		else if (selecao == 4)
 			selecao4();
+		else if (selecao == 5)
+			selecao5();
 		selecao = -1;
 	}
 	cout << "Obrigado por utilizar o OLZ." << endl;
