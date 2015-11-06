@@ -43,8 +43,7 @@ void selecao2()
 	char troca = 'J';
 	char mostrar;
 	char nego;
-	cout << "Utilizador(email): " << endl << "Anuncio Venda ou Compra( C / V ): " << endl << "Titulo: " << endl << "Categoria: " << endl << "Mostrar Email? " << endl
-			<< "Mostrar Nome?" << endl << "Mostrar Telemovel?" << endl << "Descrição: " << endl << "Data: " << endl;
+	cout << "Utilizador(email): ";
 
 	while(index == -1){										//email do Utilizador a fazer Anuncio
 		cin >> email;
@@ -64,9 +63,11 @@ void selecao2()
 	while(tipo != 'C' && tipo != 'V'){
 		cout << "Por favor, escreva C (de Compra) ou V (de Venda)." << endl; //tipo (venda ou compra)
 		cin >> tipo;
-		cin.ignore();
 	}
+	cin.ignore();
+	cout << "Título: ";
 	getline(cin, titulo);
+	cout << "Categoria: ";
 	getline(cin, categoria);
 
 	cout << "Introduza S para mostrar o seu Nome ou N para não mostrar o seu Nome." << endl;
@@ -292,7 +293,7 @@ void selecao4()
 int main() {
 	olz.lerUtilizador();
 	olz.lerAnuncio();
-	olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
+	//olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
 	olz.carregaAnuncios();
 	int selecao=-1;
 	while (selecao !=0)
