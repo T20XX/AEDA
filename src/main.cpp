@@ -308,17 +308,17 @@ void selecao4()
 				{
 					if(tempinfo == "Titulo"){
 						cout << "Titulo novo: ";
-					cin >> tempinfo;
+					getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
 					}
 					else if(tempinfo == "Categoria"){
 						cout << "Categoria nova: ";
-					cin >> tempinfo;
+						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
 					}
 					else if(tempinfo == "Descrição"){
 						cout << "Nova descrição: ";
-						cin >>tempinfo ;
+						getline(cin, tempinfo);
 						olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
 					}
 					else if(tempinfo == "Mostra Email")
