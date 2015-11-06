@@ -409,3 +409,18 @@ void Olz::eliminaUtilizador(string email){
 		}
 	}
 }
+
+void Olz::setUtiNome(int index, string nome){
+	utilizadores[index].setNome(nome);
+}
+
+void Olz::setUtiTelemovel(int index, int telemovel){
+	utilizadores[index].setTelemovel(telemovel);
+}
+
+void Olz::setUtiLocalizacao(int index, string freguesia, string concelho, string distrito){
+	utilizadores[index].setFreguesia(freguesia);
+	utilizadores[index].setConcelho(concelho);
+	utilizadores[index].setDistrito(distrito);
+}
+

@@ -39,7 +39,9 @@ public:
 	vector<Utilizador> getUtilizadores();
 	void eliminaAnuncio(int ID);
 	void eliminaUtilizador(string email);
-
+	void setUtiNome(int index, string nome);
+	void setUtiTelemovel(int index, int telemovel);
+	void setUtiLocalizacao(int index, string freguesia, string concelho, string distrito);
 };
 
 #endif /* OLZ_H_ */
