@@ -26,10 +26,12 @@ public:
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	void tabelaUtilizadores(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	void addUtilizador(Utilizador u);
-	void lerUtilizador();
-	void escreverUtilizador();
-	void lerAnuncio();
-	void escreverAnuncio();
+	void lerUtilizadores();
+	void escreverUtilizadores();
+	void lerAnuncios();
+	void escreverAnuncios();
+	void lerContactos();
+	void escreverContactos();
 	void addAnuncio(int index,Anuncio * a);
 	vector<Anuncio *> getAnuncios() const;
 	vector<Utilizador> getUtilizadores();
