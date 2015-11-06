@@ -131,6 +131,26 @@ void Olz::carregaContactos(){
 
 void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
+	if(tipoOrd == "IA")
+		sort(anuncios.begin(), anuncios.end(), IA);
+	else if(tipoOrd == "ID")
+		sort(anuncios.begin(), anuncios.end(), ID);
+	else if(tipoOrd == "DA")
+			sort(anuncios.begin(), anuncios.end(), DaA);
+	else if(tipoOrd == "DD")
+			sort(anuncios.begin(), anuncios.end(), DaD);
+	else if(tipoOrd == "TA")
+			sort(anuncios.begin(), anuncios.end(), TA);
+	else if(tipoOrd == "TD")
+			sort(anuncios.begin(), anuncios.end(), TD);
+	else if(tipoOrd == "CA")
+			sort(anuncios.begin(), anuncios.end(), CA);
+	else if(tipoOrd == "CD")
+				sort(anuncios.begin(), anuncios.end(), CD);
+	else if(tipoOrd == "CA")
+				sort(anuncios.begin(), anuncios.end(), NCA);
+	else if(tipoOrd == "CA")
+				sort(anuncios.begin(), anuncios.end(), NCD);
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
