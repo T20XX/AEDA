@@ -184,6 +184,34 @@ void selecao3()
 		}
 		else if (selecao == "A")
 		{
+			cout << "Indique o número do anuncio que deseja alterar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getAnuncios().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+
+			cout <<"Indique o que deseja alterar do Anúncio: ";
+			string tempinfo = "erro";
+			cin >> tempinfo;
+
+			while(tempinfo != "Nome" && tempinfo!= "Telemovel" && tempinfo!= "Localizacao")
+			{
+				cout << "Informação Invalida, tente outra vez: ";
+				cin >> tempinfo;
+			}
+			cin.ignore();
+
+					if(tempinfo == "Nome")
+						olz.getUtilizadores()[index-1].setNome(tempinfo);
+					else if(tempinfo == "Telemovel")
+						olz.getUtilizadores()[index-1].setTelemovel(tempinfo);
+					else if(tempinfo == "Localizacao")
+						olz.getUtilizadores()[index-1].setDescricao(tempinfo);
+					break;
+				}
 
 		}
 		else if (selecao == "E")
@@ -265,14 +293,14 @@ void selecao4()
 			string tempinfo = "erro";
 			cin >> tempinfo;
 
-			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostrar Email" && tempinfo != "Mostrar Nome" && tempinfo != "Mostrar Telemovel")
+			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostra Email" && tempinfo != "Mostra Nome" && tempinfo != "Mostra Telemovel")
 			{
 
 				cout << "Informação Invalida, tente outra vez: ";
 				cin >> tempinfo;
 			}
 
-
+			cin.ignore();
 			for (int i=0; i < olz.getUtilizadores().size(); i++)
 			{
 				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
@@ -302,6 +330,7 @@ void selecao4()
 					break;
 				}
 			}
+			olz.carregaAnuncios();
 		}
 
 		else if (selecao == "E")
