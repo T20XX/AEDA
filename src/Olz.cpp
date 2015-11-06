@@ -116,7 +116,8 @@ void Olz::escreverUtilizador() {
 
 void Olz::lerAnuncio() {
 	string titulo, categoria, descricao, email, tipo, estado;
-	int ID, numCliques, data, preco, vendaID, nextID;
+	int ID, numCliques, preco, vendaID, nextID;
+	string data;
 	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
 
 	ifstream Anun;
@@ -157,11 +158,11 @@ void Olz::lerAnuncio() {
 					if(tipo == "AnuncioVenda")
 					{
 
-						tempanun = new AnuncioVenda(&utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
+						tempanun = new AnuncioVenda(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,estado,preco,negociavel);
 					}
 					else if(tipo == "AnuncioCompra")
 					{
-						tempanun = new AnuncioCompra(&utilizadores[i],data,titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
+						tempanun = new AnuncioCompra(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
 					}
 					tempanun->setNumCliques(numCliques);
 					utilizadores[i].addAnuncio(tempanun);

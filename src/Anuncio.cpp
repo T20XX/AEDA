@@ -28,7 +28,7 @@ int Data::getDia() const{return dia;}
 
 ostream& operator<<(std::ostream& os, const Data d1)
 {
-  os << d1.getDia() << "/ " << d1.getMes() << " /" << d1.getAno();
+  os << d1.getDia() << "/" << d1.getMes() << "/" << d1.getAno();
   return os;
 }
 
@@ -64,7 +64,7 @@ Contacto::~Contacto() {
 
 int Anuncio::nextID = 0;
 
-Anuncio::Anuncio(Utilizador * utilizador, int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel)
+Anuncio::Anuncio(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel)
 : utilizador(utilizador), data(data), titulo(titulo), categoria(categoria), descricao(descricao),mostraEmail(mostraEmail),mostraNome(mostraNome), mostraTelemovel(mostraTelemovel)
 {
 	ID = nextID;
@@ -86,7 +86,7 @@ void Anuncio::setNumCliques(int numCliques) {this->numCliques=numCliques;}
 
 int Anuncio::getID() const {return ID;}
 
-int Anuncio::getData() const {return data;}
+Data Anuncio::getData() const {return data;}
 
 string Anuncio::getTitulo() const {return titulo;}
 
@@ -106,7 +106,7 @@ bool Anuncio::getmostraEmail() const {return mostraEmail;}
 
 //AnuncioVenda
 
-AnuncioVenda::AnuncioVenda(Utilizador * utilizador,int data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
+AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
 Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
@@ -143,7 +143,7 @@ bool AnuncioVenda::getNegociavel() const {return negociavel;}
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(Utilizador * utilizador,int data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
+AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
 												Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->vendaID=vendaID;;
 }
