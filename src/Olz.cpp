@@ -13,6 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -516,6 +517,52 @@ int Olz::pesquisarUtilizador(string atributo, string pesquisa){
 
 			cout<< "ENCONTROU!!" << i;
 			counter++;
+		}
+	}
+}
+
+int Olz::pesquisarAnuncio(string atributo, string pesquisa){
+
+	vector<string> temps;
+	vector<int> tempi;
+	int counter = 0;
+	for(int i = 0; i < anuncios.size(); i++){
+		if(atributo == "E")
+			temps.push_back(anuncios[i]->getUtilizador()->getEmail());
+		else if(atributo == "T")
+			temps.push_back(anuncios[i]->getTitulo());
+		else if(atributo == "C")
+			temps.push_back(anuncios[i]->getCategoria());
+		else if(atributo == "D")
+			temps.push_back(anuncios[i]->getDescricao());
+		else if(atributo == "N")
+			tempi.push_back(anuncios[i]->getnumCliques());
+		else if(atributo == "I")
+			tempi.push_back(anuncios[i]->getID());
+
+
+		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"){
+			if(temps[i].find(pesquisa) != string::npos){
+				if(counter != i){
+					swap(anuncios[counter], anuncios[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
+		}
+		else{
+			stringstream ss;
+			int pesquisai;
+			ss << pesquisa;
+			ss >>pesquisai;
+
+			if(find(tempi.begin(), tempi.end(), pesquisai) != tempi.end()){
+				if(counter != i){
+					swap(anuncios[counter], anuncios[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
 		}
 	}
 }
