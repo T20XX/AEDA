@@ -114,9 +114,29 @@ public:
 	 * Elimina o utilizador com o email passado por argumento
 	 */
 	void eliminaUtilizador(string email);
+	/**
+	 * @param index Posicao do utilizador para alterar o nome
+	 * @param nome Novo nome para alterar
+	 * Altera o nome do utilizador na posicao index para o argumento nome
+	 */
 	void setUtiNome(int index, string nome);
+	/**
+	 * @param index Posicao do utilizador para alterar o telemovel
+	 * @param telemovel Novo telemovel para alterar
+	 * Altera o telemovel do utilizador na posicao index para o argumento telemovel
+	 */
 	void setUtiTelemovel(int index, int telemovel);
+	/**
+	 * @param index Posicao do utilizador para alterar a localizacao
+	 * @param localizacao Nova localizacao para alterar
+	 * Altera a localizacao do utilizador na posicao index para o argumento localizacao
+	 */
 	void setUtiLocalizacao(int index, Localizacao localizacao);
+	/**
+	 * @param atributo Atributo do utilizador no qual pretende pesquisar
+	 * @param pesquisa Valor que pretende pesquisar no vetor dos utilizadores
+	 * Pesquisa no vetor dos utilizadores os utilizadores que correspondem à pesquisa pretendida
+	 */
 	int pesquisarUtilizador(string atributo, string pesquisa);
 	/**
 	 * @param num_pagina Numero da pagina em que se encontra a listagem
@@ -125,8 +145,23 @@ public:
 	 * Comeca por ordenar o vetor dos contactos e depois mostra num formato de "tabela"
 	 */
 	void tabelaContactos(int num_pagina, int num_contactos_pagina, string tipoOrd);
+	/**
+	 * @param atributo Atributo do anuncio no qual pretende pesquisar
+	 * @param pesquisa Valor que pretende pesquisar no vetor dos anuncios
+	 * Pesquisa no vetor dos anuncios os anuncios que correspondem à pesquisa pretendida
+	 */
 	int pesquisarAnuncio(string atributo, string pesquisa);
+	/**
+	 * @param atributo Atributo do contacto no qual pretende pesquisar
+	 * @param pesquisa Valor que pretende pesquisar no vetor dos contactos
+	 * Pesquisa no vetor dos contactos os contactos que correspondem à pesquisa pretendida
+	 */
 	int pesquisarContacto(string atributo, string pesquisa);
+	/**
+	 * @param ID ID do anuncio para adicionar o contacto ao vetor de contactos
+	 * @param c Contacto para adicionar ao vetor de contactos do anuncio
+	 * Adiciona um anuncio ao utilizador no vetor de utilizadores na posicao index
+	 */
 	void addContacto(int ID, Contacto * c);
 };
 
