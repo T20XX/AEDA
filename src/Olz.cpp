@@ -692,7 +692,7 @@ void Olz::lerAnunciosFinalizados() {
 				if(utilizadores[i].getEmail() == email)
 				{
 					Anuncio * tempanun;
-						tempanun = new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,preco);
+						tempanun = new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID,preco);
 
 					}
 				}

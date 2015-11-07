@@ -124,7 +124,7 @@ void Anuncio::setNextID(int ID) {nextID=ID;}
 
 int Anuncio::getNextID() {return nextID;}
 
-void setID(int I) {ID=I;}
+void Anuncio::setID(int I) {ID=I;}
 
 void Anuncio::addContacto(Contacto * c) {contactos.push_back(c);}
 
@@ -185,7 +185,7 @@ AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, str
 		this->estado = estado;
 	else this->estado = "indisponivel";
 	setID(getNextID());
-	setNextID(getNextID()++);
+	setNextID(getNextID()+1);
 }
 
 void AnuncioVenda::verAnuncio() const {
@@ -215,11 +215,11 @@ bool AnuncioVenda::getNegociavel() const {return negociavel;}
 
 //AnuncioCompra
 
-AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
-														Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID)
+: Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->vendaID=vendaID;
 	setID(getNextID());
-	setNextID(getNextID()++);
+	setNextID(getNextID()+1);
 }
 
 void AnuncioCompra::verAnuncio() const{
@@ -240,11 +240,18 @@ bool AnuncioCompra::getNegociavel() const {return false;}
 
 //AnuncioFinalizado
 
-AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel,int IDantigo, int preco) :
-																Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel,int IDantigo, int preco)
+: Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 			this->preco=preco;
 			setID(IDantigo);
 }
+
+void AnuncioFinalizado::verAnuncio() const{
+	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
+
+	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
+}
+
 bool AnuncioFinalizado::getTipo() const {return false;}
 
 int AnuncioFinalizado::getVendaID() const {return 0;}
