@@ -166,6 +166,7 @@ public:
 	void addContacto(int ID, Contacto * c);
 	void lerAnunciosFinalizados();
 	void escreverAnunciosFinalizados();
+	void tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 };
 
 #endif /* OLZ_H_ */

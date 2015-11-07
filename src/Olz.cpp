@@ -192,6 +192,41 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	}
 }
 
+void Olz::tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título, a Categoria e o preço finalizado
+{
+	if(tipoOrd == "IA")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), IA);
+	else if(tipoOrd == "ID")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), ID);
+	else if(tipoOrd == "DA")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), DaA);
+	else if(tipoOrd == "DD")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), DaD);
+	else if(tipoOrd == "TA")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), TA);
+	else if(tipoOrd == "TD")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), TD);
+	else if(tipoOrd == "CA")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), CA);
+	else if(tipoOrd == "CD")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), CD);
+	else if(tipoOrd == "NA")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), NCA);
+	else if(tipoOrd == "ND")
+		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), NCD);
+
+	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << setw(5) << "Preço";
+	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
+	{
+		if (i < anuncios.size())
+		{
+			cout << setw(3) << (i+1)<< " " << setw(4) << anunciosfinalizados[i]->getID() << " " << setw(7) << anunciosfinalizados[i]->getData() << " "<< setw(7) << anunciosfinalizados[i]->getTitulo() << " " << setw(9) << anunciosfinalizados[i]->getCategoria() << " " << setw(5) << anunciosfinalizados[i]->getPreco() << endl;
+		}
+		else
+			break;
+	}
+}
+
 void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
 	if (tipoOrd == "EA")
