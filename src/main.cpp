@@ -162,6 +162,7 @@ void selecao3()
 	int pag = 0, porpag= 50;
 	string tipoOrd = "EA";
 	string selecao = "X";
+	string tipoPes, tipoAlt;
 	while (selecao != "S")
 	{
 		olz.tabelaUtilizadores(pag,porpag,tipoOrd);
@@ -245,7 +246,11 @@ void selecao3()
 		}
 		else if (selecao == "P")
 		{
-			olz.pesquisarUtilizador("N","elmo");
+			cout << "Em que atributo deseja procurar:: E(mail), N(ome), A(nuncios), D(istrito), F(reguesia), C(oncelho)";
+			cin >> tipoPes;
+			cout << "O que deseja procurar";
+			cin >> tipoAlt;
+			olz.pesquisarUtilizador(tipoPes,tipoAlt);
 			tipoOrd= "nulo";
 		}
 		else if (selecao == "PP")
