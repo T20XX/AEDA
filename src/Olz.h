@@ -21,8 +21,17 @@ class Olz {
 	vector<Anuncio *> anuncios;
 	vector<Contacto *> contactos;
 public:
+	/**
+	 * Construtor da classe
+	 */
 	Olz();
+	/**
+	 * Destrutor da classe
+	 */
 	virtual ~Olz();
+	/**
+	 * Carrega o vetor @see anuncios com referências aos anúncios de todos os utilizadores
+	 */
 	void carregaAnuncios();
 	void carregaContactos();
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
