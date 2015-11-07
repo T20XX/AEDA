@@ -467,6 +467,10 @@ void selecao5()
 			cout << "D(ata), A(núncio), E(mail) + A(scendente), D(escendente)";
 			cin >> tipoOrd;
 		}
+		else if(selecao == "P")
+		{
+
+		}
 		else if (selecao == "PP")
 		{
 			cin >> porpag;

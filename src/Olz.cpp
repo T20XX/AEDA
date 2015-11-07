@@ -581,3 +581,42 @@ int Olz::pesquisarAnuncio(string atributo, string pesquisa){
 	}
 }
 
+int Olz::pesquisarContacto(string atributo, string pesquisa){
+	vector<string> temps;
+	vector<int> tempi;
+	int counter = 0;
+	for(int i = 0; i < contactos.size(); i++){
+		if(atributo == "E")
+			temps.push_back(contactos[i]->getEmail());
+		else if(atributo == "C")
+			temps.push_back(contactos[i]->getContacto());
+		else if(atributo == "I")
+			tempi.push_back(contactos[i]->getAnuncio()->getID());
+
+
+		if(atributo == "E" || atributo == "C"){
+			if(temps[i].find(pesquisa) != string::npos){
+				if(counter != i){
+					swap(contactos[counter], contactos[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
+		}
+		else{
+			stringstream ss;
+			int pesquisai;
+			ss << pesquisa;
+			ss >>pesquisai;
+
+			if(find(tempi.begin(), tempi.end(), pesquisai) != tempi.end()){
+				if(counter != i){
+					swap(contactos[counter], contactos[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
+		}
+	}
+}
+
