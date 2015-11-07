@@ -627,7 +627,7 @@ void Olz::addContacto(int ID, Contacto * c){
 	}
 }
 
-void Olz::lerAnuncios() {
+void Olz::lerAnunciosFinalizados() {
 	string titulo, categoria, descricao, email, estado;
 	int ID, numCliques, preco,nextID;
 	string data;
