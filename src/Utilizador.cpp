@@ -13,30 +13,21 @@
 
 
 Localizacao::Localizacao(string freguesia, string concelho, string distrito)
-:freguesia(freguesia), concelho(concelho), distrito(distrito){}
+:freguesia(freguesia), concelho(concelho), distrito(distrito) {}
 
-
-Localizacao::~Localizacao() {
-
-}
-
-string Localizacao::getFreguesia() const{
-	return freguesia;
-}
+Localizacao::~Localizacao() {}
 
 void Localizacao::setFreguesia(string f) {freguesia = f;}
 
-string Localizacao::getConcelho() const{
-	return concelho;
-}
-
 void Localizacao::setConcelho(string c) {concelho = c;}
 
-string Localizacao::getDistrito() const{
-	return distrito;
-}
-
 void Localizacao::setDistrito(string d) {distrito = d;}
+
+string Localizacao::getFreguesia() const {return freguesia;}
+
+string Localizacao::getConcelho() const {return concelho;}
+
+string Localizacao::getDistrito() const {return distrito;}
 
 ostream& operator<<(std::ostream& os, const Localizacao l)
 {
@@ -44,7 +35,7 @@ ostream& operator<<(std::ostream& os, const Localizacao l)
   return os;
 }
 
-//Utilizador
+//UTILIZADOR
 
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
 : email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
