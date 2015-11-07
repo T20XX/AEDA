@@ -101,25 +101,25 @@ bool NCD(const Anuncio *a1,const Anuncio *a2){
 
 //bool ordenar contactos
 
-bool CDA(const Contacto *c1, const Contacto *c2){return (c1->getData() < c2->getData());}
-bool CDD(const Contacto *c1, const Contacto *c2){return (c1.getData() > c2.getData());}
-bool CAA(const Contacto *c1,const Contacto *c2){
+bool CDA(Contacto *c1,  Contacto *c2){return (c1->getData() < c2->getData());}
+bool CDD( Contacto *c1,  Contacto *c2){return (c1->getData() > c2->getData());}
+bool CAA(Contacto *c1,Contacto *c2){
 	if(c1->getAnuncio()->getID() == c2->getAnuncio()->getID())
 		return CDA(c1, c2);
 	return (c1->getAnuncio()->getID() < c2->getAnuncio()->getID());
 }
-bool CAD(const Contacto *c1, const Contacto *c2){
+bool CAD(Contacto *c1, Contacto *c2){
 	if(c1->getAnuncio()->getID() == c2->getAnuncio()->getID())
 		return CDD(c1, c2);
 	return (c1->getAnuncio()->getID() > c2->getAnuncio()->getID());
 }
-bool CEA(const Contacto *c1, const Contacto *c2){
+bool CEA( Contacto *c1, Contacto *c2){
 	if(c1->getEmail() == c2->getEmail())
 		return CAA(c1,c2);
 	return (c1->getEmail() < c2->getEmail());
 }
-bool CED(const Contacto *c1, const Contacto *c2){
-	if(c1.getEmail() == c2.getEmail())
+bool CED(Contacto *c1, Contacto *c2){
+	if(c1->getEmail() == c2->getEmail())
 		return CAD(c1,c2);
 	return (c1->getEmail() > c2->getEmail());
 }
