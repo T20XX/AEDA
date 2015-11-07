@@ -20,6 +20,7 @@ class Olz {
 	vector<Utilizador> utilizadores;
 	vector<Anuncio *> anuncios;
 	vector<Contacto *> contactos;
+	vector<Anuncio *> anunciosfinalizados;
 public:
 	/**
 	 * Construtor da classe
@@ -164,6 +165,7 @@ public:
 	 */
 	void addContacto(int ID, Contacto * c);
 	void lerAnunciosFinalizados();
+	void escreverAnunciosFinalizados();
 };
 
 #endif /* OLZ_H_ */

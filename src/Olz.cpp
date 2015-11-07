@@ -663,6 +663,27 @@ void Olz::lerAnunciosFinalizados() {
 				}
 			Anun.ignore();
 	}
-	Anuncio::setNextID(nextID);
 	Anun.close();
+}
+
+void Olz::escreverAnunciosFinalizados(){
+	ofstream Anun;
+
+		Anun.open("AnunciosFinalizados.txt", ofstream::out | ofstream::trunc);
+
+		for(int i=0; i < anunciosfinalizados.size();i++) {
+			Anun << anunciosfinalizados[i]->getUtilizador()->getEmail() << endl
+					<< anunciosfinalizados[i]->getTitulo()<<endl
+					<< anunciosfinalizados[i]->getCategoria() <<endl
+					<< anunciosfinalizados[i]->getID()<<endl
+					<< anunciosfinalizados[i]->getData()<<endl
+					<< anunciosfinalizados[i]->getnumCliques()<<endl
+					<< anunciosfinalizados[i]->getmostraNome()<<endl
+					<< anunciosfinalizados[i]->getmostraTelemovel()<<endl
+					<< anunciosfinalizados[i]->getmostraEmail()<<endl
+					<< anunciosfinalizados[i]->getDescricao()<<endl
+						<< anunciosfinalizados[i]->getPreco()<<endl;
+			Anun << endl;
+		}
+		Anun.close();
 }
