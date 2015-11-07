@@ -68,19 +68,43 @@ class Utilizador {
 	Localizacao localizacao;
 	vector<Anuncio *> anuncios;
 public:
+	/**
+	 * Construtor da classe
+	 */
 	Utilizador(string email, string nome, int telemovel,Localizacao localizacao);
+	/**
+	 * Destrutor da classe
+	 */
 	virtual ~Utilizador();
+	/**
+	 * Imprime as informacoes do utilizador
+	 */
 	void verUtilizador();
-	string getEmail() const;
 	void setEmail(string e);
-	string getNome() const;
 	void setNome(string n);
-	int getTelemovel() const;
 	void setTelemovel(int t);
-	Localizacao getLocalizacao() const;
 	void setLocalizacao(Localizacao l);
-	vector<Anuncio *> getAnuncios() const;
 	void addAnuncio(Anuncio * a);
+	/**
+	 * @returns Email
+	 */
+	string getEmail() const;
+	/**
+	 * @returns Nome
+	 */
+	string getNome() const;
+	/**
+	 * @returns Telemovel
+	 */
+	int getTelemovel() const;
+	/**
+	 * @returns Localizacao
+	 */
+	Localizacao getLocalizacao() const;
+	/**
+	 * @returns Vetor dos anuncios
+	 */
+	vector<Anuncio *> getAnuncios() const;
 };
 
 

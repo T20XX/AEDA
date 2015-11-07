@@ -65,6 +65,7 @@ public:
 	virtual void verAnuncio() const = 0;
 	static void setNextID(int ID);
 	static int getNextID();
+	void setID(int I);
 	void addContacto(Contacto * c);
 	void setUtilizador(Utilizador * u);
 	void setNumCliques(int numCliques);
@@ -124,7 +125,7 @@ class AnuncioFinalizado: public Anuncio {
 	int preco;
 	vector<Anuncio *> anunciosfinalizados;
 public:
-	AnuncioFinalizado(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int preco);
+	AnuncioFinalizado(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel,int IDantigo, int preco);
 	void verAnuncio() const;
 	bool getTipo() const;
 	string getEstado() const;

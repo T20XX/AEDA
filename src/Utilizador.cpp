@@ -40,6 +40,8 @@ ostream& operator<<(std::ostream& os, const Localizacao l)
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
 : email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
 
+Utilizador::~Utilizador() {}
+
 void Utilizador::verUtilizador()
 {
 	cout << "Informação do Utilizador:" << endl << "Email: " << email << endl <<
@@ -50,29 +52,22 @@ void Utilizador::verUtilizador()
 
 }
 
-string Utilizador::getEmail() const {return email;}
-
 void Utilizador::setEmail(string e) {email = e;}
-
-string Utilizador::getNome() const {return nome;}
 
 void Utilizador::setNome(string n) {nome = n;}
 
-int Utilizador::getTelemovel() const {return telemovel;}
-
 void Utilizador::setTelemovel(int t) {telemovel = t;}
-
-vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
-
-
-Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 
 void Utilizador::setLocalizacao(Localizacao l) {localizacao = l;}
 
-Utilizador::~Utilizador() {
-	// TODO Auto-generated destructor stub
-}
+void Utilizador::addAnuncio(Anuncio * a) {anuncios.push_back(a);}
 
-void Utilizador::addAnuncio(Anuncio * a) {
-	anuncios.push_back(a);
-}
+string Utilizador::getEmail() const {return email;}
+
+string Utilizador::getNome() const {return nome;}
+
+int Utilizador::getTelemovel() const {return telemovel;}
+
+Localizacao Utilizador::getLocalizacao() const {return localizacao;}
+
+vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
