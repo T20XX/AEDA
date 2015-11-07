@@ -279,7 +279,9 @@ void selecao4()
 	olz.carregaAnuncios();
 	int pag = 0, porpag= 50;
 	string selecao = "X";
-	string tipoOrd = "EA";
+	string tipoOrd = "IA";
+	string tipoPes = "I";
+	string tipoAlt;
 	while (selecao != "S")
 	{
 		olz.tabelaAnuncios(pag,porpag,"default");
@@ -370,6 +372,15 @@ void selecao4()
 			cout << "I(D), D(ata), T(ítulo), C(ategoria), N(úmero de Cliques)  + A(scendente), D(escendente)";
 			cin >> tipoOrd;
 		}
+		else if(selecao == "P")
+		{
+			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
+			cin >> tipoPes;
+			cout << "O que deseja alterar??";
+			cin >> tipoAlt;
+			olz.pesquisarAnuncio(tipoPes,tipoAlt);
+			tipoOrd= "nulo";
+		}
 		else if (selecao == "PP")
 		{
 			cin >> porpag;
@@ -402,6 +413,7 @@ void selecao5()
 	int pag = 0, porpag= 50;
 	string selecao = "X";
 	string tipoOrd = "DA";
+	string tipoPes, tipoAlt;
 	while (selecao != "S")
 	{
 		olz.tabelaContactos(pag,porpag,"default");
@@ -469,7 +481,12 @@ void selecao5()
 		}
 		else if(selecao == "P")
 		{
-
+			cout << "Em que atributo deseja procurar: I(D), E(mail), C(ontacto)";
+			cin >> tipoPes;
+			cout << "O que deseja alterar??";
+			cin >> tipoAlt;
+			olz.pesquisarContacto(tipoPes,tipoAlt);
+			tipoOrd= "nulo";
 		}
 		else if (selecao == "PP")
 		{
