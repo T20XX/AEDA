@@ -627,3 +627,42 @@ void Olz::addContacto(int ID, Contacto * c){
 	}
 }
 
+void Olz::lerAnuncios() {
+	string titulo, categoria, descricao, email, estado;
+	int ID, numCliques, preco,nextID;
+	string data;
+	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
+
+	ifstream Anun;
+
+	Anun.open("AnunciosFinalizados.txt");
+
+	Anun >> nextID;
+	Anun.ignore();
+	while(!Anun.eof()) {
+			getline(Anun,email);
+			getline(Anun, titulo);
+			getline(Anun, categoria);
+			Anun >> ID;
+			Anun >> data;
+			Anun >> numCliques;
+			Anun >> mostraNome;
+			Anun >> mostraTelemovel;
+			Anun >> mostraEmail;
+			Anun.ignore();
+			getline(Anun, descricao);
+			Anun >> preco;
+			for(int i = 0 ; i < utilizadores.size();i++)
+			{
+				if(utilizadores[i].getEmail() == email)
+				{
+					Anuncio * tempanun;
+						tempanun = new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,preco);
+
+					}
+				}
+			Anun.ignore();
+	}
+	Anuncio::setNextID(nextID);
+	Anun.close();
+}

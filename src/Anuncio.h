@@ -122,6 +122,7 @@ public:
 
 class AnuncioFinalizado: public Anuncio {
 	int preco;
+	vector<Anuncio *> anunciosfinalizados;
 public:
 	AnuncioFinalizado(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int preco);
 	void verAnuncio() const;

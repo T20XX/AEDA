@@ -163,6 +163,7 @@ public:
 	 * @param c Contacto para adicionar ao vetor de contactos do anuncio
 	 */
 	void addContacto(int ID, Contacto * c);
+	void lerAnunciosFinalizados();
 };
 
 #endif /* OLZ_H_ */
