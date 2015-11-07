@@ -452,7 +452,7 @@ void Olz::lerContactos(){
 			Cont.ignore();
 			getline(Cont, contacto);
 
-			for (int i = 0 ; i < utilizadores.size();i++)
+			for (int i = 0 ; i < utilizadores.size(); i++)
 			{
 				for (int j= 0 ; j < utilizadores[i].getAnuncios().size(); j++)
 				{
