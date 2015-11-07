@@ -44,6 +44,7 @@ public:
 	void setUtiLocalizacao(int index, Localizacao localizacao);
 	int pesquisarUtilizador(string atributo, string pesquisa);
 	void tabelaContactos(int num_pagina, int num_contactos_pagina, string tipoOrd);
+	int pesquisarAnuncio(string atributo, string pesquisa);
 };
 
 #endif /* OLZ_H_ */
