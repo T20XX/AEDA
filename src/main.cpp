@@ -159,6 +159,36 @@ void selecao2()
 
 void selecao3()
 {
+	int ID, index;
+	string email, mensagem;
+	string data;
+	cout << "Indique o ID do anúncio para o qual pretende realizar contacto: ";
+	while(index == -1){										//email do Utilizador a fazer Anuncio
+		cin >> ID;
+		for(int i = 0; i < olz.getAnuncios().size(); i++)
+		{
+			if(olz.getAnuncios()[i]->getID() == ID)
+			{
+				index = i;
+				break;
+			}
+		}
+		if(index == -1)
+			cout << "ID Indisponível, tente outra vez!" << endl;
+	}
+	cout << "Indique a Data(DD/MM/AAAA): ";
+	cin >> data;
+	cout << "Indique o seu email: ";
+	cin >> email;
+	cin.ignore();
+	cout << "Indique a mensagem que quer enviar: ";
+	getline(cin, mensagem);
+
+	olz.addContacto(olz.getAnuncios()[index]->getID(), new Contacto(olz.getAnuncios()[index], data, email, mensagem));
+
+}
+void selecao4()
+{
 	int pag = 0, porpag= 50;
 	string tipoOrd = "EA";
 	string selecao = "X";
@@ -279,7 +309,7 @@ void selecao3()
 	olz.escreverUtilizadores();
 }
 
-void selecao4()
+void selecao5()
 {
 	olz.carregaAnuncios();
 	int pag = 0, porpag= 50;
@@ -412,7 +442,7 @@ void selecao4()
 	olz.escreverAnuncios();
 }
 
-void selecao5()
+void selecao6()
 {
 	olz.carregaContactos();
 	int pag = 0, porpag= 50;
@@ -534,9 +564,10 @@ int main() {
 		cout << "Menu" << endl;
 		cout << "1. Registar Utilizador" << endl;
 		cout << "2. Criar Anuncio" << endl;
-		cout << "3. Gerir Utilizadores" << endl;
-		cout << "4. Gerir Anúncios" << endl;
-		cout << "5. Gerir Contactos" << endl;
+		cout << "3.Criar Contacto" << endl;
+		cout << "4. Gerir Utilizadores" << endl;
+		cout << "5. Gerir Anúncios" << endl;
+		cout << "6. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
 		while (selecao < 0 || selecao > 5)
 			cin >> selecao;
@@ -546,11 +577,13 @@ int main() {
 			selecao1();
 		else if (selecao == 2)
 			selecao2();
-		else if (selecao == 3)
+		else if(selecao == 3)
 			selecao3();
 		else if (selecao == 4)
-			selecao4();
+			selecao3();
 		else if (selecao == 5)
+			selecao4();
+		else if (selecao == 6)
 			selecao5();
 		selecao = -1;
 	}
