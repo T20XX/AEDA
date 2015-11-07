@@ -243,7 +243,7 @@ void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string ti
 		{
 			if (i < contactos.size())
 			{
-				cout << setw(3) << (i+1) << " " << setw(3) << contactos[i]->getAnuncio()->getID() << " " << setw(20) << contactos[i]->getEmail().substr(0,20) << " "  << contactos[i]->getContacto() << " " << contactos[i]->getData()  << endl;
+				cout << setw(3) << (i+1) << " " << setw(3) << contactos[i]->getAnuncio()->getID() << " " << setw(20) << contactos[i]->getEmail().substr(0,20) << " "  << setw(20) << contactos[i]->getContacto().substr(0,20) << " " << setw(10) << contactos[i]->getData()  << endl;
 			}
 			else
 				break;
