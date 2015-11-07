@@ -56,6 +56,7 @@ public:
 	void tabelaContactos(int num_pagina, int num_contactos_pagina, string tipoOrd);
 	int pesquisarAnuncio(string atributo, string pesquisa);
 	int pesquisarContacto(string atributo, string pesquisa);
+	void addContacto(int ID, Contacto * c);
 };
 
 #endif /* OLZ_H_ */

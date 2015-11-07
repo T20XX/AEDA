@@ -620,3 +620,10 @@ int Olz::pesquisarContacto(string atributo, string pesquisa){
 	}
 }
 
+void Olz::addContacto(int ID, Contacto * c){
+	for(int i = 0; i < anuncios.size(); i++){
+		if(anuncios[i]->getID() == ID)
+			anuncios[i]->addContacto(c);
+	}
+}
+
