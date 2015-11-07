@@ -21,16 +21,43 @@ class Localizacao {
 	string freguesia, concelho, distrito;
 public:
 	/**
-	 * Construtor da classe Localizacao
+	 * Construtor da classe
 	 */
 	Localizacao(string freguesia, string concelho, string distrito);
+	/**
+	 * Destrutor da classe
+	 */
 	virtual ~Localizacao();
-	string getFreguesia() const;
+	/**
+	 * Altera o membro-dado freguesia para o argumento f
+	 * @param f Nova freguesia
+	 */
 	void setFreguesia(string f);
-	string getConcelho() const;
+	/**
+	 * Altera o membro-dado concelho para o argumento c
+	 * @param c Novo concelho
+	 */
 	void setConcelho(string c);
-	string getDistrito() const;
+	/**
+	 * Altera o membro-dado distrito para o argumento d
+	 * @param d Nova distrito
+	 */
 	void setDistrito(string d);
+	/**
+	 * @return Freguesia
+	 */
+	string getFreguesia() const;
+	/**
+	 * @return Concelho
+	 */
+	string getConcelho() const;
+	/**
+	 * @return Distrito
+	 */
+	string getDistrito() const;
+	/**
+	 * Overload do operator do operator<< que imprime a localização no formato freguesia, concelho, distrito
+	 */
 	friend ostream& operator<<(std::ostream& os, const Localizacao l);
 
 };
