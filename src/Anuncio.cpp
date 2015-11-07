@@ -102,7 +102,7 @@ string Contacto::getContacto() {return contacto;}
 Data Contacto::getData() {return data;}
 
 void Contacto::verContacto() const{
-
+ cout << "ID: " << anuncio->getID() << " Data: " << data << " Email: " << email  << " Mensagem: " << contacto;
 }
 
 void Contacto::setEmail(string em){	this->email = em;}
