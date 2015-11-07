@@ -119,4 +119,16 @@ public:
 	bool getNegociavel() const;
 	int getVendaID() const;
 };
+
+class AnuncioFinalizado: public Anuncio {
+	int preco;
+public:
+	AnuncioFinalizado(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao,  bool mostraEmail, bool mostraNome, bool mostraTelemovel, int preco);
+	void verAnuncio() const;
+	bool getTipo() const;
+	string getEstado() const;
+	int getPreco() const;
+	bool getNegociavel() const;
+	int getVendaID() const;
+};
 #endif /* ANUNCIO_H_ */

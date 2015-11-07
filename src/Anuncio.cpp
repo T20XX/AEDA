@@ -114,11 +114,7 @@ int Anuncio::nextID = 0;
 
 Anuncio::Anuncio(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel)
 : utilizador(utilizador), data(data), titulo(titulo), categoria(categoria), descricao(descricao),mostraEmail(mostraEmail),mostraNome(mostraNome), mostraTelemovel(mostraTelemovel)
-{
-	ID = nextID;
-	nextID++;
-	numCliques = 0;
-}
+{numCliques = 0;}
 
 Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
@@ -186,6 +182,8 @@ AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, str
 	if(estado == "novo" || estado == "usando como novo" || estado == "funcional" || estado == "para peças")
 		this->estado = estado;
 	else this->estado = "indisponivel";
+	ID = getNextID();
+	setNextID(getNextID()++);
 }
 
 void AnuncioVenda::verAnuncio() const {
@@ -218,6 +216,8 @@ bool AnuncioVenda::getNegociavel() const {return negociavel;}
 AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
 														Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->vendaID=vendaID;;
+	ID = getNextID();
+	setNextID(getNextID()++);
 }
 
 void AnuncioCompra::verAnuncio() const{
@@ -235,3 +235,19 @@ string AnuncioCompra::getEstado() const {return "nulo";}
 int AnuncioCompra::getPreco() const {return 0;}
 
 bool AnuncioCompra::getNegociavel() const {return false;}
+
+//AnuncioFinalizado
+
+AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int preco) :
+																Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+			this->preco=preco;
+}
+bool AnuncioFinalizado::getTipo() const {return false;}
+
+int AnuncioFinalizado::getVendaID() const {return 0;}
+
+string AnuncioFinalizado::getEstado() const {return "nulo";}
+
+int AnuncioFinalizado::getPreco() const {return preço;}
+
+bool AnuncioFinalizado::getNegociavel() const {return false;}
