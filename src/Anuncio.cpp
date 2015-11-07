@@ -124,6 +124,8 @@ void Anuncio::setNextID(int ID) {nextID=ID;}
 
 int Anuncio::getNextID() {return nextID;}
 
+void setID(int I) {ID=I;}
+
 void Anuncio::addContacto(Contacto * c) {contactos.push_back(c);}
 
 void Anuncio::setUtilizador(Utilizador * u) {utilizador = u;}
@@ -182,7 +184,7 @@ AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, str
 	if(estado == "novo" || estado == "usando como novo" || estado == "funcional" || estado == "para peças")
 		this->estado = estado;
 	else this->estado = "indisponivel";
-	ID = getNextID();
+	setID(getNextID());
 	setNextID(getNextID()++);
 }
 
@@ -215,8 +217,8 @@ bool AnuncioVenda::getNegociavel() const {return negociavel;}
 
 AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int vendaID) :
 														Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
-	this->vendaID=vendaID;;
-	ID = getNextID();
+	this->vendaID=vendaID;
+	setID(getNextID());
 	setNextID(getNextID()++);
 }
 
@@ -238,9 +240,10 @@ bool AnuncioCompra::getNegociavel() const {return false;}
 
 //AnuncioFinalizado
 
-AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel, int preco) :
+AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel,int IDantigo, int preco) :
 																Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 			this->preco=preco;
+			setID(IDantigo);
 }
 bool AnuncioFinalizado::getTipo() const {return false;}
 
@@ -248,6 +251,6 @@ int AnuncioFinalizado::getVendaID() const {return 0;}
 
 string AnuncioFinalizado::getEstado() const {return "nulo";}
 
-int AnuncioFinalizado::getPreco() const {return preço;}
+int AnuncioFinalizado::getPreco() const {return preco;}
 
 bool AnuncioFinalizado::getNegociavel() const {return false;}
