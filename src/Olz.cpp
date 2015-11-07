@@ -274,16 +274,16 @@ void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string ti
 		sort(contactos.begin(),contactos.end(),CED);
 
 	cout << setw(3) << "#" << " " << setw(3) << "ID" << " " << setw(20) << "Email" << " " << setw(8) << "Contacto" << " " << setw(8) << "Data"<< endl;
-		for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
+	for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
+	{
+		if (i < contactos.size())
 		{
-			if (i < contactos.size())
-			{
-				cout << setw(3) << (i+1) << " " << setw(3) << contactos[i]->getAnuncio()->getID() << " " << setw(20) << contactos[i]->getEmail().substr(0,20) << " "  << setw(20) << contactos[i]->getContacto().substr(0,20) << " " << setw(10) << contactos[i]->getData()  << endl;
-			}
-			else
-				break;
-
+			cout << setw(3) << (i+1) << " " << setw(3) << contactos[i]->getAnuncio()->getID() << " " << setw(20) << contactos[i]->getEmail().substr(0,20) << " "  << setw(20) << contactos[i]->getContacto().substr(0,20) << " " << setw(10) << contactos[i]->getData()  << endl;
 		}
+		else
+			break;
+
+	}
 }
 
 void Olz::addUtilizador(Utilizador u) {
@@ -492,6 +492,8 @@ void Olz::addAnuncio(int index,Anuncio * a) {
 
 vector<Anuncio *> Olz::getAnuncios() const {return anuncios;}
 
+vector<Anuncio *> Olz::getAnunciosFinalizados() const {return anunciosfinalizados;}
+
 vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
 
 vector<Contacto *> Olz::getContactos() const {return contactos;}
@@ -672,10 +674,9 @@ void Olz::lerAnunciosFinalizados() {
 
 	Anun.open("AnunciosFinalizados.txt");
 
-	Anun >> nextID;
-	Anun.ignore();
 	while(!Anun.eof()) {
-			getline(Anun,email);
+		getline(Anun,email);
+		if(email!= ""){
 			getline(Anun, titulo);
 			getline(Anun, categoria);
 			Anun >> ID;
@@ -691,12 +692,12 @@ void Olz::lerAnunciosFinalizados() {
 			{
 				if(utilizadores[i].getEmail() == email)
 				{
-					Anuncio * tempanun;
-						tempanun = new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID,preco);
-
-					}
+					anunciosfinalizados.push_back(new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID,preco));
 				}
+			}
 			Anun.ignore();
+			getline(Anun,email);
+		}
 	}
 	Anun.close();
 }
@@ -704,21 +705,67 @@ void Olz::lerAnunciosFinalizados() {
 void Olz::escreverAnunciosFinalizados(){
 	ofstream Anun;
 
-		Anun.open("AnunciosFinalizados.txt", ofstream::out | ofstream::trunc);
+	Anun.open("AnunciosFinalizados.txt", ofstream::out | ofstream::trunc);
 
-		for(int i=0; i < anunciosfinalizados.size();i++) {
-			Anun << anunciosfinalizados[i]->getUtilizador()->getEmail() << endl
-					<< anunciosfinalizados[i]->getTitulo()<<endl
-					<< anunciosfinalizados[i]->getCategoria() <<endl
-					<< anunciosfinalizados[i]->getID()<<endl
-					<< anunciosfinalizados[i]->getData()<<endl
-					<< anunciosfinalizados[i]->getnumCliques()<<endl
-					<< anunciosfinalizados[i]->getmostraNome()<<endl
-					<< anunciosfinalizados[i]->getmostraTelemovel()<<endl
-					<< anunciosfinalizados[i]->getmostraEmail()<<endl
-					<< anunciosfinalizados[i]->getDescricao()<<endl
-						<< anunciosfinalizados[i]->getPreco()<<endl;
-			Anun << endl;
+	for(int i=0; i < anunciosfinalizados.size();i++) {
+		Anun << anunciosfinalizados[i]->getUtilizador()->getEmail() << endl
+				<< anunciosfinalizados[i]->getTitulo()<<endl
+				<< anunciosfinalizados[i]->getCategoria() <<endl
+				<< anunciosfinalizados[i]->getID()<<endl
+				<< anunciosfinalizados[i]->getData()<<endl
+				<< anunciosfinalizados[i]->getnumCliques()<<endl
+				<< anunciosfinalizados[i]->getmostraNome()<<endl
+				<< anunciosfinalizados[i]->getmostraTelemovel()<<endl
+				<< anunciosfinalizados[i]->getmostraEmail()<<endl
+				<< anunciosfinalizados[i]->getDescricao()<<endl
+				<< anunciosfinalizados[i]->getPreco()<<endl;
+		Anun << endl;
+	}
+	Anun.close();
+}
+
+int Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
+
+	vector<string> temps;
+	vector<int> tempi;
+	int counter = 0;
+	for(int i = 0; i < anunciosfinalizados.size(); i++){
+		if(atributo == "E")
+			temps.push_back(anunciosfinalizados[i]->getUtilizador()->getEmail());
+		else if(atributo == "T")
+			temps.push_back(anunciosfinalizados[i]->getTitulo());
+		else if(atributo == "C")
+			temps.push_back(anunciosfinalizados[i]->getCategoria());
+		else if(atributo == "D")
+			temps.push_back(anunciosfinalizados[i]->getDescricao());
+		else if(atributo == "N")
+			tempi.push_back(anunciosfinalizados[i]->getnumCliques());
+		else if(atributo == "I")
+			tempi.push_back(anunciosfinalizados[i]->getID());
+
+
+		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"){
+			if(temps[i].find(pesquisa) != string::npos){
+				if(counter != i){
+					swap(anunciosfinalizados[counter], anunciosfinalizados[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
 		}
-		Anun.close();
+		else{
+			stringstream ss;
+			int pesquisai;
+			ss << pesquisa;
+			ss >>pesquisai;
+
+			if(find(tempi.begin(), tempi.end(), pesquisai) != tempi.end()){
+				if(counter != i){
+					swap(anunciosfinalizados[counter], anunciosfinalizados[i]);
+				}
+				cout << "ENCONTROU" << i;
+				counter++;
+			}
+		}
+	}
 }
