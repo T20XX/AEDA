@@ -297,7 +297,7 @@ void selecao4()
 		}
 		else if (selecao == "PS")
 		{
-			if(porpag*(pag) <= olz.getUtilizadores().size())
+			if(porpag*(pag+1) < olz.getUtilizadores().size())
 			pag++;
 		}
 		else if (selecao == "PA")
@@ -430,7 +430,7 @@ void selecao5()
 		}
 		else if (selecao == "PS")
 		{
-			if(porpag*(pag) <= olz.getAnuncios().size())
+			if(porpag*(pag+1) < olz.getAnuncios().size())
 			pag++;
 		}
 		else if (selecao == "PA")
@@ -443,6 +443,71 @@ void selecao5()
 }
 
 void selecao6()
+{
+	int pag = 0, porpag= 50;
+	string selecao = "X";
+	string tipoOrd = "IA";
+	string tipoPes = "I";
+	string tipoAlt;
+	while (selecao != "S")
+	{
+		olz.tabelaAnunciosFinalizados(pag,porpag,tipoOrd);
+		cin >> selecao;
+		if (selecao == "S")
+			break;
+		else if (selecao == "V")
+		{
+			cout << "Indique o número do anuncio que deseja visualizar: ";
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getAnunciosFinalizados().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+			olz.getAnunciosFinalizados()[index-1]->verAnuncio();
+		}
+		else if (selecao == "O")
+		{
+			cout << "I(D), D(ata), T(ítulo), C(ategoria), N(úmero de Cliques)  + A(scendente), D(escendente)";
+			cin >> tipoOrd;
+		}
+		else if(selecao == "P")
+		{
+			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
+			cin >> tipoPes;
+			cout << "O que deseja alterar??";
+			cin >> tipoAlt;
+			olz.pesquisarAnuncioFinalizado(tipoPes,tipoAlt);
+			tipoOrd= "nulo";
+		}
+		else if (selecao == "PP")
+		{
+			cin >> porpag;
+			while (porpag < 0)
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> porpag;
+			}
+			if (porpag == 0)
+				porpag = olz.getAnunciosFinalizados().size();
+			pag = 0;
+		}
+		else if (selecao == "PS")
+		{
+			if(porpag*(pag+1) < olz.getAnunciosFinalizados().size())
+			pag++;
+		}
+		else if (selecao == "PA")
+		{
+			if (pag > 0)
+				pag--;
+		}
+	}
+	olz.escreverAnunciosFinalizados();
+}
+
+void selecao7()
 {
 	olz.carregaContactos();
 	int pag = 0, porpag= 50;
@@ -537,7 +602,7 @@ void selecao6()
 		}
 		else if (selecao == "PS")
 		{
-			if(porpag*(pag) <= olz.getContactos().size())
+			if(porpag*(pag+1) < olz.getContactos().size())
 			pag++;
 		}
 		else if (selecao == "PA")
@@ -554,8 +619,8 @@ void selecao6()
 int main() {
 	olz.lerUtilizadores();
 	olz.lerAnuncios();
+	olz.lerAnunciosFinalizados();
 	olz.lerContactos();
-	//olz.addAnuncio(0, new AnuncioCompra(NULL,22,"Oculos","sabesbem","sabes",0,0,0,2));
 	olz.carregaAnuncios();
 	olz.carregaContactos();
 	int selecao=-1;
@@ -567,9 +632,10 @@ int main() {
 		cout << "3. Criar Contacto" << endl;
 		cout << "4. Gerir Utilizadores" << endl;
 		cout << "5. Gerir Anúncios" << endl;
-		cout << "6. Gerir Contactos" << endl;
+		cout << "6. Gerir Anúncios Finalizados" << endl;
+		cout << "7. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
-		while (selecao < 0 || selecao > 6)
+		while (selecao < 0 || selecao > 7)
 			cin >> selecao;
 		cin.ignore();
 		if (selecao == 0)
@@ -586,6 +652,8 @@ int main() {
 			selecao5();
 		else if (selecao == 6)
 			selecao6();
+		else if (selecao == 7)
+					selecao7();
 		selecao = -1;
 	}
 	cout << "Obrigado por utilizar o OLZ." << endl;

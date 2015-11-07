@@ -98,6 +98,10 @@ public:
 	 */
 	vector<Anuncio *> getAnuncios() const;
 	/**
+		 * @return Vetor de anuncios finalizados
+		 */
+		vector<Anuncio *> getAnunciosFinalizados() const;
+	/**
 	 * @return Vetor de utilizadores
 	 */
 	vector<Utilizador> getUtilizadores();
@@ -167,6 +171,7 @@ public:
 	void lerAnunciosFinalizados();
 	void escreverAnunciosFinalizados();
 	void tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd);
+	int pesquisarAnuncioFinalizado(string atributo, string pesquisa);
 };
 
 #endif /* OLZ_H_ */
