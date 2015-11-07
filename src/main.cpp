@@ -245,8 +245,8 @@ void selecao3()
 		}
 		else if (selecao == "P")
 		{
-olz.pesquisarUtilizador("N","elmo");
-tipoOrd= "nulo";
+			olz.pesquisarUtilizador("N","elmo");
+			tipoOrd= "nulo";
 		}
 		else if (selecao == "PP")
 		{
@@ -258,9 +258,11 @@ tipoOrd= "nulo";
 			}
 			if (porpag == 0)
 				porpag = olz.getUtilizadores().size();
+			pag=0;
 		}
 		else if (selecao == "PS")
 		{
+			if(porpag*(pag) <= olz.getUtilizadores().size())
 			pag++;
 		}
 		else if (selecao == "PA")
@@ -277,6 +279,7 @@ void selecao4()
 	olz.carregaAnuncios();
 	int pag = 0, porpag= 50;
 	string selecao = "X";
+	string tipoOrd = "EA";
 	while (selecao != "S")
 	{
 		olz.tabelaAnuncios(pag,porpag,"default");
@@ -364,7 +367,8 @@ void selecao4()
 		}
 		else if (selecao == "O")
 		{
-
+			cout << "I(D), D(ata), T(ítulo), C(ategoria), N(úmero de Cliques)  + A(scendente), D(escendente)";
+			cin >> tipoOrd;
 		}
 		else if (selecao == "PP")
 		{
@@ -376,9 +380,11 @@ void selecao4()
 			}
 			if (porpag == 0)
 				porpag = olz.getAnuncios().size();
+			pag = 0;
 		}
 		else if (selecao == "PS")
 		{
+			if(porpag*(pag) <= olz.getAnuncios().size())
 			pag++;
 		}
 		else if (selecao == "PA")
@@ -395,6 +401,7 @@ void selecao5()
 	olz.carregaContactos();
 	int pag = 0, porpag= 50;
 	string selecao = "X";
+	string tipoOrd = "DA";
 	while (selecao != "S")
 	{
 		olz.tabelaContactos(pag,porpag,"default");
@@ -404,71 +411,77 @@ void selecao5()
 		else if (selecao == "V")
 		{
 			cout << "Indique o número do contacto que deseja visualizar: ";
-						int index = -1;
-						cin >> index;
-						while (index < 1 || index > olz.getContactos().size())
-						{
-							cout << "Número inválido, indique outro: ";
-							cin >> index;
-						}
-						olz.getContactos()[index-1]->verContacto();
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getContactos().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
+			olz.getContactos()[index-1]->verContacto();
 		}
 		else if (selecao == "A")
 		{
 			cout << "Indique o número do contacto que deseja alterar: ";
-						int index = -1;
-						cin >> index;
-						while (index < 1 || index > olz.getContactos().size())
-						{
-							cout << "Número inválido, indique outro: ";
-							cin >> index;
-						}
+			int index = -1;
+			cin >> index;
+			while (index < 1 || index > olz.getContactos().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+			}
 
-						cout <<"Indique o que deseja alterar do Contacto: ";
-						string tempinfo = "erro";
-						cin >> tempinfo;
+			cout <<"Indique o que deseja alterar do Contacto: ";
+			string tempinfo = "erro";
+			cin >> tempinfo;
 
-						while(tempinfo != "Email" && tempinfo!= "Contacto")
-						{
+			while(tempinfo != "Email" && tempinfo!= "Contacto")
+			{
 
-							cout << "Informação Invalida, tente outra vez: ";
-							cin >> tempinfo;
-						}
+				cout << "Informação Invalida, tente outra vez: ";
+				cin >> tempinfo;
+			}
 
-						cin.ignore();
-							for (int i=0; i< olz.getContactos().size(); i++)
-								if (olz.getContactos()[i]->getEmail() == olz.getContactos()[index-1]->getEmail())
-								{
-									if(tempinfo == "Email"){
-										cout << "Email novo: ";
-										getline(cin, tempinfo);
-										olz.getContactos()[i]->setEmail(tempinfo);
-									}
-									else if(tempinfo == "Contacto"){
-										cout << "Contacto novo: ";
-										getline(cin, tempinfo);
-										olz.getContactos()[i]->setContacto(tempinfo);
-									}
+			cin.ignore();
+			for (int i=0; i< olz.getContactos().size(); i++){
+				if (olz.getContactos()[i]->getEmail() == olz.getContactos()[index-1]->getEmail())
+				{
+					if(tempinfo == "Email"){
+						cout << "Email novo: ";
+						getline(cin, tempinfo);
+						olz.getContactos()[i]->setEmail(tempinfo);
+					}
+					else if(tempinfo == "Contacto"){
+						cout << "Contacto novo: ";
+						getline(cin, tempinfo);
+						olz.getContactos()[i]->setContacto(tempinfo);
+					}
 
-									break;
-								}
-						}
-						olz.carregaContactos();
-		}
-		else if (selecao == "E")
-		{
-
+					break;
+				}
+			}
+			olz.carregaContactos();
 		}
 		else if (selecao == "O")
 		{
-
+			cout << "D(ata), A(núncio), E(mail) + A(scendente), D(escendente)";
+			cin >> tipoOrd;
 		}
-		else if (selecao == "P")
+		else if (selecao == "PP")
 		{
-
+			cin >> porpag;
+			while (porpag < 0)
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> porpag;
+			}
+			if (porpag == 0)
+				porpag = olz.getContactos().size();
+			pag = 0;
 		}
 		else if (selecao == "PS")
 		{
+			if(porpag*(pag) <= olz.getContactos().size())
 			pag++;
 		}
 		else if (selecao == "PA")

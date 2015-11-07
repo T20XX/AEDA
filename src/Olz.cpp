@@ -175,9 +175,9 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 		sort(anuncios.begin(), anuncios.end(), CA);
 	else if(tipoOrd == "CD")
 		sort(anuncios.begin(), anuncios.end(), CD);
-	else if(tipoOrd == "CA")
+	else if(tipoOrd == "NA")
 		sort(anuncios.begin(), anuncios.end(), NCA);
-	else if(tipoOrd == "CA")
+	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);*/
 
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << endl;

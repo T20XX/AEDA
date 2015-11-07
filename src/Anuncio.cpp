@@ -101,7 +101,9 @@ string Contacto::getContacto() {return contacto;}
 
 Data Contacto::getData() {return data;}
 
-void Contacto::verContacto() const{}
+void Contacto::verContacto() const{
+
+}
 
 void Contacto::setEmail(string em){	this->email = em;}
 
