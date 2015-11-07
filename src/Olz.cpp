@@ -248,6 +248,7 @@ void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string ti
 			else
 				break;
 
+		}
 }
 
 void Olz::addUtilizador(Utilizador u) {
@@ -457,6 +458,8 @@ void Olz::addAnuncio(int index,Anuncio * a) {
 vector<Anuncio *> Olz::getAnuncios() const {return anuncios;}
 
 vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
+
+vector<Contacto *> Olz::getContactos() const {return contactos;}
 
 void Olz::eliminaAnuncio(int ID){
 	for(int i = 0; i < anuncios.size(); i++){
