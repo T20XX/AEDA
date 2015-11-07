@@ -66,32 +66,32 @@ bool DaD(const Anuncio *a1,const Anuncio *a2){
 		return ID(a1,a2);
 	return (a1->getData() > a2->getData());
 }
-bool TA(const Anuncio &a1,const Anuncio &a2){
-	if(a1.getTitulo() == a1.getTitulo())
+bool TA(const Anuncio *a1,const Anuncio *a2){
+	if(a1->getTitulo() == a1->getTitulo())
 		return IA(a1,a2);
 	else
-		return (a1.getTitulo() < a2.getTitulo());
+		return (a1->getTitulo() < a2->getTitulo());
 }
-bool TD(const Anuncio &a1,const Anuncio &a2){
-	if(a1.getTitulo() == a1.getTitulo())
+bool TD(const Anuncio *a1,const Anuncio *a2){
+	if(a1->getTitulo() == a1->getTitulo())
 		return ID(a1,a2);
 	else
-		return (a1.getTitulo() > a2.getTitulo());
+		return (a1->getTitulo() > a2->getTitulo());
 }
-bool CA(const Anuncio &a1,const Anuncio &a2){
-	if(a1.getCategoria() == a2.getCategoria())
+bool CA(const Anuncio *a1,const Anuncio *a2){
+	if(a1->getCategoria() == a2->getCategoria())
 		return IA(a1,a2);
-	else return (a1.getCategoria() < a2.getCategoria());
+	else return (a1->getCategoria() < a2->getCategoria());
 }
-bool CD(const Anuncio &a1,const Anuncio &a2){
-	if(a1.getCategoria() == a2.getCategoria())
+bool CD(const Anuncio *a1,const Anuncio *a2){
+	if(a1->getCategoria() == a2->getCategoria())
 		return ID(a1,a2);
-	else return (a1.getCategoria() > a2.getCategoria());
+	else return (a1->getCategoria() > a2->getCategoria());
 }
-bool NCA(const Anuncio &a1,const Anuncio &a2){
-	if(a1.getnumCliques() == a2.getnumCliques())
+bool NCA(const Anuncio *a1,const Anuncio *a2){
+	if(a1->getnumCliques() == a2->getnumCliques())
 		return IA(a1,a2);
-	else return (a1.getnumCliques() < a2.getnumCliques());
+	else return (a1->getnumCliques() < a2->getnumCliques());
 }
 bool NCD(const Anuncio *a1,const Anuncio *a2){
 	if(a1->getnumCliques() == a2->getnumCliques())
