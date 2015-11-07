@@ -237,6 +237,17 @@ void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string ti
 		sort(contactos.begin(),contactos.end(),CEA);
 	else if(tipoOrd == "ED")
 		sort(contactos.begin(),contactos.end(),CED);*/
+
+	cout << setw(3) << "#" << " " << setw(10) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(20) << "Email" << endl;
+		for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
+		{
+			if (i < anuncios.size())
+			{
+				cout << setw(3) << (i+1)<< " " << setw(10) << anuncios[i]->getNome() << " " << setw(9) << anuncios[i]->getTelemovel() << " "<< setw(20) << anuncios[i]->getEmail()<< endl;
+			}
+			else
+				break;
+
 }
 
 void Olz::addUtilizador(Utilizador u) {
