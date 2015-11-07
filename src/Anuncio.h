@@ -46,6 +46,9 @@ public:
 	string getEmail();
 	string getContacto();
 	Data getData();
+	void verContacto() const;
+	void setEmail(string em);
+	void setContacto(string c);
 };
 
 class Anuncio {

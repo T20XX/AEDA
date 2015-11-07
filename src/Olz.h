@@ -37,6 +37,7 @@ public:
 	void addAnuncio(int index,Anuncio * a);
 	vector<Anuncio *> getAnuncios() const;
 	vector<Utilizador> getUtilizadores();
+	vector<Contacto *> getContactos() const;
 	void eliminaAnuncio(int ID);
 	void eliminaUtilizador(string email);
 	void setUtiNome(int index, string nome);

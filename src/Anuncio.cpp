@@ -101,6 +101,11 @@ string Contacto::getContacto() {return contacto;}
 
 Data Contacto::getData() {return data;}
 
+void Contacto::verContacto() const{}
+
+void Contacto::setEmail(string em){	this->email = em;}
+
+void Contacto::setContacto(string c){this->contacto = c;}
 //ANUNCIO
 
 int Anuncio::nextID = 0;

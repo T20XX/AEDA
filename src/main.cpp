@@ -392,22 +392,68 @@ void selecao4()
 
 void selecao5()
 {
-	//olz.carregaContactos();
+	olz.carregaContactos();
 	int pag = 0, porpag= 50;
 	string selecao = "X";
 	while (selecao != "S")
 	{
-		//olz.tabelaContactos(pag,porpag,"default");
+		olz.tabelaContactos(pag,porpag,"default");
 		cin >> selecao;
 		if (selecao == "S")
 			break;
 		else if (selecao == "V")
 		{
-
+			cout << "Indique o número do contacto que deseja visualizar: ";
+						int index = -1;
+						cin >> index;
+						while (index < 1 || index > olz.getContactos().size())
+						{
+							cout << "Número inválido, indique outro: ";
+							cin >> index;
+						}
+						olz.getContactos()[index-1]->verContacto();
 		}
 		else if (selecao == "A")
 		{
+			cout << "Indique o número do contacto que deseja alterar: ";
+						int index = -1;
+						cin >> index;
+						while (index < 1 || index > olz.getContactos().size())
+						{
+							cout << "Número inválido, indique outro: ";
+							cin >> index;
+						}
 
+						cout <<"Indique o que deseja alterar do Contacto: ";
+						string tempinfo = "erro";
+						cin >> tempinfo;
+
+						while(tempinfo != "Email" && tempinfo!= "Contacto")
+						{
+
+							cout << "Informação Invalida, tente outra vez: ";
+							cin >> tempinfo;
+						}
+
+						cin.ignore();
+							for (int i=0; i< olz.getContactos().size(); i++)
+								if (olz.getContactos()[i]->getEmail() == olz.getContactos()[index-1]->getEmail())
+								{
+									if(tempinfo == "Email"){
+										cout << "Email novo: ";
+										getline(cin, tempinfo);
+										olz.getContactos()[i]->setEmail(tempinfo);
+									}
+									else if(tempinfo == "Contacto"){
+										cout << "Contacto novo: ";
+										getline(cin, tempinfo);
+										olz.getContactos()[i]->setContacto(tempinfo);
+									}
+
+									break;
+								}
+						}
+						olz.carregaContactos();
 		}
 		else if (selecao == "E")
 		{
