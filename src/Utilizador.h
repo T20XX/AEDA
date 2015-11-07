@@ -80,10 +80,30 @@ public:
 	 * Imprime as informacoes do utilizador
 	 */
 	void verUtilizador();
+	/**
+	 * Altera o membro-dado email para o argumento e
+	 * @param e Novo email
+	 */
 	void setEmail(string e);
+	/**
+	 * Altera o membro-dado nome para o argumento n
+	 * @param n Novo nome
+	 */
 	void setNome(string n);
+	/**
+	 * Altera o membro-dado telemovel para o argumento t
+	 * @param t Novo telemovel
+	 */
 	void setTelemovel(int t);
+	/**
+	 * Altera o membro-dado localizacao para o argumento l
+	 * @param l Nova localizacao
+	 */
 	void setLocalizacao(Localizacao l);
+	/**
+	 * Adiciona o anuncio a ao vetor de anuncios do utilizador
+	 * @param a Anuncio a ser adicionado
+	 */
 	void addAnuncio(Anuncio * a);
 	/**
 	 * @returns Email
