@@ -159,7 +159,7 @@ void selecao2()
 
 void selecao3()
 {
-	int ID, index;
+	int ID, index=-1;
 	string email, mensagem;
 	string data;
 	cout << "Indique o ID do anúncio para o qual pretende realizar contacto: ";
@@ -319,7 +319,7 @@ void selecao5()
 	string tipoAlt;
 	while (selecao != "S")
 	{
-		olz.tabelaAnuncios(pag,porpag,"default");
+		olz.tabelaAnuncios(pag,porpag,tipoOrd);
 		cin >> selecao;
 		if (selecao == "S")
 			break;
@@ -451,7 +451,7 @@ void selecao6()
 	string tipoPes, tipoAlt;
 	while (selecao != "S")
 	{
-		olz.tabelaContactos(pag,porpag,"default");
+		olz.tabelaContactos(pag,porpag,tipoOrd);
 		cin >> selecao;
 		if (selecao == "S")
 			break;
@@ -564,13 +564,14 @@ int main() {
 		cout << "Menu" << endl;
 		cout << "1. Registar Utilizador" << endl;
 		cout << "2. Criar Anuncio" << endl;
-		cout << "3.Criar Contacto" << endl;
+		cout << "3. Criar Contacto" << endl;
 		cout << "4. Gerir Utilizadores" << endl;
 		cout << "5. Gerir Anúncios" << endl;
 		cout << "6. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
-		while (selecao < 0 || selecao > 5)
+		while (selecao < 0 || selecao > 6)
 			cin >> selecao;
+		cin.ignore();
 		if (selecao == 0)
 			break;
 		else if (selecao == 1)
@@ -580,11 +581,11 @@ int main() {
 		else if(selecao == 3)
 			selecao3();
 		else if (selecao == 4)
-			selecao3();
-		else if (selecao == 5)
 			selecao4();
-		else if (selecao == 6)
+		else if (selecao == 5)
 			selecao5();
+		else if (selecao == 6)
+			selecao6();
 		selecao = -1;
 	}
 	cout << "Obrigado por utilizar o OLZ." << endl;
