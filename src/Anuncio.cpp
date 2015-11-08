@@ -6,6 +6,7 @@
  */
 
 #include "Anuncio.h"
+#include "Utilizador.h"
 #include <string>
 #include <vector>
 #include <sstream>
@@ -102,7 +103,7 @@ string Contacto::getContacto() {return contacto;}
 Data Contacto::getData() {return data;}
 
 void Contacto::verContacto() const{
- cout << "ID: " << anuncio->getID() << " Data: " << data << " Email: " << email  << " Mensagem: " << contacto;
+	cout << "ID: " << anuncio->getID() << " Data: " << data << " Email: " << email  << " Mensagem: " << contacto;
 }
 
 void Contacto::setEmail(string em){	this->email = em;}
@@ -177,7 +178,7 @@ void Anuncio::setmostraEmail() {
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
-		Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+				Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
 
@@ -189,17 +190,31 @@ AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, str
 }
 
 void AnuncioVenda::verAnuncio() const {
-	cout << "Informação do Anuncio: " << getTitulo() << "criado a " << getData() << " Número de Visitantes: " << getnumCliques() << endl;
-	cout << "ID: " << getID() << " Categoria: " << getCategoria() << " Descrição: " << getDescricao() << endl;
-	cout << "Estado do Produto: " << estado << "Preço Pretendido: " << preco << endl;
+	cout << "Informação do Anuncio de Venda: " << getTitulo() << "criado a " << getData() << endl;
+	cout << "ID: " << getID() << endl << " Categoria: " << getCategoria() << endl <<" Descrição: " << getDescricao() << endl;
+	cout << "Estado do Produto: " << estado << endl << "Preço Pretendido: " << preco << endl;
 	if(negociavel)
 		cout << "Possibilidade de Negócio." << endl;
-	/*if (getmostraEmail())
-		cout << getUtilizador()->getEmail();
+
+	cout << "Email: ";
+	if (getmostraEmail())
+		cout << getUtilizador()->getEmail() <<endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Nome: ";
 	if (getmostraNome())
-		cout << getUtilizador()->getNome();
-	if (getmostraTelemovel())
-		cout << getUtilizador()->getTelemovel();*/
+		cout << getUtilizador()->getNome() << endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Telemóvel: ";
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
+
+	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
 
 string AnuncioVenda::getEstado() const {return estado;}
@@ -223,9 +238,30 @@ AnuncioCompra::AnuncioCompra(Utilizador * utilizador,Data data, string titulo, s
 }
 
 void AnuncioCompra::verAnuncio() const{
-	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
+	cout << "Informação do Anuncio de Compra: " << getTitulo() << "criado a " << getData() << endl;
+	cout << "ID: " << getID() << endl << " Categoria: " << getCategoria() << endl <<" Descrição: " << getDescricao() << endl;
+	if(vendaID != -1)
+		cout << "Possibilidade de troca com anuncio " << vendaID;
 
-	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
+	cout << "Email: ";
+	if (getmostraEmail())
+		cout << getUtilizador()->getEmail() <<endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Nome: ";
+	if (getmostraNome())
+		cout << getUtilizador()->getNome() << endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Telemóvel: ";
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
+
+	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
 
 bool AnuncioCompra::getTipo() const {return false;}
@@ -242,14 +278,34 @@ bool AnuncioCompra::getNegociavel() const {return false;}
 
 AnuncioFinalizado::AnuncioFinalizado(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao,bool mostraEmail, bool mostraNome, bool mostraTelemovel,int IDantigo, int preco)
 : Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
-			this->preco=preco;
-			setID(IDantigo);
+	this->preco=preco;
+	setID(IDantigo);
 }
 
 void AnuncioFinalizado::verAnuncio() const{
-	cout << "ID: " << getID() << endl << "Data: " << getData() << endl;
+	cout << "Informação do Anuncio Finalizado: " << getTitulo() << "criado a " << getData() << endl;
+	cout << "ID: " << getID() << endl << " Categoria: " << getCategoria() << endl <<" Descrição: " << getDescricao() << endl;
+	cout << "Preço: " << preco << endl;
 
-	//FALTA MOSTRAR O ANUNCIOCOMPRA SE QUISER.
+	cout << "Email: ";
+	if (getmostraEmail())
+		cout << getUtilizador()->getEmail() <<endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Nome: ";
+	if (getmostraNome())
+		cout << getUtilizador()->getNome() << endl;
+	else
+		cout << "Privado" << endl;
+
+	cout << "Telemóvel: ";
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
+
+	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
 
 bool AnuncioFinalizado::getTipo() const {return false;}
