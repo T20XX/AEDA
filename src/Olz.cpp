@@ -218,13 +218,13 @@ void Olz::tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, str
 		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), NCD);
 
 	cout << setw(3) << "#" << setw(4) << "ID"  <<setw(11)<< "Data" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << endl;
-		for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
+	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
+	{
+		if (i < anunciosfinalizados.size())
 		{
-			if (i < anunciosfinalizados.size())
-			{
-				cout << setw(3) << (i+1) << setw(4) << anunciosfinalizados[i]->getID() <<  " " << anunciosfinalizados[i]->getData()<< anunciosfinalizados[i]->getTitulo().substr(0,9) << setw(10)  << anunciosfinalizados[i]->getCategoria().substr(0,9) << setw(15)  << anunciosfinalizados[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anunciosfinalizados[i]->getnumCliques() << endl;
-			}
-			break;
+			cout << setw(3) << (i+1) << setw(4) << anunciosfinalizados[i]->getID() <<  " " << anunciosfinalizados[i]->getData()<< anunciosfinalizados[i]->getTitulo().substr(0,9) << setw(10)  << anunciosfinalizados[i]->getCategoria().substr(0,9) << setw(15)  << anunciosfinalizados[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anunciosfinalizados[i]->getnumCliques() << endl;
+		}
+		break;
 	}
 }
 
@@ -527,12 +527,16 @@ void Olz::eliminaAnuncio(int ID){
 		if(anuncios[i]->getID() == ID){
 			anuncios.erase(anuncios.begin() + i);
 			encontrou =true;
+			break;
 		}
 	}
 	for(int i = 0; i< utilizadores.size(); i++){
 		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
 			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
+			{
 				utilizadores[i].getAnuncios().erase(utilizadores[i].getAnuncios().begin() + j);
+				break;
+			}
 		}
 	}
 	if (!encontrou)
