@@ -384,7 +384,7 @@ void selecao4()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
-				cout << "Indique um número:"
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
