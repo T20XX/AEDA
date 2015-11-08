@@ -485,12 +485,12 @@ void Olz::escreverContactos(){
 }
 
 void Olz::addAnuncio(int index,Anuncio * a) {
-	if (index >=0 && index < anuncios.size()) {
+	if (index >=0 && index < utilizadores.size()) {
 		a->setUtilizador(&utilizadores[index]);
 		utilizadores[index].addAnuncio(a);
 	}
 	else
-		throw PosicaoForadoVetor(index, anuncios.size());
+		throw PosicaoForadoVetor(index, utilizadores.size());
 }
 
 
@@ -549,12 +549,17 @@ void Olz::setUtiNome(int index, string nome){
 }
 
 void Olz::setUtiTelemovel(int index, int telemovel){
+	if (index >=0 && index < utilizadores.size())
 	utilizadores[index].setTelemovel(telemovel);
+	else
+		throw PosicaoForadoVetor(index, utilizadores.size());
 }
 
 void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
-
+	if (index >=0 && index < utilizadores.size())
 	utilizadores[index].setLocalizacao(localizacao);
+	else
+		throw PosicaoForadoVetor(index, utilizadores.size());
 }
 
 
