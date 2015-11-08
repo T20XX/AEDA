@@ -177,12 +177,17 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);
 
-	cout << setw(3) << "#" << " "<< setw(4) << "ID" << " "<< setw(10) << "Tipo" << " " << setw(10) << "Titulo" << " " << setw(10) << "Categoria" << " "<< setw(10) << "Utilizador" << " "<< setw(10) << "N.Visualizações" << " "<< setw(10) << "N.Contactos" << endl;
+	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(6) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < anuncios.size())
 		{
-			cout << setw(3) << (i+1) << " " << setw(4) << anuncios[i]->getID() << " "  << setw(10)  << anuncios[i]->getTipo() << " " << setw(10)  << anuncios[i]->getTitulo() << " "<< setw(10)  << anuncios[i]->getCategoria() << " "<< setw(10)  << anuncios[i]->getUtilizador() << " "<< setw(10)  << anuncios[i]->getnumCliques() << " "<< setw(10)  << anuncios[i]->getContactos().size() << endl;
+			cout << setw(3) << (i+1) << setw(4) << anuncios[i]->getID() << " " << anuncios[i]->getData();
+			if (anuncios[i]->getTipo())
+				cout << setw(6)  << "Venda" ;
+			else
+				cout << setw(6)  << "Compra";
+			cout << setw(10)  << anuncios[i]->getTitulo().substr(0,9)<<setw(10)  << anuncios[i]->getCategoria().substr(0,9) << setw(15)  << anuncios[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios[i]->getnumCliques() << setw(6)  << anuncios[i]->getContactos().size() << endl;
 		}
 		else
 			break;
@@ -212,16 +217,15 @@ void Olz::tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, str
 	else if(tipoOrd == "ND")
 		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), NCD);
 
-	cout << setw(3) << "#" << " "<< setw(4) << "ID" << " "<< setw(10) << "Tipo" << " " << setw(10) << "Titulo" << " " << setw(10) << "Categoria" << " "<< setw(10) << "Utilizador" << " "<< setw(10) << "N.Visualizações" << " "<< setw(10) << "N.Contactos" << endl;
+	cout << setw(3) << "#" << setw(4) << "ID"  <<setw(11)<< "Data" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << endl;
 		for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 		{
-			if (i < anuncios.size())
+			if (i < anunciosfinalizados.size())
 			{
-				cout << setw(3) << (i+1) << " " << setw(4) << anuncios[i]->getID() << " "  << setw(10)  << anuncios[i]->getTipo() << " " << setw(10)  << anuncios[i]->getTitulo() << " "<< setw(10)  << anuncios[i]->getCategoria() << " "<< setw(10)  << anuncios[i]->getUtilizador() << " "<< setw(10)  << anuncios[i]->getnumCliques() << " "<< setw(10)  << anuncios[i]->getContactos().size() << endl;
+				cout << setw(3) << (i+1) << setw(4) << anunciosfinalizados[i]->getID() <<  " " << anunciosfinalizados[i]->getData()<< anunciosfinalizados[i]->getTitulo().substr(0,9) << setw(10)  << anunciosfinalizados[i]->getCategoria().substr(0,9) << setw(15)  << anunciosfinalizados[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anunciosfinalizados[i]->getnumCliques() << endl;
 			}
-			else
-				break;
-		}
+			break;
+	}
 }
 
 void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
@@ -242,13 +246,12 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string
 		sort(utilizadores.begin(),utilizadores.end(),DA);
 	if(tipoOrd == "DD")
 		sort(utilizadores.begin(),utilizadores.end(),DD);
-	cout << setw(3) << "#" << setw(15) << "Email" << setw(15) << "Nome" << " " << setw(9) << "Telemóvel" << " " << setw(9) << "Nº Anúncio" << endl;
+	cout << setw(3) << "#" << setw(25) << "Email" <<setw(15) << "Nome" << setw(10) << "Nº Tel." << setw(6) << "Anun." << endl;
 	for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
 	{
 		if (i < utilizadores.size())
 		{
-			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr(0,24);
-			cout << setw(15) << utilizadores[i].getNome().substr(0,14) << " " << setw(9) << utilizadores[i].getTelemovel() << setw(9) << utilizadores[i].getAnuncios().size() << endl;
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr(0,24) << setw(15) << utilizadores[i].getNome().substr(0,14) << setw(10) << utilizadores[i].getTelemovel() << setw(6) << utilizadores[i].getAnuncios().size() << endl;
 		}
 		else
 			break;
@@ -270,12 +273,12 @@ void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string ti
 	else if(tipoOrd == "ED")
 		sort(contactos.begin(),contactos.end(),CED);
 
-	cout << setw(3) << "#" << " " << setw(3) << "ID" << " " << setw(20) << "Email" << " " << setw(8) << "Contacto" << " " << setw(8) << "Data"<< " " << setw(30) << "Mensagem"<< endl;
+	cout << setw(3) << "#" << setw(4) << "ID" << setw(11) << "Data"<< setw(25) << "Email" << setw(50) << "Mensagem"<< endl;
 	for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
 	{
 		if (i < contactos.size())
 		{
-			cout << setw(3) << (i+1) << " " << setw(3) << contactos[i]->getAnuncio()->getID() << " " << setw(20) << contactos[i]->getEmail().substr(0,20) << " "  << setw(20) << contactos[i]->getContacto().substr(0,20) << " " << setw(10) << contactos[i]->getData()<< " "  << setw(30) << contactos[i]->getContacto().substr(0,30)  << endl;
+			cout << setw(3) << (i+1) << setw(4) << contactos[i]->getAnuncio()->getID() << " " << contactos[i]->getData()<< setw(25) << contactos[i]->getEmail().substr(0,24) << setw(50) << contactos[i]->getContacto().substr(0,49)  << endl;
 		}
 		else
 			break;
