@@ -1,19 +1,4 @@
 3
-AnuncioVenda
-telmo.20
-Boneco
-Brinquedos
-1
-6/11/2015
-0
-1
-1
-1
-yoyoyoyo
-indisponivel
-4
-1
-
 AnuncioCompra
 tono@gmqail.com
 COMPRO BATATAS
