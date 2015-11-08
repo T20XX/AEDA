@@ -241,15 +241,33 @@ void selecao3()
 			cout << "ID Indisponível, tente outra vez: ";
 	}
 	cout << "Data(dd/mm/aaaa): ";
-	bool dataerrada = true;
-	cin >> data;
+	bool dataerrada=true;
 	while(dataerrada){
-		dataerrada = false;
-		try{Data d(data);}	catch(exception& e){
-			dataerrada = true;
-			cout << "Data inválida, introduza outra: ";
-			cin >> data;
+	dataerrada = false;
+	cin >> data;
+	stringstream s1;
+	char tempchar, tempchar1;
+	int dia, mes, ano;
+	s1 << data;
+	s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
+	if(tempchar != '/' && tempchar1 != '/')
+		dataerrada = true;
+	else if(1<=mes<=12){
+		if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
+			if(!(1<=dia<=30))
+				dataerrada = true;
 		}
+		else if(mes == 4 || mes == 6 || mes == 8 || mes == 10 || mes == 12){
+			if(!(1<=dia<=31))
+				dataerrada = true;
+		}
+		else if(mes == 2){
+			if(!(1<=dia<=28))
+				dataerrada=true;
+		}
+	}
+	if(dataerrada)
+		cout << "Data Errada, introduza outra: ";
 	}
 	cout << "Indique o seu email: ";
 	cin >> email;
