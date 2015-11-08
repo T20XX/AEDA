@@ -29,18 +29,25 @@ void selecao1()
 	}
 	cout << "Nome: ";
 	getline(cin, nome);
-	cout << "Telemóvel: ";
-	cin >> telemovel;
-	while(cin.fail()){
-		cin.clear();
-		cin.ignore();
-		cout << "Número de telemóvel errado, introduza outro: ";
-		cin >> telemovel;
-	}
-	if (!(telemovel> 99999999 && telemovel < 1000000000)){
-		cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
-		cin >> telemovel;
-	}
+	cout << "Telemovel: ";
+	int temptele;
+	cin >> temptele;
+		while(cin.fail()){
+			cout << "Número de telemóvel inválido, introduza outro: ";
+			cin.clear();
+			cin.ignore();
+			cin >> temptele;
+		}
+		while (!(temptele > 99999999 && temptele < 1000000000)){
+			cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+			cin >> temptele;
+			while(cin.fail()){
+				cout << "Número de telemóvel inválido, introduza outro: ";
+				cin.clear();
+				cin.ignore();
+				cin >> temptele;
+			}
+		}
 	cin.ignore();
 	cout << "Freguesia: ";
 	getline(cin, freguesia);
@@ -342,7 +349,7 @@ void selecao4()
 				}
 			}
 
-			cout <<"Indique o que deseja alterar do Utilizador: ";
+			cout <<"Indique o que deseja alterar do Utilizador: N(ome), T(elemóvel), L(ocalização): ";
 			string tempinfo = "erro";
 			cin >> tempinfo;
 
@@ -363,6 +370,22 @@ void selecao4()
 				cout << "Insira telemovel novo";
 				int temptele;
 				cin >> temptele;
+					while(cin.fail()){
+						cout << "Número de telemóvel inválido, introduza outro: ";
+						cin.clear();
+						cin.ignore();
+						cin >> temptele;
+					}
+					while (!(temptele > 99999999 && temptele < 1000000000)){
+						cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+						cin >> temptele;
+						while(cin.fail()){
+							cout << "Número de telemóvel inválido, introduza outro: ";
+							cin.clear();
+							cin.ignore();
+							cin >> temptele;
+						}
+					}
 				cin.ignore();
 				olz.setUtiTelemovel(index-1,temptele);
 			}
