@@ -642,10 +642,16 @@ void selecao7()
 			cout << "Indique o número do contacto que deseja visualizar: ";
 			int index = -1;
 			cin >> index;
+			while(cin.fail()){
+				cin >> index;
+			}
 			while (index < 1 || index > olz.getContactos().size())
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
+				while(cin.fail()){
+					cin >> index;
+				}
 			}
 			olz.getContactos()[index-1]->verContacto();
 		}
@@ -654,10 +660,16 @@ void selecao7()
 			cout << "Indique o número do contacto que deseja alterar: ";
 			int index = -1;
 			cin >> index;
+			while(cin.fail()){
+				cin >> index;
+			}
 			while (index < 1 || index > olz.getContactos().size())
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
+				while(cin.fail()){
+					cin >> index;
+				}
 			}
 
 			cout <<"Indique o que deseja alterar do Contacto: ";
@@ -712,6 +724,9 @@ void selecao7()
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
+				while(cin.fail()){
+					cin >> porpag;
+				}
 			}
 			if (porpag == 0)
 				porpag = olz.getContactos().size();
