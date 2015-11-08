@@ -303,6 +303,7 @@ void selecao4()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -312,6 +313,7 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -325,6 +327,7 @@ void selecao4()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getUtilizadores().size())
@@ -332,6 +335,7 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -389,6 +393,7 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -414,6 +419,7 @@ void selecao4()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> porpag;
@@ -423,6 +429,7 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> porpag;
@@ -470,6 +477,7 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -479,6 +487,7 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -492,6 +501,7 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -501,6 +511,7 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -557,6 +568,7 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -566,6 +578,7 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -591,6 +604,7 @@ void selecao5()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> porpag;
@@ -600,6 +614,7 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> porpag;
@@ -645,6 +660,7 @@ void selecao6()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -654,6 +670,7 @@ void selecao6()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -679,6 +696,7 @@ void selecao6()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> porpag;
@@ -688,6 +706,7 @@ void selecao6()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> porpag;
@@ -733,6 +752,7 @@ void selecao7()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -742,6 +762,7 @@ void selecao7()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -755,6 +776,7 @@ void selecao7()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
@@ -764,6 +786,7 @@ void selecao7()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
 					cin >> index;
@@ -818,6 +841,12 @@ void selecao7()
 		else if (selecao == "PP" || selecao == "pp")
 		{
 			cin >> porpag;
+			while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> porpag;
+				}
 			while (porpag < 0)
 			{
 				cout << "Número inválido, indique outro: ";
