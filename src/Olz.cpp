@@ -526,7 +526,7 @@ void Olz::eliminaAnuncio(int ID){
 	for(int i = 0; i < anuncios.size(); i++){
 		if(anuncios[i]->getID() == ID){
 			anuncios.erase(anuncios.begin() + i);
-			encontrou =true;
+			encontrou = true;
 			break;
 		}
 	}
