@@ -768,11 +768,16 @@ int main() {
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
+
 		cin >> selecao;
-		while(cin.fail())
+		while(cin.fail()){
+			cout << "Indique 1,2,3,4,5,6,7 ou 0: ";
 			cin >> selecao;
-		while (selecao < 0 || selecao > 7)
+		}
+		while (selecao < 0 || selecao > 7){
+			cout << "Número de selação invalido, tente outro: ";
 			cin >> selecao;
+		}
 		cin.ignore();
 		if (selecao == 0)
 			break;
