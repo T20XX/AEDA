@@ -54,7 +54,7 @@ void selecao1()
 	olz.addUtilizador(tempUti);
 
 	cout << "Utilizador criado com sucesso." << endl;
-	cin.ignore();
+
 }
 
 void selecao2()
@@ -218,7 +218,7 @@ void selecao2()
 			vendaID = -1;
 		olz.addAnuncio(index, new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
 	}
-	cin.ignore();
+
 }
 
 void selecao3()
@@ -271,13 +271,12 @@ void selecao3()
 			cout << "Data Errada, introduza outra: ";
 	}
 	cout << "Indique o seu email: ";
-	cin.ignore();
 	getline(cin,email);
 	cout << "Indique a mensagem que quer enviar: ";
 	getline(cin, mensagem);
 
 	olz.addContacto(olz.getAnuncios()[index]->getID(), new Contacto(olz.getAnuncios()[index], data, email, mensagem));
-	cin.ignore();
+
 
 }
 void selecao4()
@@ -440,7 +439,7 @@ void selecao4()
 		}
 	}
 	olz.escreverUtilizadores();
-	cin.ignore();
+
 }
 
 void selecao5()
@@ -614,7 +613,7 @@ void selecao5()
 		}
 	}
 	olz.escreverAnuncios();
-	cin.ignore();
+
 }
 
 void selecao6()
@@ -700,7 +699,7 @@ void selecao6()
 		}
 	}
 	olz.escreverAnunciosFinalizados();
-	cin.ignore();
+
 }
 
 void selecao7()
@@ -833,7 +832,7 @@ void selecao7()
 		}
 	}
 	olz.escreverContactos();
-	cin.ignore();
+
 }
 
 
