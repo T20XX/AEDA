@@ -95,32 +95,32 @@ void selecao2()
 	cout << "Data(dd/mm/aaaa): ";
 	bool dataerrada=true;
 	while(dataerrada){
-	dataerrada = false;
-	cin >> data;
-	stringstream s1;
-	char tempchar, tempchar1;
-	int dia, mes, ano;
-	s1 << data;
-	s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
-	if(tempchar != '/' && tempchar1 != '/')
-		dataerrada = true;
-	else if(mes >= 1 || mes<=12){
-		if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
-			if(dia <=1 || dia >=30)
-				dataerrada = true;
+		dataerrada = false;
+		cin >> data;
+		stringstream s1;
+		char tempchar, tempchar1;
+		int dia, mes, ano;
+		s1 << data;
+		s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
+		if(tempchar != '/' && tempchar1 != '/')
+			dataerrada = true;
+		else if(mes >= 1 && mes<=12){
+			if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
+				if(dia <=1 || dia >=30)
+					dataerrada = true;
+			}
+			else if(mes == 4 || mes == 6 || mes == 8 || mes == 10 || mes == 12){
+				if(dia <= 1 || dia >=31)
+					dataerrada = true;
+			}
+			else if(mes == 2){
+				if(dia <= 1 || dia >= 28)
+					dataerrada=true;
+			}
 		}
-		else if(mes == 4 || mes == 6 || mes == 8 || mes == 10 || mes == 12){
-			if(dia <= 1 || dia >=31)
-				dataerrada = true;
-		}
-		else if(mes == 2){
-			if(dia <= 1 || dia >= 28)
-				dataerrada=true;
-		}
-	}
-	else dataerrada = true;
-	if(dataerrada)
-		cout << "Data Errada, introduza outra: ";
+		else dataerrada = true;
+		if(dataerrada)
+			cout << "Data Errada, introduza outra: ";
 	}
 	cin.ignore();
 	cout << "Título: ";
@@ -244,32 +244,32 @@ void selecao3()
 	cout << "Data(dd/mm/aaaa): ";
 	bool dataerrada=true;
 	while(dataerrada){
-	dataerrada = false;
-	cin >> data;
-	stringstream s1;
-	char tempchar, tempchar1;
-	int dia, mes, ano;
-	s1 << data;
-	s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
-	if(tempchar != '/' && tempchar1 != '/')
-		dataerrada = true;
-	else if(mes >= 1 || mes<=12){
-		if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
-			if(dia <=1 || dia >=30)
-				dataerrada = true;
+		dataerrada = false;
+		cin >> data;
+		stringstream s1;
+		char tempchar, tempchar1;
+		int dia, mes, ano;
+		s1 << data;
+		s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
+		if(tempchar != '/' && tempchar1 != '/')
+			dataerrada = true;
+		else if(mes >= 1 && mes<=12){
+			if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
+				if(dia <=1 || dia >=30)
+					dataerrada = true;
+			}
+			else if(mes == 4 || mes == 6 || mes == 8 || mes == 10 || mes == 12){
+				if(dia <= 1 || dia >=31)
+					dataerrada = true;
+			}
+			else if(mes == 2){
+				if(dia <= 1 || dia >= 28)
+					dataerrada=true;
+			}
 		}
-		else if(mes == 4 || mes == 6 || mes == 8 || mes == 10 || mes == 12){
-			if(dia <= 1 || dia >=31)
-				dataerrada = true;
-		}
-		else if(mes == 2){
-			if(dia <= 1 || dia >= 28)
-				dataerrada=true;
-		}
-	}
-	else dataerrada = true;
-	if(dataerrada)
-		cout << "Data Errada, introduza outra: ";
+		else dataerrada = true;
+		if(dataerrada)
+			cout << "Data Errada, introduza outra: ";
 	}
 	cout << "Indique o seu email: ";
 	cin >> email;
@@ -395,8 +395,8 @@ void selecao4()
 		}
 		else if (selecao == "O")
 		{	cout << "Tipo ordenação: " << endl;
-			cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
-			cin >> tipoOrd;
+		cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
+		cin >> tipoOrd;
 		}
 		else if (selecao == "P")
 		{
@@ -432,7 +432,7 @@ void selecao4()
 		else if (selecao == "PS")
 		{
 			if(porpag*(pag+1) < olz.getUtilizadores().size())
-			pag++;
+				pag++;
 		}
 		else if (selecao == "PA")
 		{
@@ -606,7 +606,7 @@ void selecao5()
 		else if (selecao == "PS")
 		{
 			if(porpag*(pag+1) < olz.getAnuncios().size())
-			pag++;
+				pag++;
 		}
 		else if (selecao == "PA")
 		{
@@ -692,7 +692,7 @@ void selecao6()
 		else if (selecao == "PS")
 		{
 			if(porpag*(pag+1) < olz.getAnunciosFinalizados().size())
-			pag++;
+				pag++;
 		}
 		else if (selecao == "PA")
 		{
@@ -825,7 +825,7 @@ void selecao7()
 		else if (selecao == "PS")
 		{
 			if(porpag*(pag+1) < olz.getContactos().size())
-			pag++;
+				pag++;
 		}
 		else if (selecao == "PA")
 		{
@@ -888,7 +888,7 @@ int main() {
 		else if (selecao == 6)
 			selecao6();
 		else if (selecao == 7)
-					selecao7();
+			selecao7();
 		selecao = -1;
 	}
 	cout << "Obrigado por utilizar o OLZ." << endl;
