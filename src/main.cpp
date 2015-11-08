@@ -270,6 +270,7 @@ void selecao3()
 		if(dataerrada)
 			cout << "Data Errada, introduza outra: ";
 	}
+	cin.ignore();
 	cout << "Indique o seu email: ";
 	getline(cin,email);
 	cout << "Indique a mensagem que quer enviar: ";
