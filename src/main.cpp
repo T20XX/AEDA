@@ -768,6 +768,9 @@ int main() {
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
 		cout << "0. Sair" << endl;
+		cin >> selecao;
+		while(cin.fail())
+			cin >> selecao;
 		while (selecao < 0 || selecao > 7)
 			cin >> selecao;
 		cin.ignore();
