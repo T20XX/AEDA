@@ -53,13 +53,13 @@ void selecao1()
 	Utilizador tempUti(email, nome, telemovel, tempLocal);
 	olz.addUtilizador(tempUti);
 
+	olz.escreverUtilizadores();
 	cout << "Utilizador criado com sucesso." << endl;
 
 }
 
 void selecao2()
 {
-
 	int preco, vendaID, index = -1;
 	bool mostraEmail, mostraNome, mostraTelemovel, negociavel;
 	string email, titulo, categoria, descricao, estado, data;
@@ -101,7 +101,7 @@ void selecao2()
 		int dia, mes, ano;
 		s1 << data;
 		s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
-		if(tempchar != '/' && tempchar1 != '/')
+		if(tempchar != '/' || tempchar1 != '/')
 			dataerrada = true;
 		else if(mes >= 1 && mes<=12){
 			if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
@@ -172,11 +172,13 @@ void selecao2()
 
 	if(tipo == 'V')
 	{
-		cout << "Estado: " ;
+		cout << "Estado(Novo,Usando como novo, Funcional ou Para Peças): " ;
 		estado = "Partido";
 
+		getline(cin, estado);
 		while(estado != "Novo" && estado != "Usando como novo" && estado != "Funcional" && estado != "Para Peças"){
-			getline(cin, estado);
+			cout << "Estado inválido: ";
+					getline(cin, estado);
 		}
 
 		cout << "Preço: ";
@@ -218,7 +220,8 @@ void selecao2()
 			vendaID = -1;
 		olz.addAnuncio(index, new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
 	}
-
+	olz.carregaAnuncios();
+	olz.escreverAnuncios();
 }
 
 void selecao3()
@@ -250,7 +253,7 @@ void selecao3()
 		int dia, mes, ano;
 		s1 << data;
 		s1 >> dia >> tempchar >> mes >> tempchar1 >> ano;
-		if(tempchar != '/' && tempchar1 != '/')
+		if(tempchar != '/' || tempchar1 != '/')
 			dataerrada = true;
 		else if(mes >= 1 && mes<=12){
 			if(mes==1 || mes == 3|| mes ==5|| mes == 7|| mes ==9 || mes == 11){
@@ -277,8 +280,8 @@ void selecao3()
 	getline(cin, mensagem);
 
 	olz.addContacto(olz.getAnuncios()[index]->getID(), new Contacto(olz.getAnuncios()[index], data, email, mensagem));
-
-
+	olz.carregaContactos();
+	olz.escreverContactos();
 }
 void selecao4()
 {
@@ -454,6 +457,9 @@ void selecao5()
 	while (selecao != "S")
 	{
 		olz.tabelaAnuncios(pag,porpag,tipoOrd);
+
+		cout << "Pag." << (pag + 1) << ", Anuncios por Página: " << porpag << endl;
+		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S")
 			break;
@@ -627,6 +633,8 @@ void selecao6()
 	while (selecao != "S")
 	{
 		olz.tabelaAnunciosFinalizados(pag,porpag,tipoOrd);
+		cout << "Pag." << (pag + 1) << ", Anuncios por Página: " << porpag << endl;
+		cout << "Introduza V(er), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S")
 			break;
@@ -713,6 +721,8 @@ void selecao7()
 	while (selecao != "S")
 	{
 		olz.tabelaContactos(pag,porpag,tipoOrd);
+		cout << "Pag." << (pag + 1) << ", Contactos por Página: " << porpag << endl;
+		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S")
 			break;
@@ -833,7 +843,6 @@ void selecao7()
 		}
 	}
 	olz.escreverContactos();
-
 }
 
 
@@ -866,7 +875,7 @@ int main() {
 			cin >> selecao;
 		}
 		while (selecao < 0 || selecao > 7){
-			cout << "Número de selação invalido, tente outro: ";
+			cout << "Número de seleção invalido, tente outro: ";
 			cin.clear();
 			cin.ignore();
 			cin >> selecao;
