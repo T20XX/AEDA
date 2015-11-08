@@ -300,7 +300,7 @@ void selecao4()
 	{
 		olz.tabelaUtilizadores(pag,porpag,tipoOrd);
 		cout << "Pag." << (pag + 1) << ", Utilizadores por Página: " << porpag << endl;
-		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -399,6 +399,7 @@ void selecao4()
 				getline(cin, tempd);
 				olz.setUtiLocalizacao(index-1,Localizacao(tempf,tempc,tempd));
 			}
+			olz.escreverUtilizadores();
 		}
 		else if (selecao == "E" || selecao == "e")
 		{
@@ -423,6 +424,9 @@ void selecao4()
 				}
 			}
 			olz.eliminaUtilizador(olz.getUtilizadores()[index-1].getEmail());
+			olz.escreverUtilizadores();
+			olz.carregaAnuncios();
+			olz.escreverAnuncios();
 		}
 		else if (selecao == "O" || selecao == "o")
 		{	cout << "Tipo ordenação: " << endl;
@@ -490,7 +494,7 @@ void selecao5()
 		olz.tabelaAnuncios(pag,porpag,tipoOrd);
 
 		cout << "Pag." << (pag + 1) << ", Anuncios por Página: " << porpag << endl;
-		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -673,7 +677,7 @@ void selecao6()
 	{
 		olz.tabelaAnunciosFinalizados(pag,porpag,tipoOrd);
 		cout << "Pag." << (pag + 1) << ", Anuncios por Página: " << porpag << endl;
-		cout << "Introduza V(er), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cout << "Introduza V(er), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -765,7 +769,7 @@ void selecao7()
 	{
 		olz.tabelaContactos(pag,porpag,tipoOrd);
 		cout << "Pag." << (pag + 1) << ", Contactos por Página: " << porpag << endl;
-		cout << "Introduza V(er), A(lterar), E(liminar), O(rdenar), P(esquisa), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cout << "Introduza V(er), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
