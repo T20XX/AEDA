@@ -438,7 +438,8 @@ void selecao4()
 			cout << "Em que atributo deseja procurar:: E(mail), N(ome), A(nuncios), D(istrito), F(reguesia), C(oncelho)";
 			cin >> tipoPes;
 			cout << "O que deseja procurar: ";
-			cin >> tipoAlt;
+			cin.ignore();
+			getline(cin, tipoAlt);
 			olz.pesquisarUtilizador(tipoPes,tipoAlt);
 			tipoOrd= "nulo";
 		}
@@ -625,7 +626,8 @@ void selecao5()
 			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
 			cin >> tipoPes;
 			cout << "O que deseja alterar??";
-			cin >> tipoAlt;
+			cin.ignore();
+			getline(cin, tipoAlt);
 			olz.pesquisarAnuncio(tipoPes,tipoAlt);
 			tipoOrd= "nulo";
 		}
@@ -716,7 +718,8 @@ void selecao6()
 			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
 			cin >> tipoPes;
 			cout << "O que deseja alterar??";
-			cin >> tipoAlt;
+			cin.ignore();
+			getline(cin, tipoAlt);
 			olz.pesquisarAnuncioFinalizado(tipoPes,tipoAlt);
 			tipoOrd= "nulo";
 		}
@@ -862,7 +865,8 @@ void selecao7()
 			cout << "Em que atributo deseja procurar: I(D), E(mail), C(ontacto)";
 			cin >> tipoPes;
 			cout << "O que deseja alterar??";
-			cin >> tipoAlt;
+			cin.ignore();
+			getline(cin, tipoAlt);
 			olz.pesquisarContacto(tipoPes,tipoAlt);
 			tipoOrd= "nulo";
 		}
