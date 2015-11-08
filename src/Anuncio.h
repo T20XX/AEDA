@@ -1,8 +1,5 @@
-/*
+/**
  * Anuncio.h
- *
- *  Created on: 12/10/2015
- *      Author: Telmo
  */
 
 

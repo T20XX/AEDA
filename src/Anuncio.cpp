@@ -1,8 +1,5 @@
-/*
+/**
  * Anuncio.cpp
- *
- *  Created on: 12/10/2015
- *      Author: Telmo
  */
 
 #include "Anuncio.h"

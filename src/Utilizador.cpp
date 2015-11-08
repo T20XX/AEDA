@@ -1,8 +1,5 @@
-/*
+/**
  * Utilizador.cpp
- *
- *  Created on: 12/10/2015
- *      Author: Telmo
  */
 
 #include "Utilizador.h"

@@ -1,8 +1,5 @@
-/*
+/**
  * Olz.h
- *
- *  Created on: 02/11/2015
- *      Author: Jorge
  */
 
 #include <vector>
