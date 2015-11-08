@@ -558,7 +558,7 @@ void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
 }
 
 
-int Olz::pesquisarUtilizador(string atributo, string pesquisa){
+void Olz::pesquisarUtilizador(string atributo, string pesquisa){
 	vector<string> temp;
 	int counter = 0;
 	for (int i=0; i < utilizadores.size();i++){
@@ -579,15 +579,16 @@ int Olz::pesquisarUtilizador(string atributo, string pesquisa){
 
 				swap(utilizadores[counter],utilizadores[i]);
 			}
-
-
-			cout<< "ENCONTROU!!" << i;
 			counter++;
 		}
 	}
+	if (counter !=0)
+	{
+
+	}
 }
 
-int Olz::pesquisarAnuncio(string atributo, string pesquisa){
+void Olz::pesquisarAnuncio(string atributo, string pesquisa){
 
 	vector<string> temps;
 	vector<int> tempi;
@@ -633,7 +634,7 @@ int Olz::pesquisarAnuncio(string atributo, string pesquisa){
 	}
 }
 
-int Olz::pesquisarContacto(string atributo, string pesquisa){
+void Olz::pesquisarContacto(string atributo, string pesquisa){
 	vector<string> temps;
 	vector<int> tempi;
 	int counter = 0;
@@ -746,7 +747,7 @@ void Olz::escreverAnunciosFinalizados(){
 	Anun.close();
 }
 
-int Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
+void Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
 
 	vector<string> temps;
 	vector<int> tempi;
