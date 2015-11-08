@@ -95,9 +95,9 @@ public:
 	 */
 	vector<Anuncio *> getAnuncios() const;
 	/**
-		 * @return Vetor de anuncios finalizados
-		 */
-		vector<Anuncio *> getAnunciosFinalizados() const;
+	 * @return Vetor de anuncios finalizados
+	 */
+	vector<Anuncio *> getAnunciosFinalizados() const;
 	/**
 	 * @return Vetor de utilizadores
 	 */
@@ -165,22 +165,50 @@ public:
 	 * @param c Contacto para adicionar ao vetor de contactos do anuncio
 	 */
 	void addContacto(int ID, Contacto * c);
+	/**
+	 * Le do ficheiro AnunciosFinalizados.txt e carrega o vetor de utilizadores
+	 * Apenas usada no inicio do correr do programa
+	 */
 	void lerAnunciosFinalizados();
+	/**
+	 * Escreve no ficheiro AnunciosFinalizados.txt  o vetor de contactos
+	 * A funcao e chamada apos alguma alteracao
+	 */
 	void escreverAnunciosFinalizados();
+	/**
+	 * Comeca por ordenar o vetor dos anuncios finalizados e depois mostra num formato de "tabela"
+	 * @param num_pagina Numero da pagina em que se encontra a listagem
+	 * @param num_anuncios_pagina Numero de anuncios finalizados por pagina
+	 * @param tipoOrd String com o tipo de ordenacao pretendida dos anuncios finalizados
+	 */
 	void tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd);
+	/**
+	 * Pesquisa no vetor dos anuncios finalizados os contactos que correspondem à pesquisa pretendida
+	 * @param atributo Atributo do anuncio finalizado no qual pretende pesquisar
+	 * @param pesquisa Valor que pretende pesquisar no vetor dos anuncios finalizados
+	 */
 	void pesquisarAnuncioFinalizado(string atributo, string pesquisa);
+	/**
+	 * Classe excecao para quando o anuncio com o ID ID nao e encontrado no vetor dos anuncios
+	 */
 	class AnuncioNaoEncontrado{
 		int ID;
 	public:
 		AnuncioNaoEncontrado(int ID) {this->ID=ID;}
 		int getID() {return ID;}
 	};
+	/**
+	 * Classe excecao para quando o utilizador com o email email nao e encontrado no vetor dos utilizadores
+	 */
 	class UtilizadorNaoEncontrado{
-			string email;
-		public:
-			UtilizadorNaoEncontrado(string email) {this->email=email;}
-			string getEmail() {return email;}
-		};
+		string email;
+	public:
+		UtilizadorNaoEncontrado(string email) {this->email=email;}
+		string getEmail() {return email;}
+	};
+	/**
+	 * Classe excecao para quando o index nao esta inserido nos limites do vetor
+	 */
 	class PosicaoForadoVetor{
 		int index, size;
 	public:
