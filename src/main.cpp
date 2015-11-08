@@ -587,6 +587,7 @@ void selecao5()
 					}
 			}
 			olz.carregaAnuncios();
+			olz.escreverAnuncios();
 		}
 
 		else if (selecao == "E" || selecao == "e")
@@ -612,6 +613,7 @@ void selecao5()
 				}
 			}
 			olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
+			olz.escreverAnuncios();
 		}
 		else if (selecao == "O"|| selecao == "o")
 		{
@@ -663,7 +665,6 @@ void selecao5()
 		}
 	}
 	olz.escreverAnuncios();
-
 }
 
 void selecao6()
