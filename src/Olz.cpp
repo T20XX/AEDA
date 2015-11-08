@@ -177,16 +177,16 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);
 
-	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(6) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
+	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < anuncios.size())
 		{
 			cout << setw(3) << (i+1) << setw(4) << anuncios[i]->getID() << " " << anuncios[i]->getData();
 			if (anuncios[i]->getTipo())
-				cout << setw(6)  << "Venda" ;
+				cout << setw(7)  << "Venda" ;
 			else
-				cout << setw(6)  << "Compra";
+				cout << setw(7)  << "Compra";
 			cout << setw(10)  << anuncios[i]->getTitulo().substr(0,9)<<setw(10)  << anuncios[i]->getCategoria().substr(0,9) << setw(15)  << anuncios[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios[i]->getnumCliques() << setw(6)  << anuncios[i]->getContactos().size() << endl;
 		}
 		else
