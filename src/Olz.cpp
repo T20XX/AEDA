@@ -625,21 +625,21 @@ void Olz::pesquisarAnuncio(string atributo, string pesquisa){
 	vector<int> tempi;
 	int counter = 0;
 	for(int i = 0; i < anuncios.size(); i++){
-		if(atributo == "E")
+		if(atributo == "E" || atributo == "e")
 			temps.push_back(anuncios[i]->getUtilizador()->getEmail());
-		else if(atributo == "T")
+		else if(atributo == "T" || atributo == "t")
 			temps.push_back(anuncios[i]->getTitulo());
-		else if(atributo == "C")
+		else if(atributo == "C" || atributo == "c")
 			temps.push_back(anuncios[i]->getCategoria());
-		else if(atributo == "D")
+		else if(atributo == "D" || atributo == "d")
 			temps.push_back(anuncios[i]->getDescricao());
-		else if(atributo == "N")
+		else if(atributo == "N" || atributo == "n")
 			tempi.push_back(anuncios[i]->getnumCliques());
-		else if(atributo == "I")
+		else if(atributo == "I" || atributo == "i")
 			tempi.push_back(anuncios[i]->getID());
 
 
-		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"){
+		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"|| atributo == "e"|| atributo == "t"|| atributo == "c"|| atributo == "d"){
 			if(temps[i].find(pesquisa) != string::npos){
 				if(counter != i){
 					swap(anuncios[counter], anuncios[i]);
@@ -675,15 +675,15 @@ void Olz::pesquisarContacto(string atributo, string pesquisa){
 	vector<int> tempi;
 	int counter = 0;
 	for(int i = 0; i < contactos.size(); i++){
-		if(atributo == "E")
+		if(atributo == "E" || atributo == "e")
 			temps.push_back(contactos[i]->getEmail());
-		else if(atributo == "C")
+		else if(atributo == "C" || atributo == "c")
 			temps.push_back(contactos[i]->getContacto());
-		else if(atributo == "I")
+		else if(atributo == "I" || atributo == "i")
 			tempi.push_back(contactos[i]->getAnuncio()->getID());
 
 
-		if(atributo == "E" || atributo == "C"){
+		if(atributo == "E" || atributo == "C"|| atributo == "e"|| atributo == "c"){
 			if(temps[i].find(pesquisa) != string::npos){
 				if(counter != i){
 					swap(contactos[counter], contactos[i]);
@@ -801,21 +801,21 @@ void Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
 	vector<int> tempi;
 	int counter = 0;
 	for(int i = 0; i < anunciosfinalizados.size(); i++){
-		if(atributo == "E")
+		if(atributo == "E" || atributo == "e")
 			temps.push_back(anunciosfinalizados[i]->getUtilizador()->getEmail());
-		else if(atributo == "T")
+		else if(atributo == "T" || atributo == "t")
 			temps.push_back(anunciosfinalizados[i]->getTitulo());
-		else if(atributo == "C")
+		else if(atributo == "C" || atributo == "c")
 			temps.push_back(anunciosfinalizados[i]->getCategoria());
-		else if(atributo == "D")
+		else if(atributo == "D" || atributo == "d")
 			temps.push_back(anunciosfinalizados[i]->getDescricao());
-		else if(atributo == "N")
+		else if(atributo == "N" || atributo == "n")
 			tempi.push_back(anunciosfinalizados[i]->getnumCliques());
-		else if(atributo == "I")
+		else if(atributo == "I" || atributo == "i")
 			tempi.push_back(anunciosfinalizados[i]->getID());
 
 
-		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"){
+		if(atributo == "E" || atributo == "T" || atributo == "C" || atributo == "D"|| atributo == "e"|| atributo == "t"|| atributo == "c"|| atributo == "d"){
 			if(temps[i].find(pesquisa) != string::npos){
 				if(counter != i){
 					swap(anunciosfinalizados[counter], anunciosfinalizados[i]);
