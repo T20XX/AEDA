@@ -564,10 +564,16 @@ void selecao6()
 			cout << "Indique o número do anuncio que deseja visualizar: ";
 			int index = -1;
 			cin >> index;
+			while(cin.fail()){
+				cin >> index;
+			}
 			while (index < 1 || index > olz.getAnunciosFinalizados().size())
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
+				while(cin.fail()){
+					cin >> index;
+				}
 			}
 			olz.getAnunciosFinalizados()[index-1]->verAnuncio();
 		}
@@ -588,10 +594,16 @@ void selecao6()
 		else if (selecao == "PP")
 		{
 			cin >> porpag;
+			while(cin.fail()){
+				cin >> porpag;
+			}
 			while (porpag < 0)
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
+				while(cin.fail()){
+					cin >> porpag;
+				}
 			}
 			if (porpag == 0)
 				porpag = olz.getAnunciosFinalizados().size();
