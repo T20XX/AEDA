@@ -294,6 +294,12 @@ void Olz::lerUtilizadores() {
 	ifstream Uti;
 
 	Uti.open("Utilizadores.txt");
+	if (!Uti.good()){
+		Uti.close();
+		ofstream temp("Utilizadores.txt");
+		temp.close();
+		Uti.open("Utilizadores.txt");
+	}
 
 
 	while(!Uti.eof()) {
@@ -344,6 +350,13 @@ void Olz::lerAnuncios() {
 	ifstream Anun;
 
 	Anun.open("Anuncios.txt");
+	if (!Anun.good()){
+		Anun.close();
+		ofstream temp("Anuncios.txt");
+		temp << "0" << endl;
+		temp.close();
+		Anun.open("Anuncios.txt");
+	}
 
 	Anun >> nextID;
 	Anun.ignore();
@@ -438,6 +451,12 @@ void Olz::lerContactos(){
 	ifstream Cont;
 
 	Cont.open("Contactos.txt");
+	if (!Cont.good()){
+		Cont.close();
+		ofstream temp("Contactos.txt");
+		temp.close();
+		Cont.open("Contactos.txt");
+	}
 
 
 	while(!Cont.eof()) {
@@ -547,14 +566,14 @@ void Olz::setUtiNome(int index, string nome){
 
 void Olz::setUtiTelemovel(int index, int telemovel){
 	if (index >=0 && index < utilizadores.size())
-	utilizadores[index].setTelemovel(telemovel);
+		utilizadores[index].setTelemovel(telemovel);
 	else
 		throw PosicaoForadoVetor(index, utilizadores.size());
 }
 
 void Olz::setUtiLocalizacao(int index, Localizacao localizacao){
 	if (index >=0 && index < utilizadores.size())
-	utilizadores[index].setLocalizacao(localizacao);
+		utilizadores[index].setLocalizacao(localizacao);
 	else
 		throw PosicaoForadoVetor(index, utilizadores.size());
 }
@@ -709,6 +728,13 @@ void Olz::lerAnunciosFinalizados() {
 	ifstream Anun;
 
 	Anun.open("AnunciosFinalizados.txt");
+	if (!Anun.good()){
+		Anun.close();
+		ofstream temp("AnunciosFinalizados.txt");
+		temp.close();
+		Anun.open("AnunciosFinalizados.txt");
+	}
+
 
 	while(!Anun.eof()) {
 		getline(Anun,email);
