@@ -33,6 +33,8 @@ void selecao1()
 	cout << "Telemóvel: ";
 	cin >> telemovel;
 	while(cin.fail()){
+		cin.clear();
+		cin.ignore();
 		cout << "Número de telemóvel errado, introduza outro: ";
 		cin >> telemovel;
 	}
@@ -189,6 +191,8 @@ void selecao2()
 			cout << "Introduza o ID: " << endl;
 			cin >> vendaID;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> vendaID;
 			}
 		}
@@ -259,6 +263,8 @@ void selecao4()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getUtilizadores().size())
@@ -266,6 +272,8 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -284,6 +292,8 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -329,6 +339,8 @@ void selecao4()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getUtilizadores().size())
@@ -336,6 +348,8 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -359,6 +373,8 @@ void selecao4()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> porpag;
 			}
 			while (porpag < 0)
@@ -366,6 +382,8 @@ void selecao4()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> porpag;
 				}
 			}
@@ -408,6 +426,8 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getAnuncios().size())
@@ -415,6 +435,8 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -426,6 +448,8 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getAnuncios().size())
@@ -433,6 +457,8 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -487,6 +513,8 @@ void selecao5()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getAnuncios().size())
@@ -494,6 +522,8 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -517,6 +547,8 @@ void selecao5()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> porpag;
 			}
 			while (porpag < 0)
@@ -524,6 +556,8 @@ void selecao5()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> porpag;
 				}
 			}
@@ -565,6 +599,8 @@ void selecao6()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getAnunciosFinalizados().size())
@@ -572,6 +608,8 @@ void selecao6()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -595,6 +633,8 @@ void selecao6()
 		{
 			cin >> porpag;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> porpag;
 			}
 			while (porpag < 0)
@@ -602,6 +642,8 @@ void selecao6()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> porpag;
 				}
 			}
@@ -643,6 +685,8 @@ void selecao7()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getContactos().size())
@@ -650,6 +694,8 @@ void selecao7()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -661,6 +707,8 @@ void selecao7()
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
+				cin.clear();
+				cin.ignore();
 				cin >> index;
 			}
 			while (index < 1 || index > olz.getContactos().size())
@@ -668,6 +716,8 @@ void selecao7()
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> index;
 				}
 			}
@@ -725,6 +775,8 @@ void selecao7()
 				cout << "Número inválido, indique outro: ";
 				cin >> porpag;
 				while(cin.fail()){
+					cin.clear();
+					cin.ignore();
 					cin >> porpag;
 				}
 			}
@@ -778,6 +830,8 @@ int main() {
 		}
 		while (selecao < 0 || selecao > 7){
 			cout << "Número de selação invalido, tente outro: ";
+			cin.clear();
+			cin.ignore();
 			cin >> selecao;
 		}
 		cin.ignore();
