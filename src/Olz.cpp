@@ -485,8 +485,12 @@ void Olz::escreverContactos(){
 }
 
 void Olz::addAnuncio(int index,Anuncio * a) {
+	if (index >=0 && index < anuncios.size()) {
 	a->setUtilizador(&utilizadores[index]);
 	utilizadores[index].addAnuncio(a);
+	}
+	else
+		throw PosicaoForadoVetor(index, anuncios.size());
 }
 
 
@@ -499,9 +503,11 @@ vector<Utilizador> Olz::getUtilizadores() {return utilizadores;}
 vector<Contacto *> Olz::getContactos() const {return contactos;}
 
 void Olz::eliminaAnuncio(int ID){
+	bool encontrou = false;
 	for(int i = 0; i < anuncios.size(); i++){
 		if(anuncios[i]->getID() == ID){
 			anuncios.erase(anuncios.begin() + i);
+			encontrou =true;
 		}
 	}
 	for(int i = 0; i< utilizadores.size(); i++){
@@ -510,9 +516,12 @@ void Olz::eliminaAnuncio(int ID){
 				utilizadores[i].getAnuncios().erase(utilizadores[i].getAnuncios().begin() + j);
 		}
 	}
+	if (!encontrou)
+		throw AnuncioNaoEncontrado(ID);
 }
 
 void Olz::eliminaUtilizador(string email){
+	bool encontrou =false;
 	for(int i = 0; i< utilizadores.size(); i++)
 	{
 		if(utilizadores[i].getEmail() == email)
@@ -525,12 +534,18 @@ void Olz::eliminaUtilizador(string email){
 				}
 			}
 			utilizadores.erase(utilizadores.begin()+i);
+			encontrou =true;
 		}
 	}
+	if (!encontrou)
+		throw UtilizadorNaoEncontrado(email);
 }
 
 void Olz::setUtiNome(int index, string nome){
-	utilizadores[index].setNome(nome);
+	if (index >=0 && index < utilizadores.size())
+		utilizadores[index].setNome(nome);
+	else
+		throw PosicaoForadoVetor(index, utilizadores.size());
 }
 
 void Olz::setUtiTelemovel(int index, int telemovel){
@@ -658,10 +673,17 @@ int Olz::pesquisarContacto(string atributo, string pesquisa){
 }
 
 void Olz::addContacto(int ID, Contacto * c){
+	bool encontrou = false;
 	for(int i = 0; i < anuncios.size(); i++){
-		if(anuncios[i]->getID() == ID)
+		if(anuncios[i]->getID() == ID){
 			anuncios[i]->addContacto(c);
+			encontrou =true;
+			break;
+		}
 	}
+	if (!encontrou)
+		throw AnuncioNaoEncontrado(ID);
+
 }
 
 void Olz::lerAnunciosFinalizados() {

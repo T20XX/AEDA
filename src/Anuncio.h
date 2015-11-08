@@ -78,7 +78,7 @@ public:
 	 */
 	Data getData();
 	/**
-	 * Permite ao utilizador visualizar todos os contactos
+	 * Permite ao utilizador visualizar o contacto
 	 */
 	void verContacto() const;
 	/**

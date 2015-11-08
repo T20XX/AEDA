@@ -172,6 +172,27 @@ public:
 	void escreverAnunciosFinalizados();
 	void tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd);
 	int pesquisarAnuncioFinalizado(string atributo, string pesquisa);
+	class AnuncioNaoEncontrado{
+		int ID;
+	public:
+		AnuncioNaoEncontrado(int ID) {this->ID=ID;}
+		int getID() {return ID;}
+	};
+	class UtilizadorNaoEncontrado{
+			string email;
+		public:
+			UtilizadorNaoEncontrado(string email) {this->email=email;}
+			string getEmail() {return email;}
+		};
+	class PosicaoForadoVetor{
+		int index, size;
+	public:
+		PosicaoForadoVetor(int index, int size) {
+			this->index=index;
+			this->size=size;}
+		int getIndex() {return index;}
+		int getSize() {return size;}
+	};
 };
 
 #endif /* OLZ_H_ */
