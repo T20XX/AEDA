@@ -436,7 +436,12 @@ void selecao4()
 		else if (selecao == "P" || selecao == "p")
 		{
 			cout << "Em que atributo deseja procurar:: E(mail), N(ome), A(nuncios), D(istrito), F(reguesia), C(oncelho)";
-			cin >> tipoPes;
+			cin.ignore();
+			getline(cin, tipoPes);
+			while(tipoPes != "E" && tipoPes != "e" && tipoPes != "N" && tipoPes != "n" && tipoPes != "A" && tipoPes != "a" && tipoPes != "D" && tipoPes != "d" && tipoPes != "F" && tipoPes != "f" && tipoPes != "C" && tipoPes !="c"){
+				cout << "Escreva um atributo válido: ";
+				cin >> tipoPes;
+			}
 			cout << "O que deseja procurar: ";
 			cin.ignore();
 			getline(cin, tipoAlt);
@@ -624,8 +629,13 @@ void selecao5()
 		else if(selecao == "P" || selecao == "p")
 		{
 			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
-			cin >> tipoPes;
-			cout << "O que deseja alterar??";
+			cin.ignore();
+			getline(cin, tipoPes);
+			while(tipoPes != "I" && tipoPes != "i" && tipoPes != "D" && tipoPes != "d" && tipoPes != "T" && tipoPes != "t" && tipoPes != "C" && tipoPes != "c" && tipoPes != "N" && tipoPes != "n" && tipoPes != "E" && tipoPes !="e"){
+				cout << "Escreva um atributo válido: ";
+				cin >> tipoPes;
+			}
+			cout << "O que deseja procurar: ";
 			cin.ignore();
 			getline(cin, tipoAlt);
 			olz.pesquisarAnuncio(tipoPes,tipoAlt);
@@ -716,8 +726,13 @@ void selecao6()
 		else if(selecao == "P"|| selecao == "p")
 		{
 			cout << "Em que atributo deseja procurar: I(D), D(escrição), T(ítulo), C(ategoria), N(úmero de Cliques). E(mail); ";
-			cin >> tipoPes;
-			cout << "O que deseja alterar??";
+			cin.ignore();
+			getline(cin, tipoPes);
+			while(tipoPes != "I" && tipoPes != "i" && tipoPes != "D" && tipoPes != "d" && tipoPes != "T" && tipoPes != "t" && tipoPes != "C" && tipoPes != "c" && tipoPes != "N" && tipoPes != "n" && tipoPes != "E" && tipoPes !="e"){
+				cout << "Escreva um atributo válido: ";
+				cin >> tipoPes;
+			}
+			cout << "O que deseja procurar: ";
 			cin.ignore();
 			getline(cin, tipoAlt);
 			olz.pesquisarAnuncioFinalizado(tipoPes,tipoAlt);
@@ -863,8 +878,13 @@ void selecao7()
 		else if(selecao == "P" || selecao == "p")
 		{
 			cout << "Em que atributo deseja procurar: I(D), E(mail), C(ontacto)";
-			cin >> tipoPes;
-			cout << "O que deseja alterar??";
+			cin.ignore();
+			getline(cin, tipoPes);
+			while(tipoPes != "I" && tipoPes != "i" && tipoPes != "E" && tipoPes != "e" && tipoPes != "C" && tipoPes != "c" ){
+				cout << "Escreva um atributo válido: ";
+				cin >> tipoPes;
+			}
+			cout << "O que deseja procurar: ";
 			cin.ignore();
 			getline(cin, tipoAlt);
 			olz.pesquisarContacto(tipoPes,tipoAlt);
