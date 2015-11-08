@@ -889,14 +889,24 @@ int main() {
 			selecao2();
 		else if(selecao == 3 && olz.getAnuncios().size() > 0)
 			selecao3();
-		else if (selecao == 4)
+		else if (selecao == 4 && olz.getUtilizadores().size() > 0)
 			selecao4();
-		else if (selecao == 5)
+		else if (selecao == 5 && olz.getAnuncios().size() > 0)
 			selecao5();
-		else if (selecao == 6)
+		else if (selecao == 6 && olz.getAnunciosFinalizados().size() > 0)
 			selecao6();
-		else if (selecao == 7)
+		else if (selecao == 7 && olz.getContactos().size() > 0)
 			selecao7();
+		else if (olz.getUtilizadores().size() == 0)
+			cout << "Não existem utilizadores." << endl;
+
+		else if (olz.getAnuncios().size() == 0)
+			cout << "Não existem anúncios." << endl;
+
+		else if (olz.getAnunciosFinalizados().size() == 0)
+			cout << "Não existem anúncios finalizados." << endl;
+		else if (olz.getContactos().size() == 0)
+			cout << "Não existem contactos." << endl;
 		selecao = -1;
 	}
 	cout << "Obrigado por utilizar o OLZ." << endl;
