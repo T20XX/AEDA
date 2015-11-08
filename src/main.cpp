@@ -324,7 +324,7 @@ void selecao4()
 			while(cin.fail()){
 				cin >> index;
 			}
-			while (index < 1 || index > olz.getAnuncios().size())
+			while (index < 1 || index > olz.getUtilizadores().size())
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
