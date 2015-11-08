@@ -590,15 +590,15 @@ void Olz::pesquisarUtilizador(string atributo, string pesquisa){
 	vector<string> temp;
 	int counter = 0;
 	for (int i=0; i < utilizadores.size();i++){
-		if(atributo == "E")
+		if(atributo == "E" || atributo == "e")
 			temp.push_back(utilizadores[i].getEmail());
-		else if(atributo == "N")
+		else if(atributo == "N" || atributo == "n")
 			temp.push_back(utilizadores[i].getNome());
-		else if(atributo == "F")
+		else if(atributo == "F" || atributo == "f")
 			temp.push_back(utilizadores[i].getLocalizacao().getFreguesia());
-		else if(atributo == "C")
+		else if(atributo == "C" || atributo == "c")
 			temp.push_back(utilizadores[i].getLocalizacao().getConcelho());
-		else if(atributo == "D")
+		else if(atributo == "D" || atributo == "d")
 			temp.push_back(utilizadores[i].getLocalizacao().getDistrito());
 
 		if (temp[i].find(pesquisa) != string::npos)
