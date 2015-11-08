@@ -897,15 +897,15 @@ int main() {
 			selecao6();
 		else if (selecao == 7 && olz.getContactos().size() > 0)
 			selecao7();
-		else if (olz.getUtilizadores().size() == 0)
+		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 
-		else if (olz.getAnuncios().size() == 0)
+		else if ((selecao == 3 || selecao == 5) && olz.getAnuncios().size() == 0)
 			cout << "Não existem anúncios." << endl;
 
-		else if (olz.getAnunciosFinalizados().size() == 0)
+		else if (selecao == 6 && olz.getAnunciosFinalizados().size() == 0)
 			cout << "Não existem anúncios finalizados." << endl;
-		else if (olz.getContactos().size() == 0)
+		else if (selecao == 7 && olz.getContactos().size() == 0)
 			cout << "Não existem contactos." << endl;
 		selecao = -1;
 	}
