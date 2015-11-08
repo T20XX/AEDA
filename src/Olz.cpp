@@ -215,7 +215,7 @@ void Olz::tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, str
 	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << setw(5) << "Preço";
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
-		if (i < anuncios.size())
+		if (i < anunciosfinalizados.size())
 		{
 			cout << setw(3) << (i+1)<< " " << setw(4) << anunciosfinalizados[i]->getID() << " " << setw(7) << anunciosfinalizados[i]->getData() << " "<< setw(7) << anunciosfinalizados[i]->getTitulo() << " " << setw(9) << anunciosfinalizados[i]->getCategoria() << " " << setw(5) << anunciosfinalizados[i]->getPreco() << endl;
 		}
