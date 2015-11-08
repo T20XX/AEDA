@@ -486,8 +486,8 @@ void Olz::escreverContactos(){
 
 void Olz::addAnuncio(int index,Anuncio * a) {
 	if (index >=0 && index < anuncios.size()) {
-	a->setUtilizador(&utilizadores[index]);
-	utilizadores[index].addAnuncio(a);
+		a->setUtilizador(&utilizadores[index]);
+		utilizadores[index].addAnuncio(a);
 	}
 	else
 		throw PosicaoForadoVetor(index, anuncios.size());
@@ -582,10 +582,11 @@ void Olz::pesquisarUtilizador(string atributo, string pesquisa){
 			counter++;
 		}
 	}
-	if (counter !=0)
-	{
 
-	}
+	if (counter !=0)
+		cout << "Utilizadores até à posição " << counter << " foram detetados na pesquisa." << endl;
+	else
+		cout << "Não foi encontrado nenhum utilizador relevante. Tente usar outra palavras." << endl;
 }
 
 void Olz::pesquisarAnuncio(string atributo, string pesquisa){
@@ -632,6 +633,11 @@ void Olz::pesquisarAnuncio(string atributo, string pesquisa){
 			}
 		}
 	}
+
+	if (counter !=0)
+		cout << "Anúncios até à posição " << counter << " foram detetados na pesquisa." << endl;
+	else
+		cout << "Não foi encontrado nenhum anúncio relevante. Tente usar outra palavras." << endl;
 }
 
 void Olz::pesquisarContacto(string atributo, string pesquisa){
@@ -670,6 +676,11 @@ void Olz::pesquisarContacto(string atributo, string pesquisa){
 				counter++;
 			}
 		}
+
+		if (counter !=0)
+			cout << "Contactos até à posição " << counter << " foram detetados na pesquisa." << endl;
+		else
+			cout << "Não foi encontrado nenhum contacto relevante. Tente usar outra palavras." << endl;
 	}
 }
 
@@ -791,4 +802,9 @@ void Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
 			}
 		}
 	}
+
+	if (counter !=0)
+		cout << "Anúncios finalizados até à posição " << counter << " foram detetados na pesquisa." << endl;
+	else
+		cout << "Não foi encontrado nenhum anúncio finalizado relevante. Tente usar outra palavras." << endl;
 }

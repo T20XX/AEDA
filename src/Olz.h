@@ -171,7 +171,7 @@ public:
 	void lerAnunciosFinalizados();
 	void escreverAnunciosFinalizados();
 	void tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, string tipoOrd);
-	int pesquisarAnuncioFinalizado(string atributo, string pesquisa);
+	void pesquisarAnuncioFinalizado(string atributo, string pesquisa);
 	class AnuncioNaoEncontrado{
 		int ID;
 	public:
