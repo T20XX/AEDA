@@ -13,17 +13,19 @@ void selecao1()
 	int telemovel;
 	bool emailrepetido = true;
 
-	cout << "Introduza os seguintes dados:" << endl;
+	cout << "Introduza os seguintes dados de Utilizador:" << endl;
 	cout << "Email: ";
+	cin >> email;
 	while(emailrepetido){
-		cin >> email;
+		emailrepetido = false;
 		for(int i=0; i < olz.getUtilizadores().size();i++){
 			if(olz.getUtilizadores()[i].getEmail() == email){
 				cout << "Email já se encontra em uso, introduza outro: ";
+				cin >> email;
+				emailrepetido = true;
 				break;
 			}
 		}
-		emailrepetido = false;
 	}
 	cout << "Nome: ";
 	cin.ignore();
@@ -64,6 +66,7 @@ void selecao2()
 	char troca = 'J';
 	char mostrar;
 	char nego;
+	cout << "Introduza os seguintes dados do Anúncio: " << endl;
 	cout << "Utilizador(email): ";
 
 	while(index == -1){										//email do Utilizador a fazer Anuncio
@@ -77,27 +80,37 @@ void selecao2()
 			}
 		}
 		if(index == -1)
-			cout << "Email Indisponível, tente outra vez!" << endl;
+			cout << "Email já se encontra em uso, introduza outro: ";
 	}
-	cout << "Introduza C para realizar uma Compra ou V para realizar uma Venda." << endl;
+
+	cout << "Introduza C para criar um Anúnio de Compra ou V um de Venda: ";
 	cin >> tipo;
 	while(tipo != 'C' && tipo != 'V'){
-		cout << "Por favor, escreva C (de Compra) ou V (de Venda)." << endl; //tipo (venda ou compra)
+		cout << "Por favor, escreva C (de Compra) ou V (de Venda): ";
 		cin >> tipo;
 	}
+
 	cout << "Data(dd/mm/aaaa): ";
-	cin >>data;
+	bool dataerrada = true;
+	cin >> data;
+	while(dataerrada){
+		dataerrada = false;
+		try{Data d(data);}	catch(exception& e){
+			dataerrada = true;
+			cout << "Data inválida, introduza outra: ";
+			cin >> data;
+		}
+	}
 	cin.ignore();
 	cout << "Título: ";
 	getline(cin, titulo);
 	cout << "Categoria: ";
 	getline(cin, categoria);
 
-	cout << "Introduza S para mostrar o seu Nome ou N para não mostrar o seu Nome." << endl;
+	cout << "Introduza S para mostrar o seu Nome ou N para não mostrar o seu Nome: "; //mostrarNome
 	cin >> mostrar;
-
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não): ";
 		cin >> mostrar;
 	}
 	if(mostrar == 'S')
@@ -107,11 +120,11 @@ void selecao2()
 
 	mostrar = 'A';
 
-	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Email." << endl;
+	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Email: ";
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não: " << endl; //mostrarEmail
 		cin >> mostrar;
 	}
 	if(mostrar == 'S')
@@ -121,11 +134,11 @@ void selecao2()
 
 	mostrar = 'A';
 
-	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Email." << endl;
+	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Telemovel: ";
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
-		cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
+		cout << "Por favor, escreva S (de Sim) ou N (de Não): "; //mostrarTelemovel
 		cin >> mostrar;
 	}
 	if(mostrar == 'S')
@@ -139,20 +152,24 @@ void selecao2()
 
 	if(tipo == 'V')
 	{
-		cout << "Estado: " << endl << "Preço: " << endl << "Negociavel?" << endl;
-
+		cout << "Estado: " ;
 		estado = "Partido";
 
 		while(estado != "Novo" && estado != "Usando como novo" && estado != "Funcional" && estado != "Para Peças"){
 			getline(cin, estado);
 		}
 
+		cout << "Preço: ";
 		cin >> preco;
+		while(cin.fail()){
+			cout << "Introduza um preço valido: ";
+			cin >> preco;
+		}
 
+		cout << "Negociavel(S/N)? ";
 		cin >> nego;
-
 		while(nego != 'S' && nego != 'N'){
-			cout << "Por favor, escreva S (de Sim) ou N (de Não)." << endl; //mostrarNome
+			cout << "Por favor, escreva S (de Sim) ou N (de Não): ";
 			cin >> nego;
 		}
 		if(nego == 'S')
@@ -163,7 +180,7 @@ void selecao2()
 		olz.addAnuncio(index, new AnuncioVenda(NULL, Data(data), titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
 	}
 	else {
-		cout << "Proposta de troca? ( S / N ) " << endl;
+		cout << "Proposta de troca?(S/N) ";
 		while(troca != 'S' && troca !='N'){
 			cin >> troca;
 		}
@@ -171,6 +188,9 @@ void selecao2()
 		{
 			cout << "Introduza o ID: " << endl;
 			cin >> vendaID;
+			while(cin.fail()){
+				cin >> vendaID;
+			}
 		}
 		else
 			vendaID = -1;
