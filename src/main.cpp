@@ -216,10 +216,19 @@ void selecao3()
 			}
 		}
 		if(index == -1)
-			cout << "ID Indisponível, tente outra vez!" << endl;
+			cout << "ID Indisponível, tente outra vez: ";
 	}
-	cout << "Indique a Data(DD/MM/AAAA): ";
+	cout << "Data(dd/mm/aaaa): ";
+	bool dataerrada = true;
 	cin >> data;
+	while(dataerrada){
+		dataerrada = false;
+		try{Data d(data);}	catch(exception& e){
+			dataerrada = true;
+			cout << "Data inválida, introduza outra: ";
+			cin >> data;
+		}
+	}
 	cout << "Indique o seu email: ";
 	cin >> email;
 	cin.ignore();
