@@ -15,22 +15,19 @@ void selecao1()
 
 	cout << "Introduza os seguintes dados de Utilizador:" << endl;
 	cout << "Email: ";
-	cin >> email;
-	cin.ignore(10000);
+	getline(cin,email);
 	while(emailrepetido){
 		emailrepetido = false;
 		for(int i=0; i < olz.getUtilizadores().size();i++){
 			if(olz.getUtilizadores()[i].getEmail() == email){
 				cout << "Email já se encontra em uso, introduza outro: ";
-				cin >> email;
-				cin.ignore(10000);
+				getline(cin, email);
 				emailrepetido = true;
 				break;
 			}
 		}
 	}
 	cout << "Nome: ";
-	cin.ignore();
 	getline(cin, nome);
 	cout << "Telemóvel: ";
 	cin >> telemovel;
@@ -74,7 +71,7 @@ void selecao2()
 	cout << "Utilizador(email): ";
 
 	while(index == -1){										//email do Utilizador a fazer Anuncio
-		cin >> email;
+		getline(cin,email);
 		for(int i = 0; i < olz.getUtilizadores().size(); i++)
 		{
 			if(olz.getUtilizadores()[i].getEmail() == email)
@@ -274,8 +271,8 @@ void selecao3()
 			cout << "Data Errada, introduza outra: ";
 	}
 	cout << "Indique o seu email: ";
-	cin >> email;
 	cin.ignore();
+	getline(cin,email);
 	cout << "Indique a mensagem que quer enviar: ";
 	getline(cin, mensagem);
 
