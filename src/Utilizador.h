@@ -122,6 +122,9 @@ public:
 	 * @returns Vetor dos anuncios
 	 */
 	vector<Anuncio *> getAnuncios() const;
+
+
+	void eliminaAnuncio(int index);
 };
 
 
