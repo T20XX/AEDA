@@ -876,9 +876,9 @@ int main() {
 			break;
 		else if (selecao == 1)
 			selecao1();
-		else if (selecao == 2)
+		else if (selecao == 2 && olz.getUtilizadores().size() > 0)
 			selecao2();
-		else if(selecao == 3)
+		else if(selecao == 3 && olz.getAnuncios().size() > 0)
 			selecao3();
 		else if (selecao == 4)
 			selecao4();
