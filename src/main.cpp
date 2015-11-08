@@ -80,7 +80,7 @@ void selecao2()
 			}
 		}
 		if(index == -1)
-			cout << "Email já se encontra em uso, introduza outro: ";
+			cout << "Email não existe, introduza outro: ";
 	}
 
 	cout << "Introduza C para criar um Anúnio de Compra ou V um de Venda: ";
@@ -134,7 +134,7 @@ void selecao2()
 
 	mostrar = 'A';
 
-	cout << "Introduza S para mostrar o seu Email ou N para não mostrar o seu Telemovel: ";
+	cout << "Introduza S para mostrar o seu Telemovel ou N para não mostrar o seu Telemovel: ";
 	cin >> mostrar;
 
 	while(mostrar != 'S' && mostrar != 'N'){
