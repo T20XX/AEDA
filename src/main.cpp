@@ -118,6 +118,8 @@ void selecao2()
 				dataerrada=true;
 		}
 	}
+	if(dataerrada)
+		cout << "Data Errada, introduza outra: ";
 	}
 	cin.ignore();
 	cout << "Título: ";
