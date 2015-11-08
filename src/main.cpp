@@ -177,7 +177,7 @@ void selecao2()
 	cin.ignore();
 	getline(cin, descricao);												//descrição
 
-	if(mostrar == 'V' || mostrar == 'v')
+	if(tipo == 'V' || tipo == 'v')
 	{
 		cout << "Estado(Novo,Usando como novo, Funcional ou Para Peças): " ;
 		estado = "Partido";
