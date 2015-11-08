@@ -531,7 +531,9 @@ void Olz::eliminaAnuncio(int ID){
 		}
 	}
 	for(int i = 0; i< utilizadores.size(); i++){
+		cout << utilizadores[i].getEmail();
 		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
+			cout << utilizadores[i].getAnuncios()[j]->getID();
 			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
 			{
 				utilizadores[i].getAnuncios().erase(utilizadores[i].getAnuncios().begin() + j);
