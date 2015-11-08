@@ -2,6 +2,7 @@
 #include <string>
 #include "Utilizador.h"
 #include "Olz.h"
+#include<math.h>
 using namespace std;
 
 Olz olz;
@@ -10,14 +11,33 @@ void selecao1()
 {
 	string nome, email, freguesia, concelho, distrito;
 	int telemovel;
+	bool emailrepetido = true;
 
+	cout << "Introduza os seguintes dados:" << endl;
+	cout << "Email: ";
+	while(emailrepetido){
+		cin >> email;
+		for(int i=0; i < olz.getUtilizadores().size();i++){
+			if(olz.getUtilizadores()[i].getEmail() == email){
+				cout << "Email já se encontra em uso, introduza outro: ";
+				break;
+			}
+		}
+		emailrepetido = false;
+	}
 	cout << "Nome: ";
 	cin.ignore();
 	getline(cin, nome);
-	cout << "Email: ";
-	cin >> email;
 	cout << "Telemóvel: ";
 	cin >> telemovel;
+	while(cin.fail()){
+		cout << "Número de telemóvel errado, introduza outro: ";
+		cin >> telemovel;
+	}
+	while((telemovel/(pow(10,9))) >= 1){
+		cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+		cin >> telemovel;
+	}
 	cin.ignore();
 	cout << "Freguesia: ";
 	getline(cin, freguesia);
@@ -31,6 +51,7 @@ void selecao1()
 	olz.addUtilizador(tempUti);
 
 	cout << "Utilizador criado com sucesso." << endl;
+	cin.ignore();
 }
 
 void selecao2()
@@ -155,6 +176,7 @@ void selecao2()
 			vendaID = -1;
 		olz.addAnuncio(index, new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
 	}
+	cin.ignore();
 }
 
 void selecao3()
@@ -185,6 +207,7 @@ void selecao3()
 	getline(cin, mensagem);
 
 	olz.addContacto(olz.getAnuncios()[index]->getID(), new Contacto(olz.getAnuncios()[index], data, email, mensagem));
+	cin.ignore();
 
 }
 void selecao4()
@@ -307,6 +330,7 @@ void selecao4()
 		}
 	}
 	olz.escreverUtilizadores();
+	cin.ignore();
 }
 
 void selecao5()
@@ -440,6 +464,7 @@ void selecao5()
 		}
 	}
 	olz.escreverAnuncios();
+	cin.ignore();
 }
 
 void selecao6()
@@ -505,6 +530,7 @@ void selecao6()
 		}
 	}
 	olz.escreverAnunciosFinalizados();
+	cin.ignore();
 }
 
 void selecao7()
@@ -612,6 +638,7 @@ void selecao7()
 		}
 	}
 	olz.escreverContactos();
+	cin.ignore();
 }
 
 
