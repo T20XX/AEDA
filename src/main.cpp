@@ -16,14 +16,14 @@ void selecao1()
 	cout << "Introduza os seguintes dados de Utilizador:" << endl;
 	cout << "Email: ";
 	cin >> email;
-	cin.ignore();
+	cin.ignore(10000);
 	while(emailrepetido){
 		emailrepetido = false;
 		for(int i=0; i < olz.getUtilizadores().size();i++){
 			if(olz.getUtilizadores()[i].getEmail() == email){
 				cout << "Email já se encontra em uso, introduza outro: ";
 				cin >> email;
-				cin.ignore();
+				cin.ignore(10000);
 				emailrepetido = true;
 				break;
 			}
