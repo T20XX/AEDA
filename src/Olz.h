@@ -142,7 +142,7 @@ public:
 	 * @param atributo Atributo do utilizador no qual pretende pesquisar
 	 * @param pesquisa Valor que pretende pesquisar no vetor dos utilizadores
 	 */
-	int pesquisarUtilizador(string atributo, string pesquisa);
+	void pesquisarUtilizador(string atributo, string pesquisa);
 	/**
 	 * Comeca por ordenar o vetor dos contactos e depois mostra num formato de "tabela"
 	 * @param num_pagina Numero da pagina em que se encontra a listagem
@@ -155,13 +155,13 @@ public:
 	 * @param atributo Atributo do anuncio no qual pretende pesquisar
 	 * @param pesquisa Valor que pretende pesquisar no vetor dos anuncios
 	 */
-	int pesquisarAnuncio(string atributo, string pesquisa);
+	void pesquisarAnuncio(string atributo, string pesquisa);
 	/**
 	 * Pesquisa no vetor dos contactos os contactos que correspondem à pesquisa pretendida
 	 * @param atributo Atributo do contacto no qual pretende pesquisar
 	 * @param pesquisa Valor que pretende pesquisar no vetor dos contactos
 	 */
-	int pesquisarContacto(string atributo, string pesquisa);
+	void pesquisarContacto(string atributo, string pesquisa);
 	/**
 	 * Adiciona um anuncio ao utilizador no vetor de utilizadores na posicao index
 	 * @param ID ID do anuncio para adicionar o contacto ao vetor de contactos

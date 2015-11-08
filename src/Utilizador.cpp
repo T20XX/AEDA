@@ -31,8 +31,8 @@ string Localizacao::getDistrito() const {return distrito;}
 
 ostream& operator<<(std::ostream& os, const Localizacao l)
 {
-  os << l.getFreguesia() << ", " << l.getConcelho() << ", " << l.getDistrito();
-  return os;
+	os << l.getFreguesia() << ", " << l.getConcelho() << ", " << l.getDistrito();
+	return os;
 }
 
 //UTILIZADOR
@@ -44,11 +44,12 @@ Utilizador::~Utilizador() {}
 
 void Utilizador::verUtilizador()
 {
-	cout << "Informação do Utilizador:" << endl << "Email: " << email << endl <<
-			"Nome: " << nome << endl <<
-			"Telemóvel: " << telemovel << endl <<
-			"Localizaçãoo: " << localizacao << endl <<
-			"Número de Anúncios: " << anuncios.size() << endl;
+	cout << "Informação do Utilizador" << endl
+			<< "Email: " << email << endl
+			<< "Nome: " << nome << endl
+			<<"Telemóvel: " << telemovel << endl
+			<< "Localização: " << localizacao << endl
+			<< "Número de Anúncios: " << anuncios.size() << endl;
 
 }
 
