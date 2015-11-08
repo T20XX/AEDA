@@ -212,7 +212,7 @@ void Olz::tabelaAnunciosFinalizados(int num_pagina, int num_anuncios_pagina, str
 	else if(tipoOrd == "ND")
 		sort(anunciosfinalizados.begin(), anunciosfinalizados.end(), NCD);
 
-	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << setw(5) << "Preço";
+	cout << setw(3) << "#" << " " << setw(4) << "ID" << " " << setw(7) << "Data" << " " << setw(7) << "Título" << " " << setw(9) << "Categoria" << setw(5) << "Preço" << endl;;
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < anunciosfinalizados.size())
