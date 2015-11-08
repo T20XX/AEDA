@@ -218,9 +218,29 @@ void selecao2()
 			cout << "Introduza o ID: " << endl;
 			cin >> vendaID;
 			while(cin.fail()){
+				cout << "Introduza um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> vendaID;
+			}
+			bool encontrouid = false;
+			while(!encontrouid){
+			for(int i = 0; i < olz.getUtilizadores()[index].getAnuncios().size(); i++){
+				if(olz.getUtilizadores()[index].getAnuncios()[i]->getID() == vendaID){
+					encontrouid = true;
+					break;
+					}
+				}
+			if(!encontrouid){
+				cout << "Id invalido introduza outro: ";
+				cin >> vendaID;
+				while(cin.fail()){
+					cout << "Introduza um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> vendaID;
+					}
+				}
 			}
 		}
 		else
