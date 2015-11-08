@@ -523,24 +523,19 @@ vector<Contacto *> Olz::getContactos() const {return contactos;}
 
 void Olz::eliminaAnuncio(int ID){
 	bool encontrou = false;
-	for(int i = 0; i < anuncios.size(); i++){
-		if(anuncios[i]->getID() == ID){
-			anuncios.erase(anuncios.begin() + i);
-			encontrou = true;
-			break;
-		}
-	}
 	for(int i = 0; i< utilizadores.size(); i++){
 		cout << utilizadores[i].getEmail();
 		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
 			cout << utilizadores[i].getAnuncios()[j]->getID();
 			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
 			{
-				utilizadores[i].getAnuncios().erase(utilizadores[i].getAnuncios().begin() + j);
+				utilizadores[i].eliminaAnuncio(j);
+				encontrou = true;
 				break;
 			}
 		}
 	}
+	carregaAnuncios();
 	if (!encontrou)
 		throw AnuncioNaoEncontrado(ID);
 }

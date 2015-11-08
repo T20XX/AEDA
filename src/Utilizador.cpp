@@ -69,3 +69,5 @@ int Utilizador::getTelemovel() const {return telemovel;}
 Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 
 vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
+
+void Utilizador::eliminaAnuncio(int index) {anuncios.erase(anuncios.begin()+index);}
