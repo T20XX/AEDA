@@ -38,7 +38,7 @@ void selecao1()
 		cout << "Número de telemóvel errado, introduza outro: ";
 		cin >> telemovel;
 	}
-	while((telemovel/(pow(10,9))) >= 1){
+	if (!(telemovel> 99999999 && telemovel < 1000000000)){
 		cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
 		cin >> telemovel;
 	}
