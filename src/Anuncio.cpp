@@ -178,10 +178,6 @@ AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, str
 				Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->preco = preco;
 	this->negociavel = negociavel;
-
-	if(estado == "novo" || estado == "usando como novo" || estado == "funcional" || estado == "para peças")
-		this->estado = estado;
-	else this->estado = "indisponivel";
 	setID(getNextID());
 	setNextID(getNextID()+1);
 }
