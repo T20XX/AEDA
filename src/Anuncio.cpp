@@ -112,7 +112,8 @@ int Anuncio::nextID = 0;
 
 Anuncio::Anuncio(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel)
 : utilizador(utilizador), data(data), titulo(titulo), categoria(categoria), descricao(descricao),mostraEmail(mostraEmail),mostraNome(mostraNome), mostraTelemovel(mostraTelemovel)
-{numCliques = 0;}
+{numCliques = 0;
+pago=0;}
 
 Anuncio::~Anuncio() {
 	// TODO Auto-generated destructor stub
@@ -148,6 +149,10 @@ string Anuncio::getDescricao() const {return descricao;}
 
 void Anuncio::setDescricao(string des) {descricao = des;}
 
+void Anuncio::setPago(bool isPago){pago = isPago;}
+
+bool Anuncio::getPago() const {return pago;}
+
 Utilizador* Anuncio::getUtilizador() const {return utilizador;}
 
 vector<Contacto*> Anuncio::getContactos() const {return contactos;}
@@ -174,7 +179,7 @@ void Anuncio::setmostraEmail() {
 
 //AnuncioVenda
 
-AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
+AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel) :
 				Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->estado=estado;
 	this->preco = preco;

@@ -374,7 +374,7 @@ void Olz::lerAnuncios() {
 	string titulo, categoria, descricao, email, tipo, estado;
 	int ID, numCliques, preco, vendaID, nextID;
 	string data;
-	bool mostraNome, mostraTelemovel, mostraEmail, negociavel;
+	bool mostraNome, mostraTelemovel, mostraEmail, negociavel, isPago;
 
 	ifstream Anun;
 
@@ -412,6 +412,7 @@ void Olz::lerAnuncios() {
 			else if(tipo == "AnuncioCompra"){
 				Anun >> vendaID;
 			}
+			Anun >> isPago;
 			for(int i = 0 ; i < utilizadores.size();i++)
 			{
 				if(utilizadores[i].getEmail() == email)
@@ -427,8 +428,10 @@ void Olz::lerAnuncios() {
 					{
 						tempanun = new AnuncioCompra(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,vendaID);
 					}
+					tempanun->setPago(isPago);
 					tempanun->setNumCliques(numCliques);
 					utilizadores[i].addAnuncio(tempanun);
+					pqueue.push(tempanun);
 				}
 			}
 			Anun.ignore();
@@ -468,6 +471,7 @@ void Olz::escreverAnuncios() {
 		else {
 			Anun <<anuncios[i]->getVendaID() << endl;
 		}
+		Anun << anuncios[i]->getPago()<< endl;
 		Anun << endl;
 	}
 	Anun.close();

@@ -37,6 +37,7 @@ ostream& operator<<(std::ostream& os, const Localizacao l)
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
 : email(email), nome(nome),telemovel(telemovel),localizacao(localizacao),num_finalizados(0) {}
 
+
 Utilizador::~Utilizador() {}
 
 void Utilizador::verUtilizador()
