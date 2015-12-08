@@ -259,10 +259,10 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string
 	}
 }
 
-void Olz::tabelaUtilizadores_p_finalizados(int num_pagina, int num_utilizadores_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
+void Olz::tabelaUtilizadores_p_finalizados(string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
 {
 	cout << setw(3) << "#" << setw(25) << "Email" <<setw(15) << "Nome" << setw(10) << "Nº Tel." << setw(6) << "Finalizados" << endl;
-	BSTItrPre<Utilizador> it(util_por_finalizados);
+	BSTItrIn<Utilizador> it(util_por_finalizados);
 	while (!it.isAtEnd())
 	{
 		cout << setw(3) << 1 << setw(25) << it.retrieve().getEmail().substr(0,24) << setw(15) << it.retrieve().getNome().substr(0,14) << setw(10) << it.retrieve().getTelemovel() << setw(6) << it.retrieve().getNum_Finalizados() << endl;

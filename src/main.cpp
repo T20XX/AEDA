@@ -32,22 +32,22 @@ void selecao1()
 	cout << "Telemovel: ";
 	int temptele;
 	cin >> temptele;
+	while(cin.fail()){
+		cout << "Número de telemóvel inválido, introduza outro: ";
+		cin.clear();
+		cin.ignore();
+		cin >> temptele;
+	}
+	while (!(temptele > 99999999 && temptele < 1000000000)){
+		cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+		cin >> temptele;
 		while(cin.fail()){
 			cout << "Número de telemóvel inválido, introduza outro: ";
 			cin.clear();
 			cin.ignore();
 			cin >> temptele;
 		}
-		while (!(temptele > 99999999 && temptele < 1000000000)){
-			cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
-			cin >> temptele;
-			while(cin.fail()){
-				cout << "Número de telemóvel inválido, introduza outro: ";
-				cin.clear();
-				cin.ignore();
-				cin >> temptele;
-			}
-		}
+	}
 	cin.ignore();
 	cout << "Freguesia: ";
 	getline(cin, freguesia);
@@ -185,7 +185,7 @@ void selecao2()
 		getline(cin, estado);
 		while(estado != "Novo" && estado != "Usando como novo" && estado != "Funcional" && estado != "Para Peças"){
 			cout << "Estado inválido: ";
-					getline(cin, estado);
+			getline(cin, estado);
 		}
 
 		cout << "Preço: ";
@@ -225,20 +225,20 @@ void selecao2()
 			}
 			bool encontrouid = false;
 			while(!encontrouid){
-			for(int i = 0; i < olz.getUtilizadores()[index].getAnuncios().size(); i++){
-				if(olz.getUtilizadores()[index].getAnuncios()[i]->getID() == vendaID){
-					encontrouid = true;
-					break;
+				for(int i = 0; i < olz.getUtilizadores()[index].getAnuncios().size(); i++){
+					if(olz.getUtilizadores()[index].getAnuncios()[i]->getID() == vendaID){
+						encontrouid = true;
+						break;
 					}
 				}
-			if(!encontrouid){
-				cout << "Id invalido introduza outro: ";
-				cin >> vendaID;
-				while(cin.fail()){
-					cout << "Introduza um número: ";
-					cin.clear();
-					cin.ignore();
+				if(!encontrouid){
+					cout << "Id invalido introduza outro: ";
 					cin >> vendaID;
+					while(cin.fail()){
+						cout << "Introduza um número: ";
+						cin.clear();
+						cin.ignore();
+						cin >> vendaID;
 					}
 				}
 			}
@@ -390,22 +390,22 @@ void selecao4()
 				cout << "Insira telemovel novo";
 				int temptele;
 				cin >> temptele;
+				while(cin.fail()){
+					cout << "Número de telemóvel inválido, introduza outro: ";
+					cin.clear();
+					cin.ignore();
+					cin >> temptele;
+				}
+				while (!(temptele > 99999999 && temptele < 1000000000)){
+					cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+					cin >> temptele;
 					while(cin.fail()){
 						cout << "Número de telemóvel inválido, introduza outro: ";
 						cin.clear();
 						cin.ignore();
 						cin >> temptele;
 					}
-					while (!(temptele > 99999999 && temptele < 1000000000)){
-						cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
-						cin >> temptele;
-						while(cin.fail()){
-							cout << "Número de telemóvel inválido, introduza outro: ";
-							cin.clear();
-							cin.ignore();
-							cin >> temptele;
-						}
-					}
+				}
 				cin.ignore();
 				olz.setUtiTelemovel(index-1,temptele);
 			}
@@ -914,11 +914,11 @@ void selecao7()
 		{
 			cin >> porpag;
 			while(cin.fail()){
-					cout << "Indique um número: ";
-					cin.clear();
-					cin.ignore();
-					cin >> porpag;
-				}
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> porpag;
+			}
 			while (porpag < 0)
 			{
 				cout << "Número inválido, indique outro: ";
@@ -949,15 +949,13 @@ void selecao7()
 
 void selecao8()
 {
-	int pag = 0, porpag= 50;
 	string tipoOrd = "EA";
 	string selecao = "X";
 	string tipoPes, tipoAlt;
 	while (selecao != "S")
 	{
-		olz.tabelaUtilizadores_p_finalizados(pag,porpag,tipoOrd);
-		cout << "Pag." << (pag + 1) << ", Utilizadores por Página: " << porpag << endl;
-		cout << "Introduza O(rdenar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		olz.tabelaUtilizadores_p_finalizados(tipoOrd);
+		cout << "Introduza O(rdenar) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -965,40 +963,6 @@ void selecao8()
 		{	cout << "Tipo ordenação: " << endl;
 		cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
 		cin >> tipoOrd;
-		}
-		else if (selecao == "PP" || selecao == "pp")
-		{
-			cin >> porpag;
-			while(cin.fail()){
-				cout << "Indique um número: ";
-				cin.clear();
-				cin.ignore();
-				cin >> porpag;
-			}
-			while (porpag < 0)
-			{
-				cout << "Número inválido, indique outro: ";
-				cin >> porpag;
-				while(cin.fail()){
-					cout << "Indique um número: ";
-					cin.clear();
-					cin.ignore();
-					cin >> porpag;
-				}
-			}
-			if (porpag == 0)
-				porpag = olz.getUtilizadores().size();
-			pag=0;
-		}
-		else if (selecao == "PS" || selecao == "ps")
-		{
-			if(porpag*(pag+1) < olz.getUtilizadores().size())
-				pag++;
-		}
-		else if (selecao == "PA"|| selecao == "pa")
-		{
-			if (pag > 0)
-				pag--;
 		}
 	}
 }
@@ -1055,7 +1019,7 @@ int main() {
 		else if (selecao == 7 && olz.getContactos().size() > 0)
 			selecao7();
 		else if (selecao == 8 && olz.getUtilizadores().size() > 0)
-					selecao8();
+			selecao8();
 		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 

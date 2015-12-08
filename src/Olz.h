@@ -53,7 +53,7 @@ public:
 	void tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd);
 
 
-	void tabelaUtilizadores_p_finalizados(int num_pagina, int num_utilizadores_pagina, string tipoOrd);
+	void tabelaUtilizadores_p_finalizados(string tipoOrd);
 
 	/**
 	 * Adiciona o Utilizador u ao vetor de utilizadores
