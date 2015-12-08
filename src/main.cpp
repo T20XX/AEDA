@@ -57,7 +57,7 @@ void selecao1()
 	getline(cin, distrito);
 
 	Localizacao tempLocal(freguesia, concelho, distrito);
-	Utilizador tempUti(email, nome, telemovel, tempLocal);
+	Utilizador tempUti(email, nome, temptele, tempLocal);
 	olz.addUtilizador(tempUti);
 
 	olz.escreverUtilizadores();
@@ -947,7 +947,61 @@ void selecao7()
 	olz.escreverContactos();
 }
 
-
+void selecao8()
+{
+	int pag = 0, porpag= 50;
+	string tipoOrd = "EA";
+	string selecao = "X";
+	string tipoPes, tipoAlt;
+	while (selecao != "S")
+	{
+		olz.tabelaUtilizadores_p_finalizados(pag,porpag,tipoOrd);
+		cout << "Pag." << (pag + 1) << ", Utilizadores por Página: " << porpag << endl;
+		cout << "Introduza O(rdenar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cin >> selecao;
+		if (selecao == "S" || selecao == "s")
+			break;
+		else if (selecao == "O" || selecao == "o")
+		{	cout << "Tipo ordenação: " << endl;
+		cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
+		cin >> tipoOrd;
+		}
+		else if (selecao == "PP" || selecao == "pp")
+		{
+			cin >> porpag;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> porpag;
+			}
+			while (porpag < 0)
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> porpag;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> porpag;
+				}
+			}
+			if (porpag == 0)
+				porpag = olz.getUtilizadores().size();
+			pag=0;
+		}
+		else if (selecao == "PS" || selecao == "ps")
+		{
+			if(porpag*(pag+1) < olz.getUtilizadores().size())
+				pag++;
+		}
+		else if (selecao == "PA"|| selecao == "pa")
+		{
+			if (pag > 0)
+				pag--;
+		}
+	}
+}
 
 int main() {
 	olz.lerUtilizadores();
@@ -967,16 +1021,17 @@ int main() {
 		cout << "5. Gerir Anúncios" << endl;
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
+		cout << "8. Gerir Utilizadores por anúncio (BST)" << endl;
 		cout << "0. Sair" << endl;
 
 		cin >> selecao;
 		while(cin.fail()){
-			cout << "Indique 1,2,3,4,5,6,7 ou 0: ";
+			cout << "Indique 1,2,3,4,5,6,7,8 ou 0: ";
 			cin.clear();
 			cin.ignore();
 			cin >> selecao;
 		}
-		while (selecao < 0 || selecao > 7){
+		while (selecao < 0 || selecao > 8){
 			cout << "Número de seleção invalido, tente outro: ";
 			cin.clear();
 			cin.ignore();
@@ -999,6 +1054,8 @@ int main() {
 			selecao6();
 		else if (selecao == 7 && olz.getContactos().size() > 0)
 			selecao7();
+		else if (selecao == 8 && olz.getUtilizadores().size() > 0)
+					selecao8();
 		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 

@@ -35,7 +35,7 @@ ostream& operator<<(std::ostream& os, const Localizacao l)
 //UTILIZADOR
 
 Utilizador::Utilizador(string email, string nome, int telemovel,Localizacao localizacao)
-: email(email), nome(nome),telemovel(telemovel),localizacao(localizacao) {}
+: email(email), nome(nome),telemovel(telemovel),localizacao(localizacao),num_finalizados(0) {}
 
 Utilizador::~Utilizador() {}
 
@@ -70,4 +70,16 @@ Localizacao Utilizador::getLocalizacao() const {return localizacao;}
 
 vector<Anuncio *> Utilizador::getAnuncios() const {return anuncios;}
 
+int Utilizador::getNum_Finalizados() const {return num_finalizados;}
+
+void Utilizador::setNum_Finalizados(int n) {num_finalizados = n;}
+
 void Utilizador::eliminaAnuncio(int index) {anuncios.erase(anuncios.begin()+index);}
+
+bool Utilizador::operator < (const  Utilizador &u) const{
+	return num_finalizados < u.num_finalizados;
+}
+
+bool  Utilizador::operator == (const  Utilizador &u) const{
+	return num_finalizados == u.num_finalizados;
+}
