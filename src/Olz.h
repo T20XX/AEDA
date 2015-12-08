@@ -1,5 +1,5 @@
 /**
- * Olz.h
+* Olz.h
  */
 
 #include <vector>
@@ -20,6 +20,7 @@ class Olz {
 	vector<Contacto *> contactos;
 	vector<Anuncio *> anunciosfinalizados;
 	BST<Utilizador> util_por_finalizados;
+	priority_queue<Anuncio *> pqueue;
 public:
 	/**
 	 * Construtor da classe

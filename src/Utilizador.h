@@ -64,6 +64,7 @@ class Utilizador {
 	int telemovel, num_finalizados;
 	Localizacao localizacao;
 	vector<Anuncio *> anuncios;
+	bool pago;
 public:
 	/**
 	 * Construtor da classe

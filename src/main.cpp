@@ -68,12 +68,13 @@ void selecao1()
 void selecao2()
 {
 	int preco, vendaID, index = -1;
-	bool mostraEmail, mostraNome, mostraTelemovel, negociavel;
+	bool mostraEmail, mostraNome, mostraTelemovel, negociavel, bpago;
 	string email, titulo, categoria, descricao, estado, data;
 	char tipo = 'J';
 	char troca = 'J';
 	char mostrar;
 	char nego;
+	char pago;
 	cout << "Introduza os seguintes dados do Anúncio: " << endl;
 	cout << "Utilizador(email): ";
 
@@ -172,6 +173,13 @@ void selecao2()
 		mostraTelemovel = true;
 	else
 		mostraTelemovel = false;
+
+	cout << "Deseja pagar para o seu anúncio aparecer em primeiro(S/N)? ";
+	cin >> pago;
+
+	if(pago == 'S' || pago == 's')
+		bpago = true;
+	else bpago = false;
 
 	cout << "Descrição: ";
 	cin.ignore();

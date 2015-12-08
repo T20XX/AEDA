@@ -96,7 +96,7 @@ class Anuncio {
 	int ID, numCliques;
 	Data data;
 	Utilizador * utilizador;
-	bool mostraNome, mostraTelemovel, mostraEmail;
+	bool mostraNome, mostraTelemovel, mostraEmail, pago;
 	vector<Contacto *> contactos;
 public:
 	/**
@@ -215,6 +215,8 @@ public:
 	/**
 	 * @returns Utilizador
 	 */
+	bool getPago() const;
+	void setPago(bool isPago);
 	Utilizador* getUtilizador() const;
 	/**
 	 * @returns Contactos
@@ -251,7 +253,7 @@ public:
 	/**
 	 * Construtor da classe
 	 */
-	AnuncioVenda(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel);
+	AnuncioVenda(Utilizador * utilizador, Data data, string titulo, string categoria, string descricao, bool mostraEmail,bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel);
 	/**
 	 * Permite ao utilizador visualizar Anuncio
 	 */
