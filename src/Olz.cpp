@@ -122,7 +122,8 @@ bool CED(Contacto *c1, Contacto *c2){
 }
 
 
-Olz::Olz() {}
+Olz::Olz()
+:util_por_finalizados(Utilizador("","",0,Localizacao("","",""))){}
 
 Olz::~Olz() {
 	// TODO Auto-generated destructor stub
@@ -258,6 +259,26 @@ void Olz::tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string
 	}
 }
 
+void Olz::tabelaUtilizadores_p_finalizados(int num_pagina, int num_utilizadores_pagina, string tipoOrd) // Função que imprimi uma tabela com o Email, Nome do Utilizador, Telemóvel e Número do Anúncio
+{
+	cout << setw(3) << "#" << setw(25) << "Email" <<setw(15) << "Nome" << setw(10) << "Nº Tel." << setw(6) << "Finalizados" << endl;
+	BSTItrPre<Utilizador> it(util_por_finalizados);
+	while (!it.isAtEnd())
+	{
+		cout << setw(3) << 1 << setw(25) << it.retrieve().getEmail().substr(0,24) << setw(15) << it.retrieve().getNome().substr(0,14) << setw(10) << it.retrieve().getTelemovel() << setw(6) << it.retrieve().getNum_Finalizados() << endl;
+		it.advance();
+	}
+
+	/*for (int i=num_pagina*num_utilizadores_pagina; i < num_pagina*num_utilizadores_pagina + num_utilizadores_pagina;i++)
+	{
+		if (i < utilizadores.size())
+		{
+			cout << setw(3) << (i+1) << setw(25) << utilizadores[i].getEmail().substr(0,24) << setw(15) << utilizadores[i].getNome().substr(0,14) << setw(10) << utilizadores[i].getTelemovel() << setw(6) << utilizadores[i].getNum_Finalizados() << endl;
+		}
+		else
+			break;
+	}*/
+}
 
 void Olz::tabelaContactos(int num_pagina, int num_utilizadores_pagina, string tipoOrd){
 	if (tipoOrd == "DA")
@@ -292,7 +313,7 @@ void Olz::addUtilizador(Utilizador u) {
 
 void Olz::lerUtilizadores() {
 	string nome, freguesia, email, concelho, distrito;
-	int telemovel;
+	int telemovel,num_finalizados;
 
 	ifstream Uti;
 
@@ -315,9 +336,13 @@ void Olz::lerUtilizadores() {
 			getline(Uti, freguesia);
 			getline(Uti, concelho);
 			getline(Uti, distrito);
+			Uti >> num_finalizados;
+			Uti.ignore();
 			Localizacao templocal(freguesia,concelho,distrito);
 			Utilizador temputi(email, nome, telemovel, templocal);
+			temputi.setNum_Finalizados(num_finalizados);
 			addUtilizador(temputi);
+			util_por_finalizados.insert(temputi);
 			getline(Uti, nome);
 		}
 	}
@@ -338,6 +363,7 @@ void Olz::escreverUtilizadores() {
 				<< utilizadores[i].getLocalizacao().getFreguesia()<< endl
 				<< utilizadores[i].getLocalizacao().getConcelho()<< endl
 				<< utilizadores[i].getLocalizacao().getDistrito()<< endl
+				<< utilizadores[i].getNum_Finalizados()<< endl
 				<< endl ;
 	}
 

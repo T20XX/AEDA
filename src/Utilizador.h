@@ -61,7 +61,7 @@ public:
 
 class Utilizador {
 	string email, nome;
-	int telemovel;
+	int telemovel, num_finalizados;
 	Localizacao localizacao;
 	vector<Anuncio *> anuncios;
 public:
@@ -123,8 +123,14 @@ public:
 	 */
 	vector<Anuncio *> getAnuncios() const;
 
+	int getNum_Finalizados() const;
+
+	void setNum_Finalizados(int num_finalizados);
 
 	void eliminaAnuncio(int index);
+
+	bool operator < (const  Utilizador &u) const;
+	bool operator == (const  Utilizador &u) const;
 };
 
 

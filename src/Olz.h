@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Anuncio.h"
 #include "Utilizador.h"
+#include "BST.h"
 #include <sstream>
 
 using namespace std;
@@ -18,6 +19,7 @@ class Olz {
 	vector<Anuncio *> anuncios;
 	vector<Contacto *> contactos;
 	vector<Anuncio *> anunciosfinalizados;
+	BST<Utilizador> util_por_finalizados;
 public:
 	/**
 	 * Construtor da classe
@@ -49,6 +51,10 @@ public:
 	 * @param tipoOrd String com o tipo de ordenacao pretendida dos utilizadores
 	 */
 	void tabelaUtilizadores(int num_pagina, int num_utilizadores_pagina, string tipoOrd);
+
+
+	void tabelaUtilizadores_p_finalizados(int num_pagina, int num_utilizadores_pagina, string tipoOrd);
+
 	/**
 	 * Adiciona o Utilizador u ao vetor de utilizadores
 	 * @param u Utilizador para ser adicionado ao vetor utilizadores

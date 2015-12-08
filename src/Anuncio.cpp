@@ -176,6 +176,7 @@ void Anuncio::setmostraEmail() {
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel, string estado, int preco, bool negociavel) :
 				Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+	this->estado=estado;
 	this->preco = preco;
 	this->negociavel = negociavel;
 	setID(getNextID());
