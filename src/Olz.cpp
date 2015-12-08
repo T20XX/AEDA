@@ -431,7 +431,7 @@ void Olz::lerAnuncios() {
 					tempanun->setPago(isPago);
 					tempanun->setNumCliques(numCliques);
 					utilizadores[i].addAnuncio(tempanun);
-					pqueue.push(tempanun);
+					anuncios_pago.push(tempanun);
 				}
 			}
 			Anun.ignore();
@@ -869,4 +869,9 @@ void Olz::pesquisarAnuncioFinalizado(string atributo, string pesquisa){
 		cout << "Anúncios finalizados até à posição " << counter << " foram detetados na pesquisa." << endl;
 	else
 		cout << "Não foi encontrado nenhum anúncio finalizado relevante. Tente usar outra palavras." << endl;
+}
+
+void Olz::anuncios_pago_ordena(){
+	heapsort(anuncios);
+	anuncio_pago
 }
