@@ -213,8 +213,9 @@ void selecao2()
 			negociavel = true;
 		else
 			negociavel = false;
-
-		olz.addAnuncio(index, new AnuncioVenda(NULL, Data(data), titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel));
+		AnuncioVenda * temp =new AnuncioVenda(NULL, Data(data), titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel, estado, preco, negociavel);
+		temp->setPago(bpago);
+		olz.addAnuncio(index, temp);
 	}
 	else {
 		cout << "Proposta de troca?(S/N) ";
@@ -253,7 +254,9 @@ void selecao2()
 		}
 		else
 			vendaID = -1;
-		olz.addAnuncio(index, new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID));
+		AnuncioCompra * temp = new AnuncioCompra(NULL, Data(data), titulo, categoria,  descricao, mostraEmail, mostraNome, mostraTelemovel, vendaID);
+		temp->setPago(bpago);
+		olz.addAnuncio(index, temp);
 	}
 	olz.carregaAnuncios();
 	olz.escreverAnuncios();

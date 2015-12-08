@@ -20,7 +20,7 @@ class Olz {
 	vector<Contacto *> contactos;
 	vector<Anuncio *> anunciosfinalizados;
 	BST<Utilizador> util_por_finalizados;
-	priority_queue<Anuncio *> pqueue;
+	priority_queue<Anuncio *> anuncios_pago;
 public:
 	/**
 	 * Construtor da classe
@@ -45,6 +45,7 @@ public:
 	 * @param tipoOrd String com o tipo de ordenacao pretendida dos anuncios
 	 */
 	void tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd);
+
 	/**
 	 * Comeca por ordenar o vetor dos utilizadores e depois mostra num formato de "tabela"
 	 * @param num_pagina Numero da pagina em que se encontra a listagem
@@ -198,6 +199,8 @@ public:
 	/**
 	 * Classe excecao para quando o anuncio com o ID ID nao e encontrado no vetor dos anuncios
 	 */
+	void Olz::anuncios_pago_ordena();
+
 	class AnuncioNaoEncontrado{
 		int ID;
 	public:
