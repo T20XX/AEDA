@@ -177,6 +177,16 @@ void Anuncio::setmostraEmail() {
 	(mostraEmail = !mostraEmail);
 }
 
+bool Anuncio::operator < (const  Anuncio &a) const{
+	if(pago == a.getPago()){
+		return getData() < a.getData();
+	}
+	else return pago < a.getPago();
+}
+
+bool Anuncio::operator == (const  Anuncio &a) const{
+	return getData() == a.getData();
+}
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel) :

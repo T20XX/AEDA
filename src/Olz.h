@@ -199,8 +199,7 @@ public:
 	/**
 	 * Classe excecao para quando o anuncio com o ID ID nao e encontrado no vetor dos anuncios
 	 */
-	void Olz::anuncios_pago_ordena();
-
+	bool pagaAnuncio(int ID);
 	class AnuncioNaoEncontrado{
 		int ID;
 	public:
