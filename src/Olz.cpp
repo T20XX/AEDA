@@ -132,13 +132,11 @@ Olz::~Olz() {
 
 void Olz::carregaAnuncios(){
 	anuncios.clear();
-	while(!anuncios_pago.empty())
-		anuncios_pago.pop();
+
 	for (int i = 0; i < utilizadores.size(); i++)
 	{
 		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
 		{
-			anuncios_pago.push(utilizadores[i].getAnuncios()[j]);
 			anuncios.push_back(utilizadores[i].getAnuncios()[j]);
 		}
 	}
@@ -186,12 +184,12 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	{
 		if (i < (anuncios.size()))
 		{
-				cout << setw(3) << (i+1) << setw(4) << anuncios[i]->getID() << " " << anuncios[i]->getData();
-				if (anuncios[i]->getTipo())
-					cout << setw(7)  << "Venda" ;
-				else
-					cout << setw(7)  << "Compra";
-				cout << setw(10)  << anuncios[i]->getTitulo().substr(0,9)<<setw(10)  << anuncios[i]->getCategoria().substr(0,9) << setw(15)  << anuncios[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios[i]->getnumCliques() << setw(6)  << anuncios[i]->getContactos().size() << endl;
+			cout << setw(3) << (i+1) << setw(4) << anuncios[i]->getID() << " " << anuncios[i]->getData();
+			if (anuncios[i]->getTipo())
+				cout << setw(7)  << "Venda" ;
+			else
+				cout << setw(7)  << "Compra";
+			cout << setw(10)  << anuncios[i]->getTitulo().substr(0,9)<<setw(10)  << anuncios[i]->getCategoria().substr(0,9) << setw(15)  << anuncios[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios[i]->getnumCliques() << setw(6)  << anuncios[i]->getContactos().size() << endl;
 		}
 		else
 			break;
@@ -571,6 +569,16 @@ void Olz::eliminaAnuncio(int ID){
 	carregaAnuncios();
 	if (!encontrou)
 		throw AnuncioNaoEncontrado(ID);
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() != ID)
+			tempQ.push(anuncios_pago.top());
+			anuncios_pago.top();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.top();
+	}
 }
 
 void Olz::eliminaUtilizador(string email){
@@ -895,12 +903,12 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 	unsigned int j=num_pagina*num_anuncios_pagina;
 	while(!(anuncios_pago.empty()) && j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
-			cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top()->getID() << " " << anuncios_pago.top()->getData();
-			if (anuncios_pago.top()->getTipo())
-				cout << setw(7)  << "Venda" ;
-			else
-				cout << setw(7)  << "Compra";
-			cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << endl;
+		cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top()->getID() << " " << anuncios_pago.top()->getData();
+		if (anuncios_pago.top()->getTipo())
+			cout << setw(7)  << "Venda" ;
+		else
+			cout << setw(7)  << "Compra";
+		cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << endl;
 
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
