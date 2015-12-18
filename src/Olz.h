@@ -200,6 +200,8 @@ public:
 	 * Classe excecao para quando o anuncio com o ID ID nao e encontrado no vetor dos anuncios
 	 */
 	bool pagaAnuncio(int ID);
+	void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina, string tipoOrd)
+
 	class AnuncioNaoEncontrado{
 		int ID;
 	public:

@@ -180,25 +180,7 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);
 
-	priority_queue<Anuncio *> tempQ;
-	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
-	unsigned int j=num_pagina*num_anuncios_pagina;
-	while(!anuncios_pago.empty()&& j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
-		if(j < anuncios_pago.size()){
-			cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top()->getID() << " " << anuncios_pago.top()->getData();
-			if (anuncios_pago.top()->getTipo())
-				cout << setw(7)  << "Venda" ;
-			else
-				cout << setw(7)  << "Compra";
-			cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << endl;
 
-		}
-		else
-			break;
-		tempQ.push(anuncios_pago.top());
-		anuncios_pago.pop();
-		j++;
-	}
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
 		if (i < (anuncios.size()))
@@ -214,11 +196,6 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 		}
 		else
 			break;
-	}
-	while(!tempQ.empty())
-	{
-		anuncios_pago.push(tempQ.top());
-		tempQ.pop();
 	}
 }
 
@@ -908,4 +885,69 @@ bool Olz::pagaAnuncio(int ID){
 		}
 	}
 	return false;
+}
+
+void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina, string tipoOrd) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
+{
+	if(tipoOrd == "IA")
+		sort(anuncios.begin(), anuncios.end(), IA);
+	else if(tipoOrd == "ID")
+		sort(anuncios.begin(), anuncios.end(), ID);
+	else if(tipoOrd == "DA")
+		sort(anuncios.begin(), anuncios.end(), DaA);
+	else if(tipoOrd == "DD")
+		sort(anuncios.begin(), anuncios.end(), DaD);
+	else if(tipoOrd == "TA")
+		sort(anuncios.begin(), anuncios.end(), TA);
+	else if(tipoOrd == "TD")
+		sort(anuncios.begin(), anuncios.end(), TD);
+	else if(tipoOrd == "CA")
+		sort(anuncios.begin(), anuncios.end(), CA);
+	else if(tipoOrd == "CD")
+		sort(anuncios.begin(), anuncios.end(), CD);
+	else if(tipoOrd == "NA")
+		sort(anuncios.begin(), anuncios.end(), NCA);
+	else if(tipoOrd == "ND")
+		sort(anuncios.begin(), anuncios.end(), NCD);
+
+	priority_queue<Anuncio *> tempQ;
+	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
+	unsigned int j=num_pagina*num_anuncios_pagina;
+	while(!anuncios_pago.empty()&& j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
+		if(j < anuncios_pago.size()){
+			cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top()->getID() << " " << anuncios_pago.top()->getData();
+			if (anuncios_pago.top()->getTipo())
+				cout << setw(7)  << "Venda" ;
+			else
+				cout << setw(7)  << "Compra";
+			cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << endl;
+
+		}
+		else
+			break;
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+		j++;
+	}
+	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
+	{
+		if (i < (anuncios.size()))
+		{
+			if(!anuncios[i]->getPago()){
+				cout << setw(3) << (i+1) << setw(4) << anuncios[i]->getID() << " " << anuncios[i]->getData();
+				if (anuncios[i]->getTipo())
+					cout << setw(7)  << "Venda" ;
+				else
+					cout << setw(7)  << "Compra";
+				cout << setw(10)  << anuncios[i]->getTitulo().substr(0,9)<<setw(10)  << anuncios[i]->getCategoria().substr(0,9) << setw(15)  << anuncios[i]->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios[i]->getnumCliques() << setw(6)  << anuncios[i]->getContactos().size() << endl;
+			}
+		}
+		else
+			break;
+	}
+	while(!tempQ.empty())
+	{
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
 }
