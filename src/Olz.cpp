@@ -566,7 +566,6 @@ void Olz::eliminaAnuncio(int ID){
 			}
 		}
 	}
-	carregaAnuncios();
 	if (!encontrou)
 		throw AnuncioNaoEncontrado(ID);
 	priority_queue<Anuncio *> tempQ;
@@ -579,6 +578,7 @@ void Olz::eliminaAnuncio(int ID){
 		anuncios_pago.push(tempQ.top());
 		tempQ.top();
 	}
+	carregaAnuncios();
 }
 
 void Olz::eliminaUtilizador(string email){
