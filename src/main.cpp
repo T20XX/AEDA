@@ -979,9 +979,141 @@ void selecao8()
 }
 
 void selecao9()
-{	int pag = 0, porpag= 50;
+{
+	olz.carregaAnuncios();
+	int pag = 0, porpag= 50;
+	string selecao = "X";
+	string tipoOrd = "IA";
+	string tipoPes = "I";
+	string tipoAlt;
+	while (selecao != "S" || selecao != "s")
+	{
+		olz.tabelaAnunciosPago(pag,porpag);
 
-	olz.tabelaAnunciosPago(pag, porpag);
+		cout << "Pag." << (pag + 1) << ", Anuncios por Página: " << porpag << endl;
+		cout << "Introduza V(er), A(lterar), E(liminar), ou S(air)";
+		cin >> selecao;
+		if (selecao == "S" || selecao == "s")
+			break;
+		else if (selecao == "V" || selecao == "v")
+		{
+			cout << "Indique o número do anuncio que deseja visualizar: ";
+			int index = -1;
+			cin >> index;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> index;
+			}
+			while (index < 1 || index > olz.getAnuncios().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> index;
+				}
+			}
+			olz.getAnuncios()[index-1]->verAnuncio();
+		}
+		else if (selecao == "A" || selecao == "a")
+		{
+			cout << "Indique o número do anuncio que deseja alterar: ";
+			int index = -1;
+			cin >> index;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> index;
+			}
+			while (index < 1 || index > olz.getAnuncios().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> index;
+				}
+			}
+
+			cout <<"Indique o que deseja alterar do Anúncio: ";
+			string tempinfo = "erro";
+			cin >> tempinfo;
+
+			while(tempinfo != "Titulo" && tempinfo!= "Categoria" && tempinfo!= "Descrição" && tempinfo != "Mostra Email" && tempinfo != "Mostra Nome" && tempinfo != "Mostra Telemovel")
+			{
+
+				cout << "Informação Invalida, tente outra vez: ";
+				cin >> tempinfo;
+			}
+
+			cin.ignore();
+			for (int i=0; i < olz.getUtilizadores().size(); i++)
+			{
+				for (int j=0; j< olz.getUtilizadores()[i].getAnuncios().size(); j++)
+					if (olz.getUtilizadores()[i].getAnuncios()[j]->getID() == olz.getAnuncios()[index-1]->getID())
+					{
+						if(tempinfo == "Titulo"){
+							cout << "Titulo novo: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
+						}
+						else if(tempinfo == "Categoria"){
+							cout << "Categoria nova: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
+						}
+						else if(tempinfo == "Descrição"){
+							cout << "Nova descrição: ";
+							getline(cin, tempinfo);
+							olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
+						}
+						else if(tempinfo == "Mostra Email")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
+						else if(tempinfo == "Mostra Nome")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
+						else if(tempinfo == "Mostra Telemovel")
+							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
+						break;
+					}
+			}
+			olz.carregaAnuncios();
+			olz.escreverAnuncios();
+		}
+
+		else if (selecao == "E" || selecao == "e")
+		{
+			cout << "Indique o número do anuncio que deseja eliminar: ";
+			int index = -1;
+			cin >> index;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> index;
+			}
+			while (index < 1 || index > olz.getAnuncios().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> index;
+				}
+			}
+			olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
+			olz.escreverAnuncios();
+		}
+	}
+	olz.escreverAnuncios();
 }
 int main() {
 	olz.lerUtilizadores();
@@ -1038,7 +1170,7 @@ int main() {
 		else if (selecao == 8 && olz.getUtilizadores().size() > 0)
 			selecao8();
 		else if (selecao == 9 && olz.getAnuncios().size() > 0)
-				selecao9();
+			selecao9();
 		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 
