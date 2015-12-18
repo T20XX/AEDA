@@ -242,6 +242,8 @@ public:
 	 * @returns VendaID
 	 */
 	virtual int getVendaID() const = 0;
+	bool operator < (const  Anuncio &a) const;
+	bool operator == (const  Anuncio &a) const;
 };
 
 
