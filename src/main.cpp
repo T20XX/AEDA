@@ -978,6 +978,11 @@ void selecao8()
 	}
 }
 
+void selecao9()
+{	int pag = 0, porpag= 50;
+
+	olz.tabelaAnunciosPago(pag, porpag);
+}
 int main() {
 	olz.lerUtilizadores();
 	olz.lerAnuncios();
@@ -997,16 +1002,17 @@ int main() {
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
 		cout << "8. Gerir Utilizadores por anúncio (BST)" << endl;
+		cout << "9. Gerir Anuncios por Pago" << endl;
 		cout << "0. Sair" << endl;
 
 		cin >> selecao;
 		while(cin.fail()){
-			cout << "Indique 1,2,3,4,5,6,7,8 ou 0: ";
+			cout << "Indique 1,2,3,4,5,6,7,8,9 ou 0: ";
 			cin.clear();
 			cin.ignore();
 			cin >> selecao;
 		}
-		while (selecao < 0 || selecao > 8){
+		while (selecao < 0 || selecao > 9){
 			cout << "Número de seleção invalido, tente outro: ";
 			cin.clear();
 			cin.ignore();
@@ -1031,6 +1037,8 @@ int main() {
 			selecao7();
 		else if (selecao == 8 && olz.getUtilizadores().size() > 0)
 			selecao8();
+		else if (selecao == 9 && olz.getAnuncios().size() > 0)
+				selecao9();
 		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 
