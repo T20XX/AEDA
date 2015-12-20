@@ -557,9 +557,7 @@ vector<Contacto *> Olz::getContactos() const {return contactos;}
 void Olz::eliminaAnuncio(int ID){
 	bool encontrou = false;
 	for(int i = 0; i< utilizadores.size(); i++){
-		cout << utilizadores[i].getEmail();
 		for (int j=0; j<utilizadores[i].getAnuncios().size();j++){
-			cout << utilizadores[i].getAnuncios()[j]->getID();
 			if(utilizadores[i].getAnuncios()[j]->getID() == ID)
 			{
 				utilizadores[i].eliminaAnuncio(j);
@@ -902,6 +900,7 @@ bool Olz::pagaAnuncio(int ID){
 void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
 	priority_queue<Anuncio *> tempQ;
+	cout << endl;
 	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 	unsigned int j=num_pagina*num_anuncios_pagina;
 	while(!(anuncios_pago.empty()) && j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
