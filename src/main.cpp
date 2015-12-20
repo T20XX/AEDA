@@ -966,7 +966,7 @@ void selecao8()
 	while (selecao != "S")
 	{
 		olz.tabelaUtilizadores_p_finalizados(tipoOrd);
-		cout << "Introduza O(rdenar) ou S(air)";
+		cout << "Introduza O(rdenar), A(lterar) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -974,6 +974,66 @@ void selecao8()
 		{	cout << "Tipo ordenação: " << endl;
 		cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
 		cin >> tipoOrd;
+		}
+		else if (selecao == "A" || selecao == "a")
+		{
+			cout << "Indique o número do utilizador que deseja alterar: ";
+			int index = -1;
+			cin >> index;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin >> index;
+			}
+			while (index < 1 || index > olz.getUtilizadores().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> index;
+				}
+			}
+
+			cout <<"Indique o que deseja alterar do Utilizador: N(ome), T(elemóvel): ";
+			string tempinfo = "erro";
+			cin >> tempinfo;
+
+			while(tempinfo != "N" && tempinfo!= "T" && tempinfo != "n" && tempinfo!= "t" )
+			{
+				cout << "Informação Invalida, tente outra vez: ";
+				cin >> tempinfo;
+			}
+			cin.ignore();
+			if(tempinfo == "N" || tempinfo == "n"){
+				cout << "Insira novo nome desejado: ";
+				getline(cin, tempinfo);
+				olz.setBUtiNome(olz.getUtilizadores()[index-1].getEmail(), tempinfo);
+			}
+			else if(tempinfo == "T" || tempinfo == "t"){
+				cout << "Insira telemovel novo";
+				int temptele;
+				cin >> temptele;
+				while(cin.fail()){
+					cout << "Número de telemóvel inválido, introduza outro: ";
+					cin.clear();
+					cin.ignore();
+					cin >> temptele;
+				}
+				while (!(temptele > 99999999 && temptele < 1000000000)){
+					cout << "Número de telemóvel não tem nove digitos! Introduza outro: ";
+					cin >> temptele;
+					while(cin.fail()){
+						cout << "Número de telemóvel inválido, introduza outro: ";
+						cin.clear();
+						cin.ignore();
+						cin >> temptele;
+					}
+				}
+				cin.ignore();
+				olz.setBUtiTele(olz.getUtilizadores()[index-1].getEmail(), temptele);
+			}
 		}
 	}
 }

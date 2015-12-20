@@ -235,6 +235,8 @@ public:
 	void setMEmailPago(int ID);
 	void setMNomePago(int ID);
 	void setMTelemovelPago(int ID);
+	void setBUtiNome(string email, string nome);
+	void setBUtiTele(string email, int tele);
 };
 
 #endif /* OLZ_H_ */
