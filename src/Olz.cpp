@@ -266,9 +266,11 @@ void Olz::tabelaUtilizadores_p_finalizados(string tipoOrd) // Função que imprimi
 {
 	cout << setw(3) << "#" << setw(25) << "Email" <<setw(15) << "Nome" << setw(10) << "Nº Tel." << setw(6) << "Finalizados" << endl;
 	BSTItrIn<Utilizador> it(util_por_finalizados);
+	int index = 0;
 	while (!it.isAtEnd())
 	{
-		cout << setw(3) << 1 << setw(25) << it.retrieve().getEmail().substr(0,24) << setw(15) << it.retrieve().getNome().substr(0,14) << setw(10) << it.retrieve().getTelemovel() << setw(6) << it.retrieve().getNum_Finalizados() << endl;
+		index++;
+		cout << setw(3) << index << setw(25) << it.retrieve().getEmail().substr(0,24) << setw(15) << it.retrieve().getNome().substr(0,14) << setw(10) << it.retrieve().getTelemovel() << setw(6) << it.retrieve().getNum_Finalizados() << endl;
 		it.advance();
 	}
 
@@ -1011,5 +1013,31 @@ void Olz::setMTelemovelPago(int ID){
 	while(!tempQ.empty()){
 		anuncios_pago.push(tempQ.top());
 		tempQ.pop();
+	}
+}
+
+void Olz::setBUtiNome(string email, string nome){
+	BSTItrIn<Utilizador> it(util_por_finalizados);
+	//bool res = false;
+	while(!it.isAtEnd()){
+		if(it.retrieve().getEmail() == email){
+			it.retrieve().setEmail(email);
+		//	res = true;
+			break;
+		}
+		it.advance();
+	}
+}
+
+void Olz::setBUtiTele(string email, int tele){
+	BSTItrIn<Utilizador> it(util_por_finalizados);
+	//bool res = false;
+	while(!it.isAtEnd()){
+		if(it.retrieve().getEmail() == email){
+			it.retrieve().setTelemovel(tele);
+		//	res = true;
+			break;
+		}
+		it.advance();
 	}
 }
