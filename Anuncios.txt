@@ -1,7 +1,23 @@
 4
 AnuncioVenda
+bano
+Cuecas
+Roupa Interior
+3
+14/11/2015
+0
+0
+0
+0
+Par de cuecas por estrear, como uma sessão de cinema
+Novo
+1
+1
+0
+
+AnuncioVenda
 diana.20@live.com.pt
-Livro Sociopatologia
+fasd
 Livros
 0
 11/10/2015
@@ -44,20 +60,4 @@ Imagem
 Compro televisor LED 28 polegadas, aceito troca pelo anúncio referido
 1
 1
-
-AnuncioVenda
-bano
-Cuecas
-Roupa Interior
-3
-14/11/2015
-0
-0
-0
-0
-Par de cuecas por estrear, como uma sessão de cinema
-Novo
-1
-1
-0
 

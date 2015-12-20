@@ -139,7 +139,7 @@ void Olz::carregaAnuncios(){
 		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
 		{
 			anuncios.push_back(utilizadores[i].getAnuncios()[j]);
-			anuncios_pago.push(utilizadores[i].getAnuncios()[j]);
+			anuncios_pago.push((utilizadores[i].getAnuncios()[j]));
 		}
 	}
 }
@@ -918,6 +918,97 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 
 	while(!tempQ.empty())
 	{
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+void Olz::setTituloPago(int ID, string tit){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setTitulo(tit);
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+void Olz::setCategoriaPago(int ID, string cat){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setCategoria(cat);
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+void Olz::setDescricaoPago(int ID, string desc){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setCategoria(desc);
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+
+void Olz::setMEmailPago(int ID){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setmostraEmail();
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+void Olz::setMNomePago(int ID){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setmostraNome();
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
+		anuncios_pago.push(tempQ.top());
+		tempQ.pop();
+	}
+}
+
+void Olz::setMTelemovelPago(int ID){
+	priority_queue<Anuncio *> tempQ;
+	while(!anuncios_pago.empty()){
+		if(anuncios_pago.top()->getID() == ID){
+			anuncios_pago.top()->setmostraTelemovel();
+		}
+		tempQ.push(anuncios_pago.top());
+		anuncios_pago.pop();
+	}
+	while(!tempQ.empty()){
 		anuncios_pago.push(tempQ.top());
 		tempQ.pop();
 	}
