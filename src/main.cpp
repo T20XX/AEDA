@@ -1063,23 +1063,32 @@ void selecao9()
 							cout << "Titulo novo: ";
 							getline(cin, tempinfo);
 							olz.getUtilizadores()[i].getAnuncios()[j]->setTitulo(tempinfo);
+							olz.setTituloPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID(), tempinfo);
 						}
 						else if(tempinfo == "Categoria"){
 							cout << "Categoria nova: ";
 							getline(cin, tempinfo);
 							olz.getUtilizadores()[i].getAnuncios()[j]->setCategoria(tempinfo);
+							olz.setCategoriaPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID(), tempinfo);
 						}
 						else if(tempinfo == "Descrição"){
 							cout << "Nova descrição: ";
 							getline(cin, tempinfo);
 							olz.getUtilizadores()[i].getAnuncios()[j]->setDescricao(tempinfo);
+							olz.setDescricaoPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID(), tempinfo);
 						}
-						else if(tempinfo == "Mostra Email")
+						else if(tempinfo == "Mostra Email"){
 							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraEmail();
-						else if(tempinfo == "Mostra Nome")
+							olz.setMEmailPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID());
+						}
+						else if(tempinfo == "Mostra Nome"){
 							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraNome();
-						else if(tempinfo == "Mostra Telemovel")
+							olz.setMEmailPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID());
+						}
+						else if(tempinfo == "Mostra Telemovel"){
 							olz.getUtilizadores()[i].getAnuncios()[j]->setmostraTelemovel();
+							olz.setMEmailPago(olz.getUtilizadores()[i].getAnuncios()[j]->getID());
+						}
 						break;
 					}
 			}
@@ -1089,28 +1098,28 @@ void selecao9()
 
 		else if (selecao == "E" || selecao == "e")
 		{int index = -1;
-			cout << "Indique o número do anuncio que deseja eliminar: ";
+		cout << "Indique o número do anuncio que deseja eliminar: ";
 
+		cin >> index;
+		while(cin.fail()){
+			cout << "Indique um número: ";
+			cin.clear();
+			cin.ignore();
 			cin >> index;
-			while(cin.fail()){
+		}
+		while (index < 1 || index > olz.getAnuncios().size())
+		{
+			cout << "Número inválido, indique outro: ";
+			cin >> index;
+			if(cin.fail()){
 				cout << "Indique um número: ";
 				cin.clear();
 				cin.ignore();
 				cin >> index;
 			}
-			while (index < 1 || index > olz.getAnuncios().size())
-			{
-				cout << "Número inválido, indique outro: ";
-				cin >> index;
-				if(cin.fail()){
-					cout << "Indique um número: ";
-					cin.clear();
-					cin.ignore();
-					cin >> index;
-				}
-			}
-			olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
-			olz.escreverAnuncios();
+		}
+		olz.eliminaAnuncio(olz.getAnuncios()[index-1]->getID());
+		olz.escreverAnuncios();
 		}
 	}
 	olz.escreverAnuncios();

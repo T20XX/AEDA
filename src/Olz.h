@@ -229,6 +229,12 @@ public:
 		int getIndex() {return index;}
 		int getSize() {return size;}
 	};
+	void setTituloPago(int ID, string tit);
+	void setCategoriaPago(int ID, string cat);
+	void setDescricaoPago(int ID, string desc);
+	void setMEmailPago(int ID);
+	void setMNomePago(int ID);
+	void setMTelemovelPago(int ID);
 };
 
 #endif /* OLZ_H_ */
