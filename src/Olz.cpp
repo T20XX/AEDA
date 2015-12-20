@@ -132,12 +132,14 @@ Olz::~Olz() {
 
 void Olz::carregaAnuncios(){
 	anuncios.clear();
-
+	while(!anuncios_pago.empty())
+		anuncios_pago.pop();
 	for (int i = 0; i < utilizadores.size(); i++)
 	{
 		for (int j = 0; j < utilizadores[i].getAnuncios().size(); j++)
 		{
 			anuncios.push_back(utilizadores[i].getAnuncios()[j]);
+			anuncios_pago.push(utilizadores[i].getAnuncios()[j]);
 		}
 	}
 }
@@ -572,11 +574,11 @@ void Olz::eliminaAnuncio(int ID){
 	while(!anuncios_pago.empty()){
 		if(anuncios_pago.top()->getID() != ID)
 			tempQ.push(anuncios_pago.top());
-			anuncios_pago.top();
+			anuncios_pago.pop();
 	}
 	while(!tempQ.empty()){
 		anuncios_pago.push(tempQ.top());
-		tempQ.top();
+		tempQ.pop();
 	}
 	carregaAnuncios();
 }
