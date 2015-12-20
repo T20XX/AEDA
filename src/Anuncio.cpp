@@ -178,10 +178,13 @@ void Anuncio::setmostraEmail() {
 }
 
 bool Anuncio::operator < (const  Anuncio &a) const{
-	if(pago == a.getPago()){
-		return getData() < a.getData();
+	if (pago == true && a.getPago() == false)
+		return false;
+	else if (pago == false && a.getPago() == true)
+		return true;
+	else if(pago == a.getPago()){
+		return getData() > a.getData();
 	}
-	else return pago < a.getPago();
 }
 
 bool Anuncio::operator == (const  Anuncio &a) const{
