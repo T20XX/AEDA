@@ -1088,9 +1088,9 @@ void selecao9()
 		}
 
 		else if (selecao == "E" || selecao == "e")
-		{
+		{int index = -1;
 			cout << "Indique o número do anuncio que deseja eliminar: ";
-			int index = -1;
+
 			cin >> index;
 			while(cin.fail()){
 				cout << "Indique um número: ";
@@ -1102,7 +1102,7 @@ void selecao9()
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
-				while(cin.fail()){
+				if(cin.fail()){
 					cout << "Indique um número: ";
 					cin.clear();
 					cin.ignore();
