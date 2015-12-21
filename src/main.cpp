@@ -1002,7 +1002,7 @@ void selecao8()
 					it.advance();
 					counter++;
 				}*/
-			olz.setBUtiNome(tempemail, tempinfo);
+				olz.setBUtiNome(tempemail, tempinfo);
 			}
 			else if(tempinfo == "T" || tempinfo == "t"){
 				cout << "Insira telemovel novo";
@@ -1027,13 +1027,19 @@ void selecao8()
 				cin.ignore();
 				olz.setBUtiTele(tempemail, temptele);
 			}
-			else if (selecao == "E" || selecao == "e"){
-				olz.delBUti(tempemail);
-				olz.eliminaUtilizador(tempemail);
-			}
+		}
+		else if (selecao == "E" || selecao == "e"){
+			cin.ignore();
+			cout << "Indique o email do utilizador que deseja alterar: ";
+			string tempemail;
+			getline(cin,tempemail);
+
+			olz.delBUti(tempemail);
+			olz.eliminaUtilizador(tempemail);
 		}
 	}
 }
+
 
 
 
