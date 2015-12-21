@@ -201,7 +201,7 @@ public:
 	 */
 	bool pagaAnuncio(int ID);
 	void tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina);
-	BST<Utilizador> getBUti() const {return util_por_finalizados;}
+	void delBUti(string email);
 
 	class AnuncioNaoEncontrado{
 		int ID;
