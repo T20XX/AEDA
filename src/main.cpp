@@ -1009,7 +1009,15 @@ void selecao8()
 			if(tempinfo == "N" || tempinfo == "n"){
 				cout << "Insira novo nome desejado: ";
 				getline(cin, tempinfo);
-				olz.setBUtiNome(olz.getUtilizadores()[index-1].getEmail(), tempinfo);
+				int counter = 1;
+				BSTItrIn<Utilizador> it(olz.getBUti());
+
+				while(counter != index){
+					cout << it.retrieve().getEmail() << endl;
+					it.advance();
+					counter++;
+				}
+				olz.setBUtiNome(it.retrieve().getEmail(), tempinfo);
 			}
 			else if(tempinfo == "T" || tempinfo == "t"){
 				cout << "Insira telemovel novo";

@@ -1021,9 +1021,12 @@ void Olz::setBUtiNome(string email, string nome){
 	//bool res = false;
 	while(!it.isAtEnd()){
 		if(it.retrieve().getEmail() == email){
-			it.retrieve().setEmail(email);
+			Utilizador  u1 = it.retrieve();
+			util_por_finalizados.remove(it.retrieve());
+			u1.setNome(nome);
+			util_por_finalizados.insert(u1);
+
 		//	res = true;
-			break;
 		}
 		it.advance();
 	}
@@ -1034,7 +1037,10 @@ void Olz::setBUtiTele(string email, int tele){
 	//bool res = false;
 	while(!it.isAtEnd()){
 		if(it.retrieve().getEmail() == email){
-			it.retrieve().setTelemovel(tele);
+			Utilizador  u1 = it.retrieve();
+			util_por_finalizados.remove(it.retrieve());
+			u1.setTelemovel(tele);
+			util_por_finalizados.insert(u1);
 		//	res = true;
 			break;
 		}
