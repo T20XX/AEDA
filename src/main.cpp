@@ -966,7 +966,7 @@ void selecao8()
 	while (selecao != "S")
 	{
 		olz.tabelaUtilizadores_p_finalizados(tipoOrd);
-		cout << "Introduza O(rdenar), A(lterar) ou S(air)";
+		cout << "Introduza O(rdenar), A(lterar), E(liminar) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
@@ -1026,6 +1026,10 @@ void selecao8()
 				}
 				cin.ignore();
 				olz.setBUtiTele(tempemail, temptele);
+			}
+			else if (selecao == "E" || selecao == "e"){
+				olz.delBUti(tempemail);
+				olz.eliminaUtilizador(tempemail);
 			}
 		}
 	}

@@ -1040,14 +1040,13 @@ void Olz::setBUtiNome(string email, string nome){
 
 void Olz::setBUtiTele(string email, int tele){
 	BSTItrIn<Utilizador> it(util_por_finalizados);
-	//bool res = false;
+
 	while(!it.isAtEnd()){
 		if(it.retrieve().getEmail() == email){
 			Utilizador  u1 = it.retrieve();
 			util_por_finalizados.remove(it.retrieve());
 			u1.setTelemovel(tele);
 			util_por_finalizados.insert(u1);
-		//	res = true;
 			break;
 		}
 		it.advance();
@@ -1057,5 +1056,17 @@ void Olz::setBUtiTele(string email, int tele){
 			utilizadores[i].setTelemovel(tele);
 			break;
 		}
+	}
+}
+
+void Olz::delBUti(string email){
+	BSTItrIn<Utilizador> it(util_por_finalizados);
+
+	while(!it.isAtEnd()){
+		if(it.retrieve().getEmail() == email){;
+			util_por_finalizados.remove(it.retrieve());
+			break;
+		}
+		it.advance();
 	}
 }
