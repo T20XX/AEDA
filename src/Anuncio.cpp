@@ -177,17 +177,15 @@ void Anuncio::setmostraEmail() {
 	(mostraEmail = !mostraEmail);
 }
 
-bool Anuncio::operator < (const  Anuncio &a1) const{
-
-	if (getPago() == true && (a1.getPago()) == false)
-		return false;
-	else if (getPago() == false && (a1.getPago()) == true)
+bool Anuncio::operator < (const  Anuncio &a) const{
+	if ((getPago() == true) && (a.getPago() == false))
 		return true;
-	else if(getPago() == (a1.getPago())){
-		return getData() > a1.getData();
+	else if ((getPago() == false) && (a.getPago() == true))
+		return false;
+	else if(getPago() == a.getPago()){
+		return getData() > a.getData();
 	}
 }
-
 
 bool Anuncio::operator == (const  Anuncio &a) const{
 	return getData() == a.getData();
@@ -195,7 +193,7 @@ bool Anuncio::operator == (const  Anuncio &a) const{
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel) :
-										Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
+				Anuncio(utilizador, data, titulo, categoria, descricao, mostraEmail, mostraNome, mostraTelemovel) {
 	this->estado=estado;
 	this->preco = preco;
 	this->negociavel = negociavel;
@@ -223,10 +221,10 @@ void AnuncioVenda::verAnuncio() const {
 		cout << "Privado" << endl;
 
 	cout << "Telemóvel: ";
-	if (getmostraTelemovel())
-		cout << getUtilizador()->getTelemovel() << endl;
-	else
-		cout << "Privado" << endl;
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
 
 	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
@@ -270,10 +268,10 @@ void AnuncioCompra::verAnuncio() const{
 		cout << "Privado" << endl;
 
 	cout << "Telemóvel: ";
-	if (getmostraTelemovel())
-		cout << getUtilizador()->getTelemovel() << endl;
-	else
-		cout << "Privado" << endl;
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
 
 	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
@@ -314,10 +312,10 @@ void AnuncioFinalizado::verAnuncio() const{
 		cout << "Privado" << endl;
 
 	cout << "Telemóvel: ";
-	if (getmostraTelemovel())
-		cout << getUtilizador()->getTelemovel() << endl;
-	else
-		cout << "Privado" << endl;
+			if (getmostraTelemovel())
+				cout << getUtilizador()->getTelemovel() << endl;
+			else
+				cout << "Privado" << endl;
 
 	cout << " Número de Visitantes: " << getnumCliques() << endl;
 }
@@ -331,7 +329,3 @@ string AnuncioFinalizado::getEstado() const {return "nulo";}
 int AnuncioFinalizado::getPreco() const {return preco;}
 
 bool AnuncioFinalizado::getNegociavel() const {return false;}
-void setTituloPago(int ID){
-	//priority_queue<
-}
-
