@@ -1030,6 +1030,12 @@ void Olz::setBUtiNome(string email, string nome){
 		}
 		it.advance();
 	}
+	for(unsigned int i = 0; i < utilizadores.size(); i++){
+		if(utilizadores[i].getEmail() == email){
+			utilizadores[i].setNome(nome);
+			break;
+		}
+	}
 }
 
 void Olz::setBUtiTele(string email, int tele){
@@ -1045,5 +1051,11 @@ void Olz::setBUtiTele(string email, int tele){
 			break;
 		}
 		it.advance();
+	}
+	for(unsigned int i = 0; i < utilizadores.size(); i++){
+		if(utilizadores[i].getEmail() == email){
+			utilizadores[i].setTelemovel(tele);
+			break;
+		}
 	}
 }
