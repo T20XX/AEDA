@@ -1189,6 +1189,47 @@ void selecao9()
 	}
 	olz.escreverAnuncios();
 }
+
+void selecao10()
+{
+	string selecao = "X";
+	while (selecao != "S")
+	{
+		olz.tabelaNegocios();
+		cout << "Introduza V(er), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		cin >> selecao;
+		if (selecao == "S" || selecao == "s")
+			break;
+		else if (selecao == "V" || selecao == "v")
+		{
+			cout << "Indique o número do anuncio que deseja visualizar: ";
+			int index = -1;
+			cin >> index;
+			while(cin.fail()){
+				cout << "Indique um número: ";
+				cin.clear();
+				cin.ignore();
+				cin >> index;
+			}
+			while (index < 1 || index > olz.getAnunciosFinalizados().size())
+			{
+				cout << "Número inválido, indique outro: ";
+				cin >> index;
+				while(cin.fail()){
+					cout << "Indique um número: ";
+					cin.clear();
+					cin.ignore();
+					cin >> index;
+				}
+			}
+			olz.getAnunciosFinalizados()[index-1]->verAnuncio();
+		}
+	}
+	olz.escreverAnunciosFinalizados();
+
+}
+
+
 int main() {
 	olz.lerUtilizadores();
 	olz.lerAnuncios();
@@ -1208,17 +1249,18 @@ int main() {
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
 		cout << "8. Gerir Utilizadores por anúncio (BST)" << endl;
-		cout << "9. Gerir Anuncios por Pago" << endl;
+		cout << "9. Gerir Anuncios por Pago (Priority Queue)" << endl;
+		cout << "10. Gerir Anúncios Finalizados (Hash Table)" << endl;
 		cout << "0. Sair" << endl;
 
 		cin >> selecao;
 		while(cin.fail()){
-			cout << "Indique 1,2,3,4,5,6,7,8,9 ou 0: ";
+			cout << "Indique 1,2,3,4,5,6,7,8,9,10 ou 0: ";
 			cin.clear();
 			cin.ignore();
 			cin >> selecao;
 		}
-		while (selecao < 0 || selecao > 9){
+		while (selecao < 0 || selecao > 10){
 			cout << "Número de seleção invalido, tente outro: ";
 			cin.clear();
 			cin.ignore();
@@ -1245,6 +1287,8 @@ int main() {
 			selecao8();
 		else if (selecao == 9 && olz.getAnuncios().size() > 0)
 			selecao9();
+		else if (selecao == 10 && olz.getAnunciosFinalizados().size() > 0)
+					selecao10();
 		else if ((selecao == 2 || selecao == 4)&& olz.getUtilizadores().size() == 0)
 			cout << "Não existem utilizadores." << endl;
 
