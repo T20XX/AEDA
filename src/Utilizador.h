@@ -123,14 +123,27 @@ public:
 	 * @returns Vetor dos anuncios
 	 */
 	vector<Anuncio *> getAnuncios() const;
-
+	/**
+	 * @returns Numero de anúncios finalizados por um utilizador
+	 */
 	int getNum_Finalizados() const;
-
+	/**
+	 * Altera o membro-dado num_finalizados para o argumento recebido
+	 * @param num_finalizados Novo numero de anuncios finalizados
+	 */
 	void setNum_Finalizados(int num_finalizados);
-
+	/**
+	 * Elimina o anncio na posicao index do vetor anuncios do utilizador
+	 * @param index posicao do vetor a eliminar
+	 */
 	void eliminaAnuncio(int index);
-
+	/**
+	 * Overload do operador de menor para usar na BST
+	 */
 	bool operator < (const  Utilizador &u) const;
+	/**
+	 * Overload do operador de igualdade
+	 */
 	bool operator == (const  Utilizador &u) const;
 };
 
