@@ -977,25 +977,10 @@ void selecao8()
 		}
 		else if (selecao == "A" || selecao == "a")
 		{
-			cout << "Indique o número do utilizador que deseja alterar: ";
-			int index = -1;
-			cin >> index;
-			while(cin.fail()){
-				cout << "Indique um número: ";
-				cin >> index;
-			}
-			while (index < 1 || index > olz.getUtilizadores().size())
-			{
-				cout << "Número inválido, indique outro: ";
-				cin >> index;
-				while(cin.fail()){
-					cout << "Indique um número: ";
-					cin.clear();
-					cin.ignore();
-					cin >> index;
-				}
-			}
-
+			cin.ignore();
+			cout << "Indique o email do utilizador que deseja alterar: ";
+			string tempemail;
+			getline(cin,tempemail);
 			cout <<"Indique o que deseja alterar do Utilizador: N(ome), T(elemóvel): ";
 			string tempinfo = "erro";
 			cin >> tempinfo;
@@ -1009,15 +994,15 @@ void selecao8()
 			if(tempinfo == "N" || tempinfo == "n"){
 				cout << "Insira novo nome desejado: ";
 				getline(cin, tempinfo);
-				int counter = 1;
+				/*int counter = 1;
 				BSTItrIn<Utilizador> it(olz.getBUti());
 
 				while(counter != index){
 					cout << it.retrieve().getEmail() << endl;
 					it.advance();
 					counter++;
-				}
-				olz.setBUtiNome(it.retrieve().getEmail(), tempinfo);
+				}*/
+			olz.setBUtiNome(tempemail, tempinfo);
 			}
 			else if(tempinfo == "T" || tempinfo == "t"){
 				cout << "Insira telemovel novo";
@@ -1040,11 +1025,13 @@ void selecao8()
 					}
 				}
 				cin.ignore();
-				olz.setBUtiTele(olz.getUtilizadores()[index-1].getEmail(), temptele);
+				olz.setBUtiTele(tempemail, temptele);
 			}
 		}
 	}
 }
+
+
 
 void selecao9()
 {
