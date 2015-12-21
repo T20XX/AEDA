@@ -59,19 +59,19 @@ public:
 	 */
 	void setAnuncio(Anuncio * a);
 	/**
-	 * @returns Anuncio
+	 * @return Anuncio
 	 */
 	Anuncio * getAnuncio();
 	/**
-	 * @returns Email
+	 * @return Email
 	 */
 	string getEmail();
 	/**
-	 * @returns Contacto
+	 * @return Contacto
 	 */
 	string getContacto();
 	/**
-	 * @returns Data
+	 * @return Data
 	 */
 	Data getData();
 	/**
@@ -242,7 +242,13 @@ public:
 	 * @returns VendaID
 	 */
 	virtual int getVendaID() const = 0;
+	/**
+	 * Overload do operador de igualdade
+	 */
 	bool operator == (const  Anuncio &a) const;
+	/**
+	 * Overload do operador de menor para permitir a fila de prioridade ordenar os anúncios
+	 */
 	bool operator < (const  Anuncio &a1) const;
 
 };
