@@ -8,11 +8,23 @@
 #include "Utilizador.h"
 #include "BST.h"
 #include <sstream>
+#include <tr1/unordered_set>
 
 using namespace std;
 
 #ifndef OLZ_H_
 #define OLZ_H_
+
+struct hAnuncioFinalizado {
+	int operator()(const AnuncioFinalizado& a1) const{
+		return a1.getID();
+	}
+	bool operator()(const AnuncioFinalizado& a1, const AnuncioFinalizado& a2) const {
+		return a1.getID() == a2.getID();
+	}
+};
+
+typedef tr1::unordered_set<AnuncioFinalizado, hAnuncioFinalizado, hAnuncioFinalizado> hashAnuncioFinalizado;
 
 class Olz {
 	vector<Utilizador> utilizadores;
@@ -21,6 +33,7 @@ class Olz {
 	vector<Anuncio *> anunciosfinalizados;
 	BST<Utilizador> util_por_finalizados;
 	priority_queue<Anuncio *> anuncios_pago;
+	hashAnuncioFinalizado negocios;
 public:
 	/**
 	 * Construtor da classe
@@ -238,6 +251,7 @@ public:
 	void setMTelemovelPago(int ID);
 	void setBUtiNome(string email, string nome);
 	void setBUtiTele(string email, int tele);
+	void tabelaNegocios();
 };
 
 #endif /* OLZ_H_ */

@@ -181,6 +181,7 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);
 
+	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
@@ -574,7 +575,7 @@ void Olz::eliminaAnuncio(int ID){
 	while(!anuncios_pago.empty()){
 		if(anuncios_pago.top()->getID() != ID)
 			tempQ.push(anuncios_pago.top());
-			anuncios_pago.pop();
+		anuncios_pago.pop();
 	}
 	while(!tempQ.empty()){
 		anuncios_pago.push(tempQ.top());
@@ -802,6 +803,7 @@ void Olz::lerAnunciosFinalizados() {
 				if(utilizadores[i].getEmail() == email)
 				{
 					anunciosfinalizados.push_back(new AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID,preco));
+					negocios.insert(AnuncioFinalizado(&utilizadores[i],Data(data),titulo,categoria,descricao,mostraEmail,mostraNome,mostraTelemovel,ID,preco));
 				}
 			}
 			Anun.ignore();
@@ -911,7 +913,7 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 			cout << setw(7)  << "Venda" ;
 		else
 			cout << setw(7)  << "Compra";
-		cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << endl;
+		cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << setw(6)  << anuncios_pago.top()->getPago() <<endl;
 
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -1026,7 +1028,7 @@ void Olz::setBUtiNome(string email, string nome){
 			u1.setNome(nome);
 			util_por_finalizados.insert(u1);
 
-		//	res = true;
+			//	res = true;
 		}
 		it.advance();
 	}
@@ -1068,5 +1070,21 @@ void Olz::delBUti(string email){
 			break;
 		}
 		it.advance();
+	}
+}
+
+
+void Olz::tabelaNegocios()
+{
+	hashAnuncioFinalizado::const_iterator it = negocios.begin();
+	hashAnuncioFinalizado::const_iterator ite = negocios.end();
+	unsigned int i = 0;
+
+	cout << setw(3) << "#" << setw(4) << "ID"  <<setw(11)<< "Data" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << endl;
+
+	while(it!=ite){
+		cout << setw(3) << (i+1) << setw(4) << (*it).getID() <<  " " << (*it).getData()<< (*it).getTitulo().substr(0,9) << setw(10)  << (*it).getCategoria().substr(0,9) << setw(15)  << (*it).getUtilizador()->getEmail().substr(0,14) << setw(5)  << (*it).getnumCliques() << endl;
+		i++;
+		it++;
 	}
 }
