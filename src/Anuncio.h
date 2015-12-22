@@ -215,9 +215,16 @@ public:
 	/**
 	 * @returns Utilizador
 	 */
-	bool getPago() const;
-	void setPago(bool isPago);
 	Utilizador* getUtilizador() const;
+	/**
+	 * @returns pago
+	 */
+	bool getPago() const;
+	/**
+	 * Altera o membro-dado pago para o argumento isPago
+	 * @param isPago valor a alterar
+	 */
+	void setPago(bool isPago);
 	/**
 	 * @returns Contactos
 	 */
@@ -349,13 +356,13 @@ public:
 	Anuncio * anuncio;
 	AnuncioPtr(Anuncio * a1): anuncio(a1){};
 
-/**
- * Overload do operador de igualdade
- */
-bool operator == (const  AnuncioPtr &a) const;
-/**
- * Overload do operador de menor para permitir a fila de prioridade ordenar os anúncios
- */
-bool operator < (const  AnuncioPtr &a1) const;
+	/**
+	 * Overload do operador de igualdade
+	 */
+	bool operator == (const  AnuncioPtr &a) const;
+	/**
+	 * Overload do operador de menor para permitir a fila de prioridade ordenar os anúncios
+	 */
+	bool operator < (const  AnuncioPtr &a1) const;
 };
 #endif /* ANUNCIO_H_ */
