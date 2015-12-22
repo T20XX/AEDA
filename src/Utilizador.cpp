@@ -78,7 +78,12 @@ void Utilizador::setNum_Finalizados(int n) {num_finalizados = n;}
 void Utilizador::eliminaAnuncio(int index) {anuncios.erase(anuncios.begin()+index);}
 
 bool Utilizador::operator < (const  Utilizador &u) const{
-	return num_finalizados < u.num_finalizados;
+	if (num_finalizados > u.num_finalizados)
+		return true;
+	else if (num_finalizados < u.num_finalizados)
+		return false;
+	else
+		return (anuncios[anuncios.size()-1]->getData() >u.getAnuncios()[anuncios.size()-1]->getData());
 }
 
 bool  Utilizador::operator == (const  Utilizador &u) const{
