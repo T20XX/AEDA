@@ -253,6 +253,7 @@ public:
 	void setBUtiTele(string email, int tele);
 	void tabelaNegocios(string atributo, string valor);
 	void verNegocio(int ID);
+	void verAnuncioPago(int ID);
 };
 
 #endif /* OLZ_H_ */

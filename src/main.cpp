@@ -1065,7 +1065,7 @@ void selecao9()
 			break;
 		else if (selecao == "V" || selecao == "v")
 		{
-			cout << "Indique o número do anuncio que deseja visualizar: ";
+			cout << "Indique o ID do anuncio que deseja visualizar: ";
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
@@ -1085,7 +1085,7 @@ void selecao9()
 					cin >> index;
 				}
 			}
-			olz.getAnuncios()[index-1]->verAnuncio();
+			olz.verAnuncioPago(index);
 		}
 		else if (selecao == "A" || selecao == "a")
 		{
