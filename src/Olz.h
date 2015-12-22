@@ -214,6 +214,10 @@ public:
 	 */
 	bool pagaAnuncio(int ID);
 	void tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina);
+	/**
+	 * Elimina um utilizador da BST
+	 * @param email Email do Utilizador a eliminar
+	 */
 	void delBUti(string email);
 
 	class AnuncioNaoEncontrado{
@@ -244,20 +248,61 @@ public:
 		int getSize() {return size;}
 	};
 	/**
-	 * Altera o membro-dado Titulo para o argumento tit
-	 * @param ID Novo Titulo
+	 * Altera o membro-dado Titulo para o argumento tit na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
 	 * @param tit Novo Titulo
 	 */
 	void setTituloPago(int ID, string tit);
+	/**
+	 * Altera o membro-dado Categoria para o argumento cat na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
+	 * @param cat Nova Categoria
+	 */
 	void setCategoriaPago(int ID, string cat);
+	/**
+	 * Altera o membro-dado Descricao para o argumento desc na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
+	 * @param desc Nova Descricao
+	 */
 	void setDescricaoPago(int ID, string desc);
+	/**
+	 * Altera o valor da boleana que controla a privacidade do email na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
+	 */
 	void setMEmailPago(int ID);
+	/**
+	 * Altera o valor da boleana que controla a privacidade do nome na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
+	 */
 	void setMNomePago(int ID);
+	/**
+	 * Altera o valor da boleana que controla a privacidade do numero de telemovel na priority queue de anuncios em destaque
+	 * @param ID ID do anuncio a alterar
+	 */
 	void setMTelemovelPago(int ID);
+	/**
+	 * Altera o membro-dado nome para o argumento nome na BST
+	 * @param email Email do utilizador a alterar
+	 * @param nome Novo Nome
+	 */
 	void setBUtiNome(string email, string nome);
+	/**
+	 * Altera o membro-dado telemovel para o argumento tele na BST
+	 * @param email Email do utilizador a alterar
+	 * @param tele Novo numero de telemovel
+	 */
 	void setBUtiTele(string email, int tele);
+	/**
+	 *
+	 */
 	void tabelaNegocios(string atributo, string valor);
+	/**
+	 *
+	 */
 	void verNegocio(int ID);
+	/**
+	 *
+	 */
 	void verAnuncioPago(int ID);
 };
 
