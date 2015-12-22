@@ -82,8 +82,10 @@ bool Utilizador::operator < (const  Utilizador &u) const{
 		return true;
 	else if (num_finalizados < u.num_finalizados)
 		return false;
+	else if(!anuncios.empty() && !u.getAnuncios().empty())
+		return (anuncios[anuncios.size()-1]->getData() < u.getAnuncios()[u.getAnuncios().size()-1]->getData());
 	else
-		return (anuncios[anuncios.size()-1]->getData() >u.getAnuncios()[anuncios.size()-1]->getData());
+		return getNome() < u.getNome();
 }
 
 bool  Utilizador::operator == (const  Utilizador &u) const{

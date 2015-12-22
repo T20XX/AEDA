@@ -1,5 +1,5 @@
 /**
-* Olz.h
+ * Olz.h
  */
 
 #include <vector>
@@ -243,6 +243,11 @@ public:
 		int getIndex() {return index;}
 		int getSize() {return size;}
 	};
+	/**
+	 * Altera o membro-dado Titulo para o argumento tit
+	 * @param ID Novo Titulo
+	 * @param tit Novo Titulo
+	 */
 	void setTituloPago(int ID, string tit);
 	void setCategoriaPago(int ID, string cat);
 	void setDescricaoPago(int ID, string desc);
