@@ -1110,3 +1110,15 @@ void Olz::verNegocio(int ID){
 			}
 		}
 }
+
+
+void Olz::verAnuncioPago(int ID){
+	priority_queue<AnuncioPtr> tempQ = anuncios_pago;
+	while(!tempQ.empty()){
+		if(tempQ.top().anuncio->getID() == ID){
+			tempQ.top().anuncio->verAnuncio();
+			break;
+		}
+		tempQ.pop();
+	}
+}
