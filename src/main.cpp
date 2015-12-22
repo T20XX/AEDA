@@ -1027,6 +1027,7 @@ void selecao8()
 				cin.ignore();
 				olz.setBUtiTele(tempemail, temptele);
 			}
+			olz.escreverUtilizadores();
 		}
 		else if (selecao == "E" || selecao == "e"){
 			cin.ignore();
@@ -1036,8 +1037,10 @@ void selecao8()
 
 			olz.delBUti(tempemail);
 			olz.eliminaUtilizador(tempemail);
+			olz.escreverUtilizadores();
 		}
 	}
+	olz.escreverUtilizadores();
 }
 
 
