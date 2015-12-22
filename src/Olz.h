@@ -251,7 +251,8 @@ public:
 	void setMTelemovelPago(int ID);
 	void setBUtiNome(string email, string nome);
 	void setBUtiTele(string email, int tele);
-	void tabelaNegocios();
+	void tabelaNegocios(string atributo, string valor);
+	void verNegocio(int ID);
 };
 
 #endif /* OLZ_H_ */

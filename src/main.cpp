@@ -1192,17 +1192,31 @@ void selecao9()
 
 void selecao10()
 {
+	string atributo, valor;
+	cout << "Introduza 'U' ou 'C' para pesquisar os negócios de um utilizador ou de uma categoria:" << endl;
+	getline(cin,atributo);
+	while (atributo != "U" && atributo != "C"){
+		cout << "Introduza 'U' ou 'C':" << endl;
+		getline(cin,atributo);
+	}
+	if (atributo == "U"){
+		cout << "Introduza o e-mail do utilizador:" << endl;
+	} else if (atributo == "C"){
+		cout << "Introduza a categoria pretendida:" << endl;
+	}
+	getline(cin,valor);
+
 	string selecao = "X";
 	while (selecao != "S")
 	{
-		olz.tabelaNegocios();
-		cout << "Introduza V(er), O(rdenar), P(esquisar), PP(or Página), PS(Pag. Seguinte), PA(Pag. Anterior) ou S(air)";
+		olz.tabelaNegocios(atributo,valor);
+		cout << "Introduza V(er) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
 		else if (selecao == "V" || selecao == "v")
 		{
-			cout << "Indique o número do anuncio que deseja visualizar: ";
+			cout << "Indique o ID do anuncio que deseja visualizar: ";
 			int index = -1;
 			cin >> index;
 			while(cin.fail()){
@@ -1211,18 +1225,9 @@ void selecao10()
 				cin.ignore();
 				cin >> index;
 			}
-			while (index < 1 || index > olz.getAnunciosFinalizados().size())
-			{
-				cout << "Número inválido, indique outro: ";
-				cin >> index;
-				while(cin.fail()){
-					cout << "Indique um número: ";
-					cin.clear();
-					cin.ignore();
-					cin >> index;
-				}
-			}
-			olz.getAnunciosFinalizados()[index-1]->verAnuncio();
+			cout << endl;
+			olz.verNegocio(index);
+			cout << endl;
 		}
 	}
 	olz.escreverAnunciosFinalizados();
@@ -1249,7 +1254,7 @@ int main() {
 		cout << "6. Gerir Anúncios Finalizados" << endl;
 		cout << "7. Gerir Contactos" << endl;
 		cout << "8. Gerir Utilizadores por anúncio (BST)" << endl;
-		cout << "9. Gerir Anuncios por Pago (Priority Queue)" << endl;
+		cout << "9. Gerir Anúncios por Pago (Priority Queue)" << endl;
 		cout << "10. Gerir Anúncios Finalizados (Hash Table)" << endl;
 		cout << "0. Sair" << endl;
 
