@@ -51,49 +51,49 @@ bool DD(const Utilizador &u1,const Utilizador &u2){
 }
 
 //bool para ordenar anuncios
-bool IA(const Anuncio *a1,const Anuncio *a2){return (a1->getID() < a2->getID());}
-bool ID(const Anuncio *a1,const Anuncio *a2){return (a1->getID() > a2->getID());}
-bool DaA(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getData() == a2->getData())
-		return IA(a1,a2);
-	else return (a1->getData() < a2->getData());
+bool IA(const Anuncio *anuncio,const Anuncio *a2){return (anuncio->getID() < a2->getID());}
+bool ID(const Anuncio *anuncio,const Anuncio *a2){return (anuncio->getID() > a2->getID());}
+bool DaA(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getData() == a2->getData())
+		return IA(anuncio,a2);
+	else return (anuncio->getData() < a2->getData());
 }
-bool DaD(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getData() == a2->getData())
-		return ID(a1,a2);
-	return (a1->getData() > a2->getData());
+bool DaD(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getData() == a2->getData())
+		return ID(anuncio,a2);
+	return (anuncio->getData() > a2->getData());
 }
-bool TA(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getTitulo() == a1->getTitulo())
-		return IA(a1,a2);
+bool TA(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getTitulo() == anuncio->getTitulo())
+		return IA(anuncio,a2);
 	else
-		return (a1->getTitulo() < a2->getTitulo());
+		return (anuncio->getTitulo() < a2->getTitulo());
 }
-bool TD(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getTitulo() == a1->getTitulo())
-		return ID(a1,a2);
+bool TD(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getTitulo() == anuncio->getTitulo())
+		return ID(anuncio,a2);
 	else
-		return (a1->getTitulo() > a2->getTitulo());
+		return (anuncio->getTitulo() > a2->getTitulo());
 }
-bool CA(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getCategoria() == a2->getCategoria())
-		return IA(a1,a2);
-	else return (a1->getCategoria() < a2->getCategoria());
+bool CA(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getCategoria() == a2->getCategoria())
+		return IA(anuncio,a2);
+	else return (anuncio->getCategoria() < a2->getCategoria());
 }
-bool CD(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getCategoria() == a2->getCategoria())
-		return ID(a1,a2);
-	else return (a1->getCategoria() > a2->getCategoria());
+bool CD(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getCategoria() == a2->getCategoria())
+		return ID(anuncio,a2);
+	else return (anuncio->getCategoria() > a2->getCategoria());
 }
-bool NCA(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getnumCliques() == a2->getnumCliques())
-		return IA(a1,a2);
-	else return (a1->getnumCliques() < a2->getnumCliques());
+bool NCA(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getnumCliques() == a2->getnumCliques())
+		return IA(anuncio,a2);
+	else return (anuncio->getnumCliques() < a2->getnumCliques());
 }
-bool NCD(const Anuncio *a1,const Anuncio *a2){
-	if(a1->getnumCliques() == a2->getnumCliques())
-		return ID(a1,a2);
-	else return (a1->getnumCliques() > a2->getnumCliques());
+bool NCD(const Anuncio *anuncio,const Anuncio *a2){
+	if(anuncio->getnumCliques() == a2->getnumCliques())
+		return ID(anuncio,a2);
+	else return (anuncio->getnumCliques() > a2->getnumCliques());
 }
 
 //bool ordenar contactos
@@ -181,7 +181,6 @@ void Olz::tabelaAnuncios(int num_pagina, int num_anuncios_pagina, string tipoOrd
 	else if(tipoOrd == "ND")
 		sort(anuncios.begin(), anuncios.end(), NCD);
 
-	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 
 	for (int i=num_pagina*num_anuncios_pagina; i < num_pagina*num_anuncios_pagina + num_anuncios_pagina;i++)
 	{
@@ -571,11 +570,11 @@ void Olz::eliminaAnuncio(int ID){
 	}
 	if (!encontrou)
 		throw AnuncioNaoEncontrado(ID);
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() != ID)
+		if(anuncios_pago.top().anuncio->getID() != ID)
 			tempQ.push(anuncios_pago.top());
-		anuncios_pago.pop();
+			anuncios_pago.pop();
 	}
 	while(!tempQ.empty()){
 		anuncios_pago.push(tempQ.top());
@@ -903,17 +902,17 @@ bool Olz::pagaAnuncio(int ID){
 
 void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função que imprimi uma tabela com o ID do Utilizador, a Data, o Título e a Categoria
 {
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	cout << endl;
 	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
 	unsigned int j=num_pagina*num_anuncios_pagina;
 	while(!(anuncios_pago.empty()) && j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
-		cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top()->getID() << " " << anuncios_pago.top()->getData();
-		if (anuncios_pago.top()->getTipo())
+		cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top().anuncio->getID() << " " << anuncios_pago.top().anuncio->getData();
+		if (anuncios_pago.top().anuncio->getTipo())
 			cout << setw(7)  << "Venda" ;
 		else
 			cout << setw(7)  << "Compra";
-		cout << setw(10)  << anuncios_pago.top()->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top()->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top()->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top()->getnumCliques() << setw(6)  << anuncios_pago.top()->getContactos().size() << setw(6)  << anuncios_pago.top()->getPago() <<endl;
+		cout << setw(10)  << anuncios_pago.top().anuncio->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top().anuncio->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top().anuncio->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top().anuncio->getnumCliques() << setw(6)  << anuncios_pago.top().anuncio->getContactos().size() << endl;
 
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -928,10 +927,10 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 }
 
 void Olz::setTituloPago(int ID, string tit){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setTitulo(tit);
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setTitulo(tit);
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -943,10 +942,10 @@ void Olz::setTituloPago(int ID, string tit){
 }
 
 void Olz::setCategoriaPago(int ID, string cat){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr > tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setCategoria(cat);
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setCategoria(cat);
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -958,10 +957,10 @@ void Olz::setCategoriaPago(int ID, string cat){
 }
 
 void Olz::setDescricaoPago(int ID, string desc){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setCategoria(desc);
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setCategoria(desc);
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -974,10 +973,10 @@ void Olz::setDescricaoPago(int ID, string desc){
 
 
 void Olz::setMEmailPago(int ID){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setmostraEmail();
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setmostraEmail();
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -989,10 +988,10 @@ void Olz::setMEmailPago(int ID){
 }
 
 void Olz::setMNomePago(int ID){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setmostraNome();
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setmostraNome();
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -1004,10 +1003,10 @@ void Olz::setMNomePago(int ID){
 }
 
 void Olz::setMTelemovelPago(int ID){
-	priority_queue<Anuncio *> tempQ;
+	priority_queue<AnuncioPtr> tempQ;
 	while(!anuncios_pago.empty()){
-		if(anuncios_pago.top()->getID() == ID){
-			anuncios_pago.top()->setmostraTelemovel();
+		if(anuncios_pago.top().anuncio->getID() == ID){
+			anuncios_pago.top().anuncio->setmostraTelemovel();
 		}
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();
@@ -1028,7 +1027,7 @@ void Olz::setBUtiNome(string email, string nome){
 			u1.setNome(nome);
 			util_por_finalizados.insert(u1);
 
-			//	res = true;
+		//	res = true;
 		}
 		it.advance();
 	}
@@ -1072,7 +1071,6 @@ void Olz::delBUti(string email){
 		it.advance();
 	}
 }
-
 
 void Olz::tabelaNegocios()
 {

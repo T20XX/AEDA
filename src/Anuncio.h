@@ -242,15 +242,6 @@ public:
 	 * @returns VendaID
 	 */
 	virtual int getVendaID() const = 0;
-	/**
-	 * Overload do operador de igualdade
-	 */
-	bool operator == (const  Anuncio &a) const;
-	/**
-	 * Overload do operador de menor para permitir a fila de prioridade ordenar os anúncios
-	 */
-	bool operator < (const  Anuncio &a1) const;
-
 };
 
 class AnuncioVenda: public Anuncio {
@@ -352,5 +343,19 @@ public:
 	 * @returns VendaID
 	 */
 	int getVendaID() const;
+};
+class AnuncioPtr{
+public:
+	Anuncio * anuncio;
+	AnuncioPtr(Anuncio * a1): anuncio(a1){};
+
+/**
+ * Overload do operador de igualdade
+ */
+bool operator == (const  AnuncioPtr &a) const;
+/**
+ * Overload do operador de menor para permitir a fila de prioridade ordenar os anúncios
+ */
+bool operator < (const  AnuncioPtr &a1) const;
 };
 #endif /* ANUNCIO_H_ */
