@@ -177,19 +177,6 @@ void Anuncio::setmostraEmail() {
 	(mostraEmail = !mostraEmail);
 }
 
-bool Anuncio::operator < (const  Anuncio &a) const{
-	if ((getPago() == true) && (a.getPago() == false))
-		return true;
-	else if ((getPago() == false) && (a.getPago() == true))
-		return false;
-	else if(getPago() == a.getPago()){
-		return getData() > a.getData();
-	}
-}
-
-bool Anuncio::operator == (const  Anuncio &a) const{
-	return getData() == a.getData();
-}
 //AnuncioVenda
 
 AnuncioVenda::AnuncioVenda(Utilizador * utilizador,Data data, string titulo, string categoria, string descricao, bool mostraEmail, bool mostraNome, bool mostraTelemovel,  string estado, int preco, bool negociavel) :
@@ -329,3 +316,17 @@ string AnuncioFinalizado::getEstado() const {return "nulo";}
 int AnuncioFinalizado::getPreco() const {return preco;}
 
 bool AnuncioFinalizado::getNegociavel() const {return false;}
+
+bool AnuncioPtr::operator < (const  AnuncioPtr &a) const{
+	if ((anuncio->getPago() == true) && (a.anuncio->getPago() == false))
+		return false;
+	else if ((anuncio->getPago() == false) && (a.anuncio->getPago() == true))
+		return true;
+	else if(anuncio->getPago() == a.anuncio->getPago()){
+		return anuncio->getData() < a.anuncio->getData();
+	}
+}
+
+bool AnuncioPtr::operator == (const  AnuncioPtr &a) const{
+	return anuncio->getData() == a.anuncio->getData();
+}

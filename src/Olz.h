@@ -32,7 +32,7 @@ class Olz {
 	vector<Contacto *> contactos;
 	vector<Anuncio *> anunciosfinalizados;
 	BST<Utilizador> util_por_finalizados;
-	priority_queue<Anuncio *> anuncios_pago;
+	priority_queue<AnuncioPtr> anuncios_pago;
 	hashAnuncioFinalizado negocios;
 public:
 	/**
