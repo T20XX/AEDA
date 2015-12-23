@@ -295,7 +295,7 @@ public:
 	/**
 	 *
 	 */
-	void tabelaNegocios(string atributo, string valor);
+	int tabelaNegocios(string atributo, string valor);
 	/**
 	 *
 	 */

@@ -1207,7 +1207,9 @@ void selecao10()
 	string selecao = "X";
 	while (selecao != "S")
 	{
-		olz.tabelaNegocios(atributo,valor);
+		int counter = 0;
+		counter = olz.tabelaNegocios(atributo,valor);
+		if(counter != 0){
 		cout << "Introduza V(er) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
@@ -1226,6 +1228,11 @@ void selecao10()
 			cout << endl;
 			olz.verNegocio(index);
 			cout << endl;
+		}
+	}
+		else{
+			cout << "Nao foi encontrado anuncio finalizado para este utilizador ou categoria " << endl;
+			break;
 		}
 	}
 	olz.escreverAnunciosFinalizados();
