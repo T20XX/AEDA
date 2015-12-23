@@ -293,15 +293,20 @@ public:
 	 */
 	void setBUtiTele(string email, int tele);
 	/**
-	 *
+	 *	Mostra a tabela com os negocios realizados de um anunciante ou de uma categoria
+	 *	@param atributo U ou C para listar por utilizador ou categoria
+	 *	@param valor Email do utilizador ou categoria a listar
+	 *	@return número de negocios localizados
 	 */
 	int tabelaNegocios(string atributo, string valor);
 	/**
-	 *
+	 *	Mostra um anuncio finalizado a partir da hash table
+	 *	@param ID ID do anuncio finalizado a exibir
 	 */
 	void verNegocio(int ID);
 	/**
-	 *
+	 *	Mostra um anuncio a partir da priority queue
+	 *	@param ID ID do anuncio  a exibir
 	 */
 	void verAnuncioPago(int ID);
 };
