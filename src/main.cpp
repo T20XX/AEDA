@@ -966,15 +966,10 @@ void selecao8()
 	while (selecao != "S")
 	{
 		olz.tabelaUtilizadores_p_finalizados(tipoOrd);
-		cout << "Introduza O(rdenar), A(lterar), E(liminar) ou S(air)";
+		cout << "Introduza A(lterar), E(liminar) ou S(air)";
 		cin >> selecao;
 		if (selecao == "S" || selecao == "s")
 			break;
-		else if (selecao == "O" || selecao == "o")
-		{	cout << "Tipo ordenação: " << endl;
-		cout << "E(mail), N(ome), A(nuncios), D(istrito) + A(scendente), D(escendente)";
-		cin >> tipoOrd;
-		}
 		else if (selecao == "A" || selecao == "a")
 		{
 			cin.ignore();
