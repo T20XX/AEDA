@@ -1072,18 +1072,19 @@ void Olz::delBUti(string email){
 	}
 }
 
-void Olz::tabelaNegocios(string atributo, string valor){
+int Olz::tabelaNegocios(string atributo, string valor){
 	hashAnuncioFinalizado::const_iterator it = negocios.begin();
 	hashAnuncioFinalizado::const_iterator ite = negocios.end();
 	unsigned int i = 0;
 
 	cout << setw(3) << "#" << setw(4) << "ID"  <<setw(11)<< "Data" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << endl;
-
+int counter = 0;
 	if (atributo == "U"){
 		while(it!=ite){
 			if ((*it).getUtilizador()->getEmail() == valor){
 				cout << setw(3) << (i+1) << setw(4) << (*it).getID() <<  " " << (*it).getData()<< (*it).getTitulo().substr(0,9) << setw(10)  << (*it).getCategoria().substr(0,9) << setw(15)  << (*it).getUtilizador()->getEmail().substr(0,14) << setw(5)  << (*it).getnumCliques() << endl;
 				i++;
+				counter++;
 			}
 			it++;
 		}
@@ -1093,10 +1094,12 @@ void Olz::tabelaNegocios(string atributo, string valor){
 			if ((*it).getCategoria() == valor){
 				cout << setw(3) << (i+1) << setw(4) << (*it).getID() <<  " " << (*it).getData()<< (*it).getTitulo().substr(0,9) << setw(10)  << (*it).getCategoria().substr(0,9) << setw(15)  << (*it).getUtilizador()->getEmail().substr(0,14) << setw(5)  << (*it).getnumCliques() << endl;
 				i++;
+				counter++;
 			}
 			it++;
 		}
 	}
+	return counter;
 }
 
 void Olz::verNegocio(int ID){
