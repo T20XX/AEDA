@@ -904,7 +904,7 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 {
 	priority_queue<AnuncioPtr> tempQ;
 	cout << endl;
-	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." << endl;
+	cout << setw(3) << "#" << setw(4) << "ID" <<setw(11)<< "Data" << setw(7) << "Tipo" << setw(10) << "Titulo" << setw(10) << "Categoria" << setw(15) << "Utilizador" << setw(5) << "Vis." << setw(6) << "Cont." <<setw(6) << "Pago" << endl;
 	unsigned int j=num_pagina*num_anuncios_pagina;
 	while(!(anuncios_pago.empty()) && j < num_pagina*num_anuncios_pagina + num_anuncios_pagina){
 		cout << setw(3) << (j+1) << setw(4) << anuncios_pago.top().anuncio->getID() << " " << anuncios_pago.top().anuncio->getData();
@@ -912,7 +912,7 @@ void Olz::tabelaAnunciosPago(int num_pagina, int num_anuncios_pagina) // Função 
 			cout << setw(7)  << "Venda" ;
 		else
 			cout << setw(7)  << "Compra";
-		cout << setw(10)  << anuncios_pago.top().anuncio->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top().anuncio->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top().anuncio->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top().anuncio->getnumCliques() << setw(6)  << anuncios_pago.top().anuncio->getContactos().size() << endl;
+		cout << setw(10)  << anuncios_pago.top().anuncio->getTitulo().substr(0,9)<<setw(10)  << anuncios_pago.top().anuncio->getCategoria().substr(0,9) << setw(15)  << anuncios_pago.top().anuncio->getUtilizador()->getEmail().substr(0,14) << setw(5)  << anuncios_pago.top().anuncio->getnumCliques() << setw(6)  << anuncios_pago.top().anuncio->getContactos().size() << setw(6)  << anuncios_pago.top().anuncio->getPago() << endl;
 
 		tempQ.push(anuncios_pago.top());
 		anuncios_pago.pop();

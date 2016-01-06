@@ -1069,7 +1069,7 @@ void selecao9()
 				cin.ignore();
 				cin >> index;
 			}
-			while (index < 1 || index > olz.getAnuncios().size())
+			while (index < 0 || index > olz.getAnuncios().size())
 			{
 				cout << "Número inválido, indique outro: ";
 				cin >> index;
