@@ -1,25 +1,103 @@
-4
+18
 AnuncioVenda
-bano
-Cuecas
-Roupa Interior
-3
-14/11/2015
+anasilveira@gmail.com
+Livro Infantil
+Livros
 0
+15/12/2015
 0
-0
-0
-Par de cuecas por estrear, como uma sessão de cinema
-Novo
 1
+1
+1
+Livro paramais de 5 anos
+Novo
+10
+1
+1
+
+AnuncioVenda
+filiperio@gmail.com
+Porta Chaves
+Utensilios
+3
+30/12/2015
+0
+1
+1
+0
+Edição Especial Star Wars
+Novo
+20
+0
+1
+
+AnuncioVenda
+joniguitar@gmail.com
+Guitarra Ibanez
+Instrumentos
+2
+18/12/2015
+0
+0
+0
+0
+Guitarra Elétrica Ibanez 2300
+Usando como novo
+115
+0
+1
+
+AnuncioCompra
+nevesspde@gmail.com
+Renault Clio
+Carros
+1
+15/12/2015
+0
+1
+1
+1
+Renault Clio de 1998
+-1
+0
+
+AnuncioVenda
+up201405840@fe.up.pt
+Teclado Gaming
+Computador
+4
+10/12/2015
+0
+0
+0
+0
+Teclado mecânico com leds
+Funcional
+47
+1
+0
+
+AnuncioVenda
+up201405840@fe.up.pt
+Rato Gaming
+Computador
+5
+17/12/2015
+0
+1
+0
+0
+Até 6000dpi
+Funcional
+24
 1
 0
 
 AnuncioVenda
 diana.20@live.com.pt
-fasd
+Livro de Psicologia
 Livros
-0
+6
 11/10/2015
 43
 0
@@ -35,7 +113,7 @@ AnuncioVenda
 kattyfofinha@gmail.com
 Sistema de som 7.1
 Aúdio
-1
+7
 13/10/2015
 29
 1
@@ -51,7 +129,7 @@ AnuncioCompra
 kattyfofinha@gmail.com
 Televisor LED 28 polegadas
 Imagem
-2
+8
 14/10/2015
 20
 1
@@ -60,4 +138,154 @@ Imagem
 Compro televisor LED 28 polegadas, aceito troca pelo anúncio referido
 1
 1
+
+AnuncioCompra
+anasilveira@gmail.com
+Aspirador
+Arrumação
+9
+12/12/2012
+0
+1
+1
+1
+Nada de mais
+-1
+1
+
+AnuncioVenda
+b7ndiamante@gmail.com
+Conta de LoL
+Jogo
+10
+12/12/2034
+0
+1
+1
+1
+Conta de LoL a Diamante
+Novo
+50
+0
+1
+
+AnuncioCompra
+clarisse420@outlook.pt
+Lord of The Kings
+Livros
+11
+17/12/2015
+0
+1
+0
+0
+Muito Interessante
+-1
+1
+
+AnuncioCompra
+diana.20@live.com.pt
+Harry Poter 1
+Livros
+12
+10/11/2015
+0
+1
+1
+1
+
+-1
+0
+
+AnuncioVenda
+filiperio@gmail.com
+Requiem
+Jogo
+12
+19/10/2015
+0
+1
+1
+1
+Muito bom jogo!
+Novo
+100
+0
+1
+
+AnuncioCompra
+joniguitar@gmail.com
+Harry Poter 2
+Livros
+13
+29/11/2015
+0
+0
+0
+1
+Apelativo e interessante!
+-1
+0
+
+AnuncioVenda
+kattyfofinha@gmail.com
+Amplificador carro
+Aúdio
+14
+13/10/2015
+29
+1
+1
+1
+Sistema de som car audio
+Novo
+160
+0
+0
+
+AnuncioVenda
+xicalves@gmail.com
+Livros
+Livros
+15
+18/11/2015
+0
+0
+1
+1
+Nao consigui parar de ler! Como Novo!
+Novo
+17
+1
+0
+
+AnuncioVenda
+up201404572@fe.up.pt
+Spider Man
+Brinquedos
+16
+13/12/2015
+0
+1
+1
+1
+Brinquedo Old School Fantastico
+Novo
+25
+0
+1
+
+AnuncioCompra
+up201404572@fe.up.pt
+X-men
+Brinquedos
+17
+27/10/2015
+0
+1
+1
+1
+Quero-os Novos!
+-1
+0
 
